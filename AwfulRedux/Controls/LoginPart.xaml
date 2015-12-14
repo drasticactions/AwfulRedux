@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="AwfulRedux.Controls.LoginPart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AwfulRedux.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="300"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <Rectangle Fill="DarkRed" />
+        <TextBlock Foreground="White" VerticalAlignment="Center" Margin="20,0" FontSize="24">Login</TextBlock>
+        <Button Margin="12" Foreground="White" Click="CloseClicked" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource TextBlockButtonStyle}">
+            <SymbolIcon Symbol="Clear" />
+        </Button>
+
+        <!-- login form -->
+        <StackPanel Grid.Row="1" Margin="20, 16 ">
+            <TextBox x:Name="Username" IsSpellCheckEnabled="False" Header="Username" />
+            <PasswordBox PasswordRevealMode="Peek" x:Name="Password" Header="Password" />
+            <Button Click="LoginClicked" Margin="0,12,0,0" HorizontalAlignment="Right">Login</Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

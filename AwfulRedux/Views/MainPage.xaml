@@ -45,6 +45,7 @@
                 AutomationProperties.Name="Grouped Items"
                 Visibility="Visible"
                 Padding="15,0,40,46"
+                ItemClick="MainForumListFull_OnItemClick"
                 ItemsSource="{Binding Source={StaticResource ForumViewSource}}"
                 SelectionMode="None"
                 IsSwipeEnabled="True"

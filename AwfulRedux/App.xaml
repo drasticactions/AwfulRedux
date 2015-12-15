@@ -27,7 +27,14 @@
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="controls:CustomTitleBar">
             </Style>
+            <converters:HasSeenThreadConverter x:Key="HasSeenThreadConverter" />
+            <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:BooleanToVisibilityInverter x:Key="BooleanToVisibilityInverter" />
+            <converters:RatingVisibilityConverter x:Key="RatingVisibilityConverter" />
+            <converters:RepliesSinceLastOpenedColorConverter x:Key="RepliesSinceLastOpenedColorConverter" />
+            <converters:ThreadHeaderColorConverter x:Key="ThreadHeaderColorConverter" />
             <converters:SubforumHeaderColorConverter x:Key="SubforumHeaderColorConverter" />
+            <converters:ThreadNullCheckConverter x:Key="ThreadNullCheckConverter"/>
             <converters:AddOrRemoveFavoriteTextConverter x:Key="AddOrRemoveFavoriteTextConverter" />
         </ResourceDictionary>
     </Application.Resources>

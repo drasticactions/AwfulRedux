@@ -43,10 +43,16 @@
     <Compile Include="Interfaces\IWebManager.cs" />
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\ForumManager.cs" />
+    <Compile Include="Managers\ThreadManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Managers\WebManager.cs" />
     <Compile Include="Models\Forums\Category.cs" />
     <Compile Include="Models\Forums\Forum.cs" />
+    <Compile Include="Models\Polls\PollItem.cs" />
+    <Compile Include="Models\Polls\PollGroup.cs" />
+    <Compile Include="Models\Posts\Post.cs" />
+    <Compile Include="Models\Posts\PostElements.cs" />
+    <Compile Include="Models\Threads\Thread.cs" />
     <Compile Include="Models\Users\User.cs" />
     <Compile Include="Models\Web\AuthResult.cs" />
     <Compile Include="Models\Web\Error.cs" />

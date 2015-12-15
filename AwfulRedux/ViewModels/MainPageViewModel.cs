@@ -95,6 +95,9 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-
+        public void NavigateToThreadList(Forum forum)
+        {
+            NavigationService.Navigate(typeof (Views.ThreadListPage), forum);
+        }
     }
 }

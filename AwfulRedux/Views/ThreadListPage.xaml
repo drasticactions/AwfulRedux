@@ -1,0 +1,265 @@
+﻿<Page
+    x:Class="AwfulRedux.Views.ThreadListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AwfulRedux.Views"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:AwfulRedux.ViewModels"
+    xmlns:threads="using:AwfulRedux.UI.Models.Threads"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:converters="using:AwfulRedux.Tools.Converters"
+    xmlns:threads1="using:AwfulRedux.Tools.Threads"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModels:ThreadListPageViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <c:ValueWhenConverter xmlns:c="using:Template10.Converters" x:Name="VisibleWhenFalseConverter">
+                <c:ValueWhenConverter.When>
+                    <x:Boolean>False</x:Boolean>
+                </c:ValueWhenConverter.When>
+                <c:ValueWhenConverter.Value>
+                    <Visibility>Visible</Visibility>
+                </c:ValueWhenConverter.Value>
+                <c:ValueWhenConverter.Otherwise>
+                    <Visibility>Collapsed</Visibility>
+                </c:ValueWhenConverter.Otherwise>
+            </c:ValueWhenConverter>
+            <DataTemplate x:DataType="threads:Thread" x:Name="ThreadViewTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="0" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads1:WebViewHelper.Html="{Binding Html}"  Grid.Column="1" x:Name="ThreadFullView"/>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WhenNarrowVisualStateGroup">
+                <VisualState x:Name="NarrowMasterOpen">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NarrowMaster.(UIElement.Visibility)" Value="Visible" />
+                        <Setter Target="NarrowDetail.(UIElement.Visibility)" Value="Collapsed" />
+                        <Setter Target="BackButton.(UIElement.Visibility)" Value="Collapsed" />
+                        <Setter Target="ForumHeaderText.(UIElement.Visibility)" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NarrowDetailOpen">
+                    <VisualState.Setters>
+                        <Setter Target="NarrowMaster.(UIElement.Visibility)" Value="Collapsed" />
+                        <Setter Target="NarrowDetail.(UIElement.Visibility)" Value="Visible" />
+                        <Setter Target="BackButton.(UIElement.Visibility)" Value="Visible" />
+                        <Setter Target="ForumHeaderText.(UIElement.Visibility)" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="WhenNormalVisualStateGroup">
+                <VisualState x:Name="VisualStateNarrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="NarrowContent.(UIElement.Visibility)" Value="Visible" />
+                        <Setter Target="NormalContent.(UIElement.Visibility)" Value="Collapsed" />
+                        <Setter Target="PageHeaderText.(UIElement.Visibility)" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateNormal">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ForumHeaderText.Width" Value="320" />
+                        <Setter Target="LeftColumn.Width" Value="320" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ForumHeaderText.Width" Value="520" />
+                        <Setter Target="LeftColumn.Width" Value="520" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <CommandBar>
+            <CommandBar.Content>
+                <StackPanel x:Name="CommandBarContent" Orientation="Horizontal">
+                    <TextBlock x:Name="ForumHeaderText" MinWidth="320" Margin="8,16,0,0"
+                               FontWeight="Bold"
+                               Text="{Binding Forum.Name, FallbackValue='Forum Name'}"
+                               TextTrimming="WordEllipsis" />
+                    <AppBarButton x:Name="BackButton" Icon="Back" Visibility="Collapsed">
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="Click">
+                                <core:GoToStateAction StateName="NarrowMasterOpen" />
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </AppBarButton>
+                    <TextBlock x:Name="PageHeaderText" Margin="8,16,0,0"
+                               FontWeight="Bold"
+                               Text="{Binding Selected.Name}"
+                               TextTrimming="WordEllipsis" />
+
+                </StackPanel>
+            </CommandBar.Content>
+        </CommandBar>
+
+        <Grid x:Name="NormalContent" Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftColumn" Width="Auto" MinWidth="320" />
+                <ColumnDefinition x:Name="RightColumn" Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="NormalMaster"
+                      Grid.Column="0" IsItemClickEnabled="True"
+                      ItemClick="ThreadList_OnClick"
+                      ItemsSource="{x:Bind ViewModel.ForumPageScrollingCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="threads:Thread">
+                        <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
+                            <Grid.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition/>
+                                </TransitionCollection>
+                            </Grid.Transitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Height="5"
+                                  Background="{x:Bind IsSticky, Converter={StaticResource ThreadHeaderColorConverter}}" />
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Vertical">
+                                        <Border Margin="0,5,0,0" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="40" Height="40">
+                                            <Image x:Phase="3" Source="{x:Bind ImageIconUrl, FallbackValue='/Assets/ThreadTags/noicon.png'}" />
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <Image Margin="0,0,10,0" Source="{Binding StoreImageIconLocation}" />
+                                </Grid>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock x:Phase="1" Style="{StaticResource ForumTitleThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ThreadTitle" TextWrapping="Wrap"
+                                               Text="{x:Bind Name}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Pages:" />
+                                        <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="TotalPages" Margin="5,0,0,0" Text="{x:Bind TotalPages}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Killed By:" Margin="0,0,0,0" />
+                                        <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="{x:Bind KilledBy}" Margin="5,0,0,0" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock x:Phase="2" Grid.Column="3" VerticalAlignment="Center" Margin="2" Visibility="{x:Bind HasSeen, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{StaticResource ForumReplyThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ReplyCount"
+                                                   Foreground="{x:Bind RepliesSinceLastOpened, Converter={StaticResource RepliesSinceLastOpenedColorConverter}}"
+                                                   Text="{Binding RepliesSinceLastOpened}" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+
+            <ContentControl Grid.Column="1" Content="{Binding Selected, Converter={StaticResource ThreadNullCheckConverter}}" ContentTemplate="{StaticResource ThreadViewTemplate}" x:Name="NormalDetail"/>
+        </Grid>
+
+        <Grid x:Name="NarrowContent" Visibility="Collapsed" Grid.Row="1">
+            <ListView x:Name="NarrowMaster" IsItemClickEnabled="True"
+                      ItemClick="ThreadList_OnClick"
+                      ItemsSource="{x:Bind ViewModel.ForumPageScrollingCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="threads:Thread">
+                        <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
+                            <Grid.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition/>
+                                </TransitionCollection>
+                            </Grid.Transitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Height="5"
+                                  Background="{x:Bind IsSticky, Converter={StaticResource ThreadHeaderColorConverter}}" />
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="40" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Vertical">
+                                        <Border Margin="0,5,0,0" Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="40" Height="40">
+                                            <Image x:Phase="3" Source="{x:Bind ImageIconUrl, FallbackValue='/Assets/ThreadTags/noicon.png'}" />
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Column="1" >
+                                    <Image Margin="0,0,10,0" Source="{Binding StoreImageIconLocation}" />
+                                </Grid>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock x:Phase="1" Style="{StaticResource ForumTitleThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ThreadTitle" TextWrapping="Wrap"
+                                               Text="{x:Bind Name}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Pages:" />
+                                        <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="TotalPages" Margin="5,0,0,0" Text="{x:Bind TotalPages}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Killed By:" Margin="0,0,0,0" />
+                                        <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="{x:Bind KilledBy}" Margin="5,0,0,0" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock x:Phase="2" Grid.Column="3" VerticalAlignment="Center" Margin="2" Visibility="{x:Bind HasSeen, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{StaticResource ForumReplyThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ReplyCount"
+                                                   Foreground="{x:Bind RepliesSinceLastOpened, Converter={StaticResource RepliesSinceLastOpenedColorConverter}}"
+                                                   Text="{Binding RepliesSinceLastOpened}" />
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+            <ContentControl x:Name="NarrowDetail" ContentTemplate="{StaticResource ThreadViewTemplate}" Content="{Binding Selected, Converter={StaticResource ThreadNullCheckConverter}}" Visibility="Collapsed"/>
+        </Grid>
+        
+    </Grid>
+</Page>

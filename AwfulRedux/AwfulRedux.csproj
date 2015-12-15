@@ -96,6 +96,13 @@
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\Website\CSS\bootstrap-theme.css.map" />
+    <None Include="Assets\Website\CSS\bootstrap-winjs.css.map" />
+    <None Include="Assets\Website\CSS\bootstrap.css.map" />
+    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -111,13 +118,23 @@
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
+    <Compile Include="Tools\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Tools\Converters\BooleanToVisibilityInverter.cs" />
+    <Compile Include="Tools\Converters\HasSeenThreadConverter.cs" />
     <Compile Include="Tools\Converters\OpenMenuFlyoutAction.cs" />
+    <Compile Include="Tools\Converters\RatingVisibilityConverter.cs" />
+    <Compile Include="Tools\Converters\RepliesSinceLastOpenedColorConverter.cs" />
     <Compile Include="Tools\Converters\SubforumHeaderColorConverter.cs" />
+    <Compile Include="Tools\Converters\ThreadHeaderColorConverter.cs" />
+    <Compile Include="Tools\Converters\ThreadNullCheckConverter.cs" />
     <Compile Include="Tools\Database\DatabaseWinRTHelpers.cs" />
     <Compile Include="Tools\Errors\ResultChecker.cs" />
+    <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
+    <Compile Include="Tools\Threads\WebViewHelper.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
     <Compile Include="Views\BookmarksPage.xaml.cs">
       <DependentUpon>BookmarksPage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +150,9 @@
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThreadListPage.xaml.cs">
+      <DependentUpon>ThreadListPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,6 +161,44 @@
     <None Include="AwfulRedux_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ThreadRatings\1stars.png" />
+    <Content Include="Assets\ThreadRatings\2stars.png" />
+    <Content Include="Assets\ThreadRatings\3stars.png" />
+    <Content Include="Assets\ThreadRatings\4stars.png" />
+    <Content Include="Assets\ThreadRatings\5stars.png" />
+    <Content Include="Assets\ThreadTags\noicon.png" />
+    <Content Include="Assets\Website\CSS\219.css" />
+    <Content Include="Assets\Website\CSS\26.css" />
+    <Content Include="Assets\Website\CSS\267.css" />
+    <Content Include="Assets\Website\CSS\268.css" />
+    <Content Include="Assets\Website\CSS\bbcode.css" />
+    <Content Include="Assets\Website\CSS\bootstrap-theme.css" />
+    <Content Include="Assets\Website\CSS\bootstrap-theme.min.css" />
+    <Content Include="Assets\Website\CSS\bootstrap-winjs.css" />
+    <Content Include="Assets\Website\CSS\bootstrap.css" />
+    <Content Include="Assets\Website\CSS\bootstrap.min.css" />
+    <Content Include="Assets\Website\CSS\forum-thread.css" />
+    <Content Include="Assets\Website\CSS\Swipe.css" />
+    <Content Include="Assets\Website\CSS\ui-light-new.css" />
+    <Content Include="Assets\Website\CSS\WindowsPhone-Default.css" />
+    <Content Include="Assets\Website\CSS\winstrap.css" />
+    <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Website\JS\bootstrap.js" />
+    <Content Include="Assets\Website\JS\bootstrap.min.js" />
+    <Content Include="Assets\Website\JS\forums.js" />
+    <Content Include="Assets\Website\JS\forumThread.js" />
+    <Content Include="Assets\Website\JS\gifffer.min.js" />
+    <Content Include="Assets\Website\JS\hammer.min.js" />
+    <Content Include="Assets\Website\JS\jquery.js" />
+    <Content Include="Assets\Website\JS\jquery.min.js" />
+    <Content Include="Assets\Website\JS\npm.js" />
+    <Content Include="Assets\Website\JS\taphold.js" />
+    <Content Include="Assets\Website\JS\threadTemplate.js" />
+    <Content Include="Assets\Website\JS\url.min.js" />
+    <Content Include="Assets\Website\rap-sheet-test.html" />
+    <Content Include="Assets\Website\saclopedia.html" />
+    <Content Include="Assets\Website\test-thread.html" />
+    <Content Include="Assets\Website\thread.html" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -200,6 +258,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ThreadListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="SQLite.UAP.2015, Version=3.9.2">
@@ -224,6 +286,7 @@
       <Name>Template10 %28Library%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

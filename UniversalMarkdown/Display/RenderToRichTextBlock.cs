@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -427,18 +428,27 @@ namespace UniversalMarkdown.Display
         private void RenderImage(ImageInline element, InlineCollection currentInlines, ref bool trimTextStart)
         {
             var bitmapSource = new BitmapImage(new Uri(element.Url));
-            Image image = new Image {Source = bitmapSource };
-
-            // After we have downloaded the image, set the width and height for it.
-            // Then set a max width and height so it does not totally blow up the other layouts.
-            bitmapSource.DownloadProgress += delegate(object sender, DownloadProgressEventArgs args)
+            Image image = new Image();
+            if (Path.GetExtension(element.Url) == ".gif")
             {
-                if (args.Progress < 100) return;
-                image.Width = bitmapSource.PixelWidth;
-                image.Height = bitmapSource.PixelHeight;
-                image.MaxHeight = 500;
-                image.MaxWidth = 500;
-            };
+                XamlAnimatedGif.AnimationBehavior.SetSourceUri(image, new Uri(element.Url));
+                XamlAnimatedGif.AnimationBehavior.SetAutoStart(image, false);
+            }
+            else
+            {
+                image.Source = bitmapSource;
+
+                // After we have downloaded the image, set the width and height for it.
+                // Then set a max width and height so it does not totally blow up the other layouts.
+                bitmapSource.DownloadProgress += delegate (object sender, DownloadProgressEventArgs args)
+                {
+                    if (args.Progress < 100) return;
+                    image.Width = bitmapSource.PixelWidth;
+                    image.Height = bitmapSource.PixelHeight;
+                    image.MaxHeight = 500;
+                    image.MaxWidth = 500;
+                };
+            }
 
             InlineUIContainer uiConainter = new InlineUIContainer();
             Grid grid = new Grid();
@@ -448,6 +458,19 @@ namespace UniversalMarkdown.Display
 
             // Add it to the current inlines
             currentInlines.Add(uiConainter);
+        }
+
+        private void ImageOnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var newImage = (Image)sender;
+            if (newImage.ActualWidth == 0 && newImage.Source != null)
+            {
+                var bitmap = (WriteableBitmap)newImage.Source;
+                newImage.Width = bitmap.PixelWidth;
+                newImage.Height = bitmap.PixelHeight;
+                newImage.MaxHeight = 500;
+                newImage.MaxWidth = 500;
+            }
         }
 
         /// <summary>

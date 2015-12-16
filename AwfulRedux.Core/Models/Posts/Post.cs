@@ -25,6 +25,8 @@ namespace AwfulRedux.Core.Models.Posts
 
         public string PostHtml { get; set; }
 
+        public string PostMarkdown { get; set; }
+
         public long PostId { get; set; }
 
         public long PostIndex { get; set; }

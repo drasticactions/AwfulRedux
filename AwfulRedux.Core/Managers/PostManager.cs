@@ -11,6 +11,7 @@ using AwfulRedux.Core.Models.Posts;
 using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Models.Web;
 using AwfulRedux.Core.Tools;
+using Html2Markdown;
 using HtmlAgilityPack;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
@@ -88,7 +89,7 @@ namespace AwfulRedux.Core.Managers
 
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(result.ResultHtml);
-
+            var converter = new Converter();
             try
             {
 
@@ -117,10 +118,31 @@ namespace AwfulRedux.Core.Managers
                 foreach (
                    HtmlNode postNode in
                        threadNode.Descendants("table")
-                           .Where(node => node.GetAttributeValue("class", string.Empty).Contains("post")))
+                           .Where(node => node.GetAttributeValue("class", string.Empty).Contains("post") && !string.IsNullOrEmpty(node.GetAttributeValue("data-idx", string.Empty))))
                 {
                     var post = new Post();
                     ParsePost(post, postNode);
+                    var postBodyNode =
+                        postNode.Descendants("td")
+                            .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("postbody"));
+                    var query =
+                        postBodyNode.Descendants("div")
+                            .Where(node => node.GetAttributeValue("class", string.Empty) == "bbc-block");
+                    foreach (var item in query.ToList())
+                    {
+                        var newHeadNode = HtmlNode.CreateNode(item.InnerHtml);
+                        item.ParentNode.ReplaceChild(newHeadNode.ParentNode, item);
+                    }
+
+                    var h4Query = postBodyNode.Descendants("h4");
+                    foreach (var h4 in h4Query.ToList())
+                    {
+                        var newHeadNode = HtmlNode.CreateNode($"<h4>{h4.InnerText}</h4>");
+                        h4.ParentNode.ReplaceChild(newHeadNode.ParentNode, h4);
+                    }
+
+                    var markdown = converter.Convert(postBodyNode.InnerHtml);
+                    post.PostMarkdown = markdown.TrimStart('\r', '\n', '\t');
                     forumThreadPosts.Add(post);
                 }
 

@@ -8,10 +8,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
     xmlns:threads="using:AwfulRedux.UI.Models.Threads"
+    xmlns:posts="using:AwfulRedux.UI.Models.Posts"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:AwfulRedux.Tools.Converters"
     xmlns:threads1="using:AwfulRedux.Tools.Threads"
+    xmlns:universalMarkdown="using:UniversalMarkdown"
+    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
+    x:Name="ThisPage"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -31,14 +35,6 @@
                     <Visibility>Collapsed</Visibility>
                 </c:ValueWhenConverter.Otherwise>
             </c:ValueWhenConverter>
-            <DataTemplate x:DataType="threads:Thread" x:Name="ThreadViewTemplate">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                </Grid>
-            </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
 
@@ -91,8 +87,8 @@
                         <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="ForumHeaderText.Width" Value="520" />
-                        <Setter Target="LeftColumn.Width" Value="520" />
+                        <Setter Target="ForumHeaderText.Width" Value="420" />
+                        <Setter Target="LeftColumn.Width" Value="420" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -139,7 +135,7 @@
                       ItemsSource="{x:Bind ViewModel.ForumPageScrollingCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="threads:Thread">
-                        <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
+                        <Grid Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
                             <Grid.Transitions>
                                 <TransitionCollection>
                                     <EntranceThemeTransition/>
@@ -194,7 +190,39 @@
                 </ListView.ItemContainerStyle>
             </ListView>
 
-            <ContentControl Grid.Column="1" Content="{Binding Selected, Converter={StaticResource ThreadNullCheckConverter}}" ContentTemplate="{StaticResource ThreadViewTemplate}" x:Name="NormalDetail"/>
+            <Grid x:Name="NormalDetail" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView SelectionMode="None" ItemsSource="{Binding Selected.Posts}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="posts:Post">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Margin="0,5,0,5" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="90" HorizontalAlignment="Center" VerticalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding User.AvatarLink}"/>
+                                    <TextBlock Grid.Column="1" Text="{x:Bind User.Username}"/>
+                                </Grid>
+                                <universalMarkdown:MarkdownTextBlock Grid.Row="1" Markdown="{x:Bind PostMarkdown}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
         </Grid>
 
         <Grid x:Name="NarrowContent" Visibility="Collapsed" Grid.Row="1">
@@ -256,9 +284,47 @@
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     </Style>
                 </ListView.ItemContainerStyle>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="ItemClick">
+                        <b:ConditionalAction xmlns:b="using:Template10.Behaviors" LeftValue="{Binding SelectedItem, ElementName=NarrowMaster}" Operator="IsNotNull">
+                            <core:GoToStateAction StateName="NarrowDetailOpen" TargetObject="{Binding ElementName=ThisPage}" />
+                        </b:ConditionalAction>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
             </ListView>
-            <ContentControl x:Name="NarrowDetail" ContentTemplate="{StaticResource ThreadViewTemplate}" Content="{Binding Selected, Converter={StaticResource ThreadNullCheckConverter}}" Visibility="Collapsed"/>
+            <Grid x:Name="NarrowDetail" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView SelectionMode="None" ItemsSource="{Binding Selected.Posts}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="posts:Post">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Margin="0,5,0,5" Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="90" HorizontalAlignment="Center" VerticalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding User.AvatarLink}"/>
+                                    <TextBlock Grid.Column="1" Text="{x:Bind User.Username}"/>
+                                </Grid>
+                                <universalMarkdown:MarkdownTextBlock Grid.Row="1" Markdown="{x:Bind PostMarkdown}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
         </Grid>
-        
     </Grid>
 </Page>

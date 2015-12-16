@@ -1,5 +1,7 @@
-﻿using AwfulRedux.UI.Models.Forums;
+﻿using System.Collections.Generic;
+using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Polls;
+using AwfulRedux.UI.Models.Posts;
 using PropertyChanged;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
@@ -78,6 +80,9 @@ namespace AwfulRedux.UI.Models.Threads
 
         [Ignore]
         public PollGroup Poll { get; set; }
+
+        [Ignore]
+        public List<Post> Posts { get; set; }
 
         public bool IsPrivateMessage { get; set; }
     }

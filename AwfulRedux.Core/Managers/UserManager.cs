@@ -23,6 +23,104 @@ namespace AwfulRedux.Core.Managers
             _webManager = webManager;
         }
 
+        public static User ParseNewUserFromPost(HtmlNode postNode)
+        {
+            var user = new User
+            {
+                Username =
+                    WebUtility.HtmlDecode(
+                        postNode.Descendants("dt")
+                            .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("author"))
+                            .InnerHtml)
+            };
+
+            try
+            {
+                user.Roles = postNode.Descendants("dt")
+                .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("author"))
+                .GetAttributeValue("class", string.Empty);
+            }
+            catch (Exception ex)
+            {
+                //Debug.WriteLine("Error getting roles", ex);
+                // This "should" never fail, but... yeah. I'm a dumb dumb :(
+            }
+
+            user.IsMod = postNode.Descendants("dt")
+                .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("role-mod")) != null;
+
+            user.IsAdmin = postNode.Descendants("dt")
+                .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("role-admin")) != null;
+
+            var dateTimeNode = postNode.Descendants("dd")
+                .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("registered"));
+            if (dateTimeNode != null)
+            {
+                try
+                {
+                    user.DateJoined = string.IsNullOrEmpty(dateTimeNode.InnerHtml) ? DateTime.UtcNow : DateTime.Parse(dateTimeNode.InnerHtml);
+                }
+                catch (Exception)
+                {
+                    // Parsing failed, so say they joined today.
+                    // I blame SA for any parsing failures.
+                    user.DateJoined = DateTime.UtcNow;
+                }
+
+            }
+            HtmlNode avatarTitle =
+                postNode.Descendants("dd")
+                    .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("title"));
+            HtmlNode avatarImage =
+                postNode.Descendants("dd")
+                    .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("title"))
+                    .Descendants("img")
+                    .FirstOrDefault();
+
+            if (avatarTitle != null)
+            {
+                user.AvatarTitle = WebUtility.HtmlDecode(avatarTitle.InnerText).WithoutNewLines().Trim();
+            }
+            if (avatarImage != null)
+            {
+                user.AvatarLink = avatarImage.GetAttributeValue("src", string.Empty);
+            }
+            var userIdNode = postNode.DescendantsAndSelf("td")
+                .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("userinfo")) ??
+                             postNode.DescendantsAndSelf("div")
+                    .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("userinfo"));
+            if (userIdNode == null) return user;
+
+            var splitString = userIdNode
+                .GetAttributeValue("class", string.Empty)
+                .Split('-');
+
+            try
+            {
+                if (splitString.Length >= 2)
+                {
+                    user.Id =
+                        Convert.ToInt64(splitString[1]);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            if (user.Id <= 0)
+            {
+                if (splitString.Length >= 3)
+                {
+                    user.Id =
+                        Convert.ToInt64(splitString[2]);
+                }
+            }
+            // Remove the UserInfo node after we are done with it, because
+            // some forums (FYAD) use it in the body of posts. Why? Who knows!11!1
+            userIdNode.Remove();
+            return user;
+        }
+
         public async Task<Result> GetUserFromProfilePage(long userId, bool parseToJson = true)
         {
             string url = EndPoints.BaseUrl + string.Format(EndPoints.UserProfile, userId);

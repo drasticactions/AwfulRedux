@@ -37,7 +37,6 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="0" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads1:WebViewHelper.Html="{Binding Html}"  Grid.Column="1" x:Name="ThreadFullView"/>
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>

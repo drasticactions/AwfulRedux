@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AwfulRedux.Core.Interfaces;
 using AwfulRedux.Core.Models.Polls;
 using AwfulRedux.Core.Models.Posts;
+using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Models.Web;
 using AwfulRedux.Core.Tools;
 using HtmlAgilityPack;
@@ -23,6 +24,113 @@ namespace AwfulRedux.Core.Managers
         public PostManager(IWebManager webManager)
         {
             _webManager = webManager;
+        }
+
+        public async Task<HtmlDocument> GetThreadInfo(Thread forumThread, string url)
+        {
+            var result = await _webManager.GetData(url);
+           
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(result.ResultHtml);
+            try
+            {
+                ParseFromThread(forumThread, doc);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error parsing thread", exception);
+            }
+
+            try
+            {
+                string responseUri = result.AbsoluteUri;
+                string[] test = responseUri.Split('#');
+                if (test.Length > 1 && test[1].Contains("pti"))
+                {
+                    forumThread.ScrollToPost = Int32.Parse(Regex.Match(responseUri.Split('#')[1], @"\d+").Value) - 1;
+                    forumThread.ScrollToPostString = string.Concat("#", responseUri.Split('#')[1]);
+                }
+
+                var query = Extensions.ParseQueryString(new Uri(url).Query);
+
+                if (query["pagenumber"] != null)
+                {
+                    forumThread.CurrentPage = Convert.ToInt32(query["pagenumber"]);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Error parsing thread", exception);
+            }
+
+            return doc;
+        }
+
+        public async Task<Result> GetThreadPostsAsync(string location, int currentPage, bool hasBeenViewed = false)
+        {
+            string url = location;
+
+            if (currentPage > 0)
+            {
+                url = location + string.Format(EndPoints.PageNumber, currentPage);
+            }
+            else if (hasBeenViewed)
+            {
+                url = location + EndPoints.GotoNewPost;
+            }
+
+            var forumThreadPosts = new List<Post>();
+
+            //var threadManager = new ThreadManager();
+            //var doc = await GetThreadInfo(forumThread, url);
+
+            var result = await _webManager.GetData(url);
+
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(result.ResultHtml);
+
+            try
+            {
+
+                try
+                {
+  //                  HtmlNode pollNode =
+  //doc.DocumentNode.Descendants("form")
+  //    .FirstOrDefault(node => node.GetAttributeValue("action", string.Empty).Equals("poll.php"));
+
+  //                  if (pollNode != null)
+  //                  {
+  //                      forumThread.Poll = ParsePoll(doc);
+  //                  }
+
+                }
+                catch (Exception)
+                {
+
+                    // Failed to get poll. Ignore and continue...
+                }
+
+                HtmlNode threadNode =
+                   doc.DocumentNode.Descendants("div")
+                       .FirstOrDefault(node => node.GetAttributeValue("id", string.Empty).Contains("thread"));
+
+                foreach (
+                   HtmlNode postNode in
+                       threadNode.Descendants("table")
+                           .Where(node => node.GetAttributeValue("class", string.Empty).Contains("post")))
+                {
+                    var post = new Post();
+                    ParsePost(post, postNode);
+                    forumThreadPosts.Add(post);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to parse thread posts {ex.Message}");
+            }
+            result.ResultJson = JsonConvert.SerializeObject(forumThreadPosts);
+            return result;
         }
 
         public async Task<Result> GetPostAsync(int postId, bool parseToJson = true)
@@ -84,7 +192,7 @@ namespace AwfulRedux.Core.Managers
 
         public void ParsePost(Post post, HtmlNode postNode, bool isSimple = false)
         {
-            post.User = ForumUserManager.ParseNewUserFromPost(postNode);
+            post.User = UserManager.ParseNewUserFromPost(postNode);
 
             HtmlNode postDateNode =
                 postNode.Descendants()
@@ -182,6 +290,44 @@ namespace AwfulRedux.Core.Managers
             if (!m.Success) return 0;
             String int1 = m.Groups[1].ToString();
             return Convert.ToInt32(int1);
+        }
+
+        private static void ParseFromThread(Thread threadEntity, HtmlDocument threadDocument)
+        {
+            var title = threadDocument.DocumentNode.Descendants("title").FirstOrDefault();
+
+            if (title != null)
+            {
+                threadEntity.Name = WebUtility.HtmlDecode(title.InnerText.Replace(" - The Something Awful Forums", string.Empty));
+            }
+
+            var threadIdNode = threadDocument.DocumentNode.Descendants("body").First();
+            threadEntity.ThreadId = Convert.ToInt64(threadIdNode.GetAttributeValue("data-thread", string.Empty));
+
+            threadEntity.Location = string.Format(EndPoints.ThreadPage, threadEntity.ThreadId);
+            var pageNavigationNode = threadDocument.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("pages top"));
+            if (string.IsNullOrWhiteSpace(pageNavigationNode.InnerHtml))
+            {
+                threadEntity.TotalPages = 1;
+                threadEntity.CurrentPage = 1;
+            }
+            else
+            {
+                var lastPageNode = pageNavigationNode.Descendants("a").FirstOrDefault(node => node.GetAttributeValue("title", string.Empty).Equals("Last page"));
+                if (lastPageNode != null)
+                {
+                    string urlHref = lastPageNode.GetAttributeValue("href", string.Empty);
+                    var query = Extensions.ParseQueryString(new Uri(urlHref).Query);
+                    threadEntity.TotalPages = Convert.ToInt32(query["pagenumber"]);
+                }
+
+                var pageSelector = pageNavigationNode.Descendants("select").FirstOrDefault();
+
+                var selectedPage = pageSelector.Descendants("option")
+                    .FirstOrDefault(node => node.GetAttributeValue("selected", string.Empty).Equals("selected"));
+
+                threadEntity.CurrentPage = Convert.ToInt32(selectedPage.GetAttributeValue("value", string.Empty));
+            }
         }
     }
 }

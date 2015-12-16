@@ -96,13 +96,6 @@
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Assets\Website\CSS\bootstrap-theme.css.map" />
-    <None Include="Assets\Website\CSS\bootstrap-winjs.css.map" />
-    <None Include="Assets\Website\CSS\bootstrap.css.map" />
-    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -167,38 +160,6 @@
     <Content Include="Assets\ThreadRatings\4stars.png" />
     <Content Include="Assets\ThreadRatings\5stars.png" />
     <Content Include="Assets\ThreadTags\noicon.png" />
-    <Content Include="Assets\Website\CSS\219.css" />
-    <Content Include="Assets\Website\CSS\26.css" />
-    <Content Include="Assets\Website\CSS\267.css" />
-    <Content Include="Assets\Website\CSS\268.css" />
-    <Content Include="Assets\Website\CSS\bbcode.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-theme.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-theme.min.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-winjs.css" />
-    <Content Include="Assets\Website\CSS\bootstrap.css" />
-    <Content Include="Assets\Website\CSS\bootstrap.min.css" />
-    <Content Include="Assets\Website\CSS\forum-thread.css" />
-    <Content Include="Assets\Website\CSS\Swipe.css" />
-    <Content Include="Assets\Website\CSS\ui-light-new.css" />
-    <Content Include="Assets\Website\CSS\WindowsPhone-Default.css" />
-    <Content Include="Assets\Website\CSS\winstrap.css" />
-    <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Assets\Website\JS\bootstrap.js" />
-    <Content Include="Assets\Website\JS\bootstrap.min.js" />
-    <Content Include="Assets\Website\JS\forums.js" />
-    <Content Include="Assets\Website\JS\forumThread.js" />
-    <Content Include="Assets\Website\JS\gifffer.min.js" />
-    <Content Include="Assets\Website\JS\hammer.min.js" />
-    <Content Include="Assets\Website\JS\jquery.js" />
-    <Content Include="Assets\Website\JS\jquery.min.js" />
-    <Content Include="Assets\Website\JS\npm.js" />
-    <Content Include="Assets\Website\JS\taphold.js" />
-    <Content Include="Assets\Website\JS\threadTemplate.js" />
-    <Content Include="Assets\Website\JS\url.min.js" />
-    <Content Include="Assets\Website\rap-sheet-test.html" />
-    <Content Include="Assets\Website\saclopedia.html" />
-    <Content Include="Assets\Website\test-thread.html" />
-    <Content Include="Assets\Website\thread.html" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -284,6 +245,10 @@
     <ProjectReference Include="..\Template10 %28Library%29\Template10 %28Library%29.csproj">
       <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
       <Name>Template10 %28Library%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UniversalMarkdown\UniversalMarkdown.csproj">
+      <Project>{9ffc3b68-696a-4342-a2b8-2eadddef7ff9}</Project>
+      <Name>UniversalMarkdown</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

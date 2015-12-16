@@ -432,42 +432,6 @@ namespace AwfulRedux.Core.Managers
 
         }
 
-        private void ParseFromThread(Thread threadEntity, HtmlDocument threadDocument)
-        {
-            var title = threadDocument.DocumentNode.Descendants("title").FirstOrDefault();
-
-            if (title != null)
-            {
-                threadEntity.Name = WebUtility.HtmlDecode(title.InnerText.Replace(" - The Something Awful Forums", string.Empty));
-            }
-
-            var threadIdNode = threadDocument.DocumentNode.Descendants("body").First();
-            threadEntity.ThreadId = Convert.ToInt64(threadIdNode.GetAttributeValue("data-thread", string.Empty));
-
-            threadEntity.Location = string.Format(EndPoints.ThreadPage, threadEntity.ThreadId);
-            var pageNavigationNode = threadDocument.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("pages top"));
-            if (string.IsNullOrWhiteSpace(pageNavigationNode.InnerHtml))
-            {
-                threadEntity.TotalPages = 1;
-                threadEntity.CurrentPage = 1;
-            }
-            else
-            {
-                var lastPageNode = pageNavigationNode.Descendants("a").FirstOrDefault(node => node.GetAttributeValue("title", string.Empty).Equals("Last page"));
-                if (lastPageNode != null)
-                {
-                    string urlHref = lastPageNode.GetAttributeValue("href", string.Empty);
-                    var query = Extensions.ParseQueryString(new Uri(urlHref).Query);
-                    threadEntity.TotalPages = Convert.ToInt32(query["pagenumber"]);
-                }
-
-                var pageSelector = pageNavigationNode.Descendants("select").FirstOrDefault();
-
-                var selectedPage = pageSelector.Descendants("option")
-                    .FirstOrDefault(node => node.GetAttributeValue("selected", string.Empty).Equals("selected"));
-
-                threadEntity.CurrentPage = Convert.ToInt32(selectedPage.GetAttributeValue("value", string.Empty));
-            }
-        }
+        
     }
 }

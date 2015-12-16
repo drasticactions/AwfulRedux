@@ -8,7 +8,9 @@ using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
 using AwfulRedux.UI.Models.Forums;
+using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using Newtonsoft.Json;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -42,6 +44,11 @@ namespace AwfulRedux.ViewModels
         public async Task LoadThread(Thread thread)
         {
             Selected = thread;
+            var tempManager = new PostManager(Views.Shell.Instance.WebManager);
+            var result = await tempManager.GetThreadPostsAsync(thread.Location, 0);
+            var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
+
+
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AwfulRedux.Core.Models.Web
 {
     public class Result
     {
-        public Result(bool isSuccess = false, string html = "", string json = "", string type = "")
+        public Result(bool isSuccess = false, string html = "", string json = "", string type = "", string uri = "")
         {
             IsSuccess = isSuccess;
             ResultHtml = html;
@@ -25,6 +25,11 @@ namespace AwfulRedux.Core.Models.Web
         /// The result of the request, in HTML form.
         /// </summary>
         public string ResultHtml { get; set; }
+
+        /// <summary>
+        /// The Uri of the request
+        /// </summary>
+        public string AbsoluteUri { get; set; }
 
         /// <summary>
         /// The result of the request, in JSON form.

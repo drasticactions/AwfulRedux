@@ -12,6 +12,7 @@ using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using AwfulRedux.Views;
 using Newtonsoft.Json;
 using Template10.Mvvm;
 
@@ -58,6 +59,9 @@ namespace AwfulRedux.ViewModels
         private void ForumPageScrollingCollection_CheckIsPaywallEvent(object sender, PageScrollingCollection.IsPaywallArgs e)
         {
             if (!e.IsPaywall) return;
+            NavigationService.Navigate(typeof (PaywallPage));
+            var length = NavigationService.Frame.BackStack.Count;
+            NavigationService.Frame.BackStack.RemoveAt(length - 1);
         }
 
         public async Task LoadThread(Thread thread)

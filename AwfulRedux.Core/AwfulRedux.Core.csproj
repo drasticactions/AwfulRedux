@@ -34,13 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Html2Markdown.PCL\Html2Markdown.PCL.csproj">
-      <Project>{0b9ef053-6a89-40a1-9ae0-dabef13fb041}</Project>
-      <Name>Html2Markdown.PCL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Exceptions\ForumListParsingFailedException.cs" />
     <Compile Include="Exceptions\LoginFailedException.cs" />
     <Compile Include="Exceptions\WebManagerException.cs" />

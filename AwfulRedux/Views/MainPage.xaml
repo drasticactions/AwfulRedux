@@ -9,6 +9,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewModels="using:AwfulRedux.ViewModels"
       xmlns:forums="using:AwfulRedux.UI.Models.Forums"
+      xmlns:behaviors="using:Template10.Behaviors"
       mc:Ignorable="d">
 
     <Page.DataContext>
@@ -33,7 +34,11 @@
 
         <!--  header  -->
         <controls:PageHeader  BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}"
-                             Content="Forums List" VisualStateNarrowMinWidth="-1" />
+                             Content="Forums List" VisualStateNarrowMinWidth="-1">
+            <Interactivity:Interaction.Behaviors>
+                <behaviors:EllipsisBehavior Visibility="Collapsed" />
+            </Interactivity:Interaction.Behaviors>
+        </controls:PageHeader>
 
         <!--  #region content  -->
 

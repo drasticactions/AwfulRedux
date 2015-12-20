@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
+using AwfulRedux.Tools.Web;
+using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
@@ -17,10 +19,12 @@ namespace AwfulRedux.ViewModels
 {
     public class ThreadListPageViewModel : ViewModelBase
     {
+
         public PageScrollingCollection ForumPageScrollingCollection { get; set; }
         
         public Forum Forum { get; set; }
 
+        private bool _isPaywall = default(bool);
         private Thread _selected = default(Thread);
 
         public Thread Selected
@@ -32,6 +36,15 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        public bool IsPaywall
+        {
+            get { return _isPaywall; }
+            set
+            {
+                Set(ref _isPaywall, value);
+            }
+        }
+
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
@@ -39,6 +52,12 @@ namespace AwfulRedux.ViewModels
             if (forum == null) return;
             Forum = forum;
             ForumPageScrollingCollection = new PageScrollingCollection(Forum, 1);
+            ForumPageScrollingCollection.CheckIsPaywallEvent += ForumPageScrollingCollection_CheckIsPaywallEvent;
+        }
+
+        private void ForumPageScrollingCollection_CheckIsPaywallEvent(object sender, PageScrollingCollection.IsPaywallArgs e)
+        {
+            if (!e.IsPaywall) return;
         }
 
         public async Task LoadThread(Thread thread)
@@ -46,8 +65,8 @@ namespace AwfulRedux.ViewModels
             var tempManager = new PostManager(Views.Shell.Instance.WebManager);
             var result = await tempManager.GetThreadPostsAsync(thread.Location, 0);
             var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
-            thread.Posts = postresult;
-            Selected = thread;
+            Selected.Posts = postresult;
+            Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, PlatformIdentifier.Windows8);
         }
     }
 }

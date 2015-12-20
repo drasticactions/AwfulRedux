@@ -11,7 +11,6 @@ using AwfulRedux.Core.Models.Posts;
 using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Models.Web;
 using AwfulRedux.Core.Tools;
-using Html2Markdown;
 using HtmlAgilityPack;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
@@ -89,7 +88,6 @@ namespace AwfulRedux.Core.Managers
 
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(result.ResultHtml);
-            var converter = new Converter();
             try
             {
 
@@ -141,8 +139,6 @@ namespace AwfulRedux.Core.Managers
                         h4.ParentNode.ReplaceChild(newHeadNode.ParentNode, h4);
                     }
 
-                    var markdown = converter.Convert(postBodyNode.InnerHtml);
-                    post.PostMarkdown = markdown.TrimStart('\r', '\n', '\t');
                     forumThreadPosts.Add(post);
                 }
 

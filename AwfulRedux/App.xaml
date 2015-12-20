@@ -36,6 +36,7 @@
             <converters:SubforumHeaderColorConverter x:Key="SubforumHeaderColorConverter" />
             <converters:ThreadNullCheckConverter x:Key="ThreadNullCheckConverter"/>
             <converters:AddOrRemoveFavoriteTextConverter x:Key="AddOrRemoveFavoriteTextConverter" />
+            <converters:ForumImageConverter  x:Key="ForumImageConverter" />
         </ResourceDictionary>
     </Application.Resources>
     

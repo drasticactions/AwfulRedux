@@ -88,7 +88,16 @@ namespace AwfulRedux.Core.Managers
             }
             catch (Exception ex)
             {
-                ErrorHandler.CreateErrorObject(result, ex.Message, ex.StackTrace);
+                if (
+                    doc.DocumentNode.InnerText.Contains(
+                        "Sorry, you must be a registered forums member to view this page."))
+                {
+                    ErrorHandler.CreateErrorObject(result, ex.Message, ex.StackTrace, "paywall", true);
+                }
+                else
+                {
+                    ErrorHandler.CreateErrorObject(result, ex.Message, ex.StackTrace);
+                }
                 return result;
             }
 

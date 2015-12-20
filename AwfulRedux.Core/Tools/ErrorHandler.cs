@@ -10,7 +10,7 @@ namespace AwfulRedux.Core.Tools
 {
     public class ErrorHandler
     {
-        public static Result CreateErrorObject(Result result, string reason, string stacktrace, string type = "")
+        public static Result CreateErrorObject(Result result, string reason, string stacktrace, string type = "", bool isPaywall = false)
         {
             result.IsSuccess = false;
             result.Type = typeof (Error).ToString();
@@ -18,7 +18,8 @@ namespace AwfulRedux.Core.Tools
             {
                 Type = type,
                 Reason = reason,
-                StackTrace = stacktrace
+                StackTrace = stacktrace,
+                IsPaywall = isPaywall
             };
             result.ResultJson = JsonConvert.SerializeObject(error);
             return result;

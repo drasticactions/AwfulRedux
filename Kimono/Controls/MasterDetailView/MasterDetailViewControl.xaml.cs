@@ -147,8 +147,7 @@ namespace Kimono.Controls
                         BackButtonVisibilityHinted(this, new BackButtonVisibilityHintedEventArgs(onePaneModeState == "OnePaneDetailVisualState"));
                 }
             }
-
-
+            PART_relativePanelParent.Height = height;
             lastWindowHeight = height;
             lastWindowWidth = width;
         }

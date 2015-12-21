@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.Tools.Web;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.ViewModels;
 
@@ -29,22 +30,18 @@ namespace AwfulRedux.Views
         public ThreadListPage()
         {
             this.InitializeComponent();
+            
             //this.DataContext = new SomeViewModel();
         }
 
         // strongly-typed view models enable x:bind
         public ThreadListPageViewModel ViewModel => this.DataContext as ThreadListPageViewModel;
 
-        private async void ThreadList_OnClick(object sender, ItemClickEventArgs e)
-        {
-            await ViewModel.LoadThread(e.ClickedItem as Thread);
-        }
-        
         private async void MasterListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (masterListBox.SelectedItem == null) return;
             var thread = masterListBox.SelectedItem as Thread;
-            await ViewModel.LoadThread(thread);
+            await ThreadPageView.LoadThread(thread);
         }
     }
 }

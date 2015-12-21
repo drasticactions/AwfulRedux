@@ -14,16 +14,15 @@ namespace AwfulRedux
 
     sealed partial class App : Template10.Common.BootStrapper
     {
-        ISettingsService _settings;
-
+        public static ISettingsService Settings;
         public App()
         {
             InitializeComponent();
 
             #region App settings
 
-            _settings = SettingsService.Instance;
-            RequestedTheme = _settings.AppTheme;
+            Settings = SettingsService.Instance;
+            RequestedTheme = Settings.AppTheme;
 
             #endregion
 

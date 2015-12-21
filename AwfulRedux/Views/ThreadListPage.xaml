@@ -12,6 +12,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:threads1="using:AwfulRedux.Tools.Threads"
+    xmlns:controls2="using:AwfulRedux.Controls"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -19,41 +20,12 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
-                <VisualState x:Name="VisualStateNarrow">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO  -->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="VisualStateNormal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO  -->
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="VisualStateWide">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO  -->
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
@@ -62,7 +34,8 @@
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
                     </controls1:PageHeader>
-                    <ListView x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="1" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
+                    <ListView x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding ForumPageScrollingCollection, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
@@ -120,24 +93,15 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>
-                    <CommandBar Grid.Row="2">
+                    <CommandBar Grid.Row="3">
                         <AppBarButton Icon="Refresh"/>
                     </CommandBar>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <controls1:PageHeader BackButtonVisibility="Collapsed" VisualStateNarrowMinWidth="-1" HorizontalAlignment="Stretch" Content="{Binding Selected.Name}" Frame="{x:Bind Frame}">
-                        <interactivity:Interaction.Behaviors>
-                            <behaviors:EllipsisBehavior Visibility="Collapsed" />
-                        </interactivity:Interaction.Behaviors>
-                    </controls1:PageHeader>
-                    <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="1" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads1:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView"/>
-                </Grid>
+                <controls2:ThreadView x:Name="ThreadPageView">
+                    
+                </controls2:ThreadView>
             </controls:MasterDetailViewControl.DetailViewPaneContent>
         </controls:MasterDetailViewControl>
     </Grid>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
@@ -25,7 +26,7 @@ namespace AwfulRedux.ViewModels
         
         public Forum Forum { get; set; }
 
-        private bool _isPaywall = default(bool);
+        private bool _isLoading = default(bool);
         private Thread _selected = default(Thread);
 
         public Thread Selected
@@ -37,19 +38,32 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        public bool IsPaywall
+        public bool IsLoading
         {
-            get { return _isPaywall; }
+            get { return _isLoading; }
             set
             {
-                Set(ref _isPaywall, value);
+                Set(ref _isLoading, value);
+            }
+        }
+
+        private PlatformIdentifier GetTheme
+        {
+            get
+            {
+                if (App.Settings.AppTheme == ApplicationTheme.Light)
+                {
+                    return PlatformIdentifier.Windows8;
+                }
+
+                return PlatformIdentifier.WindowsPhone;
             }
         }
 
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
-            var forum = parameter as Forum;
+            var forum = JsonConvert.DeserializeObject<Forum>((string)parameter);
             if (forum == null) return;
             Forum = forum;
             ForumPageScrollingCollection = new PageScrollingCollection(Forum, 1);
@@ -62,15 +76,6 @@ namespace AwfulRedux.ViewModels
             NavigationService.Navigate(typeof (PaywallPage));
             var length = NavigationService.Frame.BackStack.Count;
             NavigationService.Frame.BackStack.RemoveAt(length - 1);
-        }
-
-        public async Task LoadThread(Thread thread)
-        {
-            var tempManager = new PostManager(Views.Shell.Instance.WebManager);
-            var result = await tempManager.GetThreadPostsAsync(thread.Location, 0);
-            var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
-            Selected.Posts = postresult;
-            Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, PlatformIdentifier.Windows8);
         }
     }
 }

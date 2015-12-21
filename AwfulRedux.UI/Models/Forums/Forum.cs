@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 
@@ -33,9 +34,11 @@ namespace AwfulRedux.UI.Models.Forums
         [ForeignKey(typeof(Forum))]
         public int ParentForumId { get; set; }
 
+        [JsonIgnore]
         [ManyToOne]
         public Forum ParentForum { get; set; }
 
+        [JsonIgnore]
         [ManyToOne]
         public Category ForumCategory { get; set; }
 

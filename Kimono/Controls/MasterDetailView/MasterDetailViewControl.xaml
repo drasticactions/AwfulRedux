@@ -50,14 +50,14 @@
                             VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" Width="400" 
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                             Content="{Binding MasterViewPaneContent, ElementName=thisControl, UpdateSourceTrigger=PropertyChanged}"
-                            Height="{Binding ElementName=PART_relativePanelParent, Path=ActualHeight}" />
+                            Height="{Binding ElementName=PART_relativePanelParent, Path=Height, Mode=TwoWay}" />
             
             <ContentPresenter x:Name="PART_detailViewContentControl" RelativePanel.AlignRightWithPanel="True" 
                             RelativePanel.RightOf="PART_masterViewContentControl" Width="NaN" 
                             VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" 
                             HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"
                             Content="{Binding DetailViewPaneContent, ElementName=thisControl, UpdateSourceTrigger=PropertyChanged}"
-                            Height="{Binding ElementName=PART_relativePanelParent, Path=ActualHeight}" />
+                            Height="{Binding ElementName=PART_relativePanelParent, Path=Height, Mode=TwoWay}" />
         </RelativePanel>
     </Grid>
 </UserControl>

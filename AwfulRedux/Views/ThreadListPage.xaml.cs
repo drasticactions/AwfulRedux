@@ -30,7 +30,7 @@ namespace AwfulRedux.Views
         public ThreadListPage()
         {
             this.InitializeComponent();
-            
+            NavigationCacheMode = NavigationCacheMode.Enabled;
             //this.DataContext = new SomeViewModel();
         }
 

@@ -9,6 +9,7 @@ using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using AwfulRedux.Views;
 using Newtonsoft.Json;
 using Template10.Mvvm;
 
@@ -123,6 +124,12 @@ namespace AwfulRedux.ViewModels
             Selected.ScrollToPost = 0;
             Selected.ScrollToPostString = string.Empty;
             await LoadThread();
+        }
+
+        public void ReplyToThread()
+        {
+            Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof (ReplyPage),
+                JsonConvert.SerializeObject(Selected));
         }
     }
 }

@@ -36,7 +36,7 @@
             <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
             <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
             <CommandBar.SecondaryCommands>
-                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Reply">
+                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.ReplyToThread}" Label="Reply">
                 </AppBarButton>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Add to Thread Tabs">
                 </AppBarButton>

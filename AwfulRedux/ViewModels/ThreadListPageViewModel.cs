@@ -63,6 +63,11 @@ namespace AwfulRedux.ViewModels
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            if (mode == NavigationMode.Forward | mode == NavigationMode.Back)
+            {
+                return;
+            }
+
             var forum = JsonConvert.DeserializeObject<Forum>((string)parameter);
             if (forum == null) return;
             Forum = forum;
@@ -76,6 +81,11 @@ namespace AwfulRedux.ViewModels
             NavigationService.Navigate(typeof (PaywallPage));
             var length = NavigationService.Frame.BackStack.Count;
             NavigationService.Frame.BackStack.RemoveAt(length - 1);
+        }
+
+        public void ReplyToThread(Thread thread)
+        {
+            NavigationService.Navigate(typeof(ReplyPage), JsonConvert.SerializeObject(thread));
         }
     }
 }

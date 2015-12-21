@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.UI.Models.Threads;
+using AwfulRedux.Views;
+using Newtonsoft.Json;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels

@@ -173,11 +173,13 @@
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
+    <Compile Include="Tools\Converters\BooleanInverter.cs" />
     <Compile Include="Tools\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\Converters\BooleanToVisibilityInverter.cs" />
     <Compile Include="Tools\Converters\ForumImageConverter.cs" />
     <Compile Include="Tools\Converters\HasSeenThreadConverter.cs" />
     <Compile Include="Tools\Converters\OpenMenuFlyoutAction.cs" />
+    <Compile Include="Tools\Converters\PageNumberConverter.cs" />
     <Compile Include="Tools\Converters\RatingVisibilityConverter.cs" />
     <Compile Include="Tools\Converters\RepliesSinceLastOpenedColorConverter.cs" />
     <Compile Include="Tools\Converters\SubforumHeaderColorConverter.cs" />

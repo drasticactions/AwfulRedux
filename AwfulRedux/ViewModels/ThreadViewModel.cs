@@ -28,6 +28,19 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        private string _pageSelection;
+
+        public string PageSelection
+        {
+            get { return _pageSelection; }
+            set
+            {
+                Set(ref _pageSelection, value);
+            }
+        }
+
+        public bool IsLoggedIn => Views.Shell.Instance.IsLoggedIn;
+
         private bool _isLoading = default(bool);
 
         public bool IsLoading
@@ -52,15 +65,54 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        public async Task LoadThread(Thread thread)
+        private readonly PostManager _postManager = new PostManager(Views.Shell.Instance.WebManager);
+
+        public async Task NextPage()
+        {
+            if (Selected.CurrentPage >= Selected.TotalPages) return;
+            Selected.CurrentPage++;
+            Selected.ScrollToPost = 0;
+            Selected.ScrollToPostString = string.Empty;
+            await LoadThread();
+        }
+
+        public async Task PreviousPage()
+        {
+            if (Selected.CurrentPage <= 0) return;
+            Selected.CurrentPage--;
+            Selected.ScrollToPost = 0;
+            Selected.ScrollToPostString = string.Empty;
+            await LoadThread();
+        }
+
+        public async Task LoadThread()
         {
             IsLoading = true;
-            var tempManager = new PostManager(Views.Shell.Instance.WebManager);
-            var result = await tempManager.GetThreadPostsAsync(thread.Location, 0);
+            var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage);
             var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
             Selected.Posts = postresult;
             Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, GetTheme);
             IsLoading = false;
+        }
+
+        public async Task ChangeThreadPage()
+        {
+            int userInputPageNumber;
+            try
+            {
+                userInputPageNumber = Convert.ToInt32(PageSelection);
+            }
+            catch (Exception)
+            {
+                // User entered invalid number, return.
+                return;
+            }
+
+            if (userInputPageNumber < 1 || userInputPageNumber > Selected.TotalPages) return;
+            Selected.CurrentPage = userInputPageNumber;
+            Selected.ScrollToPost = 0;
+            Selected.ScrollToPostString = string.Empty;
+            await LoadThread();
         }
     }
 }

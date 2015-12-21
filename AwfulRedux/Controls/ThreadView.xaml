@@ -32,7 +32,29 @@
         <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView"/>
         <CommandBar Grid.Row="3">
-            <AppBarButton Icon="Refresh"/>
+            <AppBarButton Label="Back Page" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
+            <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
+            <AppBarButton Label="Forward Page" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Reply">
+                </AppBarButton>
+                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Add to Thread Tabs">
+                </AppBarButton>
+                <AppBarButton Label="{Binding Selected.CurrentPage, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
+                    <Button.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <Viewbox Margin="5" Height="40">
+                                    <TextBlock Text="{Binding Selected.CurrentPage, Converter={StaticResource PageNumberConverter}}"/>
+                                </Viewbox>
+                                <TextBox InputScope="Number" Margin="5" Text="{x:Bind ViewModel.PageSelection, Mode=TwoWay}" x:Name="PageNumberTextBox"/>
+                                <Button Margin="5" x:Name="PageNumberButton" Click="{x:Bind ViewModel.ChangeThreadPage}" Content="Change Page">
+                                </Button>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Grid>
 </UserControl>

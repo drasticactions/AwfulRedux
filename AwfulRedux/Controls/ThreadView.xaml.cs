@@ -23,11 +23,13 @@ namespace AwfulRedux.Controls
 {
     public sealed partial class ThreadView : UserControl
     {
+        public static ThreadView Instance { get; set; }
         public ThreadView()
         {
             this.InitializeComponent();
             ThreadFullView.NavigationCompleted += WebViewCommands.WebView_OnNavigationCompleted;
             ThreadFullView.ScriptNotify += WebViewCommands.WebViewNotifyCommand.WebView_ScriptNotify;
+            Instance = this;
         }
 
         // strongly-typed view models enable x:bind
@@ -35,8 +37,9 @@ namespace AwfulRedux.Controls
 
         public async Task LoadThread(Thread thread)
         {
+            if (thread.CurrentPage == 0) thread.CurrentPage = 1;
             ViewModel.Selected = thread;
-            await ViewModel.LoadThread(thread);
+            await ViewModel.LoadThread();
         }
     }
 }

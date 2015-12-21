@@ -70,13 +70,17 @@ namespace AwfulRedux.Core.Managers
         {
             string url = location;
 
-            if (currentPage > 0)
+            if (currentPage > 1)
             {
                 url = location + string.Format(EndPoints.PageNumber, currentPage);
             }
             else if (hasBeenViewed)
             {
                 url = location + EndPoints.GotoNewPost;
+            }
+            else
+            {
+                url = location + string.Format(EndPoints.PageNumber, currentPage);
             }
 
             var forumThreadPosts = new List<Post>();

@@ -40,5 +40,14 @@ namespace AwfulRedux.Database
                 return await ds.AuthenticatedUsers.Create(user);
             }
         }
+
+        public async Task<int> RemoveUser(User user)
+        {
+            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            {
+                await ds.AuthenticatedUsers.Remove(user);
+                return 1;
+            }
+        }
     }
 }

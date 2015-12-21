@@ -171,6 +171,12 @@ namespace AwfulRedux.Core.Managers
                 PostRate = additionalProfileAttributes["Post Rate"]
             };
 
+            var avatarNode = threadNode.Descendants("img").FirstOrDefault();
+            if (avatarNode != null)
+            {
+                user.AvatarLink = avatarNode.GetAttributeValue("src", string.Empty);
+            }
+
             foreach (HtmlNode aboutParagraph in profileNode.Descendants("p"))
             {
                 user.AboutUser += WebUtility.HtmlDecode(aboutParagraph.InnerText.WithoutNewLines().Trim()) +

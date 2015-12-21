@@ -39,7 +39,16 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        public bool IsLoggedIn => Views.Shell.Instance.IsLoggedIn;
+        private bool _isLoggedIn = default(bool);
+
+        public bool IsLoggedIn
+        {
+            get { return _isLoggedIn; }
+            set
+            {
+                Set(ref _isLoggedIn, value);
+            }
+        }
 
         private bool _isLoading = default(bool);
 
@@ -65,7 +74,7 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private readonly PostManager _postManager = new PostManager(Views.Shell.Instance.WebManager);
+        private readonly PostManager _postManager = new PostManager(Views.Shell.Instance.ViewModel.WebManager);
 
         public async Task NextPage()
         {
@@ -87,11 +96,12 @@ namespace AwfulRedux.ViewModels
 
         public async Task LoadThread()
         {
+            IsLoggedIn = Views.Shell.Instance.ViewModel.IsLoggedIn;
             IsLoading = true;
-            var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage);
+            var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed);
             var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
             Selected.Posts = postresult;
-            Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, GetTheme);
+            Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, GetTheme, IsLoggedIn);
             IsLoading = false;
         }
 

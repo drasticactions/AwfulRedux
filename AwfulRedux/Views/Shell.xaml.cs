@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.ViewModels;
 using Template10.Common;
 using Template10.Controls;
 using Template10.Services.NavigationService;
@@ -25,10 +26,12 @@ namespace AwfulRedux.Views
 {
     public sealed partial class Shell
     {
-        public WebManager WebManager { get; set; }
         public static Shell Instance { get; set; }
         private static WindowWrapper Window { get; set; }
         public static HamburgerMenu HamburgerMenu => Instance.MyHamburgerMenu;
+
+        // strongly-typed view models enable x:bind
+        public ShellViewModel ViewModel => this.DataContext as ShellViewModel;
 
         public Shell(NavigationService navigationService)
         {
@@ -38,7 +41,7 @@ namespace AwfulRedux.Views
             // setup for static calls
             Window = WindowWrapper.Current();
             MyHamburgerMenu.NavigationService = navigationService;
-            WebManager = new WebManager();
+            ViewModel.WebManager = new WebManager();
 
             // any nav change, reset to normal
             //navigationService.FrameFacade.Navigated += (s, e) =>
@@ -55,12 +58,6 @@ namespace AwfulRedux.Views
                 Instance.BusyModal.IsModal = busy;
             });
         }
-
-        #endregion
-
-        #region Login
-
-        public bool IsLoggedIn { get; set; }
 
         #endregion
     }

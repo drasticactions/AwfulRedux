@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
+using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Database;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Forums;
@@ -25,19 +26,38 @@ namespace AwfulRedux.ViewModels
 
         private Category _favoritesEntity;
         private readonly MainForumsDatabase _db = new MainForumsDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
             ForumGroupList = new ObservableCollection<Category>();
+            await LoginUser();
             await GetFavoriteForums();
             await GetMainPageForumsAsync();
         }
 
-        private async Task GetMainPageForumsAsync()
+        private async Task LoginUser()
+        {
+            var defaultUsers = await _udb.GetAuthUsers();
+            if (!defaultUsers.Any()) return;
+            var defaultUser = defaultUsers.First();
+            var cookie = await CookieManager.LoadCookie(defaultUser.Id + ".txt");
+            Views.Shell.Instance.ViewModel.WebManager = new WebManager(cookie);
+            Views.Shell.Instance.ViewModel.IsLoggedIn = true;
+        }
+
+        public async Task RefreshForums()
+        {
+            Views.Shell.ShowBusy(true, "Refreshing Forum List...");
+            await GetMainPageForumsAsync(true);
+            Views.Shell.ShowBusy(false);
+        }
+
+        private async Task GetMainPageForumsAsync(bool forceRefresh = false)
         {
             var forumCategoryEntities = await _db.GetMainForumsList();
-            if (forumCategoryEntities.Any())
+            if (forumCategoryEntities.Any() && !forceRefresh)
             {
                 foreach (var forumCategoryEntity in forumCategoryEntities)
                 {
@@ -46,7 +66,7 @@ namespace AwfulRedux.ViewModels
                 return;
             }
 
-            if (!Views.Shell.Instance.IsLoggedIn)
+            if (!Views.Shell.Instance.ViewModel.IsLoggedIn)
             {
                 var sampleFile = @"Assets\Forums\forum.txt";
                 var installationFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
@@ -55,7 +75,21 @@ namespace AwfulRedux.ViewModels
                 forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(sampleDataText);
             }
 
+            if (Views.Shell.Instance.ViewModel.IsLoggedIn && forceRefresh)
+            {
+                var forumManager = new ForumManager(Views.Shell.Instance.ViewModel.WebManager);
+                var forumResult = await forumManager.GetForumCategoriesAsync();
+                var resultCheck = await ResultChecker.CheckSuccess(forumResult);
+                if (!resultCheck)
+                {
+                    await ResultChecker.SendMessageDialogAsync("Failed to update initial forum list", false);
+                    Views.Shell.ShowBusy(false);
+                    return;
+                }
+                forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);
+            }
 
+            ForumGroupList.Clear();
             foreach (var forumCategoryEntity in forumCategoryEntities)
             {
                 ForumGroupList.Add(forumCategoryEntity);

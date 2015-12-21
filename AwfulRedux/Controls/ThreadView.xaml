@@ -32,9 +32,9 @@
         <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView"/>
         <CommandBar Grid.Row="3">
-            <AppBarButton Label="Back Page" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
+            <AppBarButton Label="Back Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource BackButtonEnableConverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
             <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
-            <AppBarButton Label="Forward Page" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
+            <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Reply">
                 </AppBarButton>

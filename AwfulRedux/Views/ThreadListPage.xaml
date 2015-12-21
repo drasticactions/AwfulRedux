@@ -69,19 +69,18 @@
                                             <Image Margin="0,0,10,0" Source="{Binding StoreImageIconLocation}" />
                                         </Grid>
                                         <StackPanel Grid.Column="2">
-                                            <TextBlock x:Phase="1" Style="{StaticResource ForumTitleThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ThreadTitle" TextWrapping="Wrap"
+                                            <TextBlock x:Phase="1" Style="{ThemeResource ForumTitleThreadBox}" FontFamily="{ThemeResource DefaultFont}" x:Name="ThreadTitle" TextWrapping="Wrap"
                                                Text="{x:Bind Name}" />
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Pages:" />
-                                                <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="TotalPages" Margin="5,0,0,0" Text="{x:Bind TotalPages}" />
+                                                <TextBlock Style="{ThemeResource ForumThreadBox}" FontFamily="{ThemeResource DefaultFont}" Text="Pages:" />
+                                                <TextBlock x:Phase="2" Style="{ThemeResource ForumThreadBox}" FontFamily="{ThemeResource DefaultFont}" x:Name="TotalPages" Margin="5,0,0,0" Text="{x:Bind TotalPages}" />
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="Killed By:" Margin="0,0,0,0" />
-                                                <TextBlock x:Phase="2" Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" Text="{x:Bind KilledBy}" Margin="5,0,0,0" />
+                                                <TextBlock Style="{ThemeResource ForumThreadBox}" FontFamily="{ThemeResource DefaultFont}" Text="Killed By:" Margin="0,0,0,0" />
+                                                <TextBlock x:Phase="2" Style="{ThemeResource ForumThreadBox}" FontFamily="{ThemeResource DefaultFont}" Text="{x:Bind KilledBy}" Margin="5,0,0,0" />
                                             </StackPanel>
                                         </StackPanel>
-                                        <TextBlock x:Phase="2" Grid.Column="3" VerticalAlignment="Center" Margin="2" Visibility="{x:Bind HasSeen, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{StaticResource ForumReplyThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ReplyCount"
-                                                   Foreground="{x:Bind RepliesSinceLastOpened, Converter={StaticResource RepliesSinceLastOpenedColorConverter}}"
+                                        <TextBlock x:Phase="2" Grid.Column="3" VerticalAlignment="Center" Margin="2" Visibility="{x:Bind HasSeen, Converter={StaticResource BooleanToVisibilityConverter}}" Style="{ThemeResource ForumReplyThreadBox}" FontFamily="{ThemeResource DefaultFont}" x:Name="ReplyCount"
                                                    Text="{Binding RepliesSinceLastOpened}" />
                                     </Grid>
                                 </Grid>

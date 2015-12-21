@@ -30,6 +30,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!--  header  -->
@@ -94,6 +95,10 @@
         </Grid>
 
         <!--  #endregion  -->
+        
+        <CommandBar Grid.Row="2">
+            <AppBarButton Icon="Refresh" Label="Refresh Forum List" Click="{x:Bind ViewModel.RefreshForums}"/>
+        </CommandBar>
 
     </Grid>
 </Page>

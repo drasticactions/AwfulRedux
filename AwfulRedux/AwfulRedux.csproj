@@ -173,10 +173,12 @@
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
+    <Compile Include="Tools\Converters\BackButtonEnableConverter.cs" />
     <Compile Include="Tools\Converters\BooleanInverter.cs" />
     <Compile Include="Tools\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\Converters\BooleanToVisibilityInverter.cs" />
     <Compile Include="Tools\Converters\ForumImageConverter.cs" />
+    <Compile Include="Tools\Converters\ForwardButtonEnableConverter.cs" />
     <Compile Include="Tools\Converters\HasSeenThreadConverter.cs" />
     <Compile Include="Tools\Converters\OpenMenuFlyoutAction.cs" />
     <Compile Include="Tools\Converters\PageNumberConverter.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
     <Compile Include="ViewModels\ThreadViewModel.cs" />
     <Compile Include="Views\BookmarksPage.xaml.cs">

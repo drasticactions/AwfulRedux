@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
+    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -13,7 +14,7 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid VerticalAlignment="Center">
+        <Grid Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityInverter}}" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -27,6 +28,16 @@
                     <Button x:Name="LoginButton" Content="Login" Click="{x:Bind ViewModel.LoginUser}"  HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>
+        </Grid>
+        <Grid Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image MinHeight="100" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink}"/>
+            <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,25,0,0" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
+            <Button Grid.Row="2" HorizontalAlignment="Center" Click="{x:Bind ViewModel.LogoutUser}" Content="Logout"/>
         </Grid>
     </Grid>
 </Page>

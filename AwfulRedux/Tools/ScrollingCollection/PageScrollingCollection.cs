@@ -46,7 +46,7 @@ namespace AwfulRedux.Tools.ScrollingCollection
             e1 = null;
         }
 
-        private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.WebManager);
+        private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
 
         public async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
@@ -25,8 +26,52 @@ namespace AwfulRedux.ViewModels
         string _username = string.Empty;
         public string Username { get { return _username; } set { Set(ref _username, value); } }
 
+        private bool _isLoggedIn = default(bool);
+
+        public bool IsLoggedIn
+        {
+            get { return _isLoggedIn; }
+            set
+            {
+                Set(ref _isLoggedIn, value);
+            }
+        }
+
+        private User _selectedUser = default(User);
+
+        public User SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                Set(ref _selectedUser, value);
+            }
+        }
+
+        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
+            IDictionary<string, object> state)
+        {
+            IsLoggedIn = Views.Shell.Instance.ViewModel.IsLoggedIn;
+            if (IsLoggedIn)
+            {
+                var defaultUsers = await _db.GetAuthUsers();
+                if (!defaultUsers.Any()) return;
+                SelectedUser = defaultUsers.First();
+            }
+        }
+
         private readonly AuthenticationManager _authenticationManager = new AuthenticationManager();
         private readonly AuthenticatedUserDatabase _db = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+
+        public async Task LogoutUser()
+        {
+            NavigationService.Navigate(typeof(Views.MainPage));
+            IsLoggedIn = false;
+            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
+            await _db.RemoveUser(SelectedUser);
+            SelectedUser = null;
+        }
+
         public async Task LoginUser()
         {
             Views.Shell.ShowBusy(true, "Logging In...");
@@ -39,10 +84,10 @@ namespace AwfulRedux.ViewModels
                 return;
             }
             
-            Views.Shell.Instance.WebManager = new WebManager(result.AuthenticationCookie);
+            Views.Shell.Instance.ViewModel.WebManager = new WebManager(result.AuthenticationCookie);
             Views.Shell.ShowBusy(true, "Getting User Information...");
 
-            var userManager = new UserManager(Views.Shell.Instance.WebManager);
+            var userManager = new UserManager(Views.Shell.Instance.ViewModel.WebManager);
 
             // 0 gets us the default user.
             var userResult = await userManager.GetUserFromProfilePage(0);
@@ -75,21 +120,21 @@ namespace AwfulRedux.ViewModels
             }
 
             // Update the main forum page
-            Views.Shell.ShowBusy(true, "Updating Forum List...");
+            //Views.Shell.ShowBusy(true, "Updating Forum List...");
 
-            var forumManager = new ForumManager(Views.Shell.Instance.WebManager);
-            var forumResult = await forumManager.GetForumCategoriesAsync();
-            resultCheck = await ResultChecker.CheckSuccess(forumResult);
-            if (!resultCheck)
-            {
-                await ResultChecker.SendMessageDialogAsync("Failed to update initial forum list", false);
-                Views.Shell.ShowBusy(false);
-                return;
-            }
+            //var forumManager = new ForumManager(Views.Shell.Instance.WebManager);
+            //var forumResult = await forumManager.GetForumCategoriesAsync();
+            //resultCheck = await ResultChecker.CheckSuccess(forumResult);
+            //if (!resultCheck)
+            //{
+            //    await ResultChecker.SendMessageDialogAsync("Failed to update initial forum list", false);
+            //    Views.Shell.ShowBusy(false);
+            //    return;
+            //}
 
-            var forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);
+            //var forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);
 
-
+            Views.Shell.Instance.ViewModel.IsLoggedIn = true;
             NavigationService.Navigate(typeof(Views.MainPage));
             Views.Shell.ShowBusy(false);
 

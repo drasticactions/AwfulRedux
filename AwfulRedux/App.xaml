@@ -39,6 +39,8 @@
             <converters:ForumImageConverter  x:Key="ForumImageConverter" />
             <converters:PageNumberConverter x:Key="PageNumberConverter" />
             <converters:BooleanInverter x:Key="BooleanInverter" />
+            <converters:BackButtonEnableConverter x:Key="BackButtonEnableConverter" />
+            <converters:ForwardButtonEnableConverter x:Key="ForwardButtonEnableConverter" />
         </ResourceDictionary>
     </Application.Resources>
     

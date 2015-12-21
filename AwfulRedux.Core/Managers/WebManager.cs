@@ -15,9 +15,9 @@ namespace AwfulRedux.Core.Managers
     {
         public WebManager(CookieContainer authenticationCookie = null)
         {
-            _authenticationCookie = authenticationCookie;
+            AuthenticationCookie = authenticationCookie;
         }
-        private readonly CookieContainer _authenticationCookie;
+        public CookieContainer AuthenticationCookie { get; set; }
         private const string Accept = "text/html, application/xhtml+xml, */*";
 
         private const string PostContentType = "application/x-www-form-urlencoded";
@@ -35,9 +35,9 @@ namespace AwfulRedux.Core.Managers
                 UseCookies = true,
                 UseDefaultCredentials = false
             };
-            if (_authenticationCookie != null)
+            if (AuthenticationCookie != null)
             {
-                handler.CookieContainer = _authenticationCookie;
+                handler.CookieContainer = AuthenticationCookie;
             }
             using (var client = new HttpClient(handler))
             {
@@ -65,9 +65,9 @@ namespace AwfulRedux.Core.Managers
                 UseCookies = true,
                 UseDefaultCredentials = false
             };
-            if (_authenticationCookie != null)
+            if (AuthenticationCookie != null)
             {
-                handler.CookieContainer = _authenticationCookie;
+                handler.CookieContainer = AuthenticationCookie;
             }
             using (var client = new HttpClient(handler))
             {
@@ -109,9 +109,9 @@ namespace AwfulRedux.Core.Managers
                 UseCookies = true,
                 UseDefaultCredentials = false
             };
-            if (_authenticationCookie != null)
+            if (AuthenticationCookie != null)
             {
-                handler.CookieContainer = _authenticationCookie;
+                handler.CookieContainer = AuthenticationCookie;
             }
             using (var client = new HttpClient(handler))
             {

@@ -33,7 +33,7 @@
                     </StackPanel>
                 </controls:HamburgerButtonInfo>
 
-                <controls:HamburgerButtonInfo IsEnabled="{x:Bind ViewModel.IsLoggedIn}" ClearHistory="True" PageType="views:BookmarksPage">
+                <controls:HamburgerButtonInfo IsEnabled="{x:Bind ViewModel.IsLoggedIn, Mode=OneWay}" ClearHistory="True" PageType="views:BookmarksPage">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Width="48" Height="48" Symbol="ShowResults" />
                         <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Bookmarks" />

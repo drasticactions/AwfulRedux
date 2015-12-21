@@ -35,8 +35,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Image MinHeight="100" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink}"/>
-            <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,25,0,0" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
+            <Image MaxHeight="150" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink}"/>
+            <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,10,0,25" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
             <Button Grid.Row="2" HorizontalAlignment="Center" Click="{x:Bind ViewModel.LogoutUser}" Content="Logout"/>
         </Grid>
     </Grid>

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,6 +16,33 @@ namespace AwfulRedux.Core.Managers
 {
     public class AuthenticationManager
     {
+        public async Task<AuthResult> LogoutAsync(CookieContainer cookies)
+        {
+            var cookieContainer = new CookieContainer();
+            var handler = new HttpClientHandler
+            {
+                AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
+                UseCookies = true,
+                UseDefaultCredentials = false,
+                CookieContainer = cookieContainer
+            };
+            using (var client = new HttpClient(handler))
+            {
+                client.DefaultRequestHeaders.Referrer = new Uri("http://forums.somethingawful.com");
+                client.DefaultRequestHeaders.Add("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2593.0 Safari/537.36");
+                client.DefaultRequestHeaders.Add("Accept-Language", "ja,en-US;q=0.8,en;q=0.6");
+                client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip, deflate, sdch");
+                client.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
+                var response = await client.GetAsync(new Uri(EndPoints.LoginUrl + "action=logout&ma=9bb6fb52"));
+                var authResult = new AuthResult()
+                {
+                    IsSuccess = response.IsSuccessStatusCode
+                };
+                return authResult;
+            }
+        }
+
         /// <summary>
         /// Authenticate a Something Awful user. This does not use the normal "WebManager" for handling the request
         /// because it requires we return the cookie container, so it can be used for actual authenticated requests.
@@ -41,7 +69,10 @@ namespace AwfulRedux.Core.Managers
                     ["username"] = username,
                     ["password"] = password
                 };
-                client.DefaultRequestHeaders.IfModifiedSince = DateTimeOffset.UtcNow;
+                client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue()
+                {
+                    NoCache = true
+                };
                 var header = new FormUrlEncodedContent(dic);
                 var response = await client.PostAsync(new Uri(EndPoints.LoginUrl), header);
                 var authResult = new AuthResult()
@@ -53,7 +84,10 @@ namespace AwfulRedux.Core.Managers
                 {
                     return authResult;
                 }
-
+                if (cookieContainer.Count < 3)
+                {
+                    authResult.Error = "Cookie Container not set.";
+                }
                 var queryString = Extensions.ParseQueryString(response.RequestMessage.RequestUri.Query);
                 if (queryString["loginerror"] == null) return authResult;
                 switch (queryString["loginerror"])

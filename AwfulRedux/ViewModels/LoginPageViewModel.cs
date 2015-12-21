@@ -65,9 +65,10 @@ namespace AwfulRedux.ViewModels
 
         public async Task LogoutUser()
         {
+            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
+            await _authenticationManager.LogoutAsync(Views.Shell.Instance.ViewModel.WebManager.AuthenticationCookie);
             NavigationService.Navigate(typeof(Views.MainPage));
             IsLoggedIn = false;
-            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
             await _db.RemoveUser(SelectedUser);
             SelectedUser = null;
         }

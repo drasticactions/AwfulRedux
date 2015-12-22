@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using Windows.Web.Http.Filters;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
@@ -65,12 +67,18 @@ namespace AwfulRedux.ViewModels
 
         public async Task LogoutUser()
         {
-            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
             await _authenticationManager.LogoutAsync(Views.Shell.Instance.ViewModel.WebManager.AuthenticationCookie);
-            NavigationService.Navigate(typeof(Views.MainPage));
+            var filter = new HttpBaseProtocolFilter();
+            var cookieManager = filter.CookieManager;
+            foreach (var cookie in cookieManager.GetCookies(new Uri("http://fake.forums.somethingawful.com")))
+            {
+                cookieManager.DeleteCookie(cookie);
+            }
+            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
             IsLoggedIn = false;
             await _db.RemoveUser(SelectedUser);
             SelectedUser = null;
+            NavigationService.Navigate(typeof(Views.MainPage));
         }
 
         public async Task LoginUser()

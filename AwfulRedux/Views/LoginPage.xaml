@@ -7,6 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
     xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Template10.Behaviors"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -14,7 +17,16 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityInverter}}" VerticalAlignment="Center">
+       <Grid.RowDefinitions>
+           <RowDefinition Height="Auto"/>
+           <RowDefinition Height="*"/>
+       </Grid.RowDefinitions>
+        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNarrowMinWidth="-1" Content="Account" Frame="{x:Bind Frame}">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:EllipsisBehavior Visibility="Collapsed" />
+            </interactivity:Interaction.Behaviors>
+        </controls:PageHeader>
+        <Grid Grid.Row="1" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityInverter}}" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -29,13 +41,13 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <Grid Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Center">
+        <Grid Grid.Row="1" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}}" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Image MaxHeight="150" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink}"/>
+            <Image Height="150" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink, TargetNullValue='/Assets/Images/Icon2.png' , FallbackValue='/Assets/Images/Icon2.png'}"/>
             <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,10,0,25" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
             <Button Grid.Row="2" HorizontalAlignment="Center" Click="{x:Bind ViewModel.LogoutUser}" Content="Logout"/>
         </Grid>

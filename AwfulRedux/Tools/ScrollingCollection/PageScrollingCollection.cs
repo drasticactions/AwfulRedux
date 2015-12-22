@@ -113,6 +113,6 @@ namespace AwfulRedux.Tools.ScrollingCollection
             }
         }
 
-        public bool HasMoreItems { get; private set; }
+        public bool HasMoreItems { get; set; }
     }
 }

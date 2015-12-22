@@ -114,6 +114,7 @@
     <Content Include="Assets\hammer.min.js" />
     <Content Include="Assets\Images\Dontrel-Awful2.png" />
     <Content Include="Assets\Images\Icon2.png" />
+    <Content Include="Assets\Images\unfunny.png" />
     <Content Include="Assets\jquery.js" />
     <Content Include="Assets\jquery.min.js" />
     <Content Include="Assets\npm.js" />

@@ -40,7 +40,6 @@
                 }).map(function() {
                     return $(this).closest(".bbc-block")[0];
                 }).addClass("userquoted");
-
                 //$('.bbc-block').each(function () {
                 //    $(this).click(function () {
                 //        if ($('blockquote', this).is(":visible")) {
@@ -52,6 +51,7 @@
                 //    });
                 //});
                 ForumCommand('setFont', null);
+                ForumCommand('scrollToDivStart', $("#scrolltopoststring").text());
             };
 
         </script>

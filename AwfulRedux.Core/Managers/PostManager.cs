@@ -29,7 +29,6 @@ namespace AwfulRedux.Core.Managers
         public async Task<HtmlDocument> GetThreadInfo(Thread forumThread, string url)
         {
             var result = await _webManager.GetData(url);
-           
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(result.ResultHtml);
             try
@@ -84,14 +83,9 @@ namespace AwfulRedux.Core.Managers
             }
 
             var forumThreadPosts = new List<Post>();
-
-            //var threadManager = new ThreadManager();
-            //var doc = await GetThreadInfo(forumThread, url);
-
-            var result = await _webManager.GetData(url);
-
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(result.ResultHtml);
+            var forumThread = new Thread();
+            var doc = await GetThreadInfo(forumThread, url);
+            var result = new Result(true);
             try
             {
 
@@ -151,7 +145,11 @@ namespace AwfulRedux.Core.Managers
             {
                 throw new Exception($"Failed to parse thread posts {ex.Message}");
             }
-            result.ResultJson = JsonConvert.SerializeObject(forumThreadPosts);
+            result.ResultJson = JsonConvert.SerializeObject(new ThreadPosts()
+            {
+                ForumThread = forumThread,
+                Posts = forumThreadPosts
+            });
             return result;
         }
 
@@ -339,7 +337,7 @@ namespace AwfulRedux.Core.Managers
                 if (lastPageNode != null)
                 {
                     string urlHref = lastPageNode.GetAttributeValue("href", string.Empty);
-                    var query = Extensions.ParseQueryString(new Uri(urlHref).Query);
+                    var query = Extensions.ParseQueryString(new Uri(EndPoints.BaseUrl + urlHref).Query);
                     threadEntity.TotalPages = Convert.ToInt32(query["pagenumber"]);
                 }
 

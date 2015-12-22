@@ -68,6 +68,9 @@ namespace AwfulRedux.Tools.Web
                         case "showPosts":
                             await webview.InvokeScriptAsync("ShowHiddenPosts", new[] {string.Empty});
                             break;
+                        case "scrollToDivStart":
+                            await webview.InvokeScriptAsync("ScrollToDiv", new[] { command.Id });
+                            break;
                         case "profile":
                             //Frame.Navigate(typeof(UserProfileView), command.Id);
                             break;

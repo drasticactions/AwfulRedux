@@ -100,9 +100,9 @@ namespace AwfulRedux.ViewModels
             IsLoggedIn = Views.Shell.Instance.ViewModel.IsLoggedIn;
             IsLoading = true;
             var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed);
-            var postresult = JsonConvert.DeserializeObject<List<Post>>(result.ResultJson);
-            Selected.Posts = postresult;
-            Selected.Html = await HtmlFormater.FormatThreadHtml(Selected, postresult, GetTheme, IsLoggedIn);
+            var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
+            Selected.Posts = postresult.Posts;
+            Selected.Html = await HtmlFormater.FormatThreadHtml(postresult.ForumThread, postresult.Posts, GetTheme, IsLoggedIn);
             IsLoading = false;
         }
 

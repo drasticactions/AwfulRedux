@@ -78,6 +78,10 @@ namespace AwfulRedux.Tools.Web
 
             HtmlNode head = doc2.DocumentNode.Descendants("head").FirstOrDefault();
 
+            HtmlNode body = doc2.DocumentNode.Descendants("body").FirstOrDefault();
+
+            body.Attributes.Add("data-thread-id", forumThreadEntity.ThreadId.ToString());
+            body.Attributes.Add("data-thread-name", forumThreadEntity.Name);
             switch (platformIdentifier)
             {
                 case PlatformIdentifier.WindowsPhone:
@@ -112,6 +116,8 @@ namespace AwfulRedux.Tools.Web
                 threadHtml += $"<div style=\"display:none;\" id=\"loggedinusername\">{forumThreadEntity.LoggedInUserName}</div>";
             }
 
+            threadHtml += $"<div style=\"display:none;\" id=\"scrolltopoststring\">{forumThreadEntity.ScrollToPostString}</div>";
+
             if (forumThreadEntity.Poll != null)
             {
                 //threadHtml += FormatVotePoll(forumThreadEntity.Poll);
@@ -139,6 +145,8 @@ namespace AwfulRedux.Tools.Web
             }
 
             bodyNode.InnerHtml = threadHtml;
+
+            
 
             var images = bodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
             foreach (var image in images)
@@ -213,7 +221,7 @@ namespace AwfulRedux.Tools.Web
 
         private static string CreateButtons(Post post)
         {
-            var clickHandler = $"window.ForumCommand('quote', '{post.PostId}')";
+            var clickHandler = $"window.QuotePost('{post.PostId}')";
 
             string quoteButton = HtmlButtonBuilder.CreateSubmitButton("Quote", clickHandler, string.Empty);
 

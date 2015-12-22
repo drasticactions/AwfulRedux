@@ -77,8 +77,8 @@ namespace AwfulRedux.ViewModels
 
         public void Refresh()
         {
-            ForumPageScrollingCollection = new PageScrollingCollection(Forum, 1);
-            ForumPageScrollingCollection.CheckIsPaywallEvent += ForumPageScrollingCollection_CheckIsPaywallEvent;
+            ForumPageScrollingCollection.Clear();
+            ForumPageScrollingCollection.HasMoreItems = true;
         }
 
         private void ForumPageScrollingCollection_CheckIsPaywallEvent(object sender, PageScrollingCollection.IsPaywallArgs e)

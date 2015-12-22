@@ -14,6 +14,7 @@ namespace AwfulRedux.Core.Models.Web
             ResultHtml = html;
             ResultJson = json;
             Type = type;
+            AbsoluteUri = uri;
         }
 
         /// <summary>

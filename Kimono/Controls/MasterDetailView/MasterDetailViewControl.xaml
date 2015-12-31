@@ -20,6 +20,7 @@
                         <Setter Target="PART_masterViewContentControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
 
                         <Setter Target="PART_detailViewContentControl.Visibility" Value="Visible" />
+                        <Setter Target="PART_detailViewContentControl.Width" Value="NaN" />
                         <Setter Target="PART_detailViewContentControl.(RelativePanel.AlignRightWithPanel)" Value="True" />
                         <Setter Target="PART_detailViewContentControl.(RelativePanel.RightOf)" Value="PART_masterViewContentControl" />
                     </VisualState.Setters>
@@ -27,7 +28,6 @@
                 <VisualState x:Name="OnePaneMasterVisualState">
                     <VisualState.Setters>
                         <Setter Target="PART_masterViewContentControl.Visibility" Value="Visible" />
-                        <Setter Target="PART_masterViewContentControl.Width" Value="NaN" />
                         <Setter Target="PART_masterViewContentControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
                         
                         <Setter Target="PART_detailViewContentControl.Visibility" Value="Collapsed" />
@@ -36,7 +36,6 @@
                 <VisualState x:Name="OnePaneDetailVisualState">
                     <VisualState.Setters>
                         <Setter Target="PART_detailViewContentControl.Visibility" Value="Visible" />
-                        <Setter Target="PART_detailViewContentControl.Width" Value="NaN" />
                         <Setter Target="PART_detailViewContentControl.(RelativePanel.AlignLeftWithPanel)" Value="True" />
 
                         <Setter Target="PART_masterViewContentControl.Visibility" Value="Collapsed" />

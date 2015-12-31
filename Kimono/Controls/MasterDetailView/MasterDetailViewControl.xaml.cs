@@ -117,7 +117,6 @@ namespace Kimono.Controls
             if (width >= 720)
             {
                 isInOnePaneMode = false;
-
                 lock (currentState)
                 {
                     VisualStateManager.GoToState(this, "TwoPaneVisualState", true);
@@ -131,6 +130,9 @@ namespace Kimono.Controls
             else
             {
                 isInOnePaneMode = true;
+
+                PART_detailViewContentControl.Width = width - 45;
+                PART_masterViewContentControl.Width = width - 45;
 
                 if (!isOrientationChange)
                 {

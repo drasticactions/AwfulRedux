@@ -191,6 +191,7 @@
     <Compile Include="Tools\Converters\ThreadHeaderColorConverter.cs" />
     <Compile Include="Tools\Converters\ThreadNullCheckConverter.cs" />
     <Compile Include="Tools\Database\DatabaseWinRTHelpers.cs" />
+    <Compile Include="Styles\DataTemplates.cs" />
     <Compile Include="Tools\Errors\ResultChecker.cs" />
     <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
     <Compile Include="Tools\Threads\WebViewHelper.cs" />

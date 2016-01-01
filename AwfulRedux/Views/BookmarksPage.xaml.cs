@@ -33,7 +33,7 @@ namespace AwfulRedux.Views
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            if (e.NavigationMode == NavigationMode.Back || e.NavigationMode == NavigationMode.New)
+            if (e.NavigationMode == NavigationMode.Back)
             {
                 ResetPageCache();
             }

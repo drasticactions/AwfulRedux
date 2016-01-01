@@ -26,7 +26,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <controls1:PageHeader BackButtonVisibility="Collapsed" VisualStateNarrowMinWidth="-1"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
+                    <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
                         <interactivity:Interaction.Behaviors>
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>

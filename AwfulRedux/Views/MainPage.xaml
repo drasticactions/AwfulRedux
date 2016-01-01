@@ -34,8 +34,8 @@
         </Grid.RowDefinitions>
 
         <!--  header  -->
-        <controls:PageHeader  BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}"
-                             Content="Forums List" VisualStateNarrowMinWidth="-1">
+        <controls:PageHeader VisualStateNormalMinWidth="720"  BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}"
+                             Content="Forums List"  >
             <Interactivity:Interaction.Behaviors>
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
             </Interactivity:Interaction.Behaviors>

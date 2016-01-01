@@ -131,8 +131,8 @@ namespace Kimono.Controls
             {
                 isInOnePaneMode = true;
 
-                PART_detailViewContentControl.Width = width - 45;
-                PART_masterViewContentControl.Width = width - 45;
+                PART_detailViewContentControl.Width = width;
+                PART_masterViewContentControl.Width = width;
 
                 if (!isOrientationChange)
                 {

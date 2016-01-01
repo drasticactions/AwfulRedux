@@ -21,7 +21,7 @@
            <RowDefinition Height="Auto"/>
            <RowDefinition Height="*"/>
        </Grid.RowDefinitions>
-        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNarrowMinWidth="-1" Content="Account" Frame="{x:Bind Frame}">
+        <controls:PageHeader BackButtonVisibility="Collapsed"   Content="Account" Frame="{x:Bind Frame}">
             <interactivity:Interaction.Behaviors>
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
             </interactivity:Interaction.Behaviors>

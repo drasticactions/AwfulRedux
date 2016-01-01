@@ -117,6 +117,7 @@ namespace AwfulRedux.ViewModels
                     Selected.RepliesSinceLastOpened -= count;
                 }
             }
+            Selected.Name = postresult.ForumThread.Name;
             IsLoading = false;
         }
 

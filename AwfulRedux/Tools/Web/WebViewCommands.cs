@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Errors;
+using AwfulRedux.Views;
 using Newtonsoft.Json;
 
 namespace AwfulRedux.Tools.Web
@@ -137,6 +139,22 @@ namespace AwfulRedux.Tools.Web
                             break;
                         case "openThread":
                             var query = Extensions.ParseQueryString(command.Id);
+                            if (query["threadid"] != null)
+                            {
+                                var url = string.Format(EndPoints.ThreadPage, query["threadid"]);
+                                var newThreadEntity = new Thread()
+                                {
+                                    Location = url
+                                };
+                                if (query["pagenumber"] != null)
+                                {
+                                    newThreadEntity.CurrentPage = Convert.ToInt32(query["pagenumber"]);
+                                }
+                                var json = JsonConvert.SerializeObject(newThreadEntity);
+                                Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ThreadPage), json);
+                            }
+                           
+
                             //if (query.ContainsKey("action") && query["action"].Equals("showPost"))
                             //{
                             //    //var postManager = new PostManager();

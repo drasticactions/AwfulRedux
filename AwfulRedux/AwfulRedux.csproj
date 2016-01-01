@@ -229,6 +229,9 @@
     <Compile Include="Views\ThreadListPage.xaml.cs">
       <DependentUpon>ThreadListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ThreadPage.xaml.cs">
+      <DependentUpon>ThreadPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ThreadTabPage.xaml.cs">
       <DependentUpon>ThreadTabPage.xaml</DependentUpon>
     </Compile>
@@ -922,6 +925,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ThreadListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThreadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

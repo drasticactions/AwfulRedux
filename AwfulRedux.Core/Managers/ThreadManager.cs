@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -25,6 +26,43 @@ namespace AwfulRedux.Core.Managers
         public ThreadManager(IWebManager webManager)
         {
             _webManager = webManager;
+        }
+
+        public async Task<Result> GetBookmarksAsync(int page)
+        {
+            var forumThreadList = new List<Thread>();
+            var forum = new Forum()
+            {
+                Name = "Bookmarks",
+                IsSubforum = false,
+                Location = EndPoints.UserCp
+            };
+            String url = EndPoints.BookmarksUrl;
+            if (page >= 0)
+            {
+                url = EndPoints.BookmarksUrl + string.Format(EndPoints.PageNumber, page);
+            }
+
+            var result = (await _webManager.GetData(url));
+            var doc = new HtmlDocument();
+            doc.LoadHtml(result.ResultHtml);
+
+            HtmlNode forumNode =
+                doc.DocumentNode.Descendants()
+                    .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("threadlist"));
+
+
+            foreach (
+                HtmlNode threadNode in
+                    forumNode.Descendants("tr")
+                        .Where(node => node.GetAttributeValue("class", string.Empty).StartsWith("thread")))
+            {
+                var threadEntity = new Thread { ForumId = 0, IsBookmark = true };
+                ParseThreadHtml(threadEntity, threadNode);
+                forumThreadList.Add(threadEntity);
+            }
+            result.ResultJson = JsonConvert.SerializeObject(forumThreadList);
+            return result;
         }
 
         public async Task<Result> AddBookmarkAsync(long threadId)

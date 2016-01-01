@@ -29,6 +29,9 @@ namespace AwfulRedux
             #region Database
             var db = new Database.DataSource.MainForums(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
             db.CreateDatabase();
+            var bdb = new Database.DataSource.Bookmarks(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
+            db.CreateDatabase();
+            bdb.CreateDatabase();
             #endregion
         }
 

@@ -101,8 +101,22 @@ namespace AwfulRedux.ViewModels
             IsLoading = true;
             var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed);
             var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
+            Selected.CurrentPage = postresult.ForumThread.CurrentPage;
+            Selected.TotalPages = postresult.ForumThread.TotalPages;
             Selected.Posts = postresult.Posts;
             Selected.Html = await HtmlFormater.FormatThreadHtml(postresult.ForumThread, postresult.Posts, GetTheme, IsLoggedIn);
+            var count = postresult.Posts.Count(node => !node.HasSeen);
+            if (Selected.RepliesSinceLastOpened > 0)
+            {
+                if (Selected.RepliesSinceLastOpened - count < 0)
+                {
+                    Selected.RepliesSinceLastOpened = 0;
+                }
+                else
+                {
+                    Selected.RepliesSinceLastOpened -= count;
+                }
+            }
             IsLoading = false;
         }
 

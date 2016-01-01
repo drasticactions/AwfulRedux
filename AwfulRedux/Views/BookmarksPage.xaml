@@ -5,9 +5,51 @@
     xmlns:local="using:AwfulRedux.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:AwfulRedux.ViewModels"
+    xmlns:controls="using:Kimono.Controls"
+    xmlns:controls1="using:Template10.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:controls2="using:AwfulRedux.Controls"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModels:BookmarkViewModel />
+    </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+            <controls:MasterDetailViewControl.MasterViewPaneContent>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <controls1:PageHeader BackButtonVisibility="Collapsed" VisualStateNarrowMinWidth="-1"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
+                        <interactivity:Interaction.Behaviors>
+                            <behaviors:EllipsisBehavior Visibility="Collapsed" />
+                        </interactivity:Interaction.Behaviors>
+                    </controls1:PageHeader>
+                    <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
+                    <ListView x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" ItemTemplate="{StaticResource ThreadDataTemplate}"  SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <CommandBar Grid.Row="3">
+                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                    </CommandBar>
+                </Grid>
+            </controls:MasterDetailViewControl.MasterViewPaneContent>
+            <controls:MasterDetailViewControl.DetailViewPaneContent>
+                <controls2:ThreadView x:Name="ThreadPageView">
 
+                </controls2:ThreadView>
+            </controls:MasterDetailViewControl.DetailViewPaneContent>
+        </controls:MasterDetailViewControl>
     </Grid>
 </Page>

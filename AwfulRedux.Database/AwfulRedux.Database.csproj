@@ -35,6 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AuthenticatedUserDatabase.cs" />
+    <Compile Include="BookmarkDatabase.cs" />
+    <Compile Include="DataSource\Bookmarks.cs" />
     <Compile Include="DataSource\MainForums.cs" />
     <Compile Include="MainForumsDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

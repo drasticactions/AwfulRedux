@@ -333,6 +333,25 @@ namespace AwfulRedux.Core.Managers
             }
             else
             {
+                try
+                {
+                    var lastDisabledPage = pageNavigationNode.Descendants("span").LastOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("disabled"));
+                    if (lastDisabledPage != null)
+                    {
+                        Regex re = new Regex(@"\d+");
+                        Match m = re.Match(lastDisabledPage.InnerText);
+
+                        if (m.Success)
+                        {
+                            threadEntity.TotalPages = Convert.ToInt32(m.Value);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    // Ignore
+                }
+
                 var lastPageNode = pageNavigationNode.Descendants("a").FirstOrDefault(node => node.GetAttributeValue("title", string.Empty).Equals("Last page"));
                 if (lastPageNode != null)
                 {

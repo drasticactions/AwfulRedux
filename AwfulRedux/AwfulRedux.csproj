@@ -167,6 +167,9 @@
     <Compile Include="Controls\LoginPart.xaml.cs">
       <DependentUpon>LoginPart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SmiliesView.xaml.cs">
+      <DependentUpon>SmiliesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ThreadView.xaml.cs">
       <DependentUpon>ThreadView.xaml</DependentUpon>
     </Compile>
@@ -175,6 +178,7 @@
     <Compile Include="Services\SettingsServices\SettingsService.Apply.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
+    <Compile Include="Tools\Flyout\FlyoutHelper.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
     <Compile Include="Tools\Converters\BackButtonEnableConverter.cs" />
     <Compile Include="Tools\Converters\BooleanInverter.cs" />
@@ -201,8 +205,10 @@
     <Compile Include="ViewModels\BookmarkViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\ReplyThreadViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\SmiliesViewModel.cs" />
     <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
     <Compile Include="ViewModels\ThreadViewModel.cs" />
     <Compile Include="Views\BookmarksPage.xaml.cs">
@@ -231,9 +237,6 @@
     </Compile>
     <Compile Include="Views\ThreadPage.xaml.cs">
       <DependentUpon>ThreadPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ThreadTabPage.xaml.cs">
-      <DependentUpon>ThreadTabPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -872,6 +875,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SmiliesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ThreadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -929,10 +936,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ThreadPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ThreadTabPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

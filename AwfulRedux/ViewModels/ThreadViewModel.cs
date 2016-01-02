@@ -144,7 +144,7 @@ namespace AwfulRedux.ViewModels
         public void ReplyToThread()
         {
             Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof (ReplyPage),
-                JsonConvert.SerializeObject(Selected));
+                JsonConvert.SerializeObject(new ThreadReply() {Thread  = Selected }));
         }
     }
 }

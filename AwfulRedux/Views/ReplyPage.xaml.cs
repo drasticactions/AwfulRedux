@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +26,12 @@ namespace AwfulRedux.Views
         public ReplyPage()
         {
             this.InitializeComponent();
+            SmiliesView.ViewModel.PostBody = ViewModel.PostBody;
+            ViewModel.SmiliesViewModel = SmiliesView.ViewModel;
+
         }
+
+        // strongly-typed view models enable x:bind
+        public ReplyThreadViewModel ViewModel => this.DataContext as ReplyThreadViewModel;
     }
 }

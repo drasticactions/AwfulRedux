@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,19 +31,23 @@ namespace Kimono.Controls
         public MasterDetailViewControl()
         {
             this.InitializeComponent();
-
             this.Loaded += MasterDetailViewControl_Loaded;
         }
 
         private void MasterDetailViewControl_Loaded(object sender, RoutedEventArgs e)
         {
             this.Unloaded += MasterDetailViewControl_Unloaded;
-
+            ApplicationView.GetForCurrentView().VisibleBoundsChanged += OnVisibleBoundsChanged;
             this.DataContextChanged += MasterDetailViewControl_DataContextChanged;
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += NavigationManager_BackRequested;
 
             Window.Current.SizeChanged += Current_SizeChanged;
 
+            EvaluateLayout();
+        }
+
+        private void OnVisibleBoundsChanged(ApplicationView sender, object args)
+        {
             EvaluateLayout();
         }
 
@@ -62,7 +67,7 @@ namespace Kimono.Controls
         {
             this.Loaded -= MasterDetailViewControl_Loaded;
             this.Unloaded -= MasterDetailViewControl_Unloaded;
-
+            ApplicationView.GetForCurrentView().VisibleBoundsChanged -= OnVisibleBoundsChanged;
             this.DataContextChanged -= MasterDetailViewControl_DataContextChanged;
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= NavigationManager_BackRequested;
             Window.Current.SizeChanged -= Current_SizeChanged;
@@ -104,7 +109,7 @@ namespace Kimono.Controls
         private void EvaluateLayout()
         {
             double width = Window.Current.Bounds.Width;
-            double height = Window.Current.Bounds.Height;
+            double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
 
             bool isOrientationChange = width == lastWindowHeight && height == lastWindowWidth;
 

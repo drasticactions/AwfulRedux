@@ -47,7 +47,9 @@
     <Compile Include="Models\Posts\Post.cs" />
     <Compile Include="Models\Posts\PostElements.cs" />
     <Compile Include="Models\Posts\ThreadPosts.cs" />
+    <Compile Include="Models\Smilies\SmileCategory.cs" />
     <Compile Include="Models\Threads\Thread.cs" />
+    <Compile Include="Models\Threads\ThreadReply.cs" />
     <Compile Include="Models\Users\User.cs" />
     <Compile Include="PlatformIdentifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

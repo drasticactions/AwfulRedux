@@ -5,9 +5,42 @@
     xmlns:local="using:AwfulRedux.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:AwfulRedux.ViewModels"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:controls1="using:AwfulRedux.Tools.Controls"
+    xmlns:flyout="using:AwfulRedux.Tools.Flyout"
+    xmlns:controls2="using:AwfulRedux.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <viewModels:ReplyThreadViewModel />
+    </Page.DataContext>
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Content="{Binding Title, Mode=OneWay}" Frame="{x:Bind Frame}">
+            <interactivity:Interaction.Behaviors>
+                <behaviors:EllipsisBehavior Visibility="Collapsed" />
+            </interactivity:Interaction.Behaviors>
+        </controls:PageHeader>
+        <CommandBar Grid.Row="1">
+            <AppBarButton x:Name="SmiliesButton" Click="{x:Bind ViewModel.OpenSmiliesView}" flyout:FlyoutHelper.IsOpen="{Binding IsOpen, Mode=TwoWay}"
+                flyout:FlyoutHelper.Parent="{Binding ElementName=SmiliesButton}" Label="Smilies"  Icon="Emoji">
+                <Button.Flyout>
+                    <Flyout Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
+                        <controls2:SmiliesView x:Name="SmiliesView"></controls2:SmiliesView>
+                    </Flyout>
+                </Button.Flyout>
+            </AppBarButton>
+        </CommandBar>
+        <TextBox Text="{Binding PostBody, Mode=TwoWay}" IsSpellCheckEnabled="True" AcceptsReturn="True" Grid.Row="1"
+                             HorizontalAlignment="Stretch" Margin="15" FontSize="20" x:Name="ReplyText" TextWrapping="Wrap" />
     </Grid>
 </Page>

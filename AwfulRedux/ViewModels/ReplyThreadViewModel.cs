@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.Tools.Web;
 using AwfulRedux.UI.Models.Threads;
 using Newtonsoft.Json;
 using Template10.Mvvm;
@@ -24,32 +27,21 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private string _postBody = default(string);
+        private TextBox _replyBox = default(TextBox);
 
-        public string PostBody
+        public TextBox ReplyBox
         {
-            get { return _postBody; }
+            get { return _replyBox; }
             set
             {
-                Set(ref _postBody, value);
-            }
-        }
-
-        private bool _isOpen = default(bool);
-
-        public bool IsOpen
-        {
-            get { return _isOpen; }
-            set
-            {
-                Set(ref _isOpen, value);
+                Set(ref _replyBox, value);
             }
         }
 
         public async void OpenSmiliesView()
         {
             await SmiliesViewModel.LoadSmilies();
-            IsOpen = true;
+            SmiliesViewModel.IsOpen = true;
         }
 
         private bool _isLoading = default(bool);
@@ -86,6 +78,53 @@ namespace AwfulRedux.ViewModels
             {
                 Title = "Reply - " + Selected.Thread.Name;
             }
+        }
+
+        public void SelectBbCode(object sender, RoutedEventArgs e)
+        {
+            var menuFlyoutItem = sender as MenuFlyoutItem;
+            if (menuFlyoutItem == null) return;
+            var code = "";
+            if (menuFlyoutItem.CommandParameter != null)
+            {
+                switch (menuFlyoutItem.CommandParameter.ToString().ToLower())
+                {
+                    case "bold":
+                        code = "b";
+                        break;
+                    case "indent":
+                        code = "i";
+                        break;
+                    case "strike":
+                        code = "s";
+                        break;
+                    case "spoiler":
+                        code = "spoiler";
+                        break;
+                    case "quote":
+                        code = "quote";
+                        break;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(ReplyBox.SelectedText))
+            {
+                string selectedText = "[{0}]" + ReplyBox.SelectedText + "[/{0}]";
+                ReplyBox.SelectedText = string.Format(selectedText, code);
+            }
+            else
+            {
+                string text = string.Format("[{0}][/{0}]", code);
+                string replyText = string.IsNullOrEmpty(ReplyBox.Text) ? string.Empty : ReplyBox.Text;
+                if (replyText != null) ReplyBox.Text = replyText.Insert(ReplyBox.SelectionStart, text);
+            }
+        }
+
+        public async void AddImageViaImgur()
+        {
+            IsLoading = true;
+            await AddImage.AddImageViaImgur(ReplyBox);
+            IsLoading = false;
         }
     }
 }

@@ -26,9 +26,9 @@ namespace AwfulRedux.Views
         public ReplyPage()
         {
             this.InitializeComponent();
-            SmiliesView.ViewModel.PostBody = ViewModel.PostBody;
+            SmiliesView.ViewModel.ReplyBox = ReplyText;
             ViewModel.SmiliesViewModel = SmiliesView.ViewModel;
-
+            ViewModel.ReplyBox = ReplyText;
         }
 
         // strongly-typed view models enable x:bind

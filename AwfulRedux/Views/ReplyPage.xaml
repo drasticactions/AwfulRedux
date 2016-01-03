@@ -31,7 +31,7 @@
             </interactivity:Interaction.Behaviors>
         </controls:PageHeader>
         <CommandBar Grid.Row="1">
-            <AppBarButton x:Name="SmiliesButton" Click="{x:Bind ViewModel.OpenSmiliesView}" flyout:FlyoutHelper.IsOpen="{Binding IsOpen, Mode=TwoWay}"
+            <AppBarButton x:Name="SmiliesButton" Click="{x:Bind ViewModel.OpenSmiliesView}" flyout:FlyoutHelper.IsOpen="{x:Bind ViewModel.SmiliesViewModel.IsOpen, Mode=OneWay}"
                 flyout:FlyoutHelper.Parent="{Binding ElementName=SmiliesButton}" Label="Smilies"  Icon="Emoji">
                 <Button.Flyout>
                     <Flyout Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
@@ -39,8 +39,20 @@
                     </Flyout>
                 </Button.Flyout>
             </AppBarButton>
+            <AppBarButton  Label="BB Code" Icon="Font">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Click="{x:Bind ViewModel.SelectBbCode}" CommandParameter="Bold" Text="Bold"/>
+                        <MenuFlyoutItem Click="{x:Bind ViewModel.SelectBbCode}" CommandParameter="Indent" Text="Indent"/>
+                        <MenuFlyoutItem Click="{x:Bind ViewModel.SelectBbCode}" CommandParameter="Strike" Text="Strike"/>
+                        <MenuFlyoutItem Click="{x:Bind ViewModel.SelectBbCode}" CommandParameter="Spoiler" Text="Spoiler"/>
+                        <MenuFlyoutItem Click="{x:Bind ViewModel.SelectBbCode}" CommandParameter="Quote" Text="Quote"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </AppBarButton>
+            <AppBarButton Label="Imgur Image" Click="{x:Bind ViewModel.AddImageViaImgur}" Icon="Pictures"  />
         </CommandBar>
-        <TextBox Text="{Binding PostBody, Mode=TwoWay}" IsSpellCheckEnabled="True" AcceptsReturn="True" Grid.Row="1"
-                             HorizontalAlignment="Stretch" Margin="15" FontSize="20" x:Name="ReplyText" TextWrapping="Wrap" />
+        <TextBox IsSpellCheckEnabled="True" AcceptsReturn="True" Grid.Row="2"
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" FontSize="20" x:Name="ReplyText" TextWrapping="Wrap" />
     </Grid>
 </Page>

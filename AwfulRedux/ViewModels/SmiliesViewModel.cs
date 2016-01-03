@@ -27,14 +27,16 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private string _postBody = default(string);
+        public TextBox ReplyBox { get; set; }
 
-        public string PostBody
+        private bool _isOpen = default(bool);
+
+        public bool IsOpen
         {
-            get { return _postBody; }
+            get { return _isOpen; }
             set
             {
-                Set(ref _postBody, value);
+                Set(ref _isOpen, value);
             }
         }
 
@@ -69,19 +71,62 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        public void SelectIcon(object sender, ItemClickEventArgs e)
+        {
+            var smile = e.ClickedItem as Smile;
+            if (smile == null) return;
+            ReplyBox.Text = ReplyBox.Text.Insert(ReplyBox.Text.Length, smile.Title);
+            IsOpen = false;
+        }
+
         public void SmiliesFilterOnSuggestedQuery(SearchBox sender, SearchBoxSuggestionsRequestedEventArgs args)
         {
-            
+            if (SmileCategoryList == null) return;
+            string queryText = args.QueryText;
+            if (string.IsNullOrEmpty(queryText)) return;
+            var suggestionCollection = args.Request.SearchSuggestionCollection;
+            foreach (var smile in SmileCategoryList.SelectMany(smileCategory => smileCategory.SmileList.Where(smile => smile.Title.Contains(queryText))))
+            {
+                suggestionCollection.AppendQuerySuggestion(smile.Title);
+            }
         }
 
         public void SmiliesFilterOnSubmittedQuery(SearchBox sender, SearchBoxQuerySubmittedEventArgs args)
         {
-            
+            if (SmileCategoryList == null) return;
+            string queryText = args.QueryText;
+            if (string.IsNullOrEmpty(queryText)) return;
+            var result = SmileCategoryList.SelectMany(
+                smileCategory => smileCategory.SmileList.Where(smile => smile.Title.Equals(queryText))).FirstOrDefault();
+            if (result == null)
+            {
+                return;
+            }
+            ReplyBox.Text = ReplyBox.Text.Insert(ReplyBox.Text.Length, result.Title);
+            IsOpen = false;
         }
 
         public void SmiliesFilterOnChangedQuery(SearchBox sender, SearchBoxQueryChangedEventArgs args)
         {
-            
+            string queryText = args.QueryText;
+            if (string.IsNullOrEmpty(queryText))
+            {
+                SmileCategoryList = FullSmileCategoryEntities;
+                return;
+            }
+            var result = SmileCategoryList.SelectMany(
+                smileCategory => smileCategory.SmileList.Where(smile => smile.Title.Equals(queryText))).FirstOrDefault();
+            if (result != null) return;
+            var searchList = FullSmileCategoryEntities.SelectMany(
+                smileCategory => smileCategory.SmileList.Where(smile => smile.Title.Contains(queryText)));
+            List<Smile> smileListEntities = searchList.ToList();
+            var searchSmileCategory = new SmileCategory()
+            {
+                Name = "Search",
+                SmileList = smileListEntities
+            };
+            var fakeSmileCategoryList = new List<SmileCategory> { searchSmileCategory };
+            SmileCategoryList = fakeSmileCategoryList.ToObservableCollection();
         }
     }
 }

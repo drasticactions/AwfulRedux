@@ -11,5 +11,7 @@ namespace AwfulRedux.UI.Models.Threads
         public Thread Thread { get; set; }
 
         public int QuoteId { get; set; }
+
+        public bool IsEdit { get; set; }
     }
 }

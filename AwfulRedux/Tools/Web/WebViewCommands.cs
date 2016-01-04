@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Popups;
@@ -16,8 +17,11 @@ using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Errors;
+using AwfulRedux.UI.Models.Posts;
+using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
+using Thread = AwfulRedux.Core.Models.Threads.Thread;
 
 namespace AwfulRedux.Tools.Web
 {
@@ -77,20 +81,20 @@ namespace AwfulRedux.Tools.Web
                             //Frame.Navigate(typeof(UserProfileView), command.Id);
                             break;
                         case "openPost":
-                            //var addIgnoredUserPostCommand = new AddIgnoredUserPostCommand();
-                            //var test = new WebViewCollection()
-                            //{
-                            //    PostId = command.Id,
-                            //    WebView = webview
-                            //};
-                            //try
-                            //{
-                            //    addIgnoredUserPostCommand.Execute(test);
-                            //}
-                            //catch (Exception ex)
-                            //{
-                            //    AwfulDebugger.SendMessageDialogAsync("Error getting post", ex);
-                            //}
+                            try
+                            {
+                                var postManager = new PostManager(Views.Shell.Instance.ViewModel.WebManager);
+                                var postId = ParsePostId(command.Id);
+                                var result = await postManager.GetPostAsync(postId);
+                                var post = JsonConvert.DeserializeObject<Post>(result.ResultJson);
+                                await
+                                    webview.InvokeScriptAsync("AddPostToThread",
+                                        new[] {postId.ToString(), post.PostHtml});
+                            }
+                            catch (Exception)
+                            {
+                                // TODO: Throw error if it fails.
+                            }
                             break;
                         case "post_history":
                             //Frame.Navigate(typeof(UserPostHistoryPage), command.Id);
@@ -99,12 +103,31 @@ namespace AwfulRedux.Tools.Web
                             //Frame.Navigate(typeof(RapSheetView), command.Id);
                             break;
                         case "quote":
-                            //var navigateToNewReplyViaQuoteCommand = new NavigateToNewReplyViaQuoteCommand();
-                            //navigateToNewReplyViaQuoteCommand.Execute(command.Id);
+                            var quoteObject = JsonConvert.DeserializeObject<PostQuote>(command.Id);
+                            Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ReplyPage),
+                JsonConvert.SerializeObject(new ThreadReply()
+                {
+                    Thread = new UI.Models.Threads.Thread()
+                    {
+                        ThreadId = Convert.ToInt32(quoteObject.thread_id),
+                        Name = quoteObject.thread_name
+                    },
+                    QuoteId = Convert.ToInt32(quoteObject.post_id)
+                }));
                             break;
                         case "edit":
-                            //var navigateToEditPostPageCommand = new NavigateToEditPostPageCommand();
-                            //navigateToEditPostPageCommand.Execute(command.Id);
+                            var editObject = JsonConvert.DeserializeObject<PostQuote>(command.Id);
+                            Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ReplyPage),
+                JsonConvert.SerializeObject(new ThreadReply()
+                {
+                    Thread = new UI.Models.Threads.Thread()
+                    {
+                        ThreadId = Convert.ToInt32(editObject.thread_id),
+                        Name = editObject.thread_name
+                    },
+                    QuoteId = Convert.ToInt32(editObject.post_id),
+                    IsEdit = true
+                }));
                             break;
                         case "scrollToPost":
                             try
@@ -194,6 +217,20 @@ namespace AwfulRedux.Tools.Web
                 }
             }
 
+            private static int ParsePostId(string txt)
+            {
+                const string re1 = ".*?"; // Non-greedy match on filler
+                const string re2 = "\\d+"; // Uninteresting: int
+                const string re3 = ".*?"; // Non-greedy match on filler
+                const string re4 = "(\\d+)"; // Integer Number 1
+
+                var r = new Regex(re1 + re2 + re3 + re4, RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                var m = r.Match(txt);
+                if (!m.Success) return 0;
+                var int1 = m.Groups[1].ToString();
+                return Convert.ToInt32(int1);
+            }
+
             private static void PictureCancelButtonClick(IUICommand command)
             {
 
@@ -253,5 +290,12 @@ namespace AwfulRedux.Tools.Web
                 }
             }
         }
+    }
+
+    public class PostQuote
+    {
+        public string post_id { get; set; }
+        public string thread_id { get; set; }
+        public string thread_name { get; set; }
     }
 }

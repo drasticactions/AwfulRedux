@@ -27,6 +27,7 @@ namespace AwfulRedux.Views
         {
             this.InitializeComponent();
             SmiliesView.ViewModel.ReplyBox = ReplyText;
+            ViewModel.PreviewViewModel = PreviewView.ViewModel;
             ViewModel.SmiliesViewModel = SmiliesView.ViewModel;
             ViewModel.ReplyBox = ReplyText;
         }

@@ -34,6 +34,15 @@ var QuotePost = function (postId) {
     ForumCommand('quote', JSON.stringify(quoteObject));
 }
 
+var EditPost = function (postId) {
+
+    var quoteObject = {};
+    quoteObject.post_id = postId;
+    quoteObject.thread_id = $('body').attr('data-thread-id');
+    quoteObject.thread_name = $('body').attr('data-thread-name');
+    ForumCommand('edit', JSON.stringify(quoteObject));
+}
+
 var ShowHiddenPosts = function() {
     $('#showPosts').fadeOut();
     $('#hiddenPosts').fadeIn();

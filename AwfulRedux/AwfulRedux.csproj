@@ -167,6 +167,9 @@
     <Compile Include="Controls\LoginPart.xaml.cs">
       <DependentUpon>LoginPart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PreviewView.xaml.cs">
+      <DependentUpon>PreviewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SmiliesView.xaml.cs">
       <DependentUpon>SmiliesView.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,7 @@
     <Compile Include="ViewModels\BookmarkViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\PreviewViewModel.cs" />
     <Compile Include="ViewModels\ReplyThreadViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -874,6 +878,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\LoginPart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PreviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

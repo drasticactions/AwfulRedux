@@ -54,5 +54,16 @@
         </CommandBar>
         <TextBox IsSpellCheckEnabled="True" AcceptsReturn="True" Grid.Row="2"
                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" FontSize="20" x:Name="ReplyText" TextWrapping="Wrap" />
+        <CommandBar Grid.Row="3">
+            <AppBarButton Click="{x:Bind ViewModel.PreviewPost}" x:Name="PreviewButton" flyout:FlyoutHelper.IsOpen="{x:Bind ViewModel.PreviewViewModel.IsOpen, Mode=OneWay}" flyout:FlyoutHelper.Parent="{Binding ElementName=PreviewButton}" Label="Preview" Icon="Preview">
+                <Button.Flyout>
+                    <Flyout Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
+                        <controls2:PreviewView x:Name="PreviewView"></controls2:PreviewView>
+                    </Flyout>
+                </Button.Flyout>
+            </AppBarButton>
+            <AppBarButton Label="Reply" Icon="Send" Visibility="{Binding Selected.IsEdit, Converter={StaticResource BooleanToVisibilityInverter}}" Click="{x:Bind ViewModel.ReplyToThread}" />
+            <AppBarButton Label="Edit" Icon="Edit" Visibility="{Binding Selected.IsEdit, Converter={StaticResource BooleanToVisibilityConverter}}" Click="{x:Bind ViewModel.ReplyToThread}" />
+        </CommandBar>
     </Grid>
 </Page>

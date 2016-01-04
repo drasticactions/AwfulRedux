@@ -67,6 +67,74 @@ namespace AwfulRedux.Tools.Web
             return poll;
         }
 
+        public static async Task<string> FormatPreviewHtml(Thread forumThreadEntity, Post post, PlatformIdentifier platformIdentifier)
+        {
+            string html = await PathIO.ReadTextAsync("ms-appx:///Assets/Website/thread.html");
+
+            var doc2 = new HtmlDocument();
+
+            doc2.LoadHtml(html);
+
+
+            HtmlNode head = doc2.DocumentNode.Descendants("head").FirstOrDefault();
+
+            HtmlNode body = doc2.DocumentNode.Descendants("body").FirstOrDefault();
+
+            body.Attributes.Add("data-thread-id", forumThreadEntity.ThreadId.ToString());
+            body.Attributes.Add("data-thread-name", forumThreadEntity.Name);
+            switch (platformIdentifier)
+            {
+                case PlatformIdentifier.WindowsPhone:
+                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/WindowsPhone-Default.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    break;
+            }
+
+            switch (forumThreadEntity.ForumId)
+            {
+                case 219:
+                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/219.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    break;
+                case 26:
+                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/26.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    break;
+                case 267:
+                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/267.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    break;
+                case 268:
+                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/268.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    break;
+            }
+
+            HtmlNode bodyNode = doc2.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Contains("row clearfix"));
+
+            string threadHtml = string.Empty;
+            var postEntities = new List<Post>()
+            {
+                post
+            };
+            threadHtml += ParsePosts(0, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, true, true);
+
+            bodyNode.InnerHtml = threadHtml;
+
+
+            var images = bodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
+            foreach (var image in images)
+            {
+                var src = image.Attributes["src"].Value;
+                if (Path.GetExtension(src) != ".gif")
+                    continue;
+                if (src.Contains("somethingawful.com"))
+                    continue;
+                if (src.Contains("emoticons"))
+                    continue;
+                if (src.Contains("smilies"))
+                    continue;
+                image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                image.Attributes.Remove("src");
+            }
+            return doc2.DocumentNode.OuterHtml;
+        }
+
         public static async Task<string> FormatThreadHtml(Thread forumThreadEntity, List<Post> postEntities, PlatformIdentifier platformIdentifier, bool isLoggedIn = false)
         {
             string html = await PathIO.ReadTextAsync("ms-appx:///Assets/Website/thread.html");
@@ -166,7 +234,7 @@ namespace AwfulRedux.Tools.Web
             return doc2.DocumentNode.OuterHtml;
         }
 
-        private static string ParsePosts(int startingCount, int endCount, List<Post> postEntities, bool isPrivateMessage, bool isLoggedIn)
+        private static string ParsePosts(int startingCount, int endCount, List<Post> postEntities, bool isPrivateMessage, bool isLoggedIn, bool isPreview = false)
         {
             int seenCount = 1;
             string threadHtml = string.Empty;
@@ -178,23 +246,29 @@ namespace AwfulRedux.Tools.Web
                 string hasSeen = post.HasSeen ? string.Concat("seen", seenCount) : string.Concat("postCount", seenCount);
                 seenCount++;
                 string userAvatar = string.Empty;
+                string userInfo = string.Empty;
 
-                if (!string.IsNullOrEmpty(post.User.AvatarLink))
-                    userAvatar = string.Concat("<img data-user-id=\"", post.User.Id, "\" src=\"", post.User.AvatarLink,
-                        "\" alt=\"\" class=\"av\" border=\"0\">");
-                string username =
-                    $"<p style=\"padding: 0;\" class=\"text article-title win-type-ellipsis\"><span class=\"{post.User.Roles}\">{post.User.Username}</span></p>";
-                string postData =
-                    $"<p class=\"text article-title win-type-caption-alt\"><span class=\"registered\">{post.PostDate}</span></p>";
-                string postBody = string.Format("<div id=\"{1}\" class=\"postbody\">{0}</div>", post.PostHtml, post.PostId);
-                string userInfoClass = string.IsNullOrEmpty(post.User.AvatarLink) ? "" : "userinfo";
-                string userInfo = $"<div class=\"{userInfoClass}\">{username}{postData}</div>";
-                string postButtons = isLoggedIn ? CreateButtons(post) : string.Empty;
+                if (!isPreview)
+                {
+                    if (!string.IsNullOrEmpty(post.User.AvatarLink))
+                        userAvatar = string.Concat("<img data-user-id=\"", post.User.Id, "\" src=\"", post.User.AvatarLink,
+                            "\" alt=\"\" class=\"av\" border=\"0\">");
+                    string username =
+                        $"<p style=\"padding: 0;\" class=\"text article-title win-type-ellipsis\"><span class=\"{post.User.Roles}\">{post.User.Username}</span></p>";
+                    string postData =
+                        $"<p class=\"text article-title win-type-caption-alt\"><span class=\"registered\">{post.PostDate}</span></p>";
+                    string userInfoClass = string.IsNullOrEmpty(post.User.AvatarLink) ? "" : "userinfo";
+                    userInfo = $"<div class=\"{userInfoClass}\">{username}{postData}</div>";
+                }
+
+                string postButtons = isLoggedIn && !isPreview ? CreateButtons(post) : string.Empty;
                 string footer = string.Empty;
                 if (!isPrivateMessage)
                 {
                     footer = $"<tr class=\"postbar\"><td class=\"postlinks\">{postButtons}</td></tr>";
                 }
+                string postBody = string.Format("<div id=\"{1}\" class=\"postbody\">{0}</div>", post.PostHtml, post.PostId);
+
                 threadHtml +=
                     string.Format(
                         "<div class={6} id={4}>" +
@@ -225,7 +299,7 @@ namespace AwfulRedux.Tools.Web
 
             string quoteButton = HtmlButtonBuilder.CreateSubmitButton("Quote", clickHandler, string.Empty);
 
-            clickHandler = $"window.ForumCommand('edit', '{post.PostId}')";
+            clickHandler = $"window.EditPost('{post.PostId}')";
 
             string editButton = HtmlButtonBuilder.CreateSubmitButton("Edit", clickHandler, string.Empty);
 

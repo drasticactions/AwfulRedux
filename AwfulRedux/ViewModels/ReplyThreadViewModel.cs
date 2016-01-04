@@ -123,7 +123,9 @@ namespace AwfulRedux.ViewModels
         public async void AddImageViaImgur()
         {
             IsLoading = true;
+            Views.Shell.ShowBusy(true, "Sending Image...");
             await AddImage.AddImageViaImgur(ReplyBox);
+            Views.Shell.ShowBusy(false);
             IsLoading = false;
         }
     }

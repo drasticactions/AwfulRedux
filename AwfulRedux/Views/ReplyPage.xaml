@@ -64,6 +64,15 @@
             </AppBarButton>
             <AppBarButton Label="Reply" Icon="Send" Visibility="{Binding Selected.IsEdit, Converter={StaticResource BooleanToVisibilityInverter}}" Click="{x:Bind ViewModel.ReplyToThread}" />
             <AppBarButton Label="Edit" Icon="Edit" Visibility="{Binding Selected.IsEdit, Converter={StaticResource BooleanToVisibilityConverter}}" Click="{x:Bind ViewModel.ReplyToThread}" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="PreviousButton" flyout:FlyoutHelper.IsOpen="{x:Bind ViewModel.PreviousPostsViewModel.IsOpen, Mode=OneWay}" flyout:FlyoutHelper.Parent="{Binding ElementName=PreviousButton}" Click="{x:Bind ViewModel.ShowPreviousPosts}" Label="Show Previous Posts">
+                    <Button.Flyout>
+                        <Flyout Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
+                            <controls2:PreviousPostsView x:Name="PreviousView"></controls2:PreviousPostsView>
+                        </Flyout>
+                    </Button.Flyout>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Grid>
 </Page>

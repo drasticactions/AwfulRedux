@@ -303,5 +303,28 @@ namespace AwfulRedux.Core.Managers
             result.Replace("&gt;", @">");
             return result.ToString();
         }
+
+        public async Task<string> GetQuoteString(long postId)
+        {
+            string url = string.Format(EndPoints.QuoteBase, postId);
+            var result = await _webManager.GetData(url);
+            HtmlDocument doc =new HtmlDocument();
+            doc.LoadHtml(result.ResultHtml);
+
+            HtmlNode[] textAreaNodes = doc.DocumentNode.Descendants("textarea").ToArray();
+
+            HtmlNode textNode =
+                textAreaNodes.FirstOrDefault(node => node.GetAttributeValue("name", "").Equals("message"));
+
+            try
+            {
+                // TODO: Figure out why in the hell we have to decode the HTML twice for Unicode to render properly.
+                return WebUtility.HtmlDecode(WebUtility.HtmlDecode(textNode.InnerText));
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Could not parse newReply form data.");
+            }
+        }
     }
 }

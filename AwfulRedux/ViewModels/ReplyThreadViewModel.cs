@@ -21,6 +21,7 @@ namespace AwfulRedux.ViewModels
     {
         public SmiliesViewModel SmiliesViewModel { get; set; }
         public PreviewViewModel PreviewViewModel { get; set; }
+        public PreviousPostsViewModel PreviousPostsViewModel { get; set; }
         private string _title = default(string);
 
         public string Title
@@ -175,6 +176,12 @@ namespace AwfulRedux.ViewModels
                 : await _replyManager.CreatePreviewPost(_forumReply);
             var post = JsonConvert.DeserializeObject<Post>(result.ResultJson);
             PreviewViewModel.LoadPost(Selected.Thread, post);
+        }
+
+        public void ShowPreviousPosts()
+        {
+            PreviousPostsViewModel.IsOpen = true;
+            PreviousPostsViewModel.LoadPreviousPosts(Selected.Thread, JsonConvert.SerializeObject(_forumReply.ForumPosts));
         }
 
         public async Task AddImageViaImgur()

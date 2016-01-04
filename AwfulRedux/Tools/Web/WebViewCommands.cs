@@ -19,6 +19,7 @@ using AwfulRedux.Database;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using AwfulRedux.ViewModels;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
 using Thread = AwfulRedux.Core.Models.Threads.Thread;
@@ -159,6 +160,12 @@ namespace AwfulRedux.Tools.Web
                             }
                             break;
                         case "setFont":
+                            break;
+                        case "previous":
+                            var viewModel = webview.DataContext as PreviousPostsViewModel;
+                            if (viewModel == null) return;
+                            var quoteObject2 = JsonConvert.DeserializeObject<PostQuote>(command.Id);
+                            viewModel.AddQuoteString(Convert.ToInt32(quoteObject2.post_id));
                             break;
                         case "openThread":
                             var query = Extensions.ParseQueryString(command.Id);

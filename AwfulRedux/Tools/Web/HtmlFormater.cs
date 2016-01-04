@@ -112,7 +112,7 @@ namespace AwfulRedux.Tools.Web
             {
                 post
             };
-            threadHtml += ParsePosts(0, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, true, true);
+            threadHtml += ParsePosts(0, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, true, true, false);
 
             bodyNode.InnerHtml = threadHtml;
 
@@ -135,7 +135,7 @@ namespace AwfulRedux.Tools.Web
             return doc2.DocumentNode.OuterHtml;
         }
 
-        public static async Task<string> FormatThreadHtml(Thread forumThreadEntity, List<Post> postEntities, PlatformIdentifier platformIdentifier, bool isLoggedIn = false)
+        public static async Task<string> FormatThreadHtml(Thread forumThreadEntity, List<Post> postEntities, PlatformIdentifier platformIdentifier, bool isLoggedIn = false, bool isPreviousPosts = false)
         {
             string html = await PathIO.ReadTextAsync("ms-appx:///Assets/Website/thread.html");
 
@@ -203,13 +203,13 @@ namespace AwfulRedux.Tools.Web
                 threadHtml += showThreadsButton;
 
                 threadHtml += "</div><div style=\"display: none;\" id=\"hiddenPosts\">";
-                threadHtml += ParsePosts(0, forumThreadEntity.ScrollToPost, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn);
+                threadHtml += ParsePosts(0, forumThreadEntity.ScrollToPost, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn, false, isPreviousPosts);
                 threadHtml += "</div>";
-                threadHtml += ParsePosts(forumThreadEntity.ScrollToPost, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn);
+                threadHtml += ParsePosts(forumThreadEntity.ScrollToPost, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn, false, isPreviousPosts);
             }
             else
             {
-                threadHtml += ParsePosts(0, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn);
+                threadHtml += ParsePosts(0, postEntities.Count, postEntities, forumThreadEntity.IsPrivateMessage, isLoggedIn, false, isPreviousPosts);
             }
 
             bodyNode.InnerHtml = threadHtml;
@@ -234,7 +234,7 @@ namespace AwfulRedux.Tools.Web
             return doc2.DocumentNode.OuterHtml;
         }
 
-        private static string ParsePosts(int startingCount, int endCount, List<Post> postEntities, bool isPrivateMessage, bool isLoggedIn, bool isPreview = false)
+        private static string ParsePosts(int startingCount, int endCount, List<Post> postEntities, bool isPrivateMessage, bool isLoggedIn, bool isPreview = false, bool isPreviousPosts = false)
         {
             int seenCount = 1;
             string threadHtml = string.Empty;
@@ -261,7 +261,16 @@ namespace AwfulRedux.Tools.Web
                     userInfo = $"<div class=\"{userInfoClass}\">{username}{postData}</div>";
                 }
 
-                string postButtons = isLoggedIn && !isPreview ? CreateButtons(post) : string.Empty;
+                string postButtons;
+                if (isPreviousPosts)
+                {
+                    postButtons = CreatePreviousButtons(post);
+                }
+                else
+                {
+                    postButtons = isLoggedIn && !isPreview ? CreateButtons(post) : string.Empty;
+                }
+
                 string footer = string.Empty;
                 if (!isPrivateMessage)
                 {
@@ -291,6 +300,16 @@ namespace AwfulRedux.Tools.Web
                         userAvatar, userInfo, postBody, footer, string.Concat("\"pti", index + 1, "\""), string.Concat("\"postId", post.PostId, "\""), string.Concat("\"", hasSeen, "\""));
             }
             return threadHtml;
+        }
+
+        private static string CreatePreviousButtons(Post post)
+        {
+            var clickHandler = $"window.QuotePreviousPost('{post.PostId}')";
+
+            string quoteButton = HtmlButtonBuilder.CreateSubmitButton("Add Quote", clickHandler, string.Empty);
+
+            return string.Concat("<ul class=\"profilelinks\">",
+                       quoteButton, "</ul>");
         }
 
         private static string CreateButtons(Post post)

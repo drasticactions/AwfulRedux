@@ -45,6 +45,7 @@
                         </ListView.ItemContainerStyle>
                     </ListView>
                     <CommandBar Grid.Row="3">
+                        <AppBarButton Label="Create Thread" Click="{x:Bind ViewModel.CreateThread}" Icon="Add"/>
                         <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
                     </CommandBar>
                 </Grid>

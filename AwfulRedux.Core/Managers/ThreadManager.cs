@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using AwfulRedux.Core.Exceptions;
 using AwfulRedux.Core.Interfaces;
 using AwfulRedux.Core.Models.Forums;
+using AwfulRedux.Core.Models.Posts;
 using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Models.Web;
 using AwfulRedux.Core.Tools;
@@ -89,6 +91,99 @@ namespace AwfulRedux.Core.Managers
             return await _webManager.PostData(EndPoints.Bookmark, header);
         }
 
+        public async Task<NewThread> GetThreadCookiesAsync(int forumId)
+        {
+            try
+            {
+                string url = string.Format(EndPoints.NewThread, forumId);
+                var result = await _webManager.GetData(url);
+                HtmlDocument doc = new HtmlDocument();
+                doc.LoadHtml(result.ResultHtml);
+                HtmlNode[] formNodes = doc.DocumentNode.Descendants("input").ToArray();
+
+                HtmlNode formKeyNode =
+                    formNodes.FirstOrDefault(node => node.GetAttributeValue("name", "").Equals("formkey"));
+
+                HtmlNode formCookieNode =
+                    formNodes.FirstOrDefault(node => node.GetAttributeValue("name", "").Equals("form_cookie"));
+
+                var newForumEntity = new NewThread();
+                try
+                {
+                    string formKey = formKeyNode.GetAttributeValue("value", "");
+                    string formCookie = formCookieNode.GetAttributeValue("value", "");
+                    newForumEntity.FormKey = formKey;
+                    newForumEntity.FormCookie = formCookie;
+                    return newForumEntity;
+                }
+                catch (Exception exception)
+                {
+                    throw new InvalidOperationException($"Could not parse new thread form data. {exception}");
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public async Task<Result> CreateNewThreadAsync(NewThread newThreadEntity)
+        {
+            var form = new MultipartFormDataContent
+            {
+                {new StringContent("postthread"), "action"},
+                {new StringContent(newThreadEntity.ForumId.ToString(CultureInfo.InvariantCulture)), "forumid"},
+                {new StringContent(newThreadEntity.FormKey), "formkey"},
+                {new StringContent(newThreadEntity.FormCookie), "form_cookie"},
+                {new StringContent(newThreadEntity.PostIcon.Id.ToString(CultureInfo.InvariantCulture)), "iconid"},
+                {new StringContent(Extensions.HtmlEncode(newThreadEntity.Subject)), "subject"},
+                {new StringContent(Extensions.HtmlEncode(newThreadEntity.Content)), "message"},
+                {new StringContent(newThreadEntity.ParseUrl.ToString()), "parseurl"},
+                {new StringContent("Submit Reply"), "submit"}
+            };
+            return await _webManager.PostFormData(EndPoints.NewThreadBase, form);
+        }
+
+        public async Task<Result> CreateNewThreadPreview(NewThread newThreadEntity)
+        {
+            var form = new MultipartFormDataContent
+            {
+                {new StringContent("postthread"), "action"},
+                {new StringContent(newThreadEntity.ForumId.ToString(CultureInfo.InvariantCulture)), "forumid"},
+                {new StringContent(newThreadEntity.FormKey), "formkey"},
+                {new StringContent(newThreadEntity.FormCookie), "form_cookie"},
+                {new StringContent(newThreadEntity.PostIcon.Id.ToString(CultureInfo.InvariantCulture)), "iconid"},
+                {new StringContent(Extensions.HtmlEncode(newThreadEntity.Subject)), "subject"},
+                {new StringContent(Extensions.HtmlEncode(newThreadEntity.Content)), "message"},
+                {new StringContent(newThreadEntity.ParseUrl.ToString()), "parseurl"},
+                {new StringContent("Submit Post"), "submit"},
+                {new StringContent("Preview Post"), "preview"}
+            };
+
+            // We post to SA the same way we would for a normal reply, but instead of getting a redirect back to the
+            // thread, we'll get redirected to back to the reply screen with the preview message on it.
+            // From here we can parse that preview and return it to the user.
+            try
+            {
+                var result = await _webManager.PostFormData(EndPoints.NewThreadBase, form);
+                var doc = new HtmlDocument();
+                doc.LoadHtml(result.ResultHtml);
+                HtmlNode[] replyNodes = doc.DocumentNode.Descendants("div").ToArray();
+
+                HtmlNode previewNode =
+                    replyNodes.FirstOrDefault(node => node.GetAttributeValue("class", "").Equals("inner postbody"));
+                var post = new Post { PostHtml = previewNode.OuterHtml };
+                result.ResultJson = JsonConvert.SerializeObject(post);
+                return result;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Failed to get preview HTML", exception);
+            }
+        }
+
+
+
         public async Task<Result> GetForumThreadsAsync(string forumLocation, int forumId, int page, bool parseToJson = true)
         {
             string url = forumLocation + string.Format(EndPoints.PageNumber, page);
@@ -141,6 +236,11 @@ namespace AwfulRedux.Core.Managers
 
             result.ResultJson = JsonConvert.SerializeObject(forumThreadList);
             return result;
+        }
+
+        public async Task<Result> MarkPostAsLastReadAs(long threadId, int index)
+        {
+           return await _webManager.GetData(string.Format(EndPoints.LastRead, index, threadId));
         }
 
         private void ParseHasSeenThread(Thread threadEntity, HtmlNode threadNode)

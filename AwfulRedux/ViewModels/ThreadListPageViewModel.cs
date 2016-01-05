@@ -93,5 +93,17 @@ namespace AwfulRedux.ViewModels
         {
             NavigationService.Navigate(typeof(ReplyPage), JsonConvert.SerializeObject(thread));
         }
+
+        public void CreateThread()
+        {
+            if (Views.Shell.Instance.ViewModel.IsLoggedIn)
+            {
+                NavigationService.Navigate(typeof(NewThreadPage), JsonConvert.SerializeObject(Forum));
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

@@ -40,6 +40,7 @@
     <Compile Include="Interfaces\IWebManager.cs" />
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\ForumManager.cs" />
+    <Compile Include="Managers\PostIconManager.cs" />
     <Compile Include="Managers\PostManager.cs" />
     <Compile Include="Managers\ReplyManager.cs" />
     <Compile Include="Managers\SmileManager.cs" />
@@ -50,11 +51,14 @@
     <Compile Include="Models\Forums\Forum.cs" />
     <Compile Include="Models\Polls\PollItem.cs" />
     <Compile Include="Models\Polls\PollGroup.cs" />
+    <Compile Include="Models\PostIcons\PostIcon.cs" />
+    <Compile Include="Models\PostIcons\PostIconCategory.cs" />
     <Compile Include="Models\Posts\Post.cs" />
     <Compile Include="Models\Posts\PostElements.cs" />
     <Compile Include="Models\Posts\ThreadPosts.cs" />
     <Compile Include="Models\Replies\ForumReply.cs" />
     <Compile Include="Models\Smilies\SmileCategory.cs" />
+    <Compile Include="Models\Threads\NewThread.cs" />
     <Compile Include="Models\Threads\Thread.cs" />
     <Compile Include="Models\Threads\ThreadCommand.cs" />
     <Compile Include="Models\Users\User.cs" />

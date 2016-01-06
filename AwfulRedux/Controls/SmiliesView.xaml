@@ -46,7 +46,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="smilies:Smile">
                     <Grid HorizontalAlignment="Left" Width="100" Height="100">
-                        <StackPanel VerticalAlignment="Bottom" Background="#FFF0F0F0">
+                        <StackPanel VerticalAlignment="Bottom">
                             <Border Height="50" Background="{ThemeResource AwfulHeader}">
                                 <Image xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding ImageUrl}" Stretch="None"
                                            AutomationProperties.Name="{Binding Title}" />

@@ -277,18 +277,19 @@ namespace AwfulRedux.Tools.Web
                     footer = $"<tr class=\"postbar\"><td class=\"postlinks\">{postButtons}</td></tr>";
                 }
                 string postBody = string.Format("<div id=\"{1}\" class=\"postbody\">{0}</div>", post.PostHtml, post.PostId);
-
+                string padding = isPreview ? "" : "padding: 15px;";
+                string threadView = isPreview ? "" : "threadView";
                 threadHtml +=
                     string.Format(
                         "<div class={6} id={4}>" +
                         "<div id={5}>" +
                         "<div class=\"row clearfix\">" +
                         "<div class=\"col-md-4\">" +
-                        "<div id=\"threadView\">" +
+                        "<div id=\"{8}\">" +
                         "{0}{1}" +
                         "</div>" +
                         "</div>" +
-                        "<div style=\"padding: 15px;\" class=\"col-md-8\">" +
+                        "<div style=\"{7}\" class=\"col-md-8\">" +
                         "<div class=\"article-content\">" +
                         "{2}" +
                         "<footer>{3}</footer>" +
@@ -297,7 +298,7 @@ namespace AwfulRedux.Tools.Web
                         "</div>" +
                         "</div>" +
                         "</div>",
-                        userAvatar, userInfo, postBody, footer, string.Concat("\"pti", index + 1, "\""), string.Concat("\"postId", post.PostId, "\""), string.Concat("\"", hasSeen, "\""));
+                        userAvatar, userInfo, postBody, footer, string.Concat("\"pti", index + 1, "\""), string.Concat("\"postId", post.PostId, "\""), string.Concat("\"", hasSeen, "\""), padding, threadView);
             }
             return threadHtml;
         }

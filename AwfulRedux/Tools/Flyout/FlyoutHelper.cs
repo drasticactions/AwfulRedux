@@ -35,7 +35,7 @@ namespace AwfulRedux.Tools.Flyout
             var fb = d as FlyoutBase;
             if (fb == null)
                 return;
-
+            
             try
             {
                 if ((bool)e.NewValue)

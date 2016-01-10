@@ -32,9 +32,9 @@
         </controls:PageHeader>
         <CommandBar Grid.Row="1">
             <AppBarButton x:Name="SmiliesButton" Click="{x:Bind ViewModel.OpenSmiliesView}" flyout:FlyoutHelper.IsOpen="{x:Bind ViewModel.SmiliesViewModel.IsOpen, Mode=OneWay}"
-                flyout:FlyoutHelper.Parent="{Binding ElementName=SmiliesButton}" Label="Smilies"  Icon="Emoji">
+                flyout:FlyoutHelper.Parent="{Binding ElementName=SmiliesFlyout}" Label="Smilies"  Icon="Emoji">
                 <Button.Flyout>
-                    <Flyout Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
+                    <Flyout x:Name="SmiliesFlyout" Placement="Full" FlyoutPresenterStyle="{StaticResource SmilieFlyoutPresenterStyle}">
                         <controls2:SmiliesView x:Name="SmiliesView"></controls2:SmiliesView>
                     </Flyout>
                 </Button.Flyout>

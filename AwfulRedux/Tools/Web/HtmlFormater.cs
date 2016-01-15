@@ -80,6 +80,10 @@ namespace AwfulRedux.Tools.Web
 
             HtmlNode body = doc2.DocumentNode.Descendants("body").FirstOrDefault();
 
+            body.Attributes.Add("data-show-embedded-tweets", App.Settings.ShowEmbeddedTweets.ToString());
+            body.Attributes.Add("data-show-embedded-gifv", App.Settings.ShowEmbeddedGifv.ToString());
+            body.Attributes.Add("data-show-embedded-video", App.Settings.ShowEmbeddedVideo.ToString());
+
             body.Attributes.Add("data-thread-id", forumThreadEntity.ThreadId.ToString());
             body.Attributes.Add("data-thread-name", forumThreadEntity.Name);
             switch (platformIdentifier)
@@ -147,6 +151,10 @@ namespace AwfulRedux.Tools.Web
             HtmlNode head = doc2.DocumentNode.Descendants("head").FirstOrDefault();
 
             HtmlNode body = doc2.DocumentNode.Descendants("body").FirstOrDefault();
+
+            body.Attributes.Add("data-show-embedded-tweets", App.Settings.ShowEmbeddedTweets.ToString());
+            body.Attributes.Add("data-show-embedded-gifv", App.Settings.ShowEmbeddedGifv.ToString());
+            body.Attributes.Add("data-show-embedded-video", App.Settings.ShowEmbeddedVideo.ToString());
 
             body.Attributes.Add("data-thread-id", forumThreadEntity.ThreadId.ToString());
             body.Attributes.Add("data-thread-name", forumThreadEntity.Name);

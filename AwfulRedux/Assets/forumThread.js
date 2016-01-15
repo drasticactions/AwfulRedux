@@ -163,42 +163,51 @@ $(document).ready(function() {
     // MP4 + WEBM Thanks again to the SALR team! :)
     // Should attempt MP4 stream first, then WEBM fallback
     // Only MP4. Edge does not support WebM.
-    var mp4 = $('.postbody a[href$="mp4"]');
-    mp4 = mp4.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
-    mp4 = mp4.not('.bbc-spoiler a');
-    mp4.each(function () {
-        $(this).html('<video preload="auto" autoplay="false" controls loop max muted="true"><source src="' + $(this).attr('href') + '" type="video/mp4"> </video>');
-    });
 
-    //IMGUR GIFV
-    var gifvs = $('a[href$="gifv"]');
-    gifvs = gifvs.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
-    gifvs = gifvs.not('.bbc-spoiler a');
-    gifvs.each(function () {
-        // ($(this).attr('href').substr($(this).attr('href').length-4).indexOf('mp4') != -1)
-        $(this).html('<video preload="auto" autoplay="true" loop max muted="true"> <source src="' + $(this).attr('href').replace(/\.gifv$/i, '.mp4') + '" type="video/mp4"> </video>');
-    });
-    // TWITTER TEST - Thank you to SALR Chrome :)
-    var tweets = $('.postbody a[href*="twitter.com"]');
-    tweets = tweets.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
-    tweets = tweets.not('.bbc-spoiler a');
-    tweets.each(function() {
-        var match = $(this).attr('href').match(/(https|http):\/\/twitter.com\/[0-9a-zA-Z_]+\/(status|statuses)\/([0-9]+)/);
-        if (match == null) {
-            return;
-        }
-        var tweetId = match[3];
-        var link = this;
-        $.ajax({url:"https://api.twitter.com/1/statuses/oembed.json?id="+tweetId,
-            dataType: 'jsonp',
-            success: function(data) {
-                link = $(link).wrap("<div class='tweet'>").parent();
-                // WinRT Webviews hate calling out to external web javascript. So for now, we will load our own. :(
-                data.html = data.html.replace('<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>', '<script async src="ms-appx-web:///Assets/widgets.js" charset="utf-8"></script>');
-                $(link).html(data.html);
+    if ($("body").attr("data-show-embedded-tweets").toLowerCase() === "true") {
+        // TWITTER TEST - Thank you to SALR Chrome :)
+        var tweets = $('.postbody a[href*="twitter.com"]');
+        tweets = tweets.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+        tweets = tweets.not('.bbc-spoiler a');
+        tweets.each(function () {
+            var match = $(this).attr('href').match(/(https|http):\/\/twitter.com\/[0-9a-zA-Z_]+\/(status|statuses)\/([0-9]+)/);
+            if (match == null) {
+                return;
             }
+            var tweetId = match[3];
+            var link = this;
+            $.ajax({
+                url: "https://api.twitter.com/1/statuses/oembed.json?id=" + tweetId,
+                dataType: 'jsonp',
+                success: function (data) {
+                    link = $(link).wrap("<div class='tweet'>").parent();
+                    // WinRT Webviews hate calling out to external web javascript. So for now, we will load our own. :(
+                    data.html = data.html.replace('<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>', '<script async src="ms-appx-web:///Assets/widgets.js" charset="utf-8"></script>');
+                    $(link).html(data.html);
+                }
+            });
         });
-    });
+    }
+
+    if ($("body").attr("data-show-embedded-gifv").toLowerCase() === "true") {
+        //IMGUR GIFV
+        var gifvs = $('a[href$="gifv"]');
+        gifvs = gifvs.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+        gifvs = gifvs.not('.bbc-spoiler a');
+        gifvs.each(function () {
+            // ($(this).attr('href').substr($(this).attr('href').length-4).indexOf('mp4') != -1)
+            $(this).html('<video preload="auto" autoplay="true" loop max muted="true"> <source src="' + $(this).attr('href').replace(/\.gifv$/i, '.mp4') + '" type="video/mp4"> </video>');
+        });
+    }
+
+    if ($("body").attr("data-show-embedded-video").toLowerCase() === "true") {
+        var mp4 = $('.postbody a[href$="mp4"]');
+        mp4 = mp4.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+        mp4 = mp4.not('.bbc-spoiler a');
+        mp4.each(function () {
+            $(this).html('<video preload="auto" autoplay="false" controls loop max muted="true"><source src="' + $(this).attr('href') + '" type="video/mp4"> </video>');
+        });
+    }
 });
 
 function add_whoposted_links() {

@@ -10,6 +10,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:controls1="using:AwfulRedux.Controls"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -54,7 +55,7 @@
 
         <!--  header  -->
 
-        <controls:PageHeader BackButtonVisibility="Collapsed"   Content="Settings Page" Frame="{x:Bind Frame}">
+        <controls:PageHeader BackButtonVisibility="Collapsed"   Content="Settings" Frame="{x:Bind Frame}">
             <interactivity:Interaction.Behaviors>
                 <behaviors:EllipsisBehavior Visibility="Auto" />
             </interactivity:Interaction.Behaviors>
@@ -62,17 +63,49 @@
 
         <!--  #region content  -->
 
-        <Pivot x:Name="MyPivot" Grid.Row="1">
-            <PivotItem DataContext="{Binding SettingsPartViewModel}" Header="Settings">
+        <Pivot x:Name="MyPivot" Style="{StaticResource TabsStylePivotStyle}" Grid.Row="1">
+            <PivotItem DataContext="{Binding SettingsPartViewModel}">
+                <PivotItem.Header>
+                    <controls1:TabHeader Label="App" Glyph="&#xE774;" />
+                </PivotItem.Header>
                 <ScrollViewer Margin="0,12,-12,0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
                     <RelativePanel HorizontalAlignment="Left">
-                        <ToggleSwitch x:Name="UseDarkThemeToggleSwitch" Header="Use Light Theme"
+                        <ToggleSwitch x:Name="UseDarkThemeToggleSwitch"  Header="Use Light Theme"
                                       IsOn="{Binding UseDarkThemeButton, Mode=TwoWay}"
                                       OffContent="Light Theme" OnContent="Dark Theme" />
+                        <TextBlock Margin="0,0,0,20" x:Name="ThemeSwitchText" RelativePanel.Below="UseDarkThemeToggleSwitch" TextWrapping="Wrap">If you change the theme, you must restart the app to fully see the changes.</TextBlock>
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>
-            <PivotItem DataContext="{Binding SettingsPartViewModel}" Header="Privacy statement" Padding="0">
+            <PivotItem DataContext="{Binding SettingsPartViewModel}">
+                <PivotItem.Header>
+                    <controls1:TabHeader Label="Thread" Glyph="&#xE90A;" />
+                </PivotItem.Header>
+                <ScrollViewer Margin="0,12,-12,0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
+                    <RelativePanel HorizontalAlignment="Left">
+                        <ToggleSwitch x:Name="UseShowEmbeddedTwitterSwitch" Header="Show Full Embedded Tweets in Threads"
+                                      IsOn="{Binding UseShowEmbeddedTweetsButton, Mode=TwoWay}"
+                                      OffContent="Off" OnContent="On" />
+                        <TextBlock  Margin="0,0,0,20" x:Name="ShowEmbeddedTweetsText" RelativePanel.Below="UseShowEmbeddedTwitterSwitch" TextWrapping="Wrap">
+                            If enabled, Twitter URLs that are wrapped in [url] tags will appear as fully embedded tweets.
+                        </TextBlock>
+                        <ToggleSwitch  x:Name="UseShowEmbeddedGifvSwitch" RelativePanel.Below="ShowEmbeddedTweetsText" Header="Show Embedded GIFVs"
+                                      IsOn="{Binding UseShowEmbeddedGifvButton, Mode=TwoWay}"
+                                      OffContent="Off" OnContent="On" />
+                        <TextBlock  Margin="0,0,0,20" x:Name="ShowEmbeddedGifvText" RelativePanel.Below="UseShowEmbeddedGifvSwitch" TextWrapping="Wrap">
+                            Render all [url] wrapped imgur GIFVs.
+                        </TextBlock>
+                        <ToggleSwitch x:Name="UseShowEmbeddedVideoSwitch"  RelativePanel.Below="ShowEmbeddedGifvText" Header="Show Embedded MP4 Videos"
+                                      IsOn="{Binding UseShowEmbeddedVideoButton, Mode=TwoWay}"
+                                      OffContent="Off" OnContent="On" />
+                        <TextBlock  Margin="0,0,0,20" x:Name="ShowEmbeddedVideoText" RelativePanel.Below="UseShowEmbeddedVideoSwitch" TextWrapping="Wrap">Render all [url] wrapped MP4 videos.</TextBlock>
+                    </RelativePanel>
+                </ScrollViewer>
+            </PivotItem>
+            <PivotItem DataContext="{Binding SettingsPartViewModel}" Padding="0">
+                <PivotItem.Header>
+                    <controls1:TabHeader Label="Privacy" Glyph="&#xE8A6;" />
+                </PivotItem.Header>
                 <ScrollViewer Margin="0,0,-12,0" VerticalScrollBarVisibility="Auto">
                     <TextBlock Margin="0,12,24,12" LineHeight="24" TextWrapping="Wrap">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pharetra dictum nibh vel ornare. Donec sem urna, rhoncus sed cursus ac, aliquet at nisl. Pellentesque cursus et lacus vel porta. Morbi iaculis efficitur volutpat. Curabitur sit amet cursus nisl, ac suscipit mauris. Nulla a tellus a odio tincidunt maximus. Maecenas non eros lacus. Donec aliquam libero nec ex ullamcorper, in lobortis nibh dapibus. Mauris vehicula, tellus quis congue tincidunt, neque massa auctor ante, ut laoreet felis nisi id tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc sed dapibus quam, in viverra arcu. Vivamus ut metus non magna viverra porttitor a ultrices dui.
@@ -107,7 +140,10 @@
                     </TextBlock>
                 </ScrollViewer>
             </PivotItem>
-            <PivotItem Header="About">
+            <PivotItem>
+                <PivotItem.Header>
+                    <controls1:TabHeader Label="About" Glyph="&#xE76E;" />
+                </PivotItem.Header>
                 <Grid DataContext="{Binding AboutPartViewModel}">
                     <Border HorizontalAlignment="Right" VerticalAlignment="Top"
                             BorderBrush="DimGray" BorderThickness="1"
@@ -115,7 +151,7 @@
                         <Border.Background>
                             <SolidColorBrush Color="{ThemeResource SystemAccentColor}" />
                         </Border.Background>
-                        <Image Margin="12" Source="{Binding Logo}" Stretch="None" />
+                        <Image Margin="12" Width="60" Height="60"  Source="{Binding Logo}" Stretch="None" />
                     </Border>
                     <StackPanel>
                         <TextBlock Margin="0,0,0,12" FontSize="24" Text="{Binding DisplayName}" />

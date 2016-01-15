@@ -3,7 +3,7 @@
         "Command": command,
         "Id": id
     };
-    //window.external.notify(JSON.stringify(forumCommandObject));
+    window.external.notify(JSON.stringify(forumCommandObject));
 };
 
 var ScrollToBottom = function() {

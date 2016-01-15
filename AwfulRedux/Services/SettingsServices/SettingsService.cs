@@ -29,6 +29,30 @@ namespace AwfulRedux.Services.SettingsServices
             }
         }
 
+        public bool ShowEmbeddedTweets {
+            get { return _helper.Read<bool>(nameof(ShowEmbeddedTweets), true); }
+            set
+            {
+                _helper.Write(nameof(ShowEmbeddedTweets), value);
+            }
+        }
+        public bool ShowEmbeddedVideo
+        {
+            get { return _helper.Read<bool>(nameof(ShowEmbeddedVideo), true); }
+            set
+            {
+                _helper.Write(nameof(ShowEmbeddedVideo), value);
+            }
+        }
+        public bool ShowEmbeddedGifv
+        {
+            get { return _helper.Read<bool>(nameof(ShowEmbeddedVideo), true); }
+            set
+            {
+                _helper.Write(nameof(ShowEmbeddedVideo), value);
+            }
+        }
+
         public ApplicationTheme AppTheme
         {
             get

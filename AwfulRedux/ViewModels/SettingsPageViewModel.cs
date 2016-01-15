@@ -24,6 +24,24 @@ namespace AwfulRedux.ViewModels
                 _settings = Services.SettingsServices.SettingsService.Instance;
         }
 
+        public bool UseShowEmbeddedGifvButton
+        {
+            get { return _settings.ShowEmbeddedGifv; }
+            set { _settings.ShowEmbeddedGifv = value; base.RaisePropertyChanged(); }
+        }
+
+        public bool UseShowEmbeddedTweetsButton
+        {
+            get { return _settings.ShowEmbeddedTweets; }
+            set { _settings.ShowEmbeddedTweets = value; base.RaisePropertyChanged(); }
+        }
+
+        public bool UseShowEmbeddedVideoButton
+        {
+            get { return _settings.ShowEmbeddedVideo; }
+            set { _settings.ShowEmbeddedVideo = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseDarkThemeButton
         {
             get { return _settings.AppTheme.Equals(ApplicationTheme.Dark); }

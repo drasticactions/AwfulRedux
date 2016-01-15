@@ -1311,8 +1311,8 @@ abbr[data-original-title] {
   font-size: 90%; }
 
 blockquote {
-  padding: 11.5px 23px;
-  margin: 0 0 23px;
+  padding: 0.5px 23px;
+  margin: 0 0 10px;
   border-left: 5px solid rgba(0, 0, 0, 0.1); }
   blockquote p:last-child,
   blockquote ul:last-child,
@@ -6758,8 +6758,7 @@ button.close {
     .h4, .type-h4, h4 {
       line-height: 1.17647; } }
   @media (max-width: 767px) {
-    .h4, .type-h4, h4 {
-      padding: 36px 0 4px; } }
+    .h4, .type-h4, h4 {} }
   @media (min-width: 2048px) {
     .h4, .type-h4, h4 {
       padding: 38px 0 2px; } }

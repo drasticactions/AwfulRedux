@@ -152,8 +152,9 @@ namespace AwfulRedux.Tools.Web
             body.Attributes.Add("data-thread-name", forumThreadEntity.Name);
             switch (platformIdentifier)
             {
+                // If on dark theme, load dark theme twitter css too.
                 case PlatformIdentifier.WindowsPhone:
-                    head.InnerHtml += "<link href=\"ms-appx-web:///Assets/Website/CSS/WindowsPhone-Default.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                    head.InnerHtml += "<meta name=\"twitter:widgets:theme\" content=\"dark\"><link href=\"ms-appx-web:///Assets/Website/CSS/WindowsPhone-Default.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
                     break;
             }
 

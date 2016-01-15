@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="twitter:dnt" content="on">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="CSS/winstrap.css" media="all" rel="stylesheet" type="text/css">
     <link href="CSS/forum-thread.css" media="all" rel="stylesheet" type="text/css">
     <link href="CSS/bbcode.css" media="all" rel="stylesheet" type="text/css">
     <link href="CSS/Swipe.css" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="../jquery.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" async="" src="../widgets.js"></script>
     <script type="text/javascript" async="" src="../forumThread.js"></script>
     <script type="text/javascript" async="" src="../threadTemplate.js"></script>
     <script type="text/javascript" async="" src="../url.min.js"></script>
@@ -44,75 +46,75 @@
             });
             ForumCommand('setFont', null);
 
-            function swipe() {
-                var reqAnimationFrame = (function() {
-                    return window[Hammer.prefixed(window, "requestAnimationFrame")] || function(callback) {
-                        setTimeout(callback, 1000 / 60);
-                    }
-                })();
+            //function swipe() {
+            //    var reqAnimationFrame = (function() {
+            //        return window[Hammer.prefixed(window, "requestAnimationFrame")] || function(callback) {
+            //            setTimeout(callback, 1000 / 60);
+            //        }
+            //    })();
 
-                function dirProp(direction, hProp, vProp) {
-                    return (direction & Hammer.DIRECTION_HORIZONTAL) ? hProp : vProp
-                }
+            //    function dirProp(direction, hProp, vProp) {
+            //        return (direction & Hammer.DIRECTION_HORIZONTAL) ? hProp : vProp
+            //    }
 
-                function HammerCarousel(container, direction) {
-                    this.container = container;
-                    this.direction = direction;
-                    this.panes = Array.prototype.slice.call(this.container.children, 0);
-                    this.containerSize = this.container[dirProp(direction, 'offsetWidth', 'offsetHeight')];
-                    this.currentIndex = 1;
-                    this.hammer = new Hammer.Manager(this.container);
-                    this.hammer.add(new Hammer.Pan({ direction: this.direction, threshold: 10 }));
-                    this.hammer.on("panstart panmove panend pancancel", Hammer.bindFn(this.onPan, this));
-                    this.show(this.currentIndex);
-                }
+            //    function HammerCarousel(container, direction) {
+            //        this.container = container;
+            //        this.direction = direction;
+            //        this.panes = Array.prototype.slice.call(this.container.children, 0);
+            //        this.containerSize = this.container[dirProp(direction, 'offsetWidth', 'offsetHeight')];
+            //        this.currentIndex = 1;
+            //        this.hammer = new Hammer.Manager(this.container);
+            //        this.hammer.add(new Hammer.Pan({ direction: this.direction, threshold: 10 }));
+            //        this.hammer.on("panstart panmove panend pancancel", Hammer.bindFn(this.onPan, this));
+            //        this.show(this.currentIndex);
+            //    }
 
-                HammerCarousel.prototype = {
-                    show: function(showIndex, percent, animate) {
-                        showIndex = Math.max(0, Math.min(showIndex, this.panes.length - 1));
-                        percent = percent || 0;
+            //    HammerCarousel.prototype = {
+            //        show: function(showIndex, percent, animate) {
+            //            showIndex = Math.max(0, Math.min(showIndex, this.panes.length - 1));
+            //            percent = percent || 0;
 
-                        var className = this.container.className;
-                        if (animate) {
-                            if (className.indexOf('animate') === -1) {
-                                this.container.className += ' animate';
-                            }
-                        } else {
-                            if (className.indexOf('animate') !== -1) {
-                                this.container.className = className.replace('animate', '').trim();
-                            }
-                        }
+            //            var className = this.container.className;
+            //            if (animate) {
+            //                if (className.indexOf('animate') === -1) {
+            //                    this.container.className += ' animate';
+            //                }
+            //            } else {
+            //                if (className.indexOf('animate') !== -1) {
+            //                    this.container.className = className.replace('animate', '').trim();
+            //                }
+            //            }
 
-                        var paneIndex, pos, translate;
-                        for (paneIndex = 0; paneIndex < this.panes.length; paneIndex++) {
-                            pos = (this.containerSize / 100) * (((paneIndex - showIndex) * 100) + percent);
-                            translate = 'translate3d(' + pos + 'px, 0, 0)';
-                            this.panes[paneIndex].style.transform = translate;
-                            this.panes[paneIndex].style.mozTransform = translate;
-                            this.panes[paneIndex].style.webkitTransform = translate;
-                        }
-                        this.currentIndex = showIndex;
-                    },
+            //            var paneIndex, pos, translate;
+            //            for (paneIndex = 0; paneIndex < this.panes.length; paneIndex++) {
+            //                pos = (this.containerSize / 100) * (((paneIndex - showIndex) * 100) + percent);
+            //                translate = 'translate3d(' + pos + 'px, 0, 0)';
+            //                this.panes[paneIndex].style.transform = translate;
+            //                this.panes[paneIndex].style.mozTransform = translate;
+            //                this.panes[paneIndex].style.webkitTransform = translate;
+            //            }
+            //            this.currentIndex = showIndex;
+            //        },
 
-                    onPan: function(ev) {
-                        var delta = dirProp(this.direction, ev.deltaX, ev.deltaY),
-                            percent = (100 / this.containerSize) * delta,
-                            animate = false;
-                        if (ev.type == 'panend' || ev.type == 'pancancel') {
-                            if (Math.abs(percent) > 20 && ev.type == 'panend') {
-                                this.currentIndex += (percent < 0) ? 1 : -1;
-                            }
-                            percent = 0;
-                            animate = true;
-                        }
-                        this.show(this.currentIndex, percent, animate);
-                    }
-                };
+            //        onPan: function(ev) {
+            //            var delta = dirProp(this.direction, ev.deltaX, ev.deltaY),
+            //                percent = (100 / this.containerSize) * delta,
+            //                animate = false;
+            //            if (ev.type == 'panend' || ev.type == 'pancancel') {
+            //                if (Math.abs(percent) > 20 && ev.type == 'panend') {
+            //                    this.currentIndex += (percent < 0) ? 1 : -1;
+            //                }
+            //                percent = 0;
+            //                animate = true;
+            //            }
+            //            this.show(this.currentIndex, percent, animate);
+            //        }
+            //    };
 
-                var outer = new HammerCarousel(document.querySelector('.Swiper'), Hammer.DIRECTION_HORIZONTAL);
-            };
+            //    var outer = new HammerCarousel(document.querySelector('.Swiper'), Hammer.DIRECTION_HORIZONTAL);
+            //};
 
-            $(swipe);
+            //$(swipe);
         };
 
     </script>
@@ -122,7 +124,6 @@
 
 <body style="overflow-x: hidden;" id="thread">
     <div class="Swiper">
-        <div class="Page">PAGE 1<br />DRAG LEFT</div>
         <div class="container-fluid">
             <div class="row clearfix">
                 <div style="display: none;" id="loggedinusername">Drastic Actions</div>
@@ -142,42 +143,7 @@
                                     <div id="452309756" class="postbody">
                                         <!-- BeginContentMarker -->
                                         <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452306487')">EssOEss posted:</a></h4><blockquote>
-                                                A common idiom I use that takes advantage of that is the named constructor, to make it clear and obvious that creating an instance is nontrivial.<br>
-                                            </blockquote>
-                                        </div>
-
-                                        <br>
-                                        You could also use the builder pattern here too:<br>
-                                        <br>
-                                        <div class="bbc-block code">
-                                            <h5>code:</h5><pre><code class="no-highlight">    public class Complex
-    {
-        private int _foo;
-        
-        private Complex()
-        {
-        }
-        public class Builder
-        {
-            private Complex _complex = new Complex();
-            
-            public Complex Build(int foo)
-            {
-                if (_complex == null)
-                   throw new InvalidOperationException();
-                _complex._foo = foo;
-                
-                var retVal = _complex;
-                _complex = null;
-                
-                return retVal;
-            }
-        }
-    }
-</code></pre>
-                                        </div>
+                                        <a href="https://twitter.com/famitsu/status/687995119933493248" target="_blank" rel="nofollow">https://twitter.com/famitsu/status/687995119933493248</a>
                                         <!-- google_ad_section_end -->
                                         <!-- EndContentMarker -->
 
@@ -753,7 +719,6 @@
                 </div>
             </div>
         </div>
-        <div class="Page">PAGE 4<br />FLICK TO GO BACK</div>
     </div>
 </body>
 </html>

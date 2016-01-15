@@ -100,7 +100,6 @@
     <Content Include="Assets\BadgeLogo.scale-400.png" />
     <Content Include="Assets\bootstrap.js" />
     <Content Include="Assets\bootstrap.min.js" />
-    <Content Include="Assets\forums.js" />
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -874,6 +873,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\widgets.js" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

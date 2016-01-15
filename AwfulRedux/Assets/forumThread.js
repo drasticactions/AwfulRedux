@@ -54,7 +54,7 @@ SA.utils = new function(e, f, a) {
     };
 }(window, document, jQuery);
 new function(e, f, a) {
-    var g = a.browser.webkit || a.browser.safari ? "body" : "html",
+    var g = "body",
         i,
         k = 0,
         d = 0,
@@ -156,6 +156,48 @@ $(document).ready(function() {
         $(".cancerous", this).addClass("hover");
     }, function() {
         $(".cancerous", this).removeClass("hover");
+    });
+
+
+
+    // MP4 + WEBM Thanks again to the SALR team! :)
+    // Should attempt MP4 stream first, then WEBM fallback
+    // Only MP4. Edge does not support WebM.
+    var mp4 = $('.postbody a[href$="mp4"]');
+    mp4 = mp4.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+    mp4 = mp4.not('.bbc-spoiler a');
+    mp4.each(function () {
+        $(this).html('<video preload="auto" autoplay="false" controls loop max muted="true"><source src="' + $(this).attr('href') + '" type="video/mp4"> </video>');
+    });
+
+    //IMGUR GIFV
+    var gifvs = $('a[href$="gifv"]');
+    gifvs = gifvs.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+    gifvs = gifvs.not('.bbc-spoiler a');
+    gifvs.each(function () {
+        // ($(this).attr('href').substr($(this).attr('href').length-4).indexOf('mp4') != -1)
+        $(this).html('<video preload="auto" autoplay="true" loop max muted="true"> <source src="' + $(this).attr('href').replace(/\.gifv$/i, '.mp4') + '" type="video/mp4"> </video>');
+    });
+    // TWITTER TEST - Thank you to SALR Chrome :)
+    var tweets = $('.postbody a[href*="twitter.com"]');
+    tweets = tweets.not(".postbody:has(img[title=':nws:']) a").not(".postbody:has(img[title=':nms:']) a");
+    tweets = tweets.not('.bbc-spoiler a');
+    tweets.each(function() {
+        var match = $(this).attr('href').match(/(https|http):\/\/twitter.com\/[0-9a-zA-Z_]+\/(status|statuses)\/([0-9]+)/);
+        if (match == null) {
+            return;
+        }
+        var tweetId = match[3];
+        var link = this;
+        $.ajax({url:"https://api.twitter.com/1/statuses/oembed.json?id="+tweetId,
+            dataType: 'jsonp',
+            success: function(data) {
+                link = $(link).wrap("<div class='tweet'>").parent();
+                // WinRT Webviews hate calling out to external web javascript. So for now, we will load our own. :(
+                data.html = data.html.replace('<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>', '<script async src="ms-appx-web:///Assets/widgets.js" charset="utf-8"></script>');
+                $(link).html(data.html);
+            }
+        });
     });
 });
 
@@ -336,7 +378,7 @@ SA.timg = new function(e, f, a) {
                     b.attr("height", h * g);
                 } else
                     b.removeAttr("width"), b.removeAttr("height");
-                g = a.browser.webkit || a.browser.safari ? "body" : "html";
+                g = "body";
                 h = a(g).scrollTop();
                 c = b.offset().top;
                 b = c + b.height();
@@ -736,7 +778,7 @@ SA.timg = new function(e, f, a) {
                             m.show();
                             SA.timg.scan(c);
                             j.css({ top: d.offset().top });
-                            b = a.browser.webkit || a.browser.safari ? "body" : "html";
+                            b = "body";
                             c = m.offset();
                             c.top < a(b).scrollTop() && a(b).animate({ scrollTop: c.top }, 150);
                         });
@@ -758,7 +800,7 @@ window.SA || (SA = {});
 SA.thread = new function(e, f, a) {
     var g = /\?postid=(\d+)/,
         i = /#post(\d+)/,
-        k = a.browser.webkit || a.browser.safari ? "body" : "html",
+        k = "body",
         d = function(b) {
             var c = a("#" + b);
             if (c.length || "top" == b) {

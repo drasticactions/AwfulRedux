@@ -58,6 +58,14 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            if (state.ContainsKey(nameof(Selected)))
+            {
+                if (Selected == null)
+                {
+                    Selected = JsonConvert.DeserializeObject<Thread>(state[nameof(Selected)]?.ToString());
+                    state.Clear();
+                }
+            }
             if (BookmarkedThreads != null && BookmarkedThreads.Any())
             {
                 return;
@@ -80,6 +88,15 @@ namespace AwfulRedux.ViewModels
                 //AwfulDebugger.SendMessageDialogAsync("Failed to get Bookmarks", ex);
             }
             IsLoading = false;
+        }
+
+        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
+        {
+            if (suspending)
+            {
+                state[nameof(Selected)] = JsonConvert.SerializeObject(Selected);
+            }
+            return Task.CompletedTask;
         }
 
         public async Task Refresh()

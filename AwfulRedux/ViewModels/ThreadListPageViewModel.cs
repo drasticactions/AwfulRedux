@@ -50,6 +50,15 @@ namespace AwfulRedux.ViewModels
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            if (state.ContainsKey(nameof(Selected)))
+            {
+                if (Selected == null)
+                {
+                    Selected = JsonConvert.DeserializeObject<Thread>(state[nameof(Selected)]?.ToString());
+                    state.Clear();
+                }
+            }
+
             if (mode == NavigationMode.Forward | mode == NavigationMode.Back)
             {
                 return;
@@ -60,6 +69,15 @@ namespace AwfulRedux.ViewModels
             Forum = forum;
             ForumPageScrollingCollection = new PageScrollingCollection(Forum, 1);
             ForumPageScrollingCollection.CheckIsPaywallEvent += ForumPageScrollingCollection_CheckIsPaywallEvent;
+        }
+
+        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
+        {
+            if (suspending)
+            {
+                state[nameof(Selected)] = JsonConvert.SerializeObject(Selected);
+            }
+            return Task.CompletedTask;
         }
 
         public void Refresh()

@@ -174,6 +174,9 @@
     <Compile Include="Controls\PreviousPostsView.xaml.cs">
       <DependentUpon>PreviousPostsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PrivateMessageView.xaml.cs">
+      <DependentUpon>PrivateMessageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SmiliesView.xaml.cs">
       <DependentUpon>SmiliesView.xaml</DependentUpon>
     </Compile>
@@ -209,6 +212,7 @@
     <Compile Include="Tools\Errors\ResultChecker.cs" />
     <Compile Include="Tools\Manager\UploadManager.cs" />
     <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
+    <Compile Include="Tools\ScrollingCollection\PrivateMessageScrollingCollection.cs" />
     <Compile Include="Tools\Threads\WebViewHelper.cs" />
     <Compile Include="Tools\Web\AddImage.cs" />
     <Compile Include="Tools\Web\HtmlButtonBuilder.cs" />
@@ -221,6 +225,8 @@
     <Compile Include="ViewModels\PostIconViewModel.cs" />
     <Compile Include="ViewModels\PreviewViewModel.cs" />
     <Compile Include="ViewModels\PreviousPostsViewModel.cs" />
+    <Compile Include="ViewModels\PrivateMessagesListViewModel.cs" />
+    <Compile Include="ViewModels\PrivateMessageViewModel.cs" />
     <Compile Include="ViewModels\ReplyThreadViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -241,6 +247,9 @@
     </Compile>
     <Compile Include="Views\PaywallPage.xaml.cs">
       <DependentUpon>PaywallPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrivateMessageListPage.xaml.cs">
+      <DependentUpon>PrivateMessageListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReplyPage.xaml.cs">
       <DependentUpon>ReplyPage.xaml</DependentUpon>
@@ -907,6 +916,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\PrivateMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SmiliesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -961,6 +974,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PaywallPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PrivateMessageListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

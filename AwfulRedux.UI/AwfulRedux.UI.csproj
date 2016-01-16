@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Models\Forums\Category.cs" />
     <Compile Include="Models\Forums\Forum.cs" />
+    <Compile Include="Models\Messages\PrivateMessage.cs" />
     <Compile Include="Models\Polls\PollGroup.cs" />
     <Compile Include="Models\Polls\PollItem.cs" />
     <Compile Include="Models\Posts\Post.cs" />

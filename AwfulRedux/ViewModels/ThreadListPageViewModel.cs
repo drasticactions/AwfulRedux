@@ -47,19 +47,6 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private PlatformIdentifier GetTheme
-        {
-            get
-            {
-                if (App.Settings.AppTheme == ApplicationTheme.Light)
-                {
-                    return PlatformIdentifier.Windows8;
-                }
-
-                return PlatformIdentifier.WindowsPhone;
-            }
-        }
-
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
@@ -102,7 +89,7 @@ namespace AwfulRedux.ViewModels
             }
             else
             {
-                
+                // TODO: Figure out what to show here?
             }
         }
     }

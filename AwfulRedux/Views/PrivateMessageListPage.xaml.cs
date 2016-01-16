@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.UI.Models.Messages;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.ViewModels;
 
@@ -22,12 +23,19 @@ namespace AwfulRedux.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BookmarksPage : Page
+    public sealed partial class PrivateMessageListPage : Page
     {
-        public BookmarksPage()
+        public PrivateMessageListPage()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
+        }
+
+        private void ResetPageCache()
+        {
+            var cacheSize = ((Frame)Parent).CacheSize;
+            ((Frame)Parent).CacheSize = 0;
+            ((Frame)Parent).CacheSize = cacheSize;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -46,21 +54,15 @@ namespace AwfulRedux.Views
             }
         }
 
-        private void ResetPageCache()
-        {
-            var cacheSize = ((Frame)Parent).CacheSize;
-            ((Frame)Parent).CacheSize = 0;
-            ((Frame)Parent).CacheSize = cacheSize;
-        }
 
         // strongly-typed view models enable x:bind
-        public BookmarkViewModel ViewModel => this.DataContext as BookmarkViewModel;
+        public PrivateMessagesListViewModel ViewModel => this.DataContext as PrivateMessagesListViewModel;
 
         private async void MasterListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (masterListBox.SelectedItem == null) return;
-            var thread = masterListBox.SelectedItem as Thread;
-            await ThreadPageView.LoadThread(thread);
+            var thread = masterListBox.SelectedItem as PrivateMessage;
+            await PrivateMessageView.LoadPrivateMessage(thread);
         }
     }
 }

@@ -9,6 +9,7 @@ using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Models.Messages;
 using AwfulRedux.Core.Models.PostIcons;
+using AwfulRedux.Core.Models.Web;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI.Models.Threads;
 using Newtonsoft.Json;
@@ -122,11 +123,21 @@ namespace AwfulRedux.ViewModels
         {
             if (string.IsNullOrEmpty(ReplyBox.Text) || _newPrivateMessage == null) return;
             if (PostIconViewModel.PostIcon == null) return;
-            _newPrivateMessage.Icon = PostIconViewModel.PostIcon;
-            _newPrivateMessage.Body = ReplyBox.Text;
-            _newPrivateMessage.Receiver = Recipient.Text;
-            _newPrivateMessage.Title = Subject.Text;
-            var result = await _postManager.SendPrivateMessageAsync(_newPrivateMessage);
+            Views.Shell.ShowBusy(true, "Sending PM...");
+            Result result = new Result();
+            try
+            {
+                _newPrivateMessage.Icon = PostIconViewModel.PostIcon;
+                _newPrivateMessage.Body = ReplyBox.Text;
+                _newPrivateMessage.Receiver = Recipient.Text;
+                _newPrivateMessage.Title = Subject.Text;
+                result = await _postManager.SendPrivateMessageAsync(_newPrivateMessage);
+            }
+            catch (Exception)
+            {
+                // TODO: Show error.
+            }
+            Views.Shell.ShowBusy(false);
             if (result.IsSuccess)
             {
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();

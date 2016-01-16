@@ -47,6 +47,7 @@ namespace AwfulRedux
         public override async void OnResuming(object s, object e)
         {
             base.OnResuming(s, e);
+            // On Restore, if we have a frame, remake navigation so we can go back to previous pages.
             if (Frame != null)
             {
                 var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);

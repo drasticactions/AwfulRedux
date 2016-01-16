@@ -20,7 +20,7 @@
         <!-- non-modal content -->
         <controls:HamburgerMenu x:Name="MyHamburgerMenu" 
                                 SecondaryButtonOrientation="Horizontal"
-                                 
+                                AccentColor="{x:Bind ViewModel.AccentColor}"
                                 VisualStateNormalMinWidth="720"
                                 VisualStateWideMinWidth="1020">
 

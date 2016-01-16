@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
@@ -12,6 +13,7 @@ using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
 using SQLite.Net.Platform.WinRT;
+using Template10.Common;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -31,6 +33,9 @@ namespace AwfulRedux.ViewModels
                 Set(ref _isLoggedIn, value);
             }
         }
+
+        public Color AccentColor => (Color) BootStrapper.Current.Resources["SystemAccentColor"];
+
         public async Task LoginUser()
         {
             var defaultUsers = await _udb.GetAuthUsers();

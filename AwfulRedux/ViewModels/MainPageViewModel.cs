@@ -22,7 +22,7 @@ namespace AwfulRedux.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public ObservableCollection<Category> ForumGroupList { get; set; }
+        public ObservableCollection<Category> ForumGroupList { get; set; } = new ObservableCollection<Category>();
 
         private Category _favoritesEntity;
         private readonly MainForumsDatabase _db = new MainForumsDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
@@ -31,20 +31,11 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
-            ForumGroupList = new ObservableCollection<Category>();
-            await LoginUser();
-            await GetFavoriteForums();
-            await GetMainPageForumsAsync();
-        }
-
-        private async Task LoginUser()
-        {
-            var defaultUsers = await _udb.GetAuthUsers();
-            if (!defaultUsers.Any()) return;
-            var defaultUser = defaultUsers.First();
-            var cookie = await CookieManager.LoadCookie(defaultUser.Id + ".txt");
-            Views.Shell.Instance.ViewModel.WebManager = new WebManager(cookie);
-            Views.Shell.Instance.ViewModel.IsLoggedIn = true;
+            if (!ForumGroupList.Any())
+            {
+                await GetFavoriteForums();
+                await GetMainPageForumsAsync();
+            }
         }
 
         public async Task RefreshForums()

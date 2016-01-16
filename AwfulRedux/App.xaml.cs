@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using AwfulRedux.Database;
 using AwfulRedux.Services.SettingsServices;
 using AwfulRedux.Tools.Database;
@@ -15,6 +16,8 @@ namespace AwfulRedux
     sealed partial class App : Template10.Common.BootStrapper
     {
         public static ISettingsService Settings;
+
+        public static Frame Frame;
         public App()
         {
             InitializeComponent();
@@ -41,12 +44,28 @@ namespace AwfulRedux
             await Task.CompletedTask;
         }
 
+        public override async void OnResuming(object s, object e)
+        {
+            base.OnResuming(s, e);
+            if (Frame != null)
+            {
+                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
+                var shell = (Shell)Window.Current.Content;
+                await shell.ViewModel.LoginUser();
+                shell.SetNav(nav);
+            }
+            await Task.CompletedTask;
+        }
+
         // runs even if restored from state
         public override async Task OnInitializeAsync(IActivatedEventArgs args)
         {
             // setup hamburger shell
-            var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
-            Window.Current.Content = new Shell(nav);
+            Frame = new Frame();
+            var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
+            var shell = new Shell(nav);
+            await shell.ViewModel.LoginUser();
+            Window.Current.Content = shell;
             await Task.CompletedTask;
         }
     }

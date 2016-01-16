@@ -381,7 +381,7 @@ namespace Template10.Common
         public Services.NavigationService.NavigationService NavigationServiceFactory(BackButton backButton, ExistingContent existingContent, Frame frame)
         {
             frame.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
-            frame.Content = (existingContent == ExistingContent.Include) ? Window.Current.Content : null;
+            //frame.Content = (existingContent == ExistingContent.Include) ? Window.Current.Content : null;
 
             var navigationService = new Services.NavigationService.NavigationService(frame);
             navigationService.FrameFacade.BackButtonHandling = backButton;

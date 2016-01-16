@@ -35,6 +35,11 @@ namespace AwfulRedux.Views
         // strongly-typed view models enable x:bind
         public ShellViewModel ViewModel => this.DataContext as ShellViewModel;
 
+        public void SetNav(NavigationService navigationService)
+        {
+            MyHamburgerMenu.NavigationService = navigationService;
+        }
+
         public Shell(NavigationService navigationService)
         {
             Instance = this;

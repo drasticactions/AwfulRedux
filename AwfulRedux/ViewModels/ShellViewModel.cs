@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.Database;
+using AwfulRedux.Tools.Authentication;
+using AwfulRedux.Tools.Database;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
+using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -17,6 +22,7 @@ namespace AwfulRedux.ViewModels
 
         private bool _isLoggedIn = default(bool);
 
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
         public bool IsLoggedIn
         {
             get { return _isLoggedIn; }
@@ -24,6 +30,15 @@ namespace AwfulRedux.ViewModels
             {
                 Set(ref _isLoggedIn, value);
             }
+        }
+        public async Task LoginUser()
+        {
+            var defaultUsers = await _udb.GetAuthUsers();
+            if (!defaultUsers.Any()) return;
+            var defaultUser = defaultUsers.First();
+            var cookie = await CookieManager.LoadCookie(defaultUser.Id + ".txt");
+            WebManager = new WebManager(cookie);
+            IsLoggedIn = true;
         }
     }
 }

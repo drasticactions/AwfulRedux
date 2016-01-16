@@ -53,6 +53,33 @@ namespace AwfulRedux.Services.SettingsServices
             }
         }
 
+        public bool BackgroundEnable
+        {
+            get { return _helper.Read<bool>(nameof(BackgroundEnable), false); }
+            set
+            {
+                _helper.Write(nameof(BackgroundEnable), value);
+                ChangeBackgroundStatus(value);
+            }
+        }
+        public bool BookmarkBackground
+        {
+            get { return _helper.Read<bool>(nameof(BookmarkBackground), false); }
+            set
+            {
+                _helper.Write(nameof(BookmarkBackground), value);
+            }
+        }
+
+        public bool BookmarkNotifications
+        {
+            get { return _helper.Read<bool>(nameof(BookmarkNotifications), false); }
+            set
+            {
+                _helper.Write(nameof(BookmarkNotifications), value);
+            }
+        }
+
         public DateTime LastRefresh
         {
             get { return _helper.Read<DateTime>(nameof(LastRefresh), DateTime.Now); }

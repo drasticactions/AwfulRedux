@@ -42,6 +42,24 @@ namespace AwfulRedux.ViewModels
             set { _settings.ShowEmbeddedVideo = value; base.RaisePropertyChanged(); }
         }
 
+        public bool UseBackgroundTask
+        {
+            get { return _settings.BackgroundEnable; }
+            set { _settings.BackgroundEnable = value; base.RaisePropertyChanged(); }
+        }
+
+        public bool UseBackgroundBookmarkLiveTile
+        {
+            get { return _settings.BookmarkBackground; }
+            set { _settings.BookmarkBackground = value; base.RaisePropertyChanged(); }
+        }
+
+        public bool UseBookmarkBackgroundNotify
+        {
+            get { return _settings.BookmarkNotifications; }
+            set { _settings.BookmarkNotifications = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseDarkThemeButton
         {
             get { return _settings.AppTheme.Equals(ApplicationTheme.Dark); }

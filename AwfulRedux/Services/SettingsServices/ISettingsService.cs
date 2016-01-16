@@ -13,6 +13,12 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool ShowEmbeddedGifv { get; set; }
 
+        bool BackgroundEnable { get; set; }
+
+        bool BookmarkBackground { get; set; }
+
+        bool BookmarkNotifications { get; set; }
+
         DateTime LastRefresh { get; set; }
 
         ApplicationTheme AppTheme { get; set; }

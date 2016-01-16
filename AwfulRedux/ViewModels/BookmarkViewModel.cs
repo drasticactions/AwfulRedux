@@ -130,9 +130,9 @@ namespace AwfulRedux.ViewModels
                     {
                         BookmarkedThreads.Add(bookmark);
                     }
-
-                    App.Settings.LastRefresh = DateTime.UtcNow;
                 }
+                App.Settings.LastRefresh = DateTime.UtcNow;
+                await _db.RefreshBookmarkedThreads(BookmarkedThreads.ToList());
             }
             catch (Exception ex)
             {

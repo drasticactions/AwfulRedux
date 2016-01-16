@@ -191,6 +191,7 @@
     <Compile Include="Services\SettingsServices\SettingsService.Apply.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
+    <Compile Include="Tools\Background\BackgroundTaskUtils.cs" />
     <Compile Include="Tools\Flyout\FlyoutHelper.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
     <Compile Include="Tools\Converters\BackButtonEnableConverter.cs" />
@@ -1016,6 +1017,10 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AwfulRedux.BackgroundNotify\AwfulRedux.BackgroundNotify.csproj">
+      <Project>{dd16bd05-bebf-4672-b388-20965d73817b}</Project>
+      <Name>AwfulRedux.BackgroundNotify</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.Core\AwfulRedux.Core.csproj">
       <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
       <Name>AwfulRedux.Core</Name>
@@ -1023,6 +1028,10 @@
     <ProjectReference Include="..\AwfulRedux.Database\AwfulRedux.Database.csproj">
       <Project>{1e180038-8cd3-4006-8780-f7707ae100d4}</Project>
       <Name>AwfulRedux.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AwfulRedux.Notifications\AwfulRedux.Notifications.csproj">
+      <Project>{159a4e13-8ead-44c7-8506-094e11a28bac}</Project>
+      <Name>AwfulRedux.Notifications</Name>
     </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.UI\AwfulRedux.UI.csproj">
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>

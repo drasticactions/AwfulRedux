@@ -53,6 +53,15 @@ namespace AwfulRedux.Services.SettingsServices
             }
         }
 
+        public DateTime LastRefresh
+        {
+            get { return _helper.Read<DateTime>(nameof(LastRefresh), DateTime.Now); }
+            set
+            {
+                _helper.Write(nameof(LastRefresh), value);
+            }
+        }
+
         public ApplicationTheme AppTheme
         {
             get

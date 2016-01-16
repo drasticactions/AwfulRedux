@@ -13,6 +13,8 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool ShowEmbeddedGifv { get; set; }
 
+        DateTime LastRefresh { get; set; }
+
         ApplicationTheme AppTheme { get; set; }
         TimeSpan CacheMaxDuration { get; set; }
     }

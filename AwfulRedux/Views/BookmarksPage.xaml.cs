@@ -30,6 +30,11 @@ namespace AwfulRedux.Views
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
+        private async void RefreshAction()
+        {
+            await ViewModel.Refresh();
+        }
+
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);

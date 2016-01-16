@@ -66,13 +66,12 @@ namespace AwfulRedux.ViewModels
             try
             {
                 BookmarkedThreads = new ObservableCollection<Thread>();
-                DateTime refreshDate = DateTime.UtcNow;
                 var bookmarks = await _db.GetBookmarkedThreadsFromDb();
                 if (bookmarks != null && bookmarks.Any())
                 {
                     BookmarkedThreads = bookmarks.ToObservableCollection();
                 }
-                if ((!BookmarkedThreads.Any() || refreshDate < (DateTime.UtcNow.AddHours(-1.00))))
+                if ((!BookmarkedThreads.Any() || App.Settings.LastRefresh < (DateTime.UtcNow.AddHours(1.00))))
                 {
                     await Refresh();
                 }
@@ -109,6 +108,8 @@ namespace AwfulRedux.ViewModels
                     {
                         BookmarkedThreads.Add(bookmark);
                     }
+
+                    App.Settings.LastRefresh = DateTime.UtcNow;
                 }
             }
             catch (Exception ex)

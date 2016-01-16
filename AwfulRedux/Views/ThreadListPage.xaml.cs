@@ -33,9 +33,16 @@ namespace AwfulRedux.Views
             NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += previewControl.NavigationManager_BackRequested;
+        }
+
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= previewControl.NavigationManager_BackRequested;
             if (e.NavigationMode == NavigationMode.Back)
             {
                 ResetPageCache();

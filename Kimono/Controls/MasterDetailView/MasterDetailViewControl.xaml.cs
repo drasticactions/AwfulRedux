@@ -39,7 +39,6 @@ namespace Kimono.Controls
             this.Unloaded += MasterDetailViewControl_Unloaded;
             ApplicationView.GetForCurrentView().VisibleBoundsChanged += OnVisibleBoundsChanged;
             this.DataContextChanged += MasterDetailViewControl_DataContextChanged;
-            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += NavigationManager_BackRequested;
 
             Window.Current.SizeChanged += Current_SizeChanged;
 
@@ -69,11 +68,10 @@ namespace Kimono.Controls
             this.Unloaded -= MasterDetailViewControl_Unloaded;
             ApplicationView.GetForCurrentView().VisibleBoundsChanged -= OnVisibleBoundsChanged;
             this.DataContextChanged -= MasterDetailViewControl_DataContextChanged;
-            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= NavigationManager_BackRequested;
             Window.Current.SizeChanged -= Current_SizeChanged;
         }
 
-        private void NavigationManager_BackRequested(object sender, HandledEventArgs e)
+        public void NavigationManager_BackRequested(object sender, HandledEventArgs e)
         {
             if (isInOnePaneMode)
             {

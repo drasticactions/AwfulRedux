@@ -18,7 +18,7 @@ namespace AwfulRedux.ViewModels
 {
     public class BookmarkViewModel : ViewModelBase
     {
-        private ObservableCollection<Thread> _bookmarkedThreads;
+        private ObservableCollection<Thread> _bookmarkedThreads = new ObservableCollection<Thread>();
 
         private Thread _selected = default(Thread);
 
@@ -65,13 +65,12 @@ namespace AwfulRedux.ViewModels
             IsLoading = true;
             try
             {
-                BookmarkedThreads = new ObservableCollection<Thread>();
                 var bookmarks = await _db.GetBookmarkedThreadsFromDb();
                 if (bookmarks != null && bookmarks.Any())
                 {
                     BookmarkedThreads = bookmarks.ToObservableCollection();
                 }
-                if ((!BookmarkedThreads.Any() || App.Settings.LastRefresh < (DateTime.UtcNow.AddHours(1.00))))
+                if ((!BookmarkedThreads.Any() || App.Settings.LastRefresh > (DateTime.UtcNow.AddHours(1.00))))
                 {
                     await Refresh();
                 }
@@ -88,9 +87,9 @@ namespace AwfulRedux.ViewModels
             IsLoading = true;
             try
             {
-                BookmarkedThreads = new ObservableCollection<Thread>();
                 var pageNumber = 1;
                 var hasItems = false;
+                var oldList = true;
                 while (!hasItems)
                 {
                     var bookmarkResult = await _threadManager.GetBookmarksAsync(pageNumber);
@@ -102,6 +101,12 @@ namespace AwfulRedux.ViewModels
                     else
                     {
                         pageNumber++;
+                    }
+
+                    if (oldList)
+                    {
+                        BookmarkedThreads = new ObservableCollection<Thread>();
+                        oldList = false;
                     }
 
                     foreach (var bookmark in bookmarks)

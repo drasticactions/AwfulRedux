@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.Core.Models.Messages;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
-using AwfulRedux.UI.Models.Messages;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using AwfulRedux.Views;
 using Newtonsoft.Json;
 using Template10.Mvvm;
+using PrivateMessage = AwfulRedux.UI.Models.Messages.PrivateMessage;
 
 namespace AwfulRedux.ViewModels
 {
@@ -94,7 +96,8 @@ namespace AwfulRedux.ViewModels
 
         public void Reply()
         {
-            
+            Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(NewPrivateMessagePage),
+                JsonConvert.SerializeObject(Selected));
         }
     }
 }

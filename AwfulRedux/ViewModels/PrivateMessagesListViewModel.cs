@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.Core.Models.Messages;
 using AwfulRedux.Tools.ScrollingCollection;
-using AwfulRedux.UI.Models.Messages;
+using AwfulRedux.Views;
 using Newtonsoft.Json;
 using Template10.Mvvm;
+using PrivateMessage = AwfulRedux.UI.Models.Messages.PrivateMessage;
 
 namespace AwfulRedux.ViewModels
 {
@@ -39,8 +41,7 @@ namespace AwfulRedux.ViewModels
 
         public void Refresh()
         {
-            PrivateMessageScrollingCollection.Clear();
-            PrivateMessageScrollingCollection.HasMoreItems = true;
+            PrivateMessageScrollingCollection = new PrivateMessageScrollingCollection();
         }
 
         public override void OnNavigatedTo(object parameter, NavigationMode mode,
@@ -51,6 +52,14 @@ namespace AwfulRedux.ViewModels
                 return;
             }
             PrivateMessageScrollingCollection = new PrivateMessageScrollingCollection();
+        }
+
+        public void CreateNewPm()
+        {
+            Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(NewPrivateMessagePage),
+    JsonConvert.SerializeObject(new NewPrivateMessage()
+    {
+    }));
         }
     }
 }

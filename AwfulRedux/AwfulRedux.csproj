@@ -1019,7 +1019,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.UAP.2015, Version=3.9.2">
+    <SDKReference Include="SQLite.UAP.2015, Version=3.10.1">
       <Name>SQLite for Universal App Platform</Name>
     </SDKReference>
     <SDKReference Include="WindowsDesktop, Version=10.0.10586.0">

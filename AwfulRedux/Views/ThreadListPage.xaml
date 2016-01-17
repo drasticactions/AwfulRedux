@@ -20,7 +20,7 @@
         <viewModels:ThreadListPageViewModel />
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="ForumThreadList" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>

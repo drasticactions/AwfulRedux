@@ -38,7 +38,9 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.ReplyToThread}" Label="Reply">
                 </AppBarButton>
-                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Label="Add to Thread Tabs">
+                <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveBookmark}"  Label="{Binding Selected.IsBookmark, Converter={StaticResource BookmarkTextConverter}, Mode=OneWay}">
+                </AppBarButton>
+                <AppBarButton Visibility="{Binding Selected.IsBookmark, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveNotificationTable}" Label="{Binding Selected, Converter={StaticResource NotifyThreadTextConverter}, Mode=OneWay}">
                 </AppBarButton>
                 <AppBarButton Label="{Binding Selected.CurrentPage, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
                     <Button.Flyout>

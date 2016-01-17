@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.Database;
+using AwfulRedux.Tools.Database;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -155,6 +160,70 @@ namespace AwfulRedux.ViewModels
                         TotalPages = Selected.TotalPages
                     }
                 }));
+        }
+
+        private readonly BookmarkDatabase _db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
+
+        public async void AddRemoveNotificationTable()
+        {
+            if (!Selected.IsBookmark)
+            {
+                //await
+                //    AwfulDebugger.SendMessageDialogAsync(
+                //        "In order to be notified of thread updates, the thread must be a bookmark.",
+                //        new Exception("Not a bookmark"));
+                return;
+            }
+            try
+            {
+                await _db.SetThreadNotified(Selected);
+            }
+            catch (Exception ex)
+            {
+                //await
+                //   AwfulDebugger.SendMessageDialogAsync(
+                //       "Failed to save thread to notifications table",
+                //       ex);
+            }
+
+            var msgDlg2 =
+       new MessageDialog(Selected.IsNotified ? $"You will now be notified of updates to '{Selected.Name}'." : $"'{Selected.Name}' is now removed for your notification list.")
+       {
+           DefaultCommandIndex = 1
+       };
+            await msgDlg2.ShowAsync();
+        }
+
+        public async void AddRemoveBookmark()
+        {
+            try
+            {
+                var threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
+                string bookmarkstring;
+                if (Selected.IsBookmark)
+                {
+                    await threadManager.RemoveBookmarkAsync(Selected.ThreadId);
+                    Selected.IsBookmark = !Selected.IsBookmark;
+                    bookmarkstring = string.Format("'{0}' has been removed from your bookmarks.", Selected.Name);
+                }
+                else
+                {
+                    bookmarkstring = string.Format("'{0}' has been added to your bookmarks.",
+                        Selected.Name);
+                    Selected.IsBookmark = !Selected.IsBookmark;
+                    await threadManager.AddBookmarkAsync(Selected.ThreadId);
+                }
+                var msgDlg2 =
+                       new MessageDialog(bookmarkstring)
+                       {
+                           DefaultCommandIndex = 1
+                       };
+                await msgDlg2.ShowAsync();
+            }
+            catch (Exception)
+            {
+               // TODO: Add error message
+            }
         }
     }
 }

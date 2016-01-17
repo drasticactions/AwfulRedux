@@ -42,6 +42,8 @@
             <converters:BooleanInverter x:Key="BooleanInverter" />
             <converters:BackButtonEnableConverter x:Key="BackButtonEnableConverter" />
             <converters:ForwardButtonEnableConverter x:Key="ForwardButtonEnableConverter" />
+            <converters:BookmarkTextConverter x:Key="BookmarkTextConverter" />
+            <converters:NotifyThreadTextConverter x:Key="NotifyThreadTextConverter"/>
         </ResourceDictionary>
     </Application.Resources>
     

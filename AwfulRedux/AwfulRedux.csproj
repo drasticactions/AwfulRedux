@@ -192,6 +192,8 @@
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
     <Compile Include="Tools\Background\BackgroundTaskUtils.cs" />
+    <Compile Include="Tools\Converters\BookmarkTextConverter.cs" />
+    <Compile Include="Tools\Converters\NotifyThreadTextConverter.cs" />
     <Compile Include="Tools\Flyout\FlyoutHelper.cs" />
     <Compile Include="Tools\Converters\AddOrRemoveFavoriteTextConverter.cs" />
     <Compile Include="Tools\Converters\BackButtonEnableConverter.cs" />

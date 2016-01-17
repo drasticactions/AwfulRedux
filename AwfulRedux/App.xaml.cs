@@ -9,8 +9,10 @@ using AwfulRedux.Database;
 using AwfulRedux.Services.SettingsServices;
 using AwfulRedux.Tools.Background;
 using AwfulRedux.Tools.Database;
+using AwfulRedux.Tools.Helper;
 using AwfulRedux.Views;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using SQLite.Net.Platform.WinRT;
 
 namespace AwfulRedux
@@ -45,7 +47,29 @@ namespace AwfulRedux
 
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-            NavigationService.Navigate(typeof(Views.MainPage));
+            if (startKind == StartKind.Activate)
+            {
+                if (args.Kind == ActivationKind.ToastNotification)
+                {
+                    //Get the pre-defined arguments and user inputs from the eventargs;
+                    var toastArgs = args as ToastNotificationActivatedEventArgs;
+                    if (toastArgs == null)
+                        return;
+                    var arguments = JsonConvert.DeserializeObject<ToastNotificationArgs>(toastArgs.Argument);
+                    if (arguments != null && arguments.threadId > 0)
+                    {
+                        NavigationService.Navigate(typeof (Views.BookmarksPage), arguments.threadId);
+                    }
+                }
+                else
+                {
+                    NavigationService.Navigate(typeof(Views.MainPage));
+                }
+            }
+            else
+            {
+                NavigationService.Navigate(typeof(Views.MainPage));
+            }
             await Task.CompletedTask;
         }
 

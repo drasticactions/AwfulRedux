@@ -28,6 +28,7 @@ namespace AwfulRedux.Views
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
+            ViewModel.ThreadView = ThreadPageView;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

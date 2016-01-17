@@ -213,6 +213,7 @@
     <Compile Include="Tools\Database\DatabaseWinRTHelpers.cs" />
     <Compile Include="Styles\DataTemplates.cs" />
     <Compile Include="Tools\Errors\ResultChecker.cs" />
+    <Compile Include="Tools\Helper\ToastNotificationArgs.cs" />
     <Compile Include="Tools\Manager\UploadManager.cs" />
     <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
     <Compile Include="Tools\ScrollingCollection\PrivateMessageScrollingCollection.cs" />

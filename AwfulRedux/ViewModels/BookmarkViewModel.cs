@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using AwfulRedux.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Database;
@@ -18,6 +19,7 @@ namespace AwfulRedux.ViewModels
 {
     public class BookmarkViewModel : ViewModelBase
     {
+        public ThreadView ThreadView { get; set; }
         private ObservableCollection<Thread> _bookmarkedThreads = new ObservableCollection<Thread>();
 
         private Thread _selected = default(Thread);
@@ -86,6 +88,17 @@ namespace AwfulRedux.ViewModels
             catch (Exception ex)
             {
                 //AwfulDebugger.SendMessageDialogAsync("Failed to get Bookmarks", ex);
+            }
+
+            var threadId = (long?) parameter;
+            if (threadId > 0)
+            {
+                var thread = BookmarkedThreads.FirstOrDefault(node => node.ThreadId == threadId);
+                if (thread != null)
+                {
+                    Selected = thread;
+                    await ThreadView.LoadThread(thread);
+                }
             }
             IsLoading = false;
         }

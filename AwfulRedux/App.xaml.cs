@@ -78,7 +78,9 @@ namespace AwfulRedux
             else
             {
                 var launch = args as LaunchActivatedEventArgs;
-                if (launch.PreviousExecutionState == ApplicationExecutionState.NotRunning)
+                if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning 
+                    || launch?.PreviousExecutionState == ApplicationExecutionState.Terminated
+                    || launch?.PreviousExecutionState == ApplicationExecutionState.ClosedByUser)
                 {
                     NavigationService.Navigate(typeof (Views.MainPage));
                 }
@@ -140,7 +142,9 @@ namespace AwfulRedux
             }
 
             var launch = args as LaunchActivatedEventArgs;
-            if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning)
+            if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning 
+                || launch?.PreviousExecutionState == ApplicationExecutionState.Terminated
+                || launch?.PreviousExecutionState == ApplicationExecutionState.ClosedByUser)
             {
                 // setup hamburger shell
                 Frame = new Frame();

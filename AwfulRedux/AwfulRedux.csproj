@@ -103,6 +103,7 @@
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="SomethingAwfulCommands.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

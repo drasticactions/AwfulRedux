@@ -74,10 +74,6 @@ namespace AwfulRedux
                         HandleVoiceRequest(commandArgs);
                     }
                 }
-                else
-                {
-                    NavigationService.Navigate(typeof(Views.MainPage));
-                }
             }
             else
             {

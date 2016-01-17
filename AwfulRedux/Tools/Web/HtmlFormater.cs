@@ -249,7 +249,16 @@ namespace AwfulRedux.Tools.Web
             string threadHtml = string.Empty;
             for (int index = startingCount; index < endCount; index++)
             {
-                var post = postEntities[index];
+                Post post;
+                try
+                {
+                    post = postEntities[index];
+                }
+                catch (Exception)
+                {
+                    // Failed to parse post, continue.
+                    continue;
+                }
                 if (seenCount > 2)
                     seenCount = 1;
                 string hasSeen = post.HasSeen ? string.Concat("seen", seenCount) : string.Concat("postCount", seenCount);

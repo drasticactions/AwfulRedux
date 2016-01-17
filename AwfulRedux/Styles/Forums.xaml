@@ -62,7 +62,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Image Width="60" Height="15" Margin="0,0,5,0" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding ImageIconUrl}"/>
+                        <Image Width="60" Height="15" Margin="0,0,5,0" Source="{Binding ImageIconUrl}"/>
                         <FontIcon Grid.Column="1" Margin="0,0,2,0" FontSize="12" FontFamily="Segoe MDL2 Assets" Glyph="&#xE7C3;"/>
                         <TextBlock Grid.Column="2" Margin="0,0,5,0" FontSize="12" Text="{x:Bind TotalPages, Mode=OneWay}" />
                         <TextBlock Grid.Column="3" Margin="0,0,2,0" FontSize="12" Text="Killed By: " />
@@ -96,7 +96,7 @@
                 </Border>
                 <Border Background="Transparent"
                                         Grid.Column="1" Width="60" Height="15">
-                    <Image Width="60" Height="15" Margin="0,0,5,0" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Icon}"/>
+                    <Image Width="60" Height="15" Margin="0,0,5,0" Source="{Binding Icon}"/>
                 </Border>
                 <StackPanel Grid.Column="2">
                     <TextBlock Style="{StaticResource ForumThreadBox}" FontFamily="{StaticResource DefaultFont}" x:Name="ThreadTitle" FontWeight="Bold" TextWrapping="Wrap"

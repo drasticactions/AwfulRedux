@@ -6,7 +6,8 @@
     xmlns:local="using:AwfulRedux"
     xmlns:controls="using:Template10.Controls"
     xmlns:converters="using:AwfulRedux.Tools.Converters"
-    xmlns:styles="using:AwfulRedux.Styles">
+    xmlns:styles="using:AwfulRedux.Styles"
+    xmlns:converters1="using:Template10.Converters">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -44,6 +45,16 @@
             <converters:ForwardButtonEnableConverter x:Key="ForwardButtonEnableConverter" />
             <converters:BookmarkTextConverter x:Key="BookmarkTextConverter" />
             <converters:NotifyThreadTextConverter x:Key="NotifyThreadTextConverter"/>
+            <converters1:ValueWhenConverter 
+    Value="Collapsed" 
+    Otherwise="Visible"
+    When="{x:Null}"
+    x:Key="NullVisibilityConverter" />
+            <converters1:ValueWhenConverter 
+    Value="Visible" 
+    Otherwise="Collapsed"
+    When="{x:Null}"
+    x:Key="NullVisibilityInverter" />
         </ResourceDictionary>
     </Application.Resources>
     

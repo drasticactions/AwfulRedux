@@ -1,7 +1,12 @@
+using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Background;
 using Windows.Foundation.Metadata;
+using Windows.Media.SpeechRecognition;
+using Windows.Storage;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -61,6 +66,14 @@ namespace AwfulRedux
                         NavigationService.Navigate(typeof (Views.BookmarksPage), arguments.threadId);
                     }
                 }
+                else if (args.Kind == ActivationKind.VoiceCommand)
+                {
+                    if (await Views.Shell.Instance.ViewModel.HasLogin())
+                    {
+                        var commandArgs = args as VoiceCommandActivatedEventArgs;
+                        HandleVoiceRequest(commandArgs);
+                    }
+                }
                 else
                 {
                     NavigationService.Navigate(typeof(Views.MainPage));
@@ -70,6 +83,20 @@ namespace AwfulRedux
             {
                 NavigationService.Navigate(typeof(Views.MainPage));
             }
+
+            try
+            {
+                // Install the main VCD. Since there's no simple way to test that the VCD has been imported, or that it's your most recent
+                // version, it's not unreasonable to do this upon app load.
+                StorageFile vcdStorageFile = await Package.Current.InstalledLocation.GetFileAsync(@"SomethingAwfulCommands.xml");
+
+                await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(vcdStorageFile);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
+            }
+
             await Task.CompletedTask;
         }
 
@@ -120,6 +147,42 @@ namespace AwfulRedux
             await shell.ViewModel.LoginUser();
             Window.Current.Content = shell;
             await Task.CompletedTask;
+        }
+
+        private string SemanticInterpretation(string interpretationKey, SpeechRecognitionResult speechRecognitionResult)
+        {
+            return speechRecognitionResult.SemanticInterpretation.Properties[interpretationKey].FirstOrDefault();
+        }
+
+        public void HandleVoiceRequest(VoiceCommandActivatedEventArgs commandArgs)
+        {
+            Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult = commandArgs.Result;
+
+            // Get the name of the voice command and the text spoken. See AdventureWorksCommands.xml for
+            // the <Command> tags this can be filled with.
+            string voiceCommandName = speechRecognitionResult.RulePath[0];
+            string textSpoken = speechRecognitionResult.Text;
+
+            // The commandMode is either "voice" or "text", and it indictes how the voice command
+            // was entered by the user.
+            // Apps should respect "text" mode by providing feedback in silent form.
+            string commandMode = this.SemanticInterpretation("commandMode", speechRecognitionResult);
+
+            switch (voiceCommandName)
+            {
+                case "openBookmarks":
+                    NavigationService.Navigate(typeof(Views.BookmarksPage));
+                    break;
+                case "openPrivateMessages":
+                    NavigationService.Navigate(typeof(Views.PrivateMessageListPage));
+                    break;
+                case "lowtaxIsAJerk":
+                    // TODO: Maybe fix this? Not like anyone would care.
+                    NavigationService.Navigate(typeof(Views.BookmarksPage));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
+using AwfulRedux.Notifications;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
@@ -148,11 +149,12 @@ namespace AwfulRedux.Tools.Web
                         case "markAsLastRead":
                             try
                             {
-                                //var threadManager = new ThreadManager();
-                                //await threadManager.MarkPostAsLastReadAs(Locator.ViewModels.ThreadPageVm.ForumThreadEntity, Convert.ToInt32(command.Id));
-                                //int nextPost = Convert.ToInt32(command.Id) + 1;
-                                //await webview.InvokeScriptAsync("ScrollToDiv", new[] { string.Concat("#postId", nextPost.ToString()) });
-                                //NotifyStatusTile.CreateToastNotification("Last Read", "Post marked as last read.");
+                                var lastreadObject = JsonConvert.DeserializeObject<PostQuote>(command.Id);
+                                var threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
+                                await threadManager.MarkPostAsLastReadAs(Convert.ToInt32(lastreadObject.thread_id), Convert.ToInt32(command.Id));
+                                int nextPost = Convert.ToInt32(command.Id) + 1;
+                                await webview.InvokeScriptAsync("ScrollToDiv", new[] { string.Concat("#postId", nextPost.ToString()) });
+                                NotifyStatusTile.CreateToastNotification("Last Read", "Post marked as last read.");
                             }
                             catch (Exception ex)
                             {

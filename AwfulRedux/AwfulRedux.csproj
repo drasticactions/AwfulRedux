@@ -103,6 +103,9 @@
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SomethingAwfulCommands.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Assets\ThreadTags\README.md" />
     <None Include="Assets\Website\CSS\bootstrap-theme.css.map" />
     <None Include="Assets\Website\CSS\bootstrap-winjs.css.map" />

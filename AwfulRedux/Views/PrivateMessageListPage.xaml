@@ -46,9 +46,22 @@
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>
-                <controls2:PrivateMessageView x:Name="PrivateMessageView">
+                <Grid>
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Selected,
+                    Converter={StaticResource NullVisibilityInverter}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <FontIcon Grid.Row="0" Margin="0,25,0,25" HorizontalAlignment="Center" FontSize="70" FontFamily="Segoe MDL2 Assets" Glyph="&#xE0C4;" />
+                        <Image Grid.Row="1" Margin="5" Source="/Assets/Images/Icon2.png"/>
+                        <TextBlock Grid.Row="2" TextAlignment="Center" Padding="15" TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Text="Select a PM"/>
+                    </Grid>
+                    <controls2:PrivateMessageView Visibility="{Binding Selected, Converter={StaticResource NullVisibilityConverter}, Mode=OneWay}" x:Name="PrivateMessageView">
 
-                </controls2:PrivateMessageView>
+                    </controls2:PrivateMessageView>
+                </Grid>
             </controls:MasterDetailViewControl.DetailViewPaneContent>
         </controls:MasterDetailViewControl>
     </Grid>

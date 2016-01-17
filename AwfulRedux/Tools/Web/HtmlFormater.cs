@@ -332,7 +332,7 @@ namespace AwfulRedux.Tools.Web
 
             string editButton = HtmlButtonBuilder.CreateSubmitButton("Edit", clickHandler, string.Empty);
 
-            clickHandler = $"window.ForumCommand('markAsLastRead', '{post.PostIndex}')";
+            clickHandler = $"window.MarkAsLastRead('{post.PostIndex}')";
 
             string markAsLastReadButton = HtmlButtonBuilder.CreateSubmitButton("Last Read", clickHandler, string.Empty);
 

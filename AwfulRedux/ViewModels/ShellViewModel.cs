@@ -36,6 +36,12 @@ namespace AwfulRedux.ViewModels
 
         public Color AccentColor => (Color) BootStrapper.Current.Resources["SystemAccentColor"];
 
+        public async Task<bool> HasLogin()
+        {
+            var defaultUsers = await _udb.GetAuthUsers();
+            return defaultUsers.Any();
+        }
+
         public async Task LoginUser()
         {
             var defaultUsers = await _udb.GetAuthUsers();

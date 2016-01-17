@@ -35,6 +35,15 @@ var QuotePreviousPost = function (postId) {
     ForumCommand('previous', JSON.stringify(quoteObject));
 }
 
+var MarkAsLastRead = function (postId) {
+
+    var quoteObject = {};
+    quoteObject.post_id = postId;
+    quoteObject.thread_id = $('body').attr('data-thread-id');
+    quoteObject.thread_name = $('body').attr('data-thread-name');
+    ForumCommand('markAsLastRead', JSON.stringify(quoteObject));
+}
+
 
 var QuotePost = function (postId) {
     

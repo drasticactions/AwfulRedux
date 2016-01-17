@@ -77,9 +77,12 @@ namespace AwfulRedux
             }
             else
             {
-                NavigationService.Navigate(typeof(Views.MainPage));
+                var launch = args as LaunchActivatedEventArgs;
+                if (launch.PreviousExecutionState == ApplicationExecutionState.NotRunning)
+                {
+                    NavigationService.Navigate(typeof (Views.MainPage));
+                }
             }
-
             try
             {
                 // Install the main VCD. Since there's no simple way to test that the VCD has been imported, or that it's your most recent
@@ -136,12 +139,17 @@ namespace AwfulRedux
                 }
             }
 
-            // setup hamburger shell
-            Frame = new Frame();
-            var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
-            var shell = new Shell(nav);
-            await shell.ViewModel.LoginUser();
-            Window.Current.Content = shell;
+            var launch = args as LaunchActivatedEventArgs;
+            if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning)
+            {
+                // setup hamburger shell
+                Frame = new Frame();
+                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
+                var shell = new Shell(nav);
+                await shell.ViewModel.LoginUser();
+                Window.Current.Content = shell;
+            }
+
             await Task.CompletedTask;
         }
 

@@ -12,12 +12,7 @@ namespace AwfulRedux.Tools.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var thread = value as Thread;
-            if (thread == null)
-            {
-                return string.Empty;
-            }
-            return thread.IsNotified ? "Remove from Notification List" : "Add To Notification List";
+            return (bool)value ? "Remove from Notification List" : "Add To Notification List";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

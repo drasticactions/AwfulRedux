@@ -52,6 +52,30 @@ namespace AwfulRedux.Database
             }
         }
 
+        public async Task RefreshBookmark(Thread updatedBookmark)
+        {
+            using (var bds = new Bookmarks(Platform, DbLocation))
+            {
+                await bds.BookmarkThreads.UpdateWithChildren(updatedBookmark);
+            }
+        }
+
+        public async Task AddBookmark(Thread updatedBookmark)
+        {
+            using (var bds = new Bookmarks(Platform, DbLocation))
+            {
+                await bds.BookmarkThreads.CreateWithChildren(updatedBookmark);
+            }
+        }
+
+        public async Task RemoveBookmark(Thread updatedBookmark)
+        {
+            using (var bds = new Bookmarks(Platform, DbLocation))
+            {
+                await bds.BookmarkThreads.Remove(updatedBookmark);
+            }
+        }
+
         public async Task<Thread> GetBookmarkThreadAsync(long threadId)
         {
             using (var bds = new Bookmarks(Platform, DbLocation))

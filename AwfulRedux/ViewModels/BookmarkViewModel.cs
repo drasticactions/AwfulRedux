@@ -10,6 +10,7 @@ using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Database;
 using AwfulRedux.UI.Models.Threads;
+using Kimono.Controls;
 using Newtonsoft.Json;
 using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
@@ -20,6 +21,7 @@ namespace AwfulRedux.ViewModels
     public class BookmarkViewModel : ViewModelBase
     {
         public ThreadView ThreadView { get; set; }
+        public MasterDetailViewControl MasterDetailViewControl { get; set; }
         private ObservableCollection<Thread> _bookmarkedThreads = new ObservableCollection<Thread>();
 
         private Thread _selected = default(Thread);
@@ -60,6 +62,7 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
             if (state.ContainsKey(nameof(Selected)))
             {
                 if (Selected == null)
@@ -101,11 +104,13 @@ namespace AwfulRedux.ViewModels
                     await ThreadView.LoadThread(thread);
                 }
             }
+            
             IsLoading = false;
         }
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= MasterDetailViewControl.NavigationManager_BackRequested;
             if (suspending)
             {
                 var html = Selected.Html;

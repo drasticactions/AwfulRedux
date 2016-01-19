@@ -123,6 +123,10 @@ namespace AwfulRedux.ViewModels
                 }
             }
             Selected.Name = postresult.ForumThread.Name;
+            if (Selected.IsBookmark)
+            {
+                await _db.RefreshBookmark(Selected);
+            }
             IsLoading = false;
         }
 
@@ -204,6 +208,7 @@ namespace AwfulRedux.ViewModels
                 {
                     await threadManager.RemoveBookmarkAsync(Selected.ThreadId);
                     Selected.IsBookmark = !Selected.IsBookmark;
+                    await _db.RefreshBookmark(Selected);
                     bookmarkstring = string.Format("'{0}' has been removed from your bookmarks.", Selected.Name);
                 }
                 else
@@ -212,6 +217,7 @@ namespace AwfulRedux.ViewModels
                         Selected.Name);
                     Selected.IsBookmark = !Selected.IsBookmark;
                     await threadManager.AddBookmarkAsync(Selected.ThreadId);
+                    await _db.AddBookmark(Selected);
                 }
                 var msgDlg2 =
                        new MessageDialog(bookmarkstring)

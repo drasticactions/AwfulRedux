@@ -111,7 +111,22 @@ namespace AwfulRedux
                 var shell = (Shell)Window.Current.Content;
                 await shell.ViewModel.LoginUser();
                 shell.SetNav(nav);
+                var page = Frame.Content as BookmarksPage;
+                if (page != null)
+                {
+                    Current.NavigationService.FrameFacade.BackRequested +=
+                        page.ViewModel.MasterDetailViewControl.NavigationManager_BackRequested;
+                }
+                else
+                {
+                    var threadpage = Frame.Content as ThreadListPage;
+                    if (threadpage != null)
+                    {
+                        Current.NavigationService.FrameFacade.BackRequested += page.ViewModel.MasterDetailViewControl.NavigationManager_BackRequested;
+                    }
+                }
             }
+
             await Task.CompletedTask;
         }
 

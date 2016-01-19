@@ -15,6 +15,7 @@ using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
+using Kimono.Controls;
 using Newtonsoft.Json;
 using Template10.Mvvm;
 
@@ -23,7 +24,7 @@ namespace AwfulRedux.ViewModels
     public class ThreadListPageViewModel : ViewModelBase
     {
         public ThreadView ThreadView { get; set; }
-
+        public MasterDetailViewControl MasterDetailViewControl { get; set; }
         private PageScrollingCollection _ForumPageScrollingCollection = default(PageScrollingCollection);
         public PageScrollingCollection ForumPageScrollingCollection
         {
@@ -67,6 +68,7 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
             if (Forum != null && (mode == NavigationMode.Forward | mode == NavigationMode.Back))
             {
                 return;
@@ -103,6 +105,7 @@ namespace AwfulRedux.ViewModels
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
+            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= MasterDetailViewControl.NavigationManager_BackRequested;
             if (suspending)
             {
                 var html = Selected.Html;

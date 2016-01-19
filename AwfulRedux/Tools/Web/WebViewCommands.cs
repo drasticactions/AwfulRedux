@@ -151,7 +151,7 @@ namespace AwfulRedux.Tools.Web
                             {
                                 var lastreadObject = JsonConvert.DeserializeObject<PostQuote>(command.Id);
                                 var threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
-                                await threadManager.MarkPostAsLastReadAs(Convert.ToInt32(lastreadObject.thread_id), Convert.ToInt32(command.Id));
+                                await threadManager.MarkPostAsLastReadAs(Convert.ToInt32(lastreadObject.thread_id), Convert.ToInt32(lastreadObject.post_id));
                                 int nextPost = Convert.ToInt32(command.Id) + 1;
                                 await webview.InvokeScriptAsync("ScrollToDiv", new[] { string.Concat("#postId", nextPost.ToString()) });
                                 NotifyStatusTile.CreateToastNotification("Last Read", "Post marked as last read.");

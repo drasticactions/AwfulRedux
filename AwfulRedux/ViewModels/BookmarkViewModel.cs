@@ -113,13 +113,16 @@ namespace AwfulRedux.ViewModels
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= MasterDetailViewControl.NavigationManager_BackRequested;
             if (suspending)
             {
-                var html = Selected.Html;
-                var posts = Selected.Posts;
-                Selected.Html = null;
-                Selected.Posts = null;
-                state[nameof(Selected)] = JsonConvert.SerializeObject(Selected);
-                Selected.Html = html;
-                Selected.Posts = posts;
+                if (Selected != null)
+                {
+                    var html = Selected.Html;
+                    var posts = Selected.Posts;
+                    Selected.Html = null;
+                    Selected.Posts = null;
+                    Selected.Html = html;
+                    Selected.Posts = posts;
+                }
+
             }
             return Task.CompletedTask;
         }

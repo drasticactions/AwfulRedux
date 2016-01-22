@@ -34,6 +34,20 @@ namespace AwfulRedux.Views
             ViewModel.ReplyBox = ReplyText;
         }
 
+        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            if (e.Content is BookmarksPage)
+            {
+                var bookmarkPage = e.Content as BookmarksPage;
+                await bookmarkPage.ViewModel.ThreadView.ViewModel.LoadThread();
+            }
+            else if (e.Content is ThreadListPage)
+            {
+                var threadListPage = e.Content as ThreadListPage;
+                await threadListPage.ViewModel.ThreadView.ViewModel.LoadThread();
+            }
+        }
+
         // strongly-typed view models enable x:bind
         public ReplyThreadViewModel ViewModel => this.DataContext as ReplyThreadViewModel;
     }

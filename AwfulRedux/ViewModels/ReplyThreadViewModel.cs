@@ -101,6 +101,11 @@ namespace AwfulRedux.ViewModels
             Views.Shell.ShowBusy(false);
         }
 
+        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
+        {
+            return base.OnNavigatedFromAsync(state, suspending);
+        }
+
         public void SelectBbCode(object sender, RoutedEventArgs e)
         {
             var menuFlyoutItem = sender as MenuFlyoutItem;

@@ -33,7 +33,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
-    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <OutputPath>bin\ARM\Release\</OutputPath>
@@ -207,7 +207,11 @@
     <Compile Include="Services\SettingsServices\ISettingsService.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.Apply.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
+    <Compile Include="Services\WindowService\IWindowService.cs" />
+    <Compile Include="Services\WindowService\WindowHelper.cs" />
+    <Compile Include="Services\WindowService\WindowService.cs" />
     <Compile Include="Tools\Authentication\CookieManager.cs" />
+    <Compile Include="Tools\Authentication\LoginHelper.cs" />
     <Compile Include="Tools\Background\BackgroundTaskUtils.cs" />
     <Compile Include="Tools\Converters\BookmarkTextConverter.cs" />
     <Compile Include="Tools\Converters\NotifyThreadTextConverter.cs" />

@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
+using AwfulRedux.Services.WindowService;
+using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Database;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
@@ -22,6 +28,7 @@ namespace AwfulRedux.ViewModels
 {
     public class ThreadViewModel : ViewModelBase
     {
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
 
         private Thread _selected = default(Thread);
 
@@ -80,7 +87,9 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private readonly PostManager _postManager = new PostManager(Views.Shell.Instance.ViewModel.WebManager);
+        private WebManager _webManager;
+
+        private PostManager _postManager;
 
         public async Task NextPage()
         {
@@ -100,10 +109,36 @@ namespace AwfulRedux.ViewModels
             await LoadThread();
         }
 
+        public async Task LaunchAsExternalView()
+        {
+            var newThread = Selected.Clone();
+            newThread.Html = null;
+            newThread.Posts = null;
+            WindowHelper helper = new WindowHelper();
+            await helper.ShowAsync<ThreadPage>(JsonConvert.SerializeObject(newThread));
+        }
+
+        public async Task LoginUser()
+        {
+            var cookie = await LoginHelper.LoginDefaultUser();
+            if (cookie == null)
+            {
+                _webManager = new WebManager();
+                _postManager = new PostManager(_webManager);
+                return;
+            }
+            _webManager = new WebManager(cookie);
+            _postManager = new PostManager(_webManager);
+            IsLoggedIn = true;
+        }
+
         public async Task LoadThread()
         {
-            IsLoggedIn = Views.Shell.Instance.ViewModel.IsLoggedIn;
             IsLoading = true;
+            if (_postManager == null)
+            {
+                await LoginUser();
+            }
             var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed);
             var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
             Selected.CurrentPage = postresult.ForumThread.CurrentPage;
@@ -128,6 +163,7 @@ namespace AwfulRedux.ViewModels
                 await _db.RefreshBookmark(Selected);
             }
             IsLoading = false;
+            RaisePropertyChanged("Selected");
         }
 
         public async Task ChangeThreadPage()
@@ -202,7 +238,7 @@ namespace AwfulRedux.ViewModels
         {
             try
             {
-                var threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
+                var threadManager = new ThreadManager(_webManager);
                 string bookmarkstring;
                 if (Selected.IsBookmark)
                 {

@@ -119,6 +119,7 @@ namespace Template10.Common
         {
             var window = new WindowWrapper(args.Window);
             WindowCreated?.Invoke(this, args);
+
             base.OnWindowCreated(args);
         }
 

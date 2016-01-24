@@ -7,6 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Models.Replies;
+using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
@@ -66,17 +67,34 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private readonly ReplyManager _replyManager = new ReplyManager(Views.Shell.Instance.ViewModel.WebManager);
+        private WebManager _webManager;
+
+        private ReplyManager _replyManager;
+
+        public async Task LoginUser()
+        {
+            var cookie = await LoginHelper.LoginDefaultUser();
+            _webManager = new WebManager(cookie);
+            _replyManager = new ReplyManager(_webManager);
+        }
 
         public async void LoadPreviousPosts(Thread thread, string posts)
         {
             if (!string.IsNullOrEmpty(PostHtml)) return;
+            if (_replyManager == null)
+            {
+                await LoginUser();
+            }
             var newPosts = JsonConvert.DeserializeObject<List<Post>>(posts);
             PostHtml = await HtmlFormater.FormatThreadHtml(thread, newPosts, GetTheme, true, true);
         }
 
         public async void AddQuoteString(long postId)
         {
+            if (_replyManager == null)
+            {
+                await LoginUser();
+            }
             var quoteString = await _replyManager.GetQuoteString(postId);
             ReplyBox.Text += Environment.NewLine + quoteString + Environment.NewLine;
         }

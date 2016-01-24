@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
+using AwfulRedux.Tools.Authentication;
 using AwfulRedux.UI.Models.Smilies;
 using Newtonsoft.Json;
 using Template10.Mvvm;
@@ -51,12 +52,23 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private readonly SmileManager _smileManager = new SmileManager(Views.Shell.Instance.ViewModel.WebManager);
-
+        private WebManager _webManager;
+        private SmileManager _smileManager;
         public ObservableCollection<SmileCategory> FullSmileCategoryEntities { get; set; }
+
+        public async Task LoginUser()
+        {
+            var cookie = await LoginHelper.LoginDefaultUser();
+            _webManager = new WebManager(cookie);
+            _smileManager = new SmileManager(_webManager);
+        }
 
         public async Task LoadSmilies()
         {
+            if (_smileManager == null)
+            {
+                await LoginUser();
+            }
             if (!SmileCategoryList.Any())
             {
                 IsLoading = true;

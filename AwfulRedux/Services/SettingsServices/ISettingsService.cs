@@ -9,6 +9,8 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool ShowEmbeddedTweets { get; set; }
 
+        bool OpenThreadsInNewWindow { get; set; }
+
         bool ShowEmbeddedVideo { get; set; }
 
         bool ShowEmbeddedGifv { get; set; }

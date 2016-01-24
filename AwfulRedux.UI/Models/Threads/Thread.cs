@@ -85,5 +85,11 @@ namespace AwfulRedux.UI.Models.Threads
         public List<Post> Posts { get; set; }
 
         public bool IsPrivateMessage { get; set; }
+
+        public Thread Clone()
+        {
+            return MemberwiseClone() as Thread;
+        }
     }
+
 }

@@ -34,7 +34,7 @@
         <CommandBar Grid.Row="3">
             <AppBarButton Label="Back Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource BackButtonEnableConverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
             <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
-            <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
+            <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.ReplyToThread}" Label="Reply">
                 </AppBarButton>
@@ -42,12 +42,13 @@
                 </AppBarButton>
                 <AppBarButton Visibility="{Binding Selected.IsBookmark, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveNotificationTable}" Label="{Binding Selected.IsNotified, Converter={StaticResource NotifyThreadTextConverter}, Mode=OneWay}">
                 </AppBarButton>
-                <AppBarButton Label="{Binding Selected.CurrentPage, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
+                <AppBarButton Click="{x:Bind ViewModel.LaunchAsExternalView}" Label="Launch To New Window"/>
+                <AppBarButton Label="{Binding Selected, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
                     <Button.Flyout>
                         <Flyout>
                             <StackPanel>
                                 <Viewbox Margin="5" Height="40">
-                                    <TextBlock Text="{Binding Selected.CurrentPage, Converter={StaticResource PageNumberConverter}}"/>
+                                    <TextBlock Text="{Binding Selected, Converter={StaticResource PageNumberConverter}}"/>
                                 </Viewbox>
                                 <TextBox InputScope="Number" Margin="5" Text="{x:Bind ViewModel.PageSelection, Mode=TwoWay}" x:Name="PageNumberTextBox"/>
                                 <Button Margin="5" x:Name="PageNumberButton" Click="{x:Bind ViewModel.ChangeThreadPage}" Content="Change Page">

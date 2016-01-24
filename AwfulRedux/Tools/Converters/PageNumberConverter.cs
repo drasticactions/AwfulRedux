@@ -13,8 +13,8 @@ namespace AwfulRedux.Tools.Converters
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var currentPage = (int)value;
-            return $"{currentPage} / {Controls.ThreadView.Instance.ViewModel.Selected.TotalPages}";
+            var currentThread = (Thread) value;
+            return $"{currentThread.CurrentPage} / {currentThread.TotalPages}";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

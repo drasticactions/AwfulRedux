@@ -111,6 +111,10 @@
                                       IsOn="{Binding UseShowEmbeddedVideoButton, Mode=TwoWay}"
                                       OffContent="Off" OnContent="On" />
                         <TextBlock  Margin="0,0,0,20" x:Name="ShowEmbeddedVideoText" RelativePanel.Below="UseShowEmbeddedVideoSwitch" TextWrapping="Wrap">Render all [url] wrapped MP4 videos.</TextBlock>
+                        <ToggleSwitch x:Name="OpenNewThreadsInWindowsSwitch"  RelativePanel.Below="ShowEmbeddedVideoText" Header="[ALPHA] Open Linked Threads in New Windows"
+                                      IsOn="{Binding UseOpenNewThreadInWindowButton, Mode=TwoWay}"
+                                      OffContent="Off" OnContent="On" />
+                        <TextBlock  Margin="0,0,0,20" x:Name="OpenNewThreadsInWindowsText" RelativePanel.Below="OpenNewThreadsInWindowsSwitch" TextWrapping="Wrap">If on, all SA thread links will pop open a new window.</TextBlock>
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>

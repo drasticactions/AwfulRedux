@@ -17,6 +17,7 @@ using AwfulRedux.Core.Models.Threads;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
 using AwfulRedux.Notifications;
+using AwfulRedux.Services.WindowService;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
@@ -183,7 +184,15 @@ namespace AwfulRedux.Tools.Web
                                     newThreadEntity.CurrentPage = Convert.ToInt32(query["pagenumber"]);
                                 }
                                 var json = JsonConvert.SerializeObject(newThreadEntity);
-                                Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ThreadPage), json);
+                                if (App.Settings.OpenThreadsInNewWindow)
+                                {
+                                    WindowHelper helper = new WindowHelper();
+                                    await helper.ShowAsync<ThreadPage>(json);
+                                }
+                                else
+                                {
+                                    Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ThreadPage), json);
+                                }
                             }
                            
 

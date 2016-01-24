@@ -9,16 +9,22 @@ using Windows.UI.Xaml.Navigation;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Models.Replies;
 using AwfulRedux.Core.Models.Web;
+using AwfulRedux.Database;
+using AwfulRedux.Tools.Authentication;
+using AwfulRedux.Tools.Database;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using Newtonsoft.Json;
+using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
 {
     public class ReplyThreadViewModel : ViewModelBase
     {
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+
         public SmiliesViewModel SmiliesViewModel { get; set; }
         public PreviewViewModel PreviewViewModel { get; set; }
         public PreviousPostsViewModel PreviousPostsViewModel { get; set; }
@@ -74,13 +80,26 @@ namespace AwfulRedux.ViewModels
 
         private ForumReply _forumReply { get; set; }
 
-        private readonly ReplyManager _replyManager = new ReplyManager(Views.Shell.Instance.ViewModel.WebManager);
+        private WebManager _webManager;
+
+        private ReplyManager _replyManager;
+
+        public async Task LoginUser()
+        {
+            var cookie = await LoginHelper.LoginDefaultUser();
+            _webManager = new WebManager(cookie);
+            _replyManager = new ReplyManager(_webManager);
+        }
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
         {
             base.OnNavigatedTo(parameter, mode, state);
+            if (_replyManager == null)
+            {
+                await LoginUser();
+            }
             Selected = JsonConvert.DeserializeObject<ThreadReply>(parameter.ToString());
-            Views.Shell.ShowBusy(true, "Preparing thread...");
+            //Views.Shell.ShowBusy(true, "Preparing thread...");
             if (Selected.IsEdit)
             {
                 Title = "Edit - " + Selected.Thread.Name;
@@ -98,12 +117,7 @@ namespace AwfulRedux.ViewModels
                 Title = "Reply - " + Selected.Thread.Name;
                 _forumReply = await _replyManager.GetReplyCookies(Selected.Thread.ThreadId);
             }
-            Views.Shell.ShowBusy(false);
-        }
-
-        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
-        {
-            return base.OnNavigatedFromAsync(state, suspending);
+            //Views.Shell.ShowBusy(false);
         }
 
         public void SelectBbCode(object sender, RoutedEventArgs e)
@@ -151,7 +165,7 @@ namespace AwfulRedux.ViewModels
             if (string.IsNullOrEmpty(ReplyBox.Text) || _forumReply == null) return;
             _forumReply.Message = ReplyBox.Text;
             var loadingString = Selected.IsEdit ? "Editing Post..." : "Posting reply (Better hope it doesn't suck...)";
-            Views.Shell.ShowBusy(true, loadingString);
+            //Views.Shell.ShowBusy(true, loadingString);
             Result result;
             if (Selected.IsEdit)
             {
@@ -161,7 +175,7 @@ namespace AwfulRedux.ViewModels
             {
                 result = await _replyManager.SendPost(_forumReply);
             }
-            Views.Shell.ShowBusy(false);
+            //Views.Shell.ShowBusy(false);
             if (result.IsSuccess)
             {
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();
@@ -192,9 +206,9 @@ namespace AwfulRedux.ViewModels
         public async Task AddImageViaImgur()
         {
             IsLoading = true;
-            Views.Shell.ShowBusy(true, "Uploading image...");
+            //Views.Shell.ShowBusy(true, "Uploading image...");
             await AddImage.AddImageViaImgur(ReplyBox);
-            Views.Shell.ShowBusy(false);
+            //Views.Shell.ShowBusy(false);
             IsLoading = false;
         }
     }

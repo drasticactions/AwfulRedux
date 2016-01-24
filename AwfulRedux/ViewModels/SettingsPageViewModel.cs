@@ -24,6 +24,12 @@ namespace AwfulRedux.ViewModels
                 _settings = Services.SettingsServices.SettingsService.Instance;
         }
 
+        public bool UseOpenNewThreadInWindowButton
+        {
+            get { return _settings.OpenThreadsInNewWindow; }
+            set { _settings.OpenThreadsInNewWindow = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseShowEmbeddedGifvButton
         {
             get { return _settings.ShowEmbeddedGifv; }

@@ -36,6 +36,16 @@ namespace AwfulRedux.Services.SettingsServices
                 _helper.Write(nameof(ShowEmbeddedTweets), value);
             }
         }
+
+        public bool OpenThreadsInNewWindow
+        {
+            get { return _helper.Read<bool>(nameof(OpenThreadsInNewWindow), false); }
+            set
+            {
+                _helper.Write(nameof(OpenThreadsInNewWindow), value);
+            }
+        }
+
         public bool ShowEmbeddedVideo
         {
             get { return _helper.Read<bool>(nameof(ShowEmbeddedVideo), true); }

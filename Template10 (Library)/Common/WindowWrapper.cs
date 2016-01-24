@@ -5,6 +5,7 @@ using Template10.Services.NavigationService;
 using Windows.Graphics.Display;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Template10.Common
 {
@@ -37,13 +38,17 @@ namespace Template10.Common
             window.Closed += (s, e) => { ActiveWrappers.Remove(this); };
         }
 
+        public static void SetupNavigationServices(Window window, Frame frame)
+        {
+            var wrapperToFix= ActiveWrappers.FirstOrDefault(wrapper => object.ReferenceEquals(wrapper.Window, window));
+            var navigationService = new Services.NavigationService.NavigationService(frame);
+            wrapperToFix?.NavigationServices.Add(navigationService);
+        }
+
         public static void ClearNavigationServices(Window window)
         {
             var wrapperToRemove = ActiveWrappers.FirstOrDefault(wrapper => object.ReferenceEquals(wrapper.Window, window));
-            if (wrapperToRemove != null)
-            {
-                wrapperToRemove.NavigationServices.Clear();
-            }
+            wrapperToRemove?.NavigationServices.Clear();
         }
 
         public void Close() { Window.Close(); }

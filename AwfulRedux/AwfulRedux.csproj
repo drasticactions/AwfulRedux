@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Common\AlwaysExecutableCommand.cs" />
     <Compile Include="Common\FileAccessCommands.cs" />
+    <Compile Include="Controls\ListControls\AdaptiveGridView.cs" />
     <Compile Include="Controls\LoginPart.xaml.cs">
       <DependentUpon>LoginPart.xaml</DependentUpon>
     </Compile>

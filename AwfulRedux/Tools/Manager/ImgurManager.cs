@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
 using Windows.Security.Credentials;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using AwfulRedux.Services.SettingsServices;
 using Imgur.API.Authentication.Impl;
 using Imgur.API.Endpoints.Impl;
@@ -48,6 +51,13 @@ namespace AwfulRedux.Tools.Manager
         {
             var endpoint = new OAuth2Endpoint(_client);
             return await endpoint.GetTokenByRefreshTokenAsync(refreshToken);
+        }
+
+        public async Task<IImage> UploadImage(IRandomAccessStream stream, string username)
+        {
+            var accessToken = await GetTokens(username);
+            var endpoint = new ImageEndpoint(new ImgurClient("e5c018ac1f4c157", "74590241e221d89c8dbf15fa74fc3ead27e9aaaa", new OAuth2Token(accessToken, "", "", "", "", Int32.MinValue)));
+            return await endpoint.UploadImageStreamAsync(stream.AsStream());
         }
 
         public string ParseAuthenticationResult(WebAuthenticationResult result)

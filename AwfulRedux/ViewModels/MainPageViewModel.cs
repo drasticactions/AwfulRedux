@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Navigation;
+using AmazingPullToRefresh.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
@@ -43,6 +44,13 @@ namespace AwfulRedux.ViewModels
             Views.Shell.ShowBusy(true, "Refreshing Forum List...");
             await GetMainPageForumsAsync(true);
             Views.Shell.ShowBusy(false);
+        }
+
+        public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)
+        {
+            var deferral = e.GetDeferral();
+            await RefreshForums();
+            deferral.Complete();
         }
 
         private async Task GetMainPageForumsAsync(bool forceRefresh = false)

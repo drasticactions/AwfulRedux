@@ -11,6 +11,7 @@
       xmlns:forums="using:AwfulRedux.UI.Models.Forums"
       xmlns:behaviors="using:Template10.Behaviors"
       xmlns:listControls="using:AwfulRedux.Controls.ListControls"
+      xmlns:controls1="using:AmazingPullToRefresh.Controls"
       mc:Ignorable="d">
 
     <Page.DataContext>
@@ -59,6 +60,9 @@
                 SelectionMode="None"
                 IsSwipeEnabled="True"
                 IsItemClickEnabled="True">
+                <controls1:PullToRefreshAdorner.Extender>
+                    <controls1:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh}" />
+                </controls1:PullToRefreshAdorner.Extender>
                 <listControls:AdaptiveGridView.ItemTemplate>
                     <DataTemplate x:DataType="forums:Forum">
                         <Grid x:Name="ForumTemplateGrid" HorizontalAlignment="Stretch" Background="{StaticResource ForumBackground}">

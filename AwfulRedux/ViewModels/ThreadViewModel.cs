@@ -9,6 +9,7 @@ using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using AmazingPullToRefresh.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Services.WindowService;
@@ -116,6 +117,13 @@ namespace AwfulRedux.ViewModels
             newThread.Posts = null;
             WindowHelper helper = new WindowHelper();
             await helper.ShowAsync<ThreadPage>(JsonConvert.SerializeObject(newThread));
+        }
+
+        public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)
+        {
+            var deferral = e.GetDeferral();
+            await LoadThread();
+            deferral.Complete();
         }
 
         public async Task LoginUser()

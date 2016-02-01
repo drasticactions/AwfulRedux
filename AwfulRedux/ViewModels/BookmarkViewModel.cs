@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using AmazingPullToRefresh.Controls;
 using AwfulRedux.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
@@ -58,6 +59,13 @@ namespace AwfulRedux.ViewModels
 
         private readonly BookmarkDatabase _db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
         private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
+
+        public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
+        {
+            var deferral = e.GetDeferral();
+            await Refresh();
+            deferral.Complete();
+        }
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)

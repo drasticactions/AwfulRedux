@@ -3,6 +3,14 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -1665,6 +1673,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -3417,6 +3433,14 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -5141,6 +5165,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -6898,6 +6930,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -8622,6 +8662,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -10379,6 +10427,14 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "AmazingPullToRefresh/0.9.0": {
+        "compile": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/AmazingPullToRefresh.dll": {}
+        }
+      },
       "HtmlAgilityPack/1.4.9": {
         "compile": {
           "lib/NetCore45/HtmlAgilityPack.dll": {}
@@ -12104,6 +12160,21 @@
     }
   },
   "libraries": {
+    "AmazingPullToRefresh/0.9.0": {
+      "sha512": "9lbbpLSEFRzlMCVgRh9uBGlyHKAIp0ZRKUSuRC2I3LHMd8AM+qR4ec3vJ/XgfTXVxm4LmnNZjWEpMetZJF6gEw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "AmazingPullToRefresh.nuspec",
+        "lib/uap10.0/AmazingPullToRefresh.dll",
+        "lib/uap10.0/AmazingPullToRefresh.pri",
+        "lib/uap10.0/AmazingPulltoRefresh/AmazingPullToRefresh.xr.xml",
+        "lib/uap10.0/AmazingPullTorefresh/Properties/AmazingPullToRefresh.rd.xml",
+        "lib/uap10.0/AmazingPulltoRefresh/Themes/Generic.xbf",
+        "package/services/metadata/core-properties/413c9a54e0564c57969e9ca39fe53223.psmdcp"
+      ]
+    },
     "HtmlAgilityPack/1.4.9": {
       "sha512": "anZIsi7bbHZ35ZZzvCA+gVWC/mEXVhcJjJvxr3wzUEDsOE4uk0Fa0ZiaxVn83AZpVKVO4RHyqamPkzzJbMUgmQ==",
       "type": "Package",
@@ -15725,6 +15796,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "AmazingPullToRefresh >= 0.9.0",
       "HtmlAgilityPack >= 1.4.9",
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",

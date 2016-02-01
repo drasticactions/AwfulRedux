@@ -12,6 +12,7 @@
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:controls2="using:AwfulRedux.Controls"
     xmlns:converters="using:Template10.Converters"
+    xmlns:controls3="using:AmazingPullToRefresh.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:BookmarkViewModel />
@@ -39,6 +40,9 @@
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
+                        <controls3:PullToRefreshAdorner.Extender>
+                            <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
+                        </controls3:PullToRefreshAdorner.Extender>
                     </ListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
+using AmazingPullToRefresh.Controls;
 using AwfulRedux.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
@@ -63,6 +64,11 @@ namespace AwfulRedux.ViewModels
             {
                 Set(ref _isLoading, value);
             }
+        }
+
+        public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
+        {
+            Refresh();
         }
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,

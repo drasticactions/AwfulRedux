@@ -14,6 +14,7 @@
     xmlns:threads1="using:AwfulRedux.Tools.Threads"
     xmlns:controls2="using:AwfulRedux.Controls"
     xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
+    xmlns:controls3="using:AmazingPullToRefresh.Controls"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -43,6 +44,9 @@
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
+                        <controls3:PullToRefreshAdorner.Extender>
+                            <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
+                        </controls3:PullToRefreshAdorner.Extender>
                     </ListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Create Thread" Click="{x:Bind ViewModel.CreateThread}" Icon="Add"/>

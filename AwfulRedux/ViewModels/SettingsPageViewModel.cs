@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.Security.Authentication.Web;
 using Windows.UI.Xaml;
+using AwfulRedux.Tools.Manager;
+using Imgur.API.Authentication.Impl;
+using Imgur.API.Endpoints.Impl;
+using Imgur.API.Enums;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -66,10 +74,53 @@ namespace AwfulRedux.ViewModels
             set { _settings.BookmarkNotifications = value; base.RaisePropertyChanged(); }
         }
 
+        public bool ImgurSignedIn
+        {
+            get { return _settings.ImgurSignedIn; }
+            set { _settings.ImgurSignedIn = value; base.RaisePropertyChanged(); }
+        }
+
+        public string ImgurUsername
+        {
+            get { return _settings.ImgurUsername; }
+            set { _settings.ImgurUsername = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseDarkThemeButton
         {
             get { return _settings.AppTheme.Equals(ApplicationTheme.Dark); }
             set { _settings.AppTheme = value ? ApplicationTheme.Dark : ApplicationTheme.Light; base.RaisePropertyChanged(); }
+        }
+
+        public void LogoutOfImgur()
+        {
+            try
+            {
+                var manager = new ImgurManager();
+                manager.RemoveTokens(_settings.ImgurUsername);
+                ImgurUsername = string.Empty;
+                ImgurSignedIn = false;
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        public async void LoginToImgur()
+        {
+            try
+            {
+                var manager = new ImgurManager();
+                var username = await manager.ImgurLogin();
+                if (string.IsNullOrEmpty(username)) return;
+                ImgurSignedIn = true;
+                ImgurUsername = username;
+            }
+            catch (Exception ex)
+            {
+                //return ex.Message;
+            }
         }
     }
 

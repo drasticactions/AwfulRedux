@@ -90,6 +90,23 @@ namespace AwfulRedux.Services.SettingsServices
             }
         }
 
+        public bool ImgurSignedIn
+        {
+            get { return _helper.Read<bool>(nameof(ImgurSignedIn), false); }
+            set
+            {
+                _helper.Write(nameof(ImgurSignedIn), value);
+            }
+        }
+
+        public string ImgurUsername {
+            get { return _helper.Read<string>(nameof(ImgurUsername), string.Empty); }
+            set
+            {
+                _helper.Write(nameof(ImgurUsername), value);
+            }
+        }
+
         public DateTime LastRefresh
         {
             get { return _helper.Read<DateTime>(nameof(LastRefresh), DateTime.Now); }

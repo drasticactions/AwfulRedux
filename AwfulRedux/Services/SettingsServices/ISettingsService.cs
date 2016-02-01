@@ -21,6 +21,10 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool BookmarkNotifications { get; set; }
 
+        bool ImgurSignedIn { get; set; }
+
+        string ImgurUsername { get; set; }
+
         DateTime LastRefresh { get; set; }
 
         ApplicationTheme AppTheme { get; set; }

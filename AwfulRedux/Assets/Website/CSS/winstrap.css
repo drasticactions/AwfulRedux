@@ -977,9 +977,16 @@ html {
 body {
   font-family: "Segoe UI", "Selawik", Tahoma, Verdana, Arial, sans-serif;
   font-size: 15px;
-  line-height: 1.5625;
+  line-height: 1.5625; }
+
+#content {
   color: #000000;
-  background-color: #FFFFFF; }
+  background-color: #FFFFFF;
+}
+
+.ptr-refresh #ptr .genericon {
+    color: black;
+}
 
 input,
 button,

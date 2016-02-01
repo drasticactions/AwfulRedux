@@ -2662,7 +2662,7 @@ ItemContainer control.
 Typographic color definitions.
 */
 
-body {
+#content {
     background-color: rgb(230, 230, 230);
     color: rgb(0, 0, 0);
 }

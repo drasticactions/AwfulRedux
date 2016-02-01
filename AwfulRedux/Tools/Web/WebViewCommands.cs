@@ -57,6 +57,13 @@ namespace AwfulRedux.Tools.Web
                         case "openLink":
                             await Windows.System.Launcher.LaunchUriAsync(new Uri(command.Id));
                             break;
+                        case "reloadPage":
+                            var threadContext = webview.DataContext as ThreadViewModel;
+                            if (threadContext != null)
+                            {
+                                await threadContext.LoadThread();
+                            }
+                            break;
                         case "userProfile":
                             //var navUser = new NavigateToUserProfilePageCommand();
                             //navUser.Execute(Convert.ToInt64(command.Id));

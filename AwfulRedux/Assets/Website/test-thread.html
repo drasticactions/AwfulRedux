@@ -7,13 +7,14 @@
     <link href="CSS/forum-thread.css" media="all" rel="stylesheet" type="text/css">
     <link href="CSS/bbcode.css" media="all" rel="stylesheet" type="text/css">
     <link href="CSS/Swipe.css" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="../jquery.js"></script>
     <script type="text/javascript" async="" src="../widgets.js"></script>
     <script type="text/javascript" async="" src="../forumThread.js"></script>
     <script type="text/javascript" async="" src="../threadTemplate.js"></script>
     <script type="text/javascript" async="" src="../url.min.js"></script>
     <script type="text/javascript" async="" src="../taphold.js"></script>
-    <script type="text/javascript" async="" src="../hammer.min.js"></script>
+    <script type="text/javascript" async="" src="../hammer.2.0.4.js"></script>
+    <script type="text/javascript" async="" src="../wptr.1.1.js"></script>
     <script type="text/javascript" async="">
 
         window.onload = function() {
@@ -122,8 +123,12 @@
 </head>
 
 
-<body style="overflow-x: hidden;" id="thread">
-    <div class="Swiper">
+<body data-show-embedded-tweets="false" data-show-embedded-gifv="false" data-show-embedded-video="false" style="overflow-x: hidden;">
+    <div id="ptr">
+        <span class="genericon genericon-next"></span>
+    </div>
+<div id="content">
+    <div id="thread">
         <div class="container-fluid">
             <div class="row clearfix">
                 <div style="display: none;" id="loggedinusername">Drastic Actions</div>
@@ -720,5 +725,25 @@
             </div>
         </div>
     </div>
+</div>
+    <script>
+            window.onload = function() {
+                WebPullToRefresh.init( {
+                    loadingFunction: exampleLoadingFunction
+                } );
+            };
+            // Just an example loading function that returns a
+            // promise that WebPullToRefresh can use.
+            var exampleLoadingFunction = function() {
+                return new Promise( function( resolve, reject ) {
+                    // Run some async loading code here
+                    if ( true /* if the loading worked */ ) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                } );
+            };
+    </script>
 </body>
 </html>

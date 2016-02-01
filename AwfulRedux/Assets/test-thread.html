@@ -7,10 +7,133 @@
         <link href="Website/CSS/bbcode.css" media="all" rel="stylesheet" type="text/css">
         <link href="Website/CSS/ui-light-new.css" media="all" rel="stylesheet" type="text/css">
         <link href="Website/CSS/forum-thread.css" media="all" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="Website/genericons/genericons.css">
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            #ptr {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                color: black;
+                z-index: 10;
+                text-align: center;
+                height: 50px;
+            }
+
+            #ptr .genericon {
+                opacity: .6;
+                font-size: 34px;
+                width: auto;
+                height: auto;
+                transition: all .25s ease;
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+                margin-top: 5px;
+            }
+            .ptr-refresh #ptr .genericon {
+                -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+            }
+            .ptr-loading #ptr .genericon,
+            .ptr-reset #ptr .genericon {
+                display: none;
+            }
+
+            .loading {
+                display: inline-block;
+                text-align: center;
+                opacity: .4;
+                margin: 12px 0 0 5px;
+                display: none;
+            }
+            .ptr-loading .loading {
+                display: block;
+            }
+
+            .loading span {
+                display: inline-block;
+                vertical-align: middle;
+                width: 10px;
+                height: 10px;
+                margin-right: 3px;
+                -webkit-transform: scale(0.3);
+                transform: scale(0.3);
+                border-radius: 50%;
+                -webkit-animation: ptr-loading 0.4s infinite alternate;
+                animation: ptr-loading 0.4s infinite alternate;
+            }
+
+            @-webkit-keyframes ptr-loading {
+                0% {
+                    -webkit-transform: translateY(0) scale(0.3);
+                    transform: translateY(0) scale(0.3);
+                    opacity: 0;
+                }
+
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    background-color: #fff;
+                    opacity: 1;
+                }
+            }
+
+            @keyframes ptr-loading {
+                0% {
+                    -webkit-transform: translateY(0) scale(0.3);
+                    transform: translateY(0) scale(0.3);
+                    opacity: 0;
+                }
+
+                100% {
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    background-color: #fff;
+                    opacity: 1;
+                }
+            }
+
+            #content {
+                background: #fff;
+                min-height: 100%;
+                z-index: 20;
+                -webkit-backface-visibility: hidden;
+                -webkit-perspective: 1000;
+                padding: 50px 20px;
+                text-align: center;
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 24px;
+                font-weight: 200;
+                color: #555;
+                box-sizing: border-box;
+            }
+
+            .ptr-loading #content, .ptr-reset #content,
+            .ptr-loading #ptr, .ptr-reset #ptr {
+                transition: all .25s ease;
+            }
+
+            .ptr-reset #content {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            .ptr-loading #content {
+                -webkit-transform: translate3d(0, 50px, 0);
+                transform: translate3d(0, 50px, 0);
+            }
+        </style>
         <script type="text/javascript" async="" src="jquery.min.js"></script>
-        <script type="text/javascript" async="" src="forumThread.js"></script>
-        <script type="text/javascript" async="" src="threadTemplate.js"></script>
-        <script type="text/javascript" async="" src="url.min.js"></script>
+        <script type="text/javascript" async="" src="hammer.2.0.4.js"></script>
+        <script type="text/javascript" async="" src="wptr.1.1.js"></script>
 		<script type="text/javascript" async="" src="bootstrap.min.js"></script>
         <script type="text/javascript">
             window.onload = function () {
@@ -28,18 +151,42 @@
         <title>Forum Thread</title>
     </head>
 <body>
-<div class="row">
-  <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
-  <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+<div id="ptr">
+    <span class="genericon genericon-next"></span>
 </div>
-<div class="row">
-  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+<div id="content">
+    <div class="row">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+            <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+            <!-- Optional: clear the XS cols if their content doesn't match in height -->
+            <div class="clearfix visible-xs-block"></div>
+            <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+        </div>
+    </div>
 </div>
-</div>
+    <script>
+            window.onload = function() {
+                WebPullToRefresh.init( {
+                    loadingFunction: exampleLoadingFunction
+                } );
+            };
+            // Just an example loading function that returns a
+            // promise that WebPullToRefresh can use.
+            var exampleLoadingFunction = function() {
+                return new Promise( function( resolve, reject ) {
+                    // Run some async loading code here
+                    if ( true /* if the loading worked */ ) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                } );
+            };
+    </script>
 </body>
 </html>

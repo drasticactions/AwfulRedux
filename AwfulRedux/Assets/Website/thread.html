@@ -3,10 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="twitter:dnt" content="on">
+        <link href="ms-appx-web:///Assets/Website/CSS/base.css" media="all" rel="stylesheet" type="text/css">
+        <link href="ms-appx-web:///Assets/Website/genericons/genericons.css" media="all" rel="stylesheet" type="text/css">
         <link href="ms-appx-web:///Assets/Website/CSS/winstrap.css" media="all" rel="stylesheet" type="text/css">
         <link href="ms-appx-web:///Assets/Website/CSS/forum-thread.css" media="all" rel="stylesheet" type="text/css">
         <link href="ms-appx-web:///Assets/Website/CSS/bbcode.css" media="all" rel="stylesheet" type="text/css">
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/jquery.js"></script>
+        <script type="text/javascript" async="" src="ms-appx-web:///Assets/hammer.2.0.4.js"></script>
+        <script type="text/javascript" async="" src="ms-appx-web:///Assets/wptr.1.1.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/widgets.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/forumThread.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/threadTemplate.js"></script>
@@ -56,12 +60,41 @@
                 ForumCommand('scrollToDivStart', $("#scrolltopoststring").text());
             };
 
+            window.onload = function () {
+                WebPullToRefresh.init({
+                    loadingFunction: reloadPage
+                });
+            };
+
+            var reloadPage = function () {
+                return new Promise(function (resolve, reject) {
+                    if (true) {
+                        ForumCommand('reloadPage', null);
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                });
+            };
         </script>
         <title>Forum Thread</title>
     </head>
-<body style="overflow-x: hidden;" id="thread">
-    <div class="container-fluid">
-        <div class="row clearfix"></div>
+<body style="overflow-x: hidden;">
+    <div id="ptr">
+        <span class="genericon genericon-next"></span>
+
+        <div class="loading">
+            <span id="l1"></span>
+            <span id="l2"></span>
+            <span id="l3"></span>
+        </div>
     </div>
+<div id="content">
+    <div id="thread">
+        <div class="container-fluid">
+            <div class="row clearfix"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -110,13 +110,21 @@
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\Website\genericons\Genericons.eot" />
+    <Content Include="Assets\Website\CSS\base.css" />
+    <Content Include="Assets\Website\genericons\Genericons.ttf" />
+    <None Include="Assets\Website\genericons\Genericons.woff" />
     <None Include="AwfulRedux_StoreKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Assets\Website\genericons\genericons.css" />
+    <Content Include="Assets\Website\genericons\Genericons.svg" />
+    <Content Include="Assets\hammer.2.0.4.js" />
     <Content Include="Assets\StoreLogo1.scale-100.png" />
     <Content Include="Assets\StoreLogo1.scale-125.png" />
     <Content Include="Assets\StoreLogo1.scale-150.png" />
     <Content Include="Assets\StoreLogo1.scale-200.png" />
     <Content Include="Assets\StoreLogo1.scale-400.png" />
+    <Content Include="Assets\wptr.1.1.js" />
     <Content Include="SomethingAwfulCommands.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

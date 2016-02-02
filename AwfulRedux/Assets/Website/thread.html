@@ -12,12 +12,30 @@
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/hammer.2.0.4.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/wptr.1.1.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/widgets.js"></script>
-        <script type="text/javascript" async="" src="ms-appx-web:///Assets/forumThread.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/threadTemplate.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/url.min.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/taphold.js"></script>
         <script type="text/javascript" async="" src="ms-appx-web:///Assets/gifffer.js"></script>
-        <script type="text/javascript" async="">
+        <title>Forum Thread</title>
+    </head>
+<body style="overflow-x: hidden;">
+    <div id="ptr">
+        <span class="genericon genericon-next"></span>
+
+        <div class="loading">
+            <span id="l1"></span>
+            <span id="l2"></span>
+            <span id="l3"></span>
+        </div>
+    </div>
+<div id="content">
+    <div id="thread">
+        <div class="container-fluid">
+            <div class="row clearfix"></div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
 
             window.onload = function () {
                 Gifffer();
@@ -58,9 +76,7 @@
                 //});
                 ForumCommand('setFont', null);
                 ForumCommand('scrollToDivStart', $("#scrolltopoststring").text());
-            };
 
-            window.onload = function () {
                 WebPullToRefresh.init({
                     loadingFunction: reloadPage
                 });
@@ -76,25 +92,6 @@
                     }
                 });
             };
-        </script>
-        <title>Forum Thread</title>
-    </head>
-<body style="overflow-x: hidden;">
-    <div id="ptr">
-        <span class="genericon genericon-next"></span>
-
-        <div class="loading">
-            <span id="l1"></span>
-            <span id="l2"></span>
-            <span id="l3"></span>
-        </div>
-    </div>
-<div id="content">
-    <div id="thread">
-        <div class="container-fluid">
-            <div class="row clearfix"></div>
-        </div>
-    </div>
-</div>
+    </script>
 </body>
 </html>

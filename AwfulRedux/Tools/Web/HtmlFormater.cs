@@ -135,8 +135,8 @@ namespace AwfulRedux.Tools.Web
                     continue;
                 if (src.Contains("smilies"))
                     continue;
-                //image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
-                //image.Attributes.Remove("src");
+                image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                image.Attributes.Remove("src");
             }
             return doc2.DocumentNode.OuterHtml;
         }
@@ -241,8 +241,8 @@ namespace AwfulRedux.Tools.Web
                     continue;
                 if (src.Contains("smilies"))
                     continue;
-                //image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
-                //image.Attributes.Remove("src");
+                image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                image.Attributes.Remove("src");
             }
             return doc2.DocumentNode.OuterHtml;
         }

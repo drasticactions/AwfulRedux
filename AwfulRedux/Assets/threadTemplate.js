@@ -158,3 +158,5 @@ var RemoveCustomStyle = function() {
     $('dl').removeAttr('style');
     $('dt').removeAttr('style');
 };
+
+window.SA || (SA = {});

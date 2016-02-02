@@ -130,9 +130,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Assets\ThreadTags\README.md" />
-    <None Include="Assets\Website\CSS\bootstrap-theme.css.map" />
-    <None Include="Assets\Website\CSS\bootstrap-winjs.css.map" />
-    <None Include="Assets\Website\CSS\bootstrap.css.map" />
     <None Include="Assets\Website\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Assets\forumThread.js" />
     <Content Include="Assets\gifffer.min.js" />
@@ -905,14 +902,8 @@
     <Content Include="Assets\Website\CSS\267.css" />
     <Content Include="Assets\Website\CSS\268.css" />
     <Content Include="Assets\Website\CSS\bbcode.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-theme.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-theme.min.css" />
-    <Content Include="Assets\Website\CSS\bootstrap-winjs.css" />
-    <Content Include="Assets\Website\CSS\bootstrap.css" />
-    <Content Include="Assets\Website\CSS\bootstrap.min.css" />
     <Content Include="Assets\Website\CSS\forum-thread.css" />
     <Content Include="Assets\Website\CSS\Swipe.css" />
-    <Content Include="Assets\Website\CSS\ui-light-new.css" />
     <Content Include="Assets\Website\CSS\WindowsPhone-Default.css" />
     <Content Include="Assets\Website\CSS\winstrap.css" />
     <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.svg" />

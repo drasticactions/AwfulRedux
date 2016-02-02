@@ -202,7 +202,7 @@ namespace AwfulRedux.Tools.Web
                 //threadHtml += FormatVotePoll(forumThreadEntity.Poll);
             }
 
-            if (forumThreadEntity.ScrollToPost > 1)
+            if (forumThreadEntity.ScrollToPost > 1 && (forumThreadEntity.ScrollToPost < postEntities.Count))
             {
                 threadHtml += "<div><div id=\"showPosts\">";
 

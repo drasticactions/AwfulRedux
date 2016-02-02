@@ -156,7 +156,7 @@ namespace AwfulRedux.ViewModels
             var count = postresult.Posts.Count(node => !node.HasSeen);
             if (Selected.RepliesSinceLastOpened > 0)
             {
-                if (Selected.RepliesSinceLastOpened - count < 0)
+                if ((Selected.RepliesSinceLastOpened - count < 0) || count == 0)
                 {
                     Selected.RepliesSinceLastOpened = 0;
                 }

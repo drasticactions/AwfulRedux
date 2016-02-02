@@ -8,12 +8,13 @@
 
             #ptr {
                 position: absolute;
-                top: 0;
+                top: -30px;
                 left: 0;
                 width: 100%;
-                color: transparent;
+                color: #fff;
                 text-align: center;
                 height: 50px;
+                z-index: 10;
             }
 
             #ptr .genericon {
@@ -27,7 +28,6 @@
                 margin-top: 5px;
             }
             .ptr-refresh #ptr .genericon {
-                color: #fff;
                 -webkit-transform: rotate(270deg);
                 transform: rotate(270deg);
             }

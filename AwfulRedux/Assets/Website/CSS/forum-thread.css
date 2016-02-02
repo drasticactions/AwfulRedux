@@ -2,6 +2,9 @@
     max-width: 400px;
 }
 
+#content {
+    z-index: 1000;
+}
 .userquoted {
     background: #FFFEBA none repeat-x !important;
 }

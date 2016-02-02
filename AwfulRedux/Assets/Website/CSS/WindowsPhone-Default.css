@@ -3,6 +3,10 @@
 	color: black;
 }
 
+.ptr-refresh #ptr .genericon {
+    color: white;
+}
+
 .userquoted {
     background: rgba(255, 254, 186, 0.29) none repeat-x !important;
 }

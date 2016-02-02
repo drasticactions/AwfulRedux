@@ -111,6 +111,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Assets\Website\genericons\Genericons.eot" />
+    <Content Include="Assets\gifffer.js" />
     <Content Include="Assets\Website\CSS\base.css" />
     <Content Include="Assets\Website\genericons\Genericons.ttf" />
     <None Include="Assets\Website\genericons\Genericons.woff" />

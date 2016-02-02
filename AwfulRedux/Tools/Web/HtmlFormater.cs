@@ -124,6 +124,8 @@ namespace AwfulRedux.Tools.Web
             var images = bodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
             foreach (var image in images)
             {
+                image.Attributes.Remove("class");
+                image.Attributes.Add("class", "img-responsive");
                 var src = image.Attributes["src"].Value;
                 if (Path.GetExtension(src) != ".gif")
                     continue;
@@ -133,8 +135,8 @@ namespace AwfulRedux.Tools.Web
                     continue;
                 if (src.Contains("smilies"))
                     continue;
-                image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
-                image.Attributes.Remove("src");
+                //image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                //image.Attributes.Remove("src");
             }
             return doc2.DocumentNode.OuterHtml;
         }
@@ -228,6 +230,8 @@ namespace AwfulRedux.Tools.Web
             var images = bodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
             foreach (var image in images)
             {
+                image.Attributes.Remove("class");
+                image.Attributes.Add("class", "img-responsive");
                 var src = image.Attributes["src"].Value;
                 if (Path.GetExtension(src) != ".gif")
                     continue;
@@ -237,8 +241,8 @@ namespace AwfulRedux.Tools.Web
                     continue;
                 if (src.Contains("smilies"))
                     continue;
-                image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
-                image.Attributes.Remove("src");
+                //image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                //image.Attributes.Remove("src");
             }
             return doc2.DocumentNode.OuterHtml;
         }

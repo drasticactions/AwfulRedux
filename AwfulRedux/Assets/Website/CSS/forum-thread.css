@@ -1,4 +1,8 @@
-﻿.userquoted {
+﻿.img-responsive {
+    max-width: 400px;
+}
+
+.userquoted {
     background: #FFFEBA none repeat-x !important;
 }
 iframe {
@@ -63,84 +67,6 @@ div.jump_top.right {
 }
 
 tr.thread td.star img { cursor: pointer; }
-
-img.timg {
-    margin: 1px;
-    visibility: hidden;
-}
-
-img.timg.loading {
-    border: 2px red solid;
-    height: 10px;
-    visibility: visible;
-    width: 10px;
-}
-
-img.timg.complete {
-    border: 2px #2d9f09 solid;
-    visibility: visible;
-}
-
-.timg_container {
-    display: inline-block;
-    position: relative;
-    white-space: nowrap;
-    z-index: 5;
-}
-
-img.timg.complete {
-    border: 2px #B05042 solid;
-    box-shadow: 2px 2px 1px #ccc;
-    cursor: pointer;
-}
-
-img.timg.peewee { border: 0; }
-
-.timg_container {
-    display: inline-block;
-    position: relative;
-    white-space: nowrap;
-    z-index: 5;
-}
-
-.timg_container .note {
-    background-color: #111;
-    background-position: 4px 3px;
-    border: 1px #000 solid;
-    margin: 6px;
-    padding-left: 24px;
-}
-
-.timg_container img { z-index: 10; }
-
-.timg_container .note {
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    -webkit-user-select: none;
-    background-color: blue;
-    background-image: url(http://i.somethingawful.com/core/icon/fsilk/shape_move_backwards.png);
-    background-position: 4px 0;
-    background-repeat: no-repeat;
-    border: 1px #ccc dotted;
-    color: #fff;
-    cursor: pointer;
-    display: none;
-    font-size: 9px;
-    left: 0;
-    margin: 11px 5px;
-    opacity: .65;
-    padding: 2px 6px;
-    padding-left: 22px;
-    position: absolute;
-    top: 0;
-    user-select: none;
-    z-index: 20;
-}
-
-.timg_container:hover .note { display: block; }
-
-.timg_container .note.expanded { background-image: url(http://i.somethingawful.com/core/icon/fsilk/shape_move_forwards.png); }
 
 #threadView
 {

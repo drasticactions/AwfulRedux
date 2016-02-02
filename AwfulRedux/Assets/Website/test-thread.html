@@ -15,9 +15,10 @@
     <script type="text/javascript" async="" src="../taphold.js"></script>
     <script type="text/javascript" async="" src="../hammer.2.0.4.js"></script>
     <script type="text/javascript" async="" src="../wptr.1.1.js"></script>
+    <script type="text/javascript" async="" src="../gifffer.js"></script>
     <script type="text/javascript" async="">
 
-        window.onload = function() {
+        window.onload = function () {
             $(".postbody a").click(function() {
                 var bool = window.OpenLink(this.href);
                 return bool;
@@ -123,599 +124,494 @@
 </head>
 
 
-<body data-show-embedded-tweets="false" data-show-embedded-gifv="false" data-show-embedded-video="false" style="overflow-x: hidden;">
+<body style="overflow-x: hidden;" data-show-embedded-tweets="True" data-show-embedded-gifv="True" data-show-embedded-video="True" data-thread-id="3683291" data-thread-name="The GIF Thread: Two Drink Minimum Edition">
     <div id="ptr">
         <span class="genericon genericon-next"></span>
+
+        <div class="loading">
+            <span id="l1"></span>
+            <span id="l2"></span>
+            <span id="l3"></span>
+        </div>
     </div>
-<div id="content">
-    <div id="thread">
-        <div class="container-fluid">
-            <div class="row clearfix">
-                <div style="display: none;" id="loggedinusername">Drastic Actions</div>
-                <div class="seen1" id="pti1">
-                    <div id="postId452309756">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <div class="">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">xgalaxy</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 10:05</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452309756" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <a href="https://twitter.com/famitsu/status/687995119933493248" target="_blank" rel="nofollow">https://twitter.com/famitsu/status/687995119933493248</a>
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby"><span>xgalaxy fucked around with this message at Nov  4, 2015 around 10:10</span>
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452309756')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4281')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen2" id="pti2">
-                    <div id="postId452310943">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <img data-user-id="147023" src="http://fi.somethingawful.com/safs/titles/97/1d/00147023.0001.png" alt="" class="av" border="0">
-                                    <div class="userinfo">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Inverness</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 10:43</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452310943" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452280794')">NihilCredo posted:</a></h4><blockquote>
-                                                The downside in this case is that you cannot make the constructor private (because the method/s wouldn't have access to it), which is something you want to do if the class isn't supposed to be created by anything other than your method/s.<br>
-                                                <br>
-                                                Not a big deal if it's just a dumb wrapper, though.<br>
-                                                <br>
-                                                edit: for some OOP masturbation, if it <i>were</i> a big deal, what would be the cleanest solution? I tried to whip up something with 'protected' but it wouldn't stop people from inheriting and instantiating the class. There's no access modifier for "accessible only to this one other class", unless you can make the thing its own assembly and go with "internal". I think the only "proper" solution is to make and return an interface and keep the implementing class private, but that does force you to code up the object properties twice.<br>
-                                            </blockquote>
-                                        </div>
-
-                                        The proper way to do this in C# is to make a public class with an internal constructor. The internal constructor stops inheritance since classes outside of your assembly would have no way to invoke the base constructor.<br>
-                                        <br>
-                                        There is no way in C# to make that constructor "accessible only to this one other class", but it's not necessary. Internal fits the bill and comes with the general assumption that you have control of those classes in the same assembly and what they do, which is a reasonable assumption to make.
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby">
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452310943')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4282')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen1" id="pti3">
-                    <div id="postId452321609">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <img data-user-id="176901" src="http://fi.somethingawful.com/safs/titles/ac/3b/00176901.0002.jpg" alt="" class="av" border="0">
-                                    <div class="userinfo">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">NihilCredo</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 15:05</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452321609" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452304570')">Nitrocat posted:</a></h4><blockquote>i find the abilities such as converting loops to linq expressions [..] to be vital</blockquote>
-                                        </div>
-
-                                        <br>
-                                        I don't understand why this is usually named as one of R#'s MVP features.<br>
-                                        <br>
-                                        If you find Linq easier to use, why aren't you writing stuff in Linq in the first place, instead of using loops?<br>
-                                        <br>
-                                        Vice-versa, if you find it easier to express yourself with loops, why wouldn't you keep them as loops instead of converting them to a form you don't grok as well?<br>
-                                        <br>
-                                        I can see the feature being handy when refactoring third-party code, but that shouldn't be an everyday sort of activity, should it?
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby">
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452321609')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4283')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen2" id="pti4">
-                    <div id="postId452321810">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <div class="">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Kekekela</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 15:09</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452321810" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452321609')">NihilCredo posted:</a></h4><blockquote>
-                                                <br>
-                                                Vice-versa, if you find it easier to express yourself with loops, why wouldn't you keep them as loops instead of converting them to a form you don't grok as well?<br>
-                                                <br>
-                                            </blockquote>
-                                        </div>
-
-                                        I think a lot of people use it as a learning tool, since they initially learned the pre-linq syntax. But yeah, that should be something you do a few times until you get the hang of it.
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby">
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452321810')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4284')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen1" id="pti5">
-                    <div id="postId452325239">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <img data-user-id="73816" src="http://fi.somethingawful.com/customtitles/title-grumpydoctor-2.jpg" alt="" class="av" border="0">
-                                    <div class="userinfo">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">GrumpyDoctor</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 16:26</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452325239" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452321810')">Kekekela posted:</a></h4><blockquote>
-                                                I think a lot of people use it as a learning tool, since they initially learned the pre-linq syntax. But yeah, that should be something you do a few times until you get the hang of it.<br>
-                                            </blockquote>
-                                        </div>
-
-                                        <br>
-                                        I know a guy who loves R# for exactly this reason.
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby">
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452325239')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4285')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen2" id="pti6">
-                    <div id="postId452325694">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <img data-user-id="40673" src="http://fi.somethingawful.com/safs/titles/0f/6f/00040673.0001.png" alt="" class="av" border="0">
-                                    <div class="userinfo">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Munkeymon</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 16:36</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452325694" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452321609')">NihilCredo posted:</a></h4><blockquote>
-                                                I don't understand why this is usually named as one of R#'s MVP features.<br>
-                                                <br>
-                                                If you find Linq easier to use, why aren't you writing stuff in Linq in the first place, instead of using loops?<br>
-                                                <br>
-                                                Vice-versa, if you find it easier to express yourself with loops, why wouldn't you keep them as loops instead of converting them to a form you don't grok as well?<br>
-                                                <br>
-                                                I can see the feature being handy when refactoring third-party code, but that shouldn't be an everyday sort of activity, should it?<br>
-                                            </blockquote>
-                                        </div>
-
-                                        <br>
-                                        LINQ is a decent-sized API all on its own and then a lot of people have written extension libraries for it. I feel pretty comfortable using it but I'm occasionally surprised when R# says I can convert a thing I just wrote.
-                                        <!-- google_ad_section_end -->
-                                        <!-- EndContentMarker -->
-
-
-                                        <p class="editedby">
-                                    </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452325694')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4286')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="seen1" id="pti7">
-                    <div id="postId452325780">
-                        <div class="row clearfix">
-                            <div class="col-md-4">
-                                <div id="threadView">
-                                    <img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0">
-                                    <div class="userinfo">
-                                        <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p>
-                                        <p class="text article-title win-type-caption-alt"><span class="registered">Nov  4, 2015 16:38</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 15px;" class="col-md-8">
-                                <div class="article-content">
-                                    <div id="452325780" class="postbody">
-                                        <!-- BeginContentMarker -->
-                                        <!-- google_ad_section_start -->
-                                        <div class="bbc-block">
-                                            <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452325694')">Munkeymon posted:</a></h4><blockquote>
-                                                LINQ is a decent-sized API all on its own and then a lot of people have written extension libraries for it. I feel pret...umber values are stuffed in other columns of other tables as well.
-                                                <!-- google_ad_section_end -->
-                                                <!-- EndContentMarker -->
-
-
-                                                <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452413459')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4295')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen2" id="pti16">
-                        <div id="postId452413839">
+    <div id="content">
+        <div id="thread">
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div style="display:none;" id="scrolltopoststring"></div><div class="seen1" id="pti1">
+                        <div id="postId450834905">
                             <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <img data-user-id="147023" src="http://fi.somethingawful.com/safs/titles/97/1d/00147023.0001.png" alt="" class="av" border="0">
-                                        <div class="userinfo">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Inverness</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  6, 2015 18:11</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="152720" src="http://fi.somethingawful.com/safs/titles/b2/fd/00152720.0001.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">jiharlequinade</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 29, 2015 22:05</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
                                     <div class="article-content">
-                                        <div id="452413839" class="postbody">
+                                        <div id="450834905" class="postbody">
                                             <!-- BeginContentMarker -->
                                             <!-- google_ad_section_start -->
                                             <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452413459')">kingcrimbud posted:</a></h4><blockquote>
-                                                    <b>Code First Existing Database Entity Framework Question</b><br>
-                                                    <br>
-                                                    I'm using Code First with its fluent type configurations currently. I'd like to transform the following table into the following model.<br>
-                                                    <br>
-                                                    ...<br>
-                                                    <br>
-                                                    In this way a customer will have either 1, 2, or 3 phones in its Phones collection, each with a different type.<br>
-                                                    <br>
-                                                    Is this even possible or am I going to need to mess around with extending the Customer and Phone classes to create "proxy" classes and then "newing" properties in the derived types? There's also another issue that phone number values are stuffed in other columns of other tables as well.<br>
-                                                </blockquote>
-                                            </div>
-
-                                            Why not simply have Phone, WorkPhone, and CellPhone properties in the Customer class as it is shown in the existing database?<br>
-                                            <div class="bbc-block code">
-                                                <h5>code:</h5><pre><code class="no-highlight">  public class Customer
-    {
-        public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Phone { get; set; }
-        public string WorkPhone { get; set; }
-        public string CellPhone { get; set; }
-    }
-</code></pre>
-                                            </div>
-                                            <!-- google_ad_section_end -->
-                                            <!-- EndContentMarker -->
-
-
-                                            <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452413839')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4296')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen1" id="pti17">
-                        <div id="postId452415981">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Sedro</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  6, 2015 19:11</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
-                                    <div class="article-content">
-                                        <div id="452415981" class="postbody">
-                                            <!-- BeginContentMarker -->
-                                            <!-- google_ad_section_start -->
-                                            You could throw in a computed property for Phones and have your ORM ignore it
-                                            <!-- google_ad_section_end -->
-                                            <!-- EndContentMarker -->
-
-
-                                            <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452415981')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4297')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen2" id="pti18">
-                        <div id="postId452420070">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">kingcrimbud</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  6, 2015 21:04</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
-                                    <div class="article-content">
-                                        <div id="452420070" class="postbody">
-                                            <!-- BeginContentMarker -->
-                                            <!-- google_ad_section_start -->
-                                            <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452413839')">Inverness posted:</a></h4><blockquote>
-                                                    Why not simply have Phone, WorkPhone, and CellPhone properties in the Customer class as it is shown in the existing database?<br>
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450791251')">CobiWann posted:</a></h4><blockquote>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/BBiKc2R.gif"><br>
                                                 </blockquote>
                                             </div>
 
                                             <br>
-                                            The existing database is but one system of several that I need to bring together into a common model.<br>
-                                            <br>
-                                            In your example, what if a customer had several cell phones? Why stop at those 3 types of phones? We now have [num of phone type] lists as properties of a customer. I'd prefer one list as a property which is a bit more extensible imo.<br>
-                                            <br>
+                                            Right in front of the pretty girl AND the TV camera. Get his scowling father in there and it's a hat trick of humiliation.
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450834905')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6081')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti2">
+                        <div id="postId450836709">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="76348" src="http://fi.somethingawful.com/safs/titles/52/36/00076348.0001.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Bart Fargo</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 29, 2015 23:03</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450836709" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
                                             <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452415981')">Sedro posted:</a></h4><blockquote>
-                                                    You could throw in a computed property for Phones and have your ORM ignore it<br>
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450823564')">Basticle posted:</a></h4><blockquote>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/i8V1NHr.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/4x9x9EG.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/DvUU5Z6.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/MTpXv5x.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/lfonh2I.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/p3pcH4b.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/OxKPduN.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/HD7OK30.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/1YodO2W.gif"><br>
                                                 </blockquote>
                                             </div>
 
                                             <br>
-                                            That's what I was working towards today but it was getting messy with logic in properties, unnecessary inheritance, etc. I wanted to see if I was just completely missing something obvious.
+                                            Still my favorite game in the series.
                                             <!-- google_ad_section_end -->
                                             <!-- EndContentMarker -->
 
 
                                             <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452420070')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4298')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450836709')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6082')" ;="">Last Read</button></li></ul></td></tr></footer>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="seen1" id="pti19">
-                        <div id="postId452420702">
+                    </div><div class="seen1" id="pti3">
+                        <div id="postId450837629">
                             <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">crashdome</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  6, 2015 21:19</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Bushmaori</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 29, 2015 23:35</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
                                     <div class="article-content">
-                                        <div id="452420702" class="postbody">
-                                            <!-- BeginContentMarker -->
-                                            <!-- google_ad_section_start -->
-                                            Personally, I would start with the database. Have the DBA (or yourself if that's the case) run a procedure to extract the phone #s to another table. Then code to that. <br>
-                                            <br>
-                                            Or maybe I missed something with your question? Is the table used in another project that's preventing you from altering it?
-                                            <!-- google_ad_section_end -->
-                                            <!-- EndContentMarker -->
-
-
-                                            <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452420702')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4299')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen2" id="pti20">
-                        <div id="postId452427714">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">kingcrimbud</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  7, 2015 00:37</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
-                                    <div class="article-content">
-                                        <div id="452427714" class="postbody">
+                                        <div id="450837629" class="postbody">
                                             <!-- BeginContentMarker -->
                                             <!-- google_ad_section_start -->
                                             <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452420702')">crashdome posted:</a></h4><blockquote>
-                                                    Personally, I would start with the database. Have the DBA (or yourself if that's the case) run a procedure to extract the phone #s to another table. Then code to that. <br>
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450834905')">jiharlequinade posted:</a></h4><blockquote>
+                                                    Right in front of the pretty girl AND the TV camera. Get his scowling father in there and it's a hat trick of humiliation.<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            Comes up a lot, it's staged, from a New Zealand show.
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450837629')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6083')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti4">
+                        <div id="postId450838352">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="152720" src="http://fi.somethingawful.com/safs/titles/b2/fd/00152720.0001.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">jiharlequinade</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 30, 2015 00:08</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450838352" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450837629')">Bushmaori posted:</a></h4><blockquote>
+                                                    Comes up a lot, it's staged, from a New Zealand show.<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            Well, damn.<br>
+                                            <br>
+                                            <br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/E6619Op.gif">
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450838352')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6084')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen1" id="pti5">
+                        <div id="postId450839072">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="150731" src="http://fi.somethingawful.com/safs/titles/ca/59/00150731.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Android Bicyclist</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 30, 2015 00:45</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450839072" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450824129')">Basticle posted:</a></h4><blockquote>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/76dhMIJ.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/yvwwBut.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/vvOlGgf.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/vcqHwEH.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/PaKw3T7.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/zr5oELW.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/l4U2FeH.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/TDP31zp.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/QwiexEH.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/KeS9HKO.gif"><br>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/0EpP4N3.gif"><br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            Damn what a trip down nostalgia lane (after hitting the boosters). Going to fire up my <i>Wipeout 2097</i> soundtrack now.<br>
+                                            Semi-related:<br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/KUrqdCR.gif"><br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/iXG65X2.gif"><br>
+                                            From<br>
+                                            <a href="https://www.youtube.com/watch?v=Xc9l7pygQRo" target="_blank" class="bbtag_video">https://www.youtube.com/watch?v=Xc9l7pygQRo</a><br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/4qjgsxv.gif"><br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/YIUb0jB.gif"><br>
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/19G8KMV.gif"><br>
+                                            <a href="https://www.youtube.com/watch?v=mPQFLGxM6xs" target="_blank" class="bbtag_video">https://www.youtube.com/watch?v=mPQFLGxM6xs</a>
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450839072')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6085')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti6">
+                        <div id="postId450842740">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="176708" src="http://fi.somethingawful.com/images/newbie.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Samovar</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Sep 30, 2015 06:05</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450842740" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450826006')">Just Offscreen posted:</a></h4><blockquote>
+                                                    I'm glad you changed your last name you son of a bitch.<br>
                                                     <br>
-                                                    Or maybe I missed something with your question? Is the table used in another project that's preventing you from altering it?<br>
+                                                    <a href="https://i.imgur.com/xMNALHf.gifv" target="_blank" rel="nofollow">https://i.imgur.com/xMNALHf.gifv</a><br>
                                                 </blockquote>
                                             </div>
 
                                             <br>
-                                            I would love to but the table is currently backing an old and not going away anytime soon large support application with a lot of traffic.<br>
-                                            <br>
-                                            The question remains; is this a roll-your-own scenario?
+                                            Or, how the Harry Potter series should have ended.
                                             <!-- google_ad_section_end -->
                                             <!-- EndContentMarker -->
 
 
                                             <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452427714')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4300')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                        </div><footer>
+                                            <tr class="postbar">
+                                                <td class="postlinks">
+                                                    <ul class="profilelinks">
+                                                        <li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450842740')" ;="">Quote</button></li>
+                                                        <li>
+                                                            <button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6086')" ;="">Last Read</button><...clearfix">
+                                                                <div class="col-md-4"><div id="threadView"><img data-user-id="35397" src="http://fi.somethingawful.com/customtitles/title-thwomp-3.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Thwomp</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 11:33</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                                                    <div class="article-content">
+                                                                        <div id="450893978" class="postbody">
+                                                                            <!-- BeginContentMarker -->
+                                                                            <!-- google_ad_section_start -->
+                                                                            <div class="bbc-block">
+                                                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450893908')">Fishstick posted:</a></h4><blockquote>
+                                                                                    <a href="http://i.imgur.com/yjT8LJR.webm" target="_blank" rel="nofollow">http://i.imgur.com/yjT8LJR.webm</a><br>
+                                                                                </blockquote>
+                                                                            </div>
+
+                                                                            <br>
+                                                                            JFC <img src="https://i.somethingawful.com/forumsystem/emoticons/emot-stare.gif" border="0" alt="" title=":stare:" class="img-responsive">
+                                                                            <!-- google_ad_section_end -->
+                                                                            <!-- EndContentMarker -->
+
+
+                                                                            <p class="editedby">
+                                                                        </div><footer>
+                                            <tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450893978')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6110')" ;="">Last Read</button></li></ul></td></tr>
+                                        </footer>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="seen1" id="pti21">
-                        <div id="postId452431476">
+                    </div><div class="seen1" id="pti31">
+                        <div id="postId450895534">
                             <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">EssOEss</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  7, 2015 05:20</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">lilspooky</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 12:08</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
                                     <div class="article-content">
-                                        <div id="452431476" class="postbody">
-                                            <!-- BeginContentMarker -->
-                                            <!-- google_ad_section_start -->
-                                            I would say so. ORMs are no good at doing fanciful "I wish I could fix my tables" style transformations. Use them ONLY for mapping between equivalent data sets, not for converting data into a different format. Or you will be sorry.
-                                            <!-- google_ad_section_end -->
-                                            <!-- EndContentMarker -->
-
-
-                                            <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452431476')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4301')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen2" id="pti22">
-                        <div id="postId452434805">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <img data-user-id="147023" src="http://fi.somethingawful.com/safs/titles/97/1d/00147023.0001.png" alt="" class="av" border="0">
-                                        <div class="userinfo">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Inverness</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  7, 2015 10:14</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
-                                    <div class="article-content">
-                                        <div id="452434805" class="postbody">
+                                        <div id="450895534" class="postbody">
                                             <!-- BeginContentMarker -->
                                             <!-- google_ad_section_start -->
                                             <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452420070')">kingcrimbud posted:</a></h4><blockquote>
-                                                    The existing database is but one system of several that I need to bring together into a common model.<br>
-                                                    <br>
-                                                    In your example, what if a customer had several cell phones? Why stop at those 3 types of phones? We now have [num of phone type] lists as properties of a customer. I'd prefer one list as a property which is a bit more extensible imo.<br>
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450882247')">wayfinder posted:</a></h4><blockquote>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/AQqIRmy.gif"><br>
                                                 </blockquote>
                                             </div>
 
-                                            I'm not experienced enough with ORMs to know what to suggest as far as getting the ORM itself to do it.<br>
                                             <br>
-                                            My other choice would be to have a conversion between model classes at the layer where you invoke the ORM.<br>
-                                            <br>
-                                            Basically, define the Customer class I posted before as CustomerOldStyle or some relevant name. Write some code to convert that to the new-style Customer class that you want. Likewise when placing new customer objects in the database they would need to be converted to the old style that the ORM understands.
+                                            What is this from?
                                             <!-- google_ad_section_end -->
                                             <!-- EndContentMarker -->
 
 
                                             <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452434805')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4302')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450895534')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6111')" ;="">Last Read</button></li></ul></td></tr></footer>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="seen1" id="pti23">
-                        <div id="postId452439931">
+                    </div><div class="seen2" id="pti32">
+                        <div id="postId450895719">
                             <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <img data-user-id="101739" src="http://fi.somethingawful.com/customtitles/title-chipyy.jpg" alt="" class="av" border="0">
-                                        <div class="userinfo">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">chippy</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  7, 2015 13:34</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Azhais</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 12:12</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
                                     <div class="article-content">
-                                        <div id="452439931" class="postbody">
-                                            <!-- BeginContentMarker -->
-                                            <!-- google_ad_section_start -->
-                                            I've never used sprocs with EF so this is speculation, but could you perhaps craft one that essentially returned the data as if it were stored using the desired schema, and map the results of that to your object?
-                                            <!-- google_ad_section_end -->
-                                            <!-- EndContentMarker -->
-
-
-                                            <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452439931')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4303')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="seen2" id="pti24">
-                        <div id="postId452442684">
-                            <div class="row clearfix">
-                                <div class="col-md-4">
-                                    <div id="threadView">
-                                        <div class="">
-                                            <p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">crashdome</span></p>
-                                            <p class="text article-title win-type-caption-alt"><span class="registered">Nov  7, 2015 14:59</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="padding: 15px;" class="col-md-8">
-                                    <div class="article-content">
-                                        <div id="452442684" class="postbody">
+                                        <div id="450895719" class="postbody">
                                             <!-- BeginContentMarker -->
                                             <!-- google_ad_section_start -->
                                             <div class="bbc-block">
-                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '452427714')">kingcrimbud posted:</a></h4><blockquote>
-                                                    I would love to but the table is currently backing an old and not going away anytime soon large support application with a lot of traffic.<br>
-                                                    <br>
-                                                    The question remains; is this a roll-your-own scenario?<br>
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450893978')">Thwomp posted:</a></h4><blockquote>
+                                                    JFC <img src="https://i.somethingawful.com/forumsystem/emoticons/emot-stare.gif" border="0" alt="" title=":stare:" class="img-responsive"><br>
                                                 </blockquote>
                                             </div>
 
                                             <br>
-                                            If your original table is tied to another application and you want more than 3 phone numbers, I don't understand how you are going to do this without yet another table and some weird trickery and shoehorn code tbh.<br>
-                                            <br>
-                                            The big problem you are going to run into is when your large support application does an update to a phone number in the original table.
+                                            I'm the arms coming down at the end
                                             <!-- google_ad_section_end -->
                                             <!-- EndContentMarker -->
 
 
                                             <p class="editedby">
-                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('quote', '452442684')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.ForumCommand('markAsLastRead', '4304')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450895719')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6112')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen1" id="pti33">
+                        <div id="postId450896034">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="42386" src="http://fi.somethingawful.com/customtitles/title-gorilla_salad-4.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Gorilla Salad</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 12:17</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450896034" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450893908')">Fishstick posted:</a></h4><blockquote>
+                                                    <a href="http://i.imgur.com/yjT8LJR.webm" target="_blank" rel="nofollow">http://i.imgur.com/yjT8LJR.webm</a><br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            This is why I always look.  No matter what, I look.<br>
+                                            <br>
+                                            Doesn't matter if I make the person behind me wait for half a second and they start honking their horn, I always check.
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450896034')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6113')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti34">
+                        <div id="postId450898349">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Snatch Duster</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 13:09</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450898349" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450896034')">Gorilla Salad posted:</a></h4><blockquote>
+                                                    This is why I always look.  No matter what, I look.<br>
+                                                    <br>
+                                                    Doesn't matter if I make the person behind me wait for half a second and they start honking their horn, I always check.<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            What a puss
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450898349')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6114')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen1" id="pti35">
+                        <div id="postId450899048">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="135634" src="http://fi.somethingawful.com/safs/titles/1a/50/00135634.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">hhhat</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 13:26</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450899048" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450898349')">Snatch Duster posted:</a></h4><blockquote>
+                                                    What a puss<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            He probably looks because he's ocd about trains
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450899048')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6115')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti36">
+                        <div id="postId450902320">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="176053" src="http://fi.somethingawful.com/images/newbie.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Baba Yaga Fanboy</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 14:34</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450902320" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450895534')">lilspooky posted:</a></h4><blockquote>
+                                                    What is this from?<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            I think it's from Riki-Oh: the Story of Ricky, maybe? Either way, follow the links for some NWS, ultra-gory gifs from it that crazy-ass movie!<br>
+                                            <br>
+                                            <a href="http://media.giphy.com/media/XUEAhYnc631yU/giphy.gif" target="_blank" rel="nofollow">http://media.giphy.com/media/XUEAhYnc631yU/giphy.gif</a><br>
+                                            <a href="http://38.media.tumblr.com/tumblr_mc3mapdOXa1rdsiguo4_500.gif" target="_blank" rel="nofollow">http://38.media.tumblr.com/tumblr_m...dsiguo4_500.gif</a><br>
+                                            <a href="http://i.imgur.com/ZG7gWXW.gif" target="_blank" rel="nofollow">http://i.imgur.com/ZG7gWXW.gif</a>
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450902320')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6116')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen1" id="pti37">
+                        <div id="postId450902538">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Snatch Duster</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 14:39</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450902538" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450899048')">hhhat posted:</a></h4><blockquote>
+                                                    He probably looks because he's ocd about trains<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            what a puss aspy
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450902538')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6117')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti38">
+                        <div id="postId450903779">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="131094" src="http://fi.somethingawful.com/safs/titles/c7/38/00131094.0004.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Wasabi the J</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 15:05</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450903779" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450899048')">hhhat posted:</a></h4><blockquote>
+                                                    He probably looks because he's ocd about trains<br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            Dude, he's been waiting for this moments for month's and it's finally here!<br>
+                                            <br>
+                                            <a href="https://www.youtube.com/watch?v=6lutNECOZFw" target="_blank" class="bbtag_video">https://www.youtube.com/watch?v=6lutNECOZFw</a>
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450903779')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6118')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen1" id="pti39">
+                        <div id="postId450907296">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><img data-user-id="66070" src="http://fi.somethingawful.com/customtitles/title-george_broussard.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">nerdz</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 16:22</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450907296" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/aVapZpx.gif">
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450907296')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6119')" ;="">Last Read</button></li></ul></td></tr></footer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="seen2" id="pti40">
+                        <div id="postId450913756">
+                            <div class="row clearfix">
+                                <div class="col-md-4"><div id="threadView"><div class=""><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Bushmaori</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Oct  1, 2015 19:09</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
+                                    <div class="article-content">
+                                        <div id="450913756" class="postbody">
+                                            <!-- BeginContentMarker -->
+                                            <!-- google_ad_section_start -->
+                                            <div class="bbc-block">
+                                                <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '450907296')">nerdz posted:</a></h4><blockquote>
+                                                    <img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/aVapZpx.gif"><br>
+                                                </blockquote>
+                                            </div>
+
+                                            <br>
+                                            lol, dog seems really into it
+                                            <!-- google_ad_section_end -->
+                                            <!-- EndContentMarker -->
+
+
+                                            <p class="editedby">
+                                        </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('450913756')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6120')" ;="">Last Read</button></li></ul></td></tr></footer>
                                     </div>
                                 </div>
                             </div>
@@ -725,25 +621,5 @@
             </div>
         </div>
     </div>
-</div>
-    <script>
-            window.onload = function() {
-                WebPullToRefresh.init( {
-                    loadingFunction: exampleLoadingFunction
-                } );
-            };
-            // Just an example loading function that returns a
-            // promise that WebPullToRefresh can use.
-            var exampleLoadingFunction = function() {
-                return new Promise( function( resolve, reject ) {
-                    // Run some async loading code here
-                    if ( true /* if the loading worked */ ) {
-                        resolve();
-                    } else {
-                        reject();
-                    }
-                } );
-            };
-    </script>
 </body>
 </html>

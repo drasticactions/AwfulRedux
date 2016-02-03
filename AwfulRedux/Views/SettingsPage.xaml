@@ -200,6 +200,8 @@
                         Template 10
                         <LineBreak/>
                         Kimono
+                        <LineBreak/>
+                        Imgur.API
                                 </TextBlock>
                             </StackPanel>
                         </Grid>

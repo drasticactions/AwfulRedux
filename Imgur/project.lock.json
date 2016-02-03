@@ -3,53 +3,6 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -248,92 +201,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -1670,64 +1543,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -1969,92 +1787,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3438,64 +3176,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -3723,92 +3406,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5178,64 +4781,9 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -5482,92 +5030,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -6951,64 +6419,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -7236,92 +6649,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8691,64 +8024,9 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -8995,92 +8273,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -10464,64 +9662,9 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights/1.0.0": {
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll": {}
-        }
-      },
-      "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-        "dependencies": {
-          "Microsoft.ApplicationInsights": "[1.0.0, )",
-          "Microsoft.ApplicationInsights.PersistenceChannel": "[1.0.0, )"
-        },
-        "compile": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        },
-        "runtime": {
-          "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -10749,92 +9892,12 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-        "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
-        }
-      },
       "Newtonsoft.Json/8.0.2": {
         "compile": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
-        }
-      },
-      "NotificationsExtensions.Win10/10586.0.0": {
-        "compile": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        },
-        "runtime": {
-          "lib/uap10.0/NotificationsExtensions.winmd": {}
-        }
-      },
-      "QueryString.NET/1.0.0": {
-        "compile": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        },
-        "runtime": {
-          "lib/dotnet/QueryString.NETCore.dll": {}
-        }
-      },
-      "SQLite.Net-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        },
-        "runtime": {
-          "lib/Windows8/SQLite.Net.Platform.WinRT.dll": {}
-        }
-      },
-      "SQLite.Net.Async-PCL/3.1.1": {
-        "dependencies": {
-          "SQLite.Net.Core-PCL": "[3.1.1, )"
-        },
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll": {}
-        }
-      },
-      "SQLite.Net.Core-PCL/3.1.1": {
-        "compile": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll": {}
-        }
-      },
-      "SQLiteNetExtensions/1.3.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[6.0.8, )",
-          "SQLite.Net-PCL": "[3.0.5, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll": {}
-        }
-      },
-      "SQLiteNetExtensions.Async/1.3.0": {
-        "dependencies": {
-          "SQLite.Net.Async-PCL": "[3.0.5, )",
-          "SQLiteNetExtensions": "[1.3.0, )"
-        },
-        "compile": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -12204,128 +11267,14 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.0.7": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "AmazingPullToRefresh/0.9.0": {
-      "sha512": "9lbbpLSEFRzlMCVgRh9uBGlyHKAIp0ZRKUSuRC2I3LHMd8AM+qR4ec3vJ/XgfTXVxm4LmnNZjWEpMetZJF6gEw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "AmazingPullToRefresh.nuspec",
-        "lib/uap10.0/AmazingPullToRefresh.dll",
-        "lib/uap10.0/AmazingPullToRefresh.pri",
-        "lib/uap10.0/AmazingPulltoRefresh/AmazingPullToRefresh.xr.xml",
-        "lib/uap10.0/AmazingPullTorefresh/Properties/AmazingPullToRefresh.rd.xml",
-        "lib/uap10.0/AmazingPulltoRefresh/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/413c9a54e0564c57969e9ca39fe53223.psmdcp"
-      ]
-    },
-    "HtmlAgilityPack/1.4.9": {
-      "sha512": "anZIsi7bbHZ35ZZzvCA+gVWC/mEXVhcJjJvxr3wzUEDsOE4uk0Fa0ZiaxVn83AZpVKVO4RHyqamPkzzJbMUgmQ==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "HAPIcon.png",
-        "HtmlAgilityPack.nuspec",
-        "lib/Net20/HtmlAgilityPack.dll",
-        "lib/Net20/HtmlAgilityPack.pdb",
-        "lib/Net20/HtmlAgilityPack.xml",
-        "lib/Net40/HtmlAgilityPack.dll",
-        "lib/Net40/HtmlAgilityPack.pdb",
-        "lib/Net40/HtmlAgilityPack.XML",
-        "lib/Net40-client/HtmlAgilityPack.dll",
-        "lib/Net40-client/HtmlAgilityPack.pdb",
-        "lib/Net40-client/HtmlAgilityPack.xml",
-        "lib/Net45/HtmlAgilityPack.dll",
-        "lib/Net45/HtmlAgilityPack.pdb",
-        "lib/Net45/HtmlAgilityPack.XML",
-        "lib/NetCore45/HtmlAgilityPack.dll",
-        "lib/NetCore45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.pri",
-        "lib/NetCore45/HtmlAgilityPack.xml",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/sl3-wp/_._",
-        "lib/sl4/HtmlAgilityPack.dll",
-        "lib/sl4/HtmlAgilityPack.pdb",
-        "lib/sl4/HtmlAgilityPack.XML",
-        "lib/sl5/HtmlAgilityPack.dll",
-        "lib/sl5/HtmlAgilityPack.pdb",
-        "lib/sl5/HtmlAgilityPack.XML",
-        "package/services/metadata/core-properties/43fdb80a5711487696f5a99b6d1418d0.psmdcp",
-        "readme.txt"
-      ]
-    },
-    "Microsoft.ApplicationInsights/1.0.0": {
-      "sha512": "HZ47/thX57SOuIivSvIbsR6L9CCb/Yt3IyB2i4KHmmNlf3DO+lqFwWIKDdbDNWKX+qh0Rg20/JSMPK0dwUsYYw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/net40/Microsoft.ApplicationInsights.dll",
-        "lib/net40/Microsoft.ApplicationInsights.XML",
-        "lib/net45/Microsoft.ApplicationInsights.dll",
-        "lib/net45/Microsoft.ApplicationInsights.XML",
-        "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll",
-        "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.XML",
-        "lib/wp8/Microsoft.ApplicationInsights.dll",
-        "lib/wp8/Microsoft.ApplicationInsights.XML",
-        "Microsoft.ApplicationInsights.nuspec",
-        "package/services/metadata/core-properties/b9e7bc7ab2454491af07046165ff01d0.psmdcp"
-      ]
-    },
-    "Microsoft.ApplicationInsights.PersistenceChannel/1.0.0": {
-      "sha512": "0qQXC+CtbyF2RPuld5pF74fxsnP6ml0LUnzQ6GL9AXXY64LPsLDsPUAymoUffo7LZvPDppZboTYX59TfVxKA7A==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/net40/Microsoft.ApplicationInsights.PersistenceChannel.dll",
-        "lib/net40/Microsoft.ApplicationInsights.PersistenceChannel.XML",
-        "lib/portable-win8+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.XML",
-        "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.PersistenceChannel.dll",
-        "lib/wp8/Microsoft.ApplicationInsights.PersistenceChannel.dll",
-        "lib/wp8/Microsoft.ApplicationInsights.PersistenceChannel.XML",
-        "Microsoft.ApplicationInsights.PersistenceChannel.nuspec",
-        "package/services/metadata/core-properties/dc9ebba80e7343fdbd0a39a3cdeb672c.psmdcp"
-      ]
-    },
-    "Microsoft.ApplicationInsights.WindowsApps/1.0.0": {
-      "sha512": "fNCAjIwvbTV+G0dT14bgM5tptsqeSaKQaCrlq7QknOq1Xdm8ZmgsDYddMgXkvykyKLjWyU6fKuOpj6fsQJy+wQ==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll",
-        "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.XML",
-        "lib/wp8/Microsoft.ApplicationInsights.Extensibility.Windows.dll",
-        "lib/wp8/Microsoft.ApplicationInsights.Extensibility.Windows.XML",
-        "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.dll",
-        "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.XML",
-        "Microsoft.ApplicationInsights.WindowsApps.nuspec",
-        "package/services/metadata/core-properties/4f6f732debe548beaa1183418e8d65cc.psmdcp"
-      ]
-    },
     "Microsoft.CSharp/4.0.0": {
       "sha512": "oWqeKUxHXdK6dL2CFjgMcaBISbkk+AqEg+yvJHE4DElNzS4QaTsCflgkkqZwVlWby1Dg9zo9n+iCAMFefFdJ/A==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/Microsoft.CSharp.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -12336,8 +11285,9 @@
         "lib/wpa81/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
+        "Microsoft.CSharp.4.0.0.nupkg",
+        "Microsoft.CSharp.4.0.0.nupkg.sha512",
         "Microsoft.CSharp.nuspec",
-        "package/services/metadata/core-properties/a8a7171824ab4656b3141cda0591ff66.psmdcp",
         "ref/dotnet/de/Microsoft.CSharp.xml",
         "ref/dotnet/es/Microsoft.CSharp.xml",
         "ref/dotnet/fr/Microsoft.CSharp.xml",
@@ -12973,32 +11923,10 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Microsoft.Xaml.Behaviors.Uwp.Managed/1.0.3": {
-      "sha512": "N/HJa+ld/kKIKQaTTBY/ytLukfujKkBMww59p9qmPkEpyHZRMYB8FNalghu1rFMCXoSx9cWD8U4nt/r7qLQmVg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/uap10.0/Design/Microsoft.Xaml.Interactions.Design.dll",
-        "lib/uap10.0/Design/Microsoft.Xaml.Interactivity.Design.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.pri",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.xml",
-        "lib/uap10.0/Microsoft.Xaml.Interactions/Properties/Microsoft.Xaml.Interactions.rd.xml",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.pri",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.xml",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity/Properties/Microsoft.Xaml.Interactivity.rd.xml",
-        "Microsoft.Xaml.Behaviors.Uwp.Managed.nuspec",
-        "package/services/metadata/core-properties/3c85324cf8b64508a39f4ccba86cb561.psmdcp"
-      ]
-    },
     "Newtonsoft.Json/8.0.2": {
       "sha512": "e5yWmEfu68rmtG431zl9N/7PlNKQDIuiDW5MHlEFAZcecakcxrIGnKqrPAtWNILzK2oNanRB5cD150MYhECK3g==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -13011,150 +11939,10 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "Newtonsoft.Json.8.0.2.nupkg",
+        "Newtonsoft.Json.8.0.2.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
-        "package/services/metadata/core-properties/cc8c591d554640789c6a6ef6456f7772.psmdcp",
         "tools/install.ps1"
-      ]
-    },
-    "NotificationsExtensions.Win10/10586.0.0": {
-      "sha512": "MISR3bytM8ZHZtaJbWUU4GxHbnQKqUfjohg5uSAflFUqztKbvhDmKN1fTJYs/oYovhBFrU4P3CoiWfRnT7FTWw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/dotnet/NotificationsExtensions.Win10.NETCore.dll",
-        "lib/dotnet/NotificationsExtensions.Win10.NETCore.pdb",
-        "lib/dotnet/NotificationsExtensions.Win10.NETCore.XML",
-        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.dll",
-        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.pdb",
-        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.XML",
-        "lib/uap10.0/NotificationsExtensions.pdb",
-        "lib/uap10.0/NotificationsExtensions.pri",
-        "lib/uap10.0/NotificationsExtensions.winmd",
-        "lib/uap10.0/NotificationsExtensions.winmd.xml",
-        "lib/uap10.0/NotificationsExtensions.xml",
-        "NotificationsExtensions.Win10.nuspec",
-        "package/services/metadata/core-properties/5d5cbb4e5ec6464fa0b3cee3b82d40de.psmdcp"
-      ]
-    },
-    "QueryString.NET/1.0.0": {
-      "sha512": "wmOG5qPFYH7jKp3fMXQ2VeMXTgcyoI4hwPF8AxFAyrT/uVBDe0ISzyh/iFEnwmFBUm19UgbDoFRU3o47a1/vUw==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/dotnet/QueryString.NETCore.dll",
-        "lib/dotnet/QueryString.NETCore.pdb",
-        "lib/dotnet/QueryString.NETCore.XML",
-        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.dll",
-        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.pdb",
-        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.xml",
-        "package/services/metadata/core-properties/643187e148944d5892c2282c5396136a.psmdcp",
-        "QueryString.NET.nuspec"
-      ]
-    },
-    "SQLite.Net-PCL/3.1.1": {
-      "sha512": "eIaIk+k4MwvBeKyzj1kgIegWXYZlaDAHNzsaYP7wNDgSqAdaza8FgCRun7mIZScJD/RIuKxN/b1V+bkC+/WIeA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/MonoAndroid/SQLite.Net.Platform.XamarinAndroid.dll",
-        "lib/monotouch/SQLite.Net.Platform.XamarinIOS.dll",
-        "lib/net4/SQLite.Net.Platform.Win32.dll",
-        "lib/net40/SQLite.Net.Platform.Generic.dll",
-        "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll",
-        "lib/portable-win81+wpa81/SQLite.Net.Platform.WinRT.dll",
-        "lib/Windows8/SQLite.Net.Platform.WinRT.dll",
-        "lib/windowsphone8/ARM/SQLite.Net.Platform.WindowsPhone8.dll",
-        "lib/windowsphone8/x86/SQLite.Net.Platform.WindowsPhone8.dll",
-        "lib/Xamarin.iOS10/SQLite.Net.Platform.XamarinIOS.Unified.dll",
-        "package/services/metadata/core-properties/42617fe08935462ea38a3073a9954c4b.psmdcp",
-        "SQLite.Net-PCL.nuspec"
-      ]
-    },
-    "SQLite.Net.Async-PCL/3.1.1": {
-      "sha512": "K4wJtiKhh5wdWgBT6oVCtwbCnrOxbt9xwooKqSIyaw0jRxR4SO3mV9Ju4ayYiOFMI/e/wzMc+AAIjtbVHFOENA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.Async.dll",
-        "package/services/metadata/core-properties/74f57c2726e34292a9fca27d068d261a.psmdcp",
-        "SQLite.Net.Async-PCL.nuspec"
-      ]
-    },
-    "SQLite.Net.Core-PCL/3.1.1": {
-      "sha512": "/0VdXnyj2srEh5rM1RW/snXJrVGRsxGB3xjW4EkhZIig9N/8EocZZrEr0vwRJU8a9Lz4BrweoLyKwp2evmSIzg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-win8+net45+wp8+wpa81+MonoAndroid1+MonoTouch1/SQLite.Net.dll",
-        "package/services/metadata/core-properties/23cc4adcea6c40a7a0e82fb6b4a09ba7.psmdcp",
-        "SQLite.Net.Core-PCL.nuspec"
-      ]
-    },
-    "SQLiteNetExtensions/1.3.0": {
-      "sha512": "XYt89yGciul0pPbZDxrl9Gnj3r8NmFbxC0dfjw7HqRCaSsCxjj9LGy3bBTW4/gykdQ7S3fvAx71f8orROfc9Hg==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensions.dll.mdb",
-        "package/services/metadata/core-properties/1.psmdcp",
-        "SQLiteNetExtensions.nuspec",
-        "src/Attributes/CascadeOperation.cs",
-        "src/Attributes/ForeignKeyAttribute.cs",
-        "src/Attributes/ManyToManyAttribute.cs",
-        "src/Attributes/ManyToOneAttribute.cs",
-        "src/Attributes/OneToManyAttribute.cs",
-        "src/Attributes/OneToOneAttribute.cs",
-        "src/Attributes/RelationshipAttribute.cs",
-        "src/Attributes/TextBlobAttribute.cs",
-        "src/Exceptions/IncorrectRelationshipException.cs",
-        "src/Extensions/ReadOperations.cs",
-        "src/Extensions/ReflectionExtensions.cs",
-        "src/Extensions/TextBlob/ITextBlobSerializer.cs",
-        "src/Extensions/TextBlob/Serializers/JsonBlobSerializer.cs",
-        "src/Extensions/TextBlob/TextBlobOperations.cs",
-        "src/Extensions/WriteOperations.cs",
-        "src/obj/Debug/.NETPortable,Version=v4.0,Profile=Profile136.AssemblyAttribute.cs",
-        "src/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs",
-        "src/obj/Release/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs",
-        "src/Properties/AssemblyInfo.cs"
-      ]
-    },
-    "SQLiteNetExtensions.Async/1.3.0": {
-      "sha512": "YYle51g50CWupr4m6WAXSX8uqIGIc25cvzDlpULdMD8sicYTFq3oaUoYDSHHfPf4EKUS0IPK7T6z27VDG2No1A==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/SQLiteNetExtensionsAsync.dll.mdb",
-        "package/services/metadata/core-properties/1.psmdcp",
-        "SQLiteNetExtensions.Async.nuspec",
-        "src/Attributes/CascadeOperation.cs",
-        "src/Attributes/ForeignKeyAttribute.cs",
-        "src/Attributes/ManyToManyAttribute.cs",
-        "src/Attributes/ManyToOneAttribute.cs",
-        "src/Attributes/OneToManyAttribute.cs",
-        "src/Attributes/OneToOneAttribute.cs",
-        "src/Attributes/RelationshipAttribute.cs",
-        "src/Attributes/TextBlobAttribute.cs",
-        "src/Exceptions/IncorrectRelationshipException.cs",
-        "src/Extensions/ReadOperations.cs",
-        "src/Extensions/ReflectionExtensions.cs",
-        "src/Extensions/TextBlob/ITextBlobSerializer.cs",
-        "src/Extensions/TextBlob/Serializers/JsonBlobSerializer.cs",
-        "src/Extensions/TextBlob/TextBlobOperations.cs",
-        "src/Extensions/WriteOperations.cs",
-        "src/obj/Debug/.NETPortable,Version=v4.0,Profile=Profile136.AssemblyAttribute.cs",
-        "src/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs",
-        "src/obj/Release/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs",
-        "src/Properties/AssemblyInfo.cs"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -13670,10 +12458,8 @@
     },
     "System.Globalization/4.0.10": {
       "sha512": "kzRtbbCNAxdafFBDogcM36ehA3th8c1PGiz8QRkZn8O5yMBorDHSK8/TGJPYOaCS5zdsGk0u9qXHnW91nqy7fw==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Globalization.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -13681,7 +12467,6 @@
         "lib/netcore50/System.Globalization.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/93bcad242a4e4ad7afd0b53244748763.psmdcp",
         "ref/dotnet/de/System.Globalization.xml",
         "ref/dotnet/es/System.Globalization.xml",
         "ref/dotnet/fr/System.Globalization.xml",
@@ -13699,6 +12484,8 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Globalization.dll",
+        "System.Globalization.4.0.10.nupkg",
+        "System.Globalization.4.0.10.nupkg.sha512",
         "System.Globalization.nuspec"
       ]
     },
@@ -14039,17 +12826,14 @@
     },
     "System.Linq/4.0.0": {
       "sha512": "r6Hlc+ytE6m/9UBr+nNRRdoJEWjoeQiT3L3lXYFDHoXk3VYsRBCDNXrawcexw7KPLaH0zamQLiAb6avhZ50cGg==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/System.Linq.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Linq.dll",
         "lib/win8/_._",
         "lib/wp80/_._",
         "lib/wpa81/_._",
-        "package/services/metadata/core-properties/6fcde56ce4094f6a8fff4b28267da532.psmdcp",
         "ref/dotnet/de/System.Linq.xml",
         "ref/dotnet/es/System.Linq.xml",
         "ref/dotnet/fr/System.Linq.xml",
@@ -14067,6 +12851,8 @@
         "ref/win8/_._",
         "ref/wp80/_._",
         "ref/wpa81/_._",
+        "System.Linq.4.0.0.nupkg",
+        "System.Linq.4.0.0.nupkg.sha512",
         "System.Linq.nuspec"
       ]
     },
@@ -14171,16 +12957,13 @@
     },
     "System.Net.Http/4.0.0": {
       "sha512": "mZuAl7jw/mFY8jUq4ITKECxVBh9a8SJt9BC/+lJbmo7cRKspxE3PsITz+KiaCEsexN5WYPzwBOx0oJH/0HlPyQ==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Net.Http.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Net.Http.dll",
         "lib/win8/_._",
         "lib/wpa81/_._",
-        "package/services/metadata/core-properties/62d64206d25643df9c8d01e867c05e27.psmdcp",
         "ref/dotnet/de/System.Net.Http.xml",
         "ref/dotnet/es/System.Net.Http.xml",
         "ref/dotnet/fr/System.Net.Http.xml",
@@ -14197,6 +12980,8 @@
         "ref/netcore50/System.Net.Http.xml",
         "ref/win8/_._",
         "ref/wpa81/_._",
+        "System.Net.Http.4.0.0.nupkg",
+        "System.Net.Http.4.0.0.nupkg.sha512",
         "System.Net.Http.nuspec"
       ]
     },
@@ -14430,17 +13215,14 @@
     },
     "System.ObjectModel/4.0.10": {
       "sha512": "Djn1wb0vP662zxbe+c3mOhvC4vkQGicsFs1Wi0/GJJpp3Eqp+oxbJ+p2Sx3O0efYueggAI5SW+BqEoczjfr1cA==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/System.ObjectModel.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
         "lib/net46/_._",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/36c2aaa0c5d24949a7707921f36ee13f.psmdcp",
         "ref/dotnet/de/System.ObjectModel.xml",
         "ref/dotnet/es/System.ObjectModel.xml",
         "ref/dotnet/fr/System.ObjectModel.xml",
@@ -14457,6 +13239,8 @@
         "ref/net46/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
+        "System.ObjectModel.4.0.10.nupkg",
+        "System.ObjectModel.4.0.10.nupkg.sha512",
         "System.ObjectModel.nuspec"
       ]
     },
@@ -14700,17 +13484,14 @@
     },
     "System.Reflection.Extensions/4.0.0": {
       "sha512": "dbYaZWCyFAu1TGYUqR2n+Q+1casSHPR2vVW0WVNkXpZbrd2BXcZ7cpvpu9C98CTHtNmyfMWCLpCclDqly23t6A==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Reflection.Extensions.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Reflection.Extensions.dll",
         "lib/win8/_._",
         "lib/wp80/_._",
         "lib/wpa81/_._",
-        "package/services/metadata/core-properties/0bcc335e1ef540948aef9032aca08bb2.psmdcp",
         "ref/dotnet/de/System.Reflection.Extensions.xml",
         "ref/dotnet/es/System.Reflection.Extensions.xml",
         "ref/dotnet/fr/System.Reflection.Extensions.xml",
@@ -14729,6 +13510,8 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.Extensions.dll",
+        "System.Reflection.Extensions.4.0.0.nupkg",
+        "System.Reflection.Extensions.4.0.0.nupkg.sha512",
         "System.Reflection.Extensions.nuspec"
       ]
     },
@@ -14748,17 +13531,14 @@
     },
     "System.Reflection.Primitives/4.0.0": {
       "sha512": "n9S0XpKv2ruc17FSnaiX6nV47VfHTZ1wLjKZlAirUZCvDQCH71mVp+Ohabn0xXLh5pK2PKp45HCxkqu5Fxn/lA==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Reflection.Primitives.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Reflection.Primitives.dll",
         "lib/win8/_._",
         "lib/wp80/_._",
         "lib/wpa81/_._",
-        "package/services/metadata/core-properties/7070509f3bfd418d859635361251dab0.psmdcp",
         "ref/dotnet/de/System.Reflection.Primitives.xml",
         "ref/dotnet/es/System.Reflection.Primitives.xml",
         "ref/dotnet/fr/System.Reflection.Primitives.xml",
@@ -14777,15 +13557,15 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.Primitives.dll",
+        "System.Reflection.Primitives.4.0.0.nupkg",
+        "System.Reflection.Primitives.4.0.0.nupkg.sha512",
         "System.Reflection.Primitives.nuspec"
       ]
     },
     "System.Reflection.TypeExtensions/4.0.0": {
       "sha512": "YRM/msNAM86hdxPyXcuZSzmTO0RQFh7YMEPBLTY8cqXvFPYIx2x99bOyPkuU81wRYQem1c1HTkImQ2DjbOBfew==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Reflection.TypeExtensions.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -14793,7 +13573,6 @@
         "lib/netcore50/System.Reflection.TypeExtensions.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/a37798ee61124eb7b6c56400aee24da1.psmdcp",
         "ref/dotnet/de/System.Reflection.TypeExtensions.xml",
         "ref/dotnet/es/System.Reflection.TypeExtensions.xml",
         "ref/dotnet/fr/System.Reflection.TypeExtensions.xml",
@@ -14811,22 +13590,21 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Reflection.TypeExtensions.dll",
+        "System.Reflection.TypeExtensions.4.0.0.nupkg",
+        "System.Reflection.TypeExtensions.4.0.0.nupkg.sha512",
         "System.Reflection.TypeExtensions.nuspec"
       ]
     },
     "System.Resources.ResourceManager/4.0.0": {
       "sha512": "qmqeZ4BJgjfU+G2JbrZt4Dk1LsMxO4t+f/9HarNY6w8pBgweO6jT+cknUH7c3qIrGvyUqraBhU45Eo6UtA0fAw==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Resources.ResourceManager.dll",
         "lib/net45/_._",
         "lib/netcore50/System.Resources.ResourceManager.dll",
         "lib/win8/_._",
         "lib/wp80/_._",
         "lib/wpa81/_._",
-        "package/services/metadata/core-properties/657a73ee3f09479c9fedb9538ade8eac.psmdcp",
         "ref/dotnet/de/System.Resources.ResourceManager.xml",
         "ref/dotnet/es/System.Resources.ResourceManager.xml",
         "ref/dotnet/fr/System.Resources.ResourceManager.xml",
@@ -14845,6 +13623,8 @@
         "ref/wp80/_._",
         "ref/wpa81/_._",
         "runtimes/win8-aot/lib/netcore50/System.Resources.ResourceManager.dll",
+        "System.Resources.ResourceManager.4.0.0.nupkg",
+        "System.Resources.ResourceManager.4.0.0.nupkg.sha512",
         "System.Resources.ResourceManager.nuspec"
       ]
     },
@@ -14918,10 +13698,8 @@
     },
     "System.Runtime.Handles/4.0.0": {
       "sha512": "638VhpRq63tVcQ6HDb3um3R/J2BtR1Sa96toHo6PcJGPXEPEsleCuqhBgX2gFCz0y0qkutANwW6VPPY5wQu1XQ==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Runtime.Handles.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -14929,7 +13707,6 @@
         "lib/netcore50/System.Runtime.Handles.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/da57aa32ff2441d1acfe85bee4f101ab.psmdcp",
         "ref/dotnet/de/System.Runtime.Handles.xml",
         "ref/dotnet/es/System.Runtime.Handles.xml",
         "ref/dotnet/fr/System.Runtime.Handles.xml",
@@ -14947,15 +13724,15 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.Handles.dll",
+        "System.Runtime.Handles.4.0.0.nupkg",
+        "System.Runtime.Handles.4.0.0.nupkg.sha512",
         "System.Runtime.Handles.nuspec"
       ]
     },
     "System.Runtime.InteropServices/4.0.20": {
       "sha512": "ZgDyBYfEnjWoz/viS6VOswA6XOkDSH2DzgbpczbW50RywhnCgTl+w3JEvtAiOGyIh8cyx1NJq80jsNBSUr8Pig==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Runtime.InteropServices.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -14963,7 +13740,6 @@
         "lib/netcore50/System.Runtime.InteropServices.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/78e7f61876374acba2a95834f272d262.psmdcp",
         "ref/dotnet/de/System.Runtime.InteropServices.xml",
         "ref/dotnet/es/System.Runtime.InteropServices.xml",
         "ref/dotnet/fr/System.Runtime.InteropServices.xml",
@@ -14981,6 +13757,8 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll",
+        "System.Runtime.InteropServices.4.0.20.nupkg",
+        "System.Runtime.InteropServices.4.0.20.nupkg.sha512",
         "System.Runtime.InteropServices.nuspec"
       ]
     },
@@ -15551,10 +14329,8 @@
     },
     "System.Threading/4.0.10": {
       "sha512": "0w6pRxIEE7wuiOJeKabkDgeIKmqf4ER1VNrs6qFwHnooEE78yHwi/bKkg5Jo8/pzGLm0xQJw0nEmPXt1QBAIUA==",
-      "type": "Package",
+      "type": "package",
       "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/DNXCore50/System.Threading.dll",
         "lib/MonoAndroid10/_._",
         "lib/MonoTouch10/_._",
@@ -15562,7 +14338,6 @@
         "lib/netcore50/System.Threading.dll",
         "lib/xamarinios10/_._",
         "lib/xamarinmac20/_._",
-        "package/services/metadata/core-properties/c17c3791d8fa4efbb8aded2ca8c71fbe.psmdcp",
         "ref/dotnet/de/System.Threading.xml",
         "ref/dotnet/es/System.Threading.xml",
         "ref/dotnet/fr/System.Threading.xml",
@@ -15580,6 +14355,8 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "runtimes/win8-aot/lib/netcore50/System.Threading.dll",
+        "System.Threading.4.0.10.nupkg",
+        "System.Threading.4.0.10.nupkg.sha512",
         "System.Threading.nuspec"
       ]
     },
@@ -15851,35 +14628,12 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll",
         "System.Xml.XmlSerializer.nuspec"
       ]
-    },
-    "XamlAnimatedGif/1.0.7": {
-      "sha512": "LYzrRAHzAK1y9FPKvSxrl6uKCFqbR4yZHJPZhCid/+rTJM+tFL4XLdoqiaSuPzFHcO+QrNOQc5kyg6g0t/VXYA==",
-      "type": "Package",
-      "files": [
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/net40/XamlAnimatedGif.dll",
-        "lib/net45/XamlAnimatedGif.dll",
-        "lib/portable-win81+wpa81/XamlAnimatedGif.dll",
-        "package/services/metadata/core-properties/ea5be095cbb2417f9885931a839baa85.psmdcp",
-        "XamlAnimatedGif.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "AmazingPullToRefresh >= 0.9.0",
-      "HtmlAgilityPack >= 1.4.9",
-      "Microsoft.ApplicationInsights >= 1.0.0",
-      "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
-      "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
-      "Newtonsoft.Json >= 8.0.2",
-      "QueryString.NET >= 1.0.0",
-      "SQLite.Net.Async-PCL >= 3.1.1",
-      "SQLite.Net-PCL >= 3.1.1",
-      "SQLiteNetExtensions.Async >= 1.3.0",
-      "XamlAnimatedGif >= 1.0.7"
+      "Newtonsoft.Json >= 8.0.2"
     ],
     "UAP,Version=v10.0": []
   }

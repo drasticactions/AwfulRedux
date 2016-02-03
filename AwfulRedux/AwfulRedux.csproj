@@ -1067,6 +1067,10 @@
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>
       <Name>AwfulRedux.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Imgur\Imgur.csproj">
+      <Project>{6bdadad2-b0b3-489e-b2da-e1b9cf68a787}</Project>
+      <Name>Imgur</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kimono\Kimono.csproj">
       <Project>{329833b1-79b7-4724-b9a2-0629d735bea1}</Project>
       <Name>Kimono</Name>

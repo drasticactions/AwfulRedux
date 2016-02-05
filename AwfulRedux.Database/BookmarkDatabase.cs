@@ -46,9 +46,10 @@ namespace AwfulRedux.Database
                         t.IsNotified = true;
                     }
                     t.Id = count;
-                    await bds.BookmarkThreads.CreateWithChildren(t);
                     count++;
                 }
+
+                await bds.BookmarkThreads.CreateAllWithChildren(updatedBookmarkList);
             }
         }
 
@@ -65,14 +66,6 @@ namespace AwfulRedux.Database
             using (var bds = new Bookmarks(Platform, DbLocation))
             {
                 await bds.BookmarkThreads.CreateWithChildren(updatedBookmark);
-            }
-        }
-
-        public async Task RemoveBookmark(Thread updatedBookmark)
-        {
-            using (var bds = new Bookmarks(Platform, DbLocation))
-            {
-                await bds.BookmarkThreads.Remove(updatedBookmark);
             }
         }
 
@@ -105,10 +98,7 @@ namespace AwfulRedux.Database
         {
             using (var bds = new Bookmarks(Platform, DbLocation))
             {
-                foreach (var t in bookmarkedThreads)
-                {
-                    await bds.BookmarkThreads.CreateWithChildren(t);
-                }
+                await bds.BookmarkThreads.CreateAllWithChildren(bookmarkedThreads);
             }
         }
 

@@ -28,6 +28,11 @@ namespace AwfulRedux.Database.Tools
             return await _db.InsertAsync(newEntity);
         }
 
+        public async Task CreateAllWithChildren(List<T> newEntity)
+        {
+            await _db.InsertAllWithChildrenAsync(newEntity);
+        }
+
         public async Task CreateWithChildren(T newEntity)
         {
             await _db.InsertWithChildrenAsync(newEntity);

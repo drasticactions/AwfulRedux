@@ -63,7 +63,7 @@ namespace AwfulRedux.ViewModels
         public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
         {
             var deferral = e.GetDeferral();
-            await Refresh();
+            await Refresh(true);
             deferral.Complete();
         }
 
@@ -135,9 +135,9 @@ namespace AwfulRedux.ViewModels
             return Task.CompletedTask;
         }
 
-        public async Task Refresh()
+        public async Task Refresh(bool isPtr = false)
         {
-            IsLoading = true;
+            IsLoading = !isPtr;
             try
             {
                 var pageNumber = 1;

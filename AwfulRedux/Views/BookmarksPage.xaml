@@ -28,6 +28,9 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
+                        <controls1:PageHeader.PrimaryCommands>
+                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                        </controls1:PageHeader.PrimaryCommands>
                         <interactivity:Interaction.Behaviors>
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
@@ -44,9 +47,6 @@
                             <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
                         </controls3:PullToRefreshAdorner.Extender>
                     </ListView>
-                    <CommandBar Grid.Row="3">
-                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
-                    </CommandBar>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>

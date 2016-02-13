@@ -62,9 +62,7 @@ namespace AwfulRedux.ViewModels
 
         public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
         {
-            var deferral = e.GetDeferral();
-            await Refresh(true);
-            deferral.Complete();
+            await Refresh();
         }
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
@@ -135,9 +133,9 @@ namespace AwfulRedux.ViewModels
             return Task.CompletedTask;
         }
 
-        public async Task Refresh(bool isPtr = false)
+        public async Task Refresh()
         {
-            IsLoading = !isPtr;
+            IsLoading = true;
             try
             {
                 var pageNumber = 1;

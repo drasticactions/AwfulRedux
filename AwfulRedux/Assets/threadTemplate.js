@@ -215,4 +215,14 @@ $(document).ready(function () {
         });
     }
 
+    $(".bbc-spoiler").bind("touchstart", function(e) {
+        e.target === this && ($(this).toggleClass("stay"),
+            e.stopPropagation(),
+            e.preventDefault());
+    });
+
+    $(".bbc-spoiler").click(function(e) {
+        e.target === this && $(this).toggleClass("stay");
+    });
+
 });

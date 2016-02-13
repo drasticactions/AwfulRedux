@@ -35,6 +35,9 @@
                         <interactivity:Interaction.Behaviors>
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
+                        <controls1:PageHeader.PrimaryCommands>
+                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                        </controls1:PageHeader.PrimaryCommands>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
                     <ListView x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" ItemTemplate="{StaticResource ThreadDataTemplate}"  SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"

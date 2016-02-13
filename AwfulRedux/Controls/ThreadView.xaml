@@ -26,6 +26,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Content="{Binding Selected.Name}">
+            <controls:PageHeader.PrimaryCommands>
+                <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
+            </controls:PageHeader.PrimaryCommands>
             <interactivity:Interaction.Behaviors>
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
             </interactivity:Interaction.Behaviors>

@@ -78,7 +78,7 @@
                                       IsOn="{Binding UseBackgroundTask, Mode=TwoWay}"
                                       OffContent="Off" OnContent="On" />
                         <TextBlock Margin="0,0,0,20" x:Name="BackgroundSwitchText" RelativePanel.Below="UseBackgroundTask" TextWrapping="Wrap">Enables background Tasks to be used.</TextBlock>
-                        <ToggleSwitch x:Name="UseBookmarkBackground" RelativePanel.Below="BackgroundSwitchText" Header="Enable Bookmark Live Titles"
+                        <ToggleSwitch x:Name="UseBookmarkBackground" RelativePanel.Below="BackgroundSwitchText" Header="Enable Bookmark Live Tiles"
                                       IsOn="{Binding UseBackgroundBookmarkLiveTile, Mode=TwoWay}"
                                       OffContent="Off" OnContent="On" />
                         <TextBlock Margin="0,0,0,20" x:Name="BookmarkBackgroundSwitchText" RelativePanel.Below="UseBookmarkBackground" TextWrapping="Wrap">Enables updated bookmarks to appear on your Awful live tile.</TextBlock>

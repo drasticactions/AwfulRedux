@@ -12,7 +12,16 @@ namespace AwfulRedux.Mobile
         public App()
         {
             // The root page of your application
-            MainPage = new MainPage();
+            MainPage = GetMainPage();
+        }
+
+        public Page GetMainPage()
+        {
+            var tp = new TabbedPage();
+            tp.Children.Add(new NavigationPage(new MainForumsPage()));
+            tp.Children.Add(new ContentPage { BackgroundColor = Color.Blue, Title = "Page 2" });
+            tp.Children.Add(new ContentPage { BackgroundColor = Color.Green, Title = "Page 3" });
+            return tp;
         }
 
         protected override void OnStart()

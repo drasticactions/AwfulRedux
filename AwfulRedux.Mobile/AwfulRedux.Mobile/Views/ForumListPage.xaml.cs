@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AwfulRedux.UI.Models.Forums;
 using Xamarin.Forms;
 
 namespace AwfulRedux.Mobile.Views
 {
-    public partial class MainPage : TabbedPage
+    public partial class ForumListPage : ContentPage
     {
-        public MainPage()
+        public ForumListPage(Forum forum)
         {
             InitializeComponent();
-            //MainTabbedPage.Children.Add(new NavigationPage(new MainForumsPage()));
         }
     }
 }

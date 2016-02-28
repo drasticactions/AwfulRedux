@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AwfulRedux.Mobile.Views.ForumListPage">
+  <AbsoluteLayout
+     HorizontalOptions="FillAndExpand"
+     VerticalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Spacing="0">
+      <ListView  x:Name="listView" HeightRequest="200" ItemsSource="{Binding ItemList}" HasUnevenRows="true">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.Padding>
+                  <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.iOS>
+                      10,5,10,5
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                      10,5,10,5
+                    </OnPlatform.Android>
+                  </OnPlatform>
+                </Grid.Padding>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <BoxView Grid.Column="0" WidthRequest="5" Color="Green"/>
+                <StackLayout Grid.Column="1"
+                             Padding="8"
+                             Spacing="4"
+                             VerticalOptions="Center">
+                  <Label Text="{Binding Name}" FontSize="Small"  LineBreakMode="WordWrap"/>
+                  <Grid>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="Auto"/>
+                      <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="{Binding ImageIconUrl}" HeightRequest="15" WidthRequest="60"/>
+                    <StackLayout Grid.Column="1" Orientation="Horizontal">
+                      <Label FontSize="Micro">Killed By: </Label>
+                      <Label FontSize="Micro" Text="{Binding KilledBy}"></Label>
+                    </StackLayout>
+                  </Grid>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </AbsoluteLayout>
+</ContentPage>

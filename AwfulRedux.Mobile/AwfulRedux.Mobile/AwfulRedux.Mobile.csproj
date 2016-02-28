@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Controls\InfiniteListView.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -70,6 +71,7 @@
     <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
+    <None Include="Views\ForumListPage.json" />
     <None Include="Views\MainForumsPage.json" />
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,33 @@ namespace AwfulRedux.Views
             ViewModel.MasterDetailViewControl = previewControl;
         }
 
+        private void GoToLastPage(object sender, RoutedEventArgs e)
+        {
+            var imageSource = sender as MenuFlyoutItem;
+            var thread = imageSource?.CommandParameter as Thread;
+            if (thread == null)
+                return;
+            ViewModel.GoToLastPage(thread);
+        }
+
+        private void AddRemoveBookmark(object sender, RoutedEventArgs e)
+        {
+            var imageSource = sender as MenuFlyoutItem;
+            var thread = imageSource?.CommandParameter as Thread;
+            if (thread == null)
+                return;
+            ViewModel.AddRemoveBookmark(thread);
+        }
+
+        private void Unread(object sender, RoutedEventArgs e)
+        {
+            var imageSource = sender as MenuFlyoutItem;
+            var thread = imageSource?.CommandParameter as Thread;
+            if (thread == null)
+                return;
+            ViewModel.UnreadThread(thread);
+        }
+
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);

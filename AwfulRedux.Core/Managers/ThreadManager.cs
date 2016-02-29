@@ -30,6 +30,19 @@ namespace AwfulRedux.Core.Managers
             _webManager = webManager;
         }
 
+        public async Task<bool> MarkThreadUnreadAsync(long threadId)
+        {
+            var dic = new Dictionary<string, string>
+            {
+                ["json"] = "1",
+                ["action"] = "resetseen",
+                ["threadid"] = threadId.ToString()
+            };
+            var header = new FormUrlEncodedContent(dic);
+            await _webManager.PostData(EndPoints.ResetBase, header);
+            return true;
+        }
+
         public async Task<Result> GetBookmarksAsync(int page)
         {
             var forumThreadList = new List<Thread>();

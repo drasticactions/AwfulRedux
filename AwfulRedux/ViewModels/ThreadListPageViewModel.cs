@@ -22,10 +22,8 @@ using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
 {
-    public class ThreadListPageViewModel : ViewModelBase
+    public class ThreadListPageViewModel : ForumThreadListBaseViewModel
     {
-        public ThreadView ThreadView { get; set; }
-        public MasterDetailViewControl MasterDetailViewControl { get; set; }
         private PageScrollingCollection _ForumPageScrollingCollection = default(PageScrollingCollection);
         public PageScrollingCollection ForumPageScrollingCollection
         {
@@ -45,27 +43,6 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private bool _isLoading = default(bool);
-        private Thread _selected = default(Thread);
-
-        public Thread Selected
-        {
-            get { return _selected; }
-            set
-            {
-                Set(ref _selected, value);
-            }
-        }
-
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set
-            {
-                Set(ref _isLoading, value);
-            }
-        }
-
         public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
         {
             Refresh();
@@ -74,6 +51,10 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            if (WebManager == null)
+            {
+                await LoginUser();
+            }
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
             if (Forum != null && (mode == NavigationMode.Forward | mode == NavigationMode.Back))
             {

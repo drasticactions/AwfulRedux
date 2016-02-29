@@ -19,34 +19,10 @@ using Template10.Utils;
 
 namespace AwfulRedux.ViewModels
 {
-    public class BookmarkViewModel : ViewModelBase
+    public class BookmarkViewModel : ForumThreadListBaseViewModel
     {
-        public ThreadView ThreadView { get; set; }
-        public MasterDetailViewControl MasterDetailViewControl { get; set; }
         private ObservableCollection<Thread> _bookmarkedThreads = new ObservableCollection<Thread>();
 
-        private Thread _selected = default(Thread);
-
-        public Thread Selected
-        {
-            get { return _selected; }
-            set
-            {
-                Set(ref _selected, value);
-            }
-        }
-
-
-        private bool _isLoading;
-
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set
-            {
-                Set(ref _isLoading, value);
-            }
-        }
 
         public ObservableCollection<Thread> BookmarkedThreads
         {
@@ -57,7 +33,6 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        private readonly BookmarkDatabase _db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
         private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
 
         public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
@@ -68,6 +43,10 @@ namespace AwfulRedux.ViewModels
         public override async void OnNavigatedTo(object parameter, NavigationMode mode,
             IDictionary<string, object> state)
         {
+            if (WebManager == null)
+            {
+                await LoginUser();
+            }
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
             if (state.ContainsKey(nameof(Selected)))
             {
@@ -85,7 +64,7 @@ namespace AwfulRedux.ViewModels
             IsLoading = true;
             try
             {
-                var bookmarks = await _db.GetBookmarkedThreadsFromDb();
+                var bookmarks = await Db.GetBookmarkedThreadsFromDb();
                 if (bookmarks != null && bookmarks.Any())
                 {
                     BookmarkedThreads = bookmarks.ToObservableCollection();
@@ -166,7 +145,7 @@ namespace AwfulRedux.ViewModels
                     }
                 }
                 App.Settings.LastRefresh = DateTime.UtcNow;
-                await _db.RefreshBookmarkedThreads(BookmarkedThreads.ToList());
+                await Db.RefreshBookmarkedThreads(BookmarkedThreads.ToList());
             }
             catch (Exception ex)
             {

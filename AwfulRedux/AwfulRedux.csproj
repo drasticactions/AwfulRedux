@@ -248,6 +248,7 @@
     <Compile Include="Tools\Web\HtmlFormater.cs" />
     <Compile Include="Tools\Web\WebViewCommands.cs" />
     <Compile Include="ViewModels\BookmarkViewModel.cs" />
+    <Compile Include="ViewModels\ForumThreadListBaseViewModel.cs" />
     <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\NewThreadViewModel.cs" />

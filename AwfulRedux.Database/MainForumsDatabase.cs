@@ -46,11 +46,12 @@ namespace AwfulRedux.Database
 
         public async Task SaveMainForumsList(List<Category> forumGroupList)
         {
-            var ds = new DataSource.MainForums(Platform, DbLocation);
-            var items = await ds.ForumCategories.Items.ToListAsync();
-            var count = 1;
-            if (items.Any())
+            using (var ds = new DataSource.MainForums(Platform, DbLocation))
             {
+                await ds.ForumCategories.RemoveAll();
+                await ds.Forums.RemoveAll();
+                var count = 1;
+                var forumCount = 1;
                 foreach (var item in forumGroupList)
                 {
                     foreach (var forumitem in item.ForumList)
@@ -58,19 +59,8 @@ namespace AwfulRedux.Database
                         forumitem.Id = count;
                         count++;
                     }
-                    await ds.ForumCategories.UpdateWithChildren(item);
+                    await ds.ForumCategories.CreateWithChildren(item);
                 }
-                return;
-            }
-
-            foreach (var item in forumGroupList)
-            {
-                foreach (var forumitem in item.ForumList)
-                {
-                    forumitem.Id = count;
-                    count++;
-                }
-                await ds.ForumCategories.CreateWithChildren(item);
             }
         }
 

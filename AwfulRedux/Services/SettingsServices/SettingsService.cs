@@ -72,6 +72,16 @@ namespace AwfulRedux.Services.SettingsServices
                 ChangeBackgroundStatus(value);
             }
         }
+
+        public bool TransparentThreadListBackground
+        {
+            get { return _helper.Read<bool>(nameof(TransparentThreadListBackground), false); }
+            set
+            {
+                _helper.Write(nameof(TransparentThreadListBackground), value);
+            }
+        }
+
         public bool BookmarkBackground
         {
             get { return _helper.Read<bool>(nameof(BookmarkBackground), false); }

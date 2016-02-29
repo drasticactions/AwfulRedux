@@ -68,6 +68,12 @@ namespace AwfulRedux.ViewModels
             set { _settings.BookmarkBackground = value; base.RaisePropertyChanged(); }
         }
 
+        public bool UseTransparentThreadListBackground
+        {
+            get { return _settings.TransparentThreadListBackground; }
+            set { _settings.TransparentThreadListBackground = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseBookmarkBackgroundNotify
         {
             get { return _settings.BookmarkNotifications; }

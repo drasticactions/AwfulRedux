@@ -65,13 +65,13 @@
                 </controls1:PullToRefreshAdorner.Extender>
                 <listControls:AdaptiveGridView.ItemTemplate>
                     <DataTemplate x:DataType="forums:Forum">
-                        <Grid x:Name="ForumTemplateGrid" HorizontalAlignment="Stretch" Background="{StaticResource ForumBackground}">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="8"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Rectangle Fill="{x:Bind IsSubforum, Converter={StaticResource SubforumHeaderColorConverter}}" Grid.Row="0"/>
-                            <TextBlock Style="{StaticResource ForumBox}" Foreground="{StaticResource ForumFontColor}" Grid.Row="1" Text="{x:Bind Name}" FontFamily="{StaticResource DefaultFont}" TextWrapping="Wrap" TextAlignment="Left" Margin="15,5,15,0" />
+                        <Grid x:Name="ForumTemplateGrid" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="{x:Bind IsSubforum, Converter={StaticResource SubforumHeaderColorConverter}}" Grid.Column="0"/>
+                            <TextBlock Style="{StaticResource ForumBox}" Foreground="{StaticResource ForumFontColor}" Grid.Column="1" Text="{x:Bind Name}" FontFamily="{StaticResource DefaultFont}" TextWrapping="Wrap" TextAlignment="Left" Margin="15,5,15,0" />
                         </Grid>
                     </DataTemplate>
                 </listControls:AdaptiveGridView.ItemTemplate>

@@ -41,5 +41,10 @@ namespace AwfulRedux.Controls
             ViewModel.Selected = thread;
             await ViewModel.LoadThread();
         }
+
+        private async void ScrollToBottom(object sender, RoutedEventArgs e)
+        {
+            await ThreadFullView.InvokeScriptAsync("ScrollToBottom", null);
+        }
     }
 }

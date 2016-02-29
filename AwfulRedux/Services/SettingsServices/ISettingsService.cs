@@ -17,6 +17,8 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool BackgroundEnable { get; set; }
 
+        bool TransparentThreadListBackground { get; set; }
+
         bool BookmarkBackground { get; set; }
 
         bool BookmarkNotifications { get; set; }

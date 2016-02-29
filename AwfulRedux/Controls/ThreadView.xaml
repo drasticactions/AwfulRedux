@@ -47,7 +47,7 @@
                 </AppBarButton>
                 <AppBarButton Visibility="{Binding Selected.IsBookmark, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveNotificationTable}" Label="{Binding Selected.IsNotified, Converter={StaticResource NotifyThreadTextConverter}, Mode=OneWay}">
                 </AppBarButton>
-                <AppBarButton Click="{x:Bind ViewModel.LaunchAsExternalView}" Label="Launch To New Window"/>
+                <AppBarButton Click="ScrollToBottom" Label="Scroll To Bottom"/>
                 <AppBarButton Label="{Binding Selected, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
                     <Button.Flyout>
                         <Flyout>

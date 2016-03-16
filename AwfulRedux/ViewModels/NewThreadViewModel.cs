@@ -96,14 +96,11 @@ namespace AwfulRedux.ViewModels
 
         private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             Selected = JsonConvert.DeserializeObject<Forum>(parameter.ToString());
-            Views.Shell.ShowBusy(true, "Preparing for new thread...");
             Title = "New Thread - " + Selected.Name;
             _newThread = await _threadManager.GetThreadCookiesAsync(Selected.ForumId);
-            Views.Shell.ShowBusy(false);
         }
 
         public void SelectBbCode(object sender, RoutedEventArgs e)
@@ -179,9 +176,7 @@ namespace AwfulRedux.ViewModels
         public async Task AddImageViaImgur()
         {
             IsLoading = true;
-            Views.Shell.ShowBusy(true, "Uploading image...");
             await AddImage.AddImageViaImgur(ReplyBox);
-            Views.Shell.ShowBusy(false);
             IsLoading = false;
         }
     }

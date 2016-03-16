@@ -98,10 +98,9 @@ namespace AwfulRedux.ViewModels
 
         private NewPrivateMessage _newPrivateMessage = new NewPrivateMessage();
 
-        public override void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
-            base.OnNavigatedTo(parameter, mode, state);
+            await base.OnNavigatedToAsync(parameter, mode, suspensionState);
             Selected = JsonConvert.DeserializeObject<PrivateMessage>(parameter.ToString());
             if (!string.IsNullOrEmpty(Selected.Title))
             {
@@ -113,7 +112,7 @@ namespace AwfulRedux.ViewModels
                 Title = "New Private Message";
             }
 
-             if (!string.IsNullOrEmpty(Selected.Sender))
+            if (!string.IsNullOrEmpty(Selected.Sender))
             {
                 Recipient.Text = Selected.Sender;
             }
@@ -123,7 +122,7 @@ namespace AwfulRedux.ViewModels
         {
             if (string.IsNullOrEmpty(ReplyBox.Text) || _newPrivateMessage == null) return;
             if (PostIconViewModel.PostIcon == null) return;
-            Views.Shell.ShowBusy(true, "Sending PM...");
+            IsLoading = true;
             Result result = new Result();
             try
             {
@@ -137,7 +136,7 @@ namespace AwfulRedux.ViewModels
             {
                 // TODO: Show error.
             }
-            Views.Shell.ShowBusy(false);
+            IsLoading = false;
             if (result.IsSuccess)
             {
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();
@@ -198,9 +197,7 @@ namespace AwfulRedux.ViewModels
         public async Task AddImageViaImgur()
         {
             IsLoading = true;
-            Views.Shell.ShowBusy(true, "Uploading image...");
             await AddImage.AddImageViaImgur(ReplyBox);
-            Views.Shell.ShowBusy(false);
             IsLoading = false;
         }
     }

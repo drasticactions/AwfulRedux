@@ -29,7 +29,7 @@ namespace AwfulRedux.ViewModels
 {
     public class ThreadViewModel : ViewModelBase
     {
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         private Thread _selected = default(Thread);
 
@@ -210,7 +210,7 @@ namespace AwfulRedux.ViewModels
                 }));
         }
 
-        private readonly BookmarkDatabase _db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
+        private readonly BookmarkDatabase _db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
 
         public async void AddRemoveNotificationTable()
         {

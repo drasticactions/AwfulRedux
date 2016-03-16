@@ -40,7 +40,7 @@
                         </ListView.ItemContainerStyle>
                     </ListView>
                     <CommandBar Grid.Row="3">
-                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                         <AppBarButton Label="New PM" Click="{x:Bind ViewModel.CreateNewPm}" Icon="Send"/>
                     </CommandBar>
                 </Grid>

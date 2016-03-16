@@ -24,7 +24,7 @@ namespace AwfulRedux.ViewModels
 
         private bool _isLoggedIn = default(bool);
 
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
         public bool IsLoggedIn
         {
             get { return _isLoggedIn; }

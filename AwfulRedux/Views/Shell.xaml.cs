@@ -26,46 +26,28 @@ using Template10.Services.NavigationService;
 
 namespace AwfulRedux.Views
 {
-    public sealed partial class Shell
+    public sealed partial class Shell : Page
     {
         public static Shell Instance { get; set; }
-        private static WindowWrapper Window { get; set; }
         public static HamburgerMenu HamburgerMenu => Instance.MyHamburgerMenu;
 
         // strongly-typed view models enable x:bind
         public ShellViewModel ViewModel => this.DataContext as ShellViewModel;
 
-        public void SetNav(NavigationService navigationService)
-        {
-            MyHamburgerMenu.NavigationService = navigationService;
-        }
-
-        public Shell(NavigationService navigationService)
+        public Shell()
         {
             Instance = this;
-            this.InitializeComponent();
-
-            // setup for static calls
-            Window = WindowWrapper.Current();
-            MyHamburgerMenu.NavigationService = navigationService;
-            ViewModel.WebManager = new WebManager();
-
-            // any nav change, reset to normal
-            //navigationService.FrameFacade.Navigated += (s, e) =>
-            //    BusyModal.IsModal  = LoginModal.IsModal = false;
+            InitializeComponent();
         }
 
-        #region Busy
-
-        public static void ShowBusy(bool busy, string text = null)
+        public Shell(INavigationService navigationService) : this()
         {
-            Window.Dispatcher.Dispatch(() =>
-            {
-                Instance.BusyText.Text = text ?? string.Empty;
-                Instance.BusyModal.IsModal = busy;
-            });
+            SetNavigationService(navigationService);
         }
 
-        #endregion
+        public void SetNavigationService(INavigationService navigationService)
+        {
+            MyHamburgerMenu.NavigationService = navigationService;
+        }
     }
 }

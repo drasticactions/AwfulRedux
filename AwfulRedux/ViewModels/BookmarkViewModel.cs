@@ -40,21 +40,20 @@ namespace AwfulRedux.ViewModels
             await Refresh();
         }
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             if (WebManager == null)
             {
                 await LoginUser();
             }
             Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
-            if (state.ContainsKey(nameof(Selected)))
+            if (suspensionState.ContainsKey(nameof(Selected)))
             {
                 if (Selected == null)
                 {
-                    Selected = JsonConvert.DeserializeObject<Thread>(state[nameof(Selected)]?.ToString());
+                    Selected = JsonConvert.DeserializeObject<Thread>(suspensionState[nameof(Selected)]?.ToString());
                     await ThreadView.LoadThread(Selected);
-                    state.Clear();
+                    suspensionState.Clear();
                 }
             }
             if (BookmarkedThreads != null && BookmarkedThreads.Any())

@@ -26,11 +26,10 @@ namespace AwfulRedux.ViewModels
         public ObservableCollection<Category> ForumGroupList { get; set; } = new ObservableCollection<Category>();
 
         private Category _favoritesEntity;
-        private readonly MainForumsDatabase _db = new MainForumsDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly MainForumsDatabase _db = new MainForumsDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             if (!ForumGroupList.Any())
             {
@@ -41,9 +40,7 @@ namespace AwfulRedux.ViewModels
 
         public async Task RefreshForums()
         {
-            Views.Shell.ShowBusy(true, "Refreshing Forum List...");
             await GetMainPageForumsAsync(true);
-            Views.Shell.ShowBusy(false);
         }
 
         public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)
@@ -82,7 +79,6 @@ namespace AwfulRedux.ViewModels
                 if (!resultCheck)
                 {
                     await ResultChecker.SendMessageDialogAsync("Failed to update initial forum list", false);
-                    Views.Shell.ShowBusy(false);
                     return;
                 }
                 forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);

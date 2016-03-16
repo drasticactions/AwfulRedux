@@ -32,7 +32,7 @@
                     </Grid.RowDefinitions>
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
                         <controls1:PageHeader.PrimaryCommands>
-                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                         </controls1:PageHeader.PrimaryCommands>
                         <interactivity:Interaction.Behaviors>
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />

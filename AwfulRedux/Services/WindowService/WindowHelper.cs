@@ -38,7 +38,7 @@ namespace AwfulRedux.Services.WindowService
                 var frame = new Frame();
                 frame.NavigationFailed += (s, e) => { System.Diagnostics.Debugger.Break(); };
                 this.Window.Content = frame;
-                WindowWrapper.SetupNavigationServices(this.Window, frame);
+                //WindowWrapper.SetupNavigationServices(this.Window, frame);
                 Window.Current.Activate();
                 frame.Navigate(typeof(T), param);
                 this.View = ApplicationView.GetForCurrentView();

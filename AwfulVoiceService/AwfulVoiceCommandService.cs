@@ -131,8 +131,8 @@ namespace AwfulRedux.VoiceCommands
         }
 
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "Forums.db"));
-        private readonly BookmarkDatabase _bdb = new BookmarkDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "Bookmark.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "ForumsRedux.db"));
+        private readonly BookmarkDatabase _bdb = new BookmarkDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "BookmarkRedux.db"));
         private WebManager _webManager;
         private ThreadManager _threadManager;
         private PrivateMessageManager _privateMessageManager;

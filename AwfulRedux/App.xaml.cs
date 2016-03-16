@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Background;
 using Windows.Foundation.Metadata;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -19,6 +20,8 @@ using AwfulRedux.Views;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using SQLite.Net.Platform.WinRT;
+using Template10.Common;
+using Template10.Controls;
 
 namespace AwfulRedux
 {
@@ -29,7 +32,6 @@ namespace AwfulRedux
     {
         public static ISettingsService Settings;
 
-        public static Frame Frame;
         public App()
         {
             InitializeComponent();
@@ -42,9 +44,9 @@ namespace AwfulRedux
             #endregion
 
             #region Database
-            var db = new Database.DataSource.MainForums(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+            var db = new Database.DataSource.MainForums(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
             db.CreateDatabase();
-            var bdb = new Database.DataSource.Bookmarks(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
+            var bdb = new Database.DataSource.Bookmarks(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
             db.CreateDatabase();
             bdb.CreateDatabase();
             #endregion
@@ -52,6 +54,15 @@ namespace AwfulRedux
 
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
+            if ((Window.Current.Content as ModalDialog) != null)
+            {
+                var content = (ModalDialog) Window.Current.Content;
+                var shell = content.Content as Shell;
+                if (shell != null)
+                {
+                    await shell.ViewModel.LoginUser();
+                }
+            }
             if (startKind == StartKind.Activate)
             {
                 if (args.Kind == ActivationKind.ToastNotification)
@@ -98,20 +109,32 @@ namespace AwfulRedux
                 System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
             }
 
+            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                try
+                {
+                    var statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+                    statusBar.BackgroundColor = (Color)BootStrapper.Current.Resources["SystemAccentColor"];
+                    statusBar.BackgroundOpacity = 1;
+                }
+                catch (Exception)
+                {
+                    // Ignore Error
+                }
+            }
+
             await Task.CompletedTask;
         }
 
-        public override async void OnResuming(object s, object e)
+        public override async void OnResuming(object s, object e, AppExecutionState previousExecutionState)
         {
-            base.OnResuming(s, e);
+            base.OnResuming(s, e, previousExecutionState);
             // On Restore, if we have a frame, remake navigation so we can go back to previous pages.
-            if (Frame != null)
+            try
             {
-                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
-                var shell = (Shell)Window.Current.Content;
-                await shell.ViewModel.LoginUser();
-                shell.SetNav(nav);
-                var page = Frame.Content as BookmarksPage;
+                var app = s as App;
+
+                var page = app?.NavigationService.Frame.Content as BookmarksPage;
                 if (page != null)
                 {
                     Current.NavigationService.FrameFacade.BackRequested +=
@@ -119,12 +142,16 @@ namespace AwfulRedux
                 }
                 else
                 {
-                    var threadpage = Frame.Content as ThreadListPage;
+                    var threadpage = app?.NavigationService.Frame.Content as ThreadListPage;
                     if (threadpage != null)
                     {
                         Current.NavigationService.FrameFacade.BackRequested += page.ViewModel.MasterDetailViewControl.NavigationManager_BackRequested;
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                // Ignore, continue.
             }
 
             await Task.CompletedTask;
@@ -162,11 +189,24 @@ namespace AwfulRedux
                 || launch?.PreviousExecutionState == ApplicationExecutionState.ClosedByUser)
             {
                 // setup hamburger shell
-                Frame = new Frame();
-                var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include, Frame);
-                var shell = new Shell(nav);
-                await shell.ViewModel.LoginUser();
-                Window.Current.Content = shell;
+                // content may already be shell when resuming
+                if ((Window.Current.Content as ModalDialog) == null)
+                {
+                    // setup hamburger shell inside a modal dialog
+                    var nav = NavigationServiceFactory(BackButton.Attach, ExistingContent.Include);
+                    Window.Current.Content = new ModalDialog
+                    {
+                        DisableBackButtonWhenModal = true,
+                        Content = new Views.Shell(nav),
+                        ModalContent = new Views.Busy(),
+                    };
+                    var content = (ModalDialog)Window.Current.Content;
+                    var shell = content.Content as Shell;
+                    if (shell != null)
+                    {
+                        await shell.ViewModel.LoginUser();
+                    }
+                }
             }
 
             await Task.CompletedTask;

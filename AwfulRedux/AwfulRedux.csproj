@@ -183,6 +183,7 @@
     <Compile Include="Controls\LoginPart.xaml.cs">
       <DependentUpon>LoginPart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PerfectScrollListView.cs" />
     <Compile Include="Controls\PostIconView.xaml.cs">
       <DependentUpon>PostIconView.xaml</DependentUpon>
     </Compile>
@@ -266,6 +267,9 @@
     <Compile Include="ViewModels\ThreadViewModel.cs" />
     <Compile Include="Views\BookmarksPage.xaml.cs">
       <DependentUpon>BookmarksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Busy.xaml.cs">
+      <DependentUpon>Busy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -988,6 +992,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Busy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1075,10 +1083,6 @@
     <ProjectReference Include="..\Kimono\Kimono.csproj">
       <Project>{329833b1-79b7-4724-b9a2-0629d735bea1}</Project>
       <Name>Kimono</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Template10 %28Library%29\Template10 %28Library%29.csproj">
-      <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
-      <Name>Template10 %28Library%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

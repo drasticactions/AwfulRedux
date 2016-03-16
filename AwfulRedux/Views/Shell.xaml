@@ -19,8 +19,8 @@
 
         <!-- non-modal content -->
         <controls:HamburgerMenu x:Name="MyHamburgerMenu" 
-                                SecondaryButtonOrientation="Horizontal"
-                                AccentColor="{x:Bind ViewModel.AccentColor}"
+                                SecondaryButtonOrientation="Vertical"
+                                AccentColor="{StaticResource SystemAccentColor}"
                                 VisualStateNormalMinWidth="720"
                                 VisualStateWideMinWidth="1020">
 
@@ -50,9 +50,10 @@
 
             <controls:HamburgerMenu.SecondaryButtons>
                 <!-- login button -->
-                <controls:HamburgerButtonInfo x:Name="LoginButton" MaxWidth="48" PageType="views:LoginPage">
+                <controls:HamburgerButtonInfo x:Name="LoginButton" PageType="views:LoginPage">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Width="48" Height="48" Symbol="Contact" />
+                        <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Account" />
                     </StackPanel>
                 </controls:HamburgerButtonInfo>
 
@@ -66,18 +67,6 @@
             </controls:HamburgerMenu.SecondaryButtons>
 
         </controls:HamburgerMenu>
-
-        <controls:ModalDialog x:Name="BusyModal" CanBackButtonDismiss="False" DisableBackButtonWhenModal="True">
-            <controls:ModalDialog.ModalContent>
-                <Viewbox Height="32" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal">
-                        <ProgressRing x:Name="BusyRing" Width="24" Height="24" Margin="12,0"
-                                  Foreground="White" IsActive="{Binding IsModal, ElementName=BusyModal}" />
-                        <TextBlock x:Name="BusyText" VerticalAlignment="Center" Foreground="White" />
-                    </StackPanel>
-                </Viewbox>
-            </controls:ModalDialog.ModalContent>
-        </controls:ModalDialog>
 
     </Grid>
 </Page>

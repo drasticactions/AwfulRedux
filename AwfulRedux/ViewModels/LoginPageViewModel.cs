@@ -39,6 +39,17 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        private bool _isLoading = default(bool);
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                Set(ref _isLoading, value);
+            }
+        }
+
         private User _selectedUser = default(User);
 
         public User SelectedUser
@@ -50,8 +61,7 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             IsLoggedIn = Views.Shell.Instance.ViewModel.IsLoggedIn;
             if (IsLoggedIn)
@@ -63,10 +73,11 @@ namespace AwfulRedux.ViewModels
         }
 
         private readonly AuthenticationManager _authenticationManager = new AuthenticationManager();
-        private readonly AuthenticatedUserDatabase _db = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly AuthenticatedUserDatabase _db = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public async Task LogoutUser()
         {
+            IsLoading = true;
             await _authenticationManager.LogoutAsync(Views.Shell.Instance.ViewModel.WebManager.AuthenticationCookie);
             var filter = new HttpBaseProtocolFilter();
             var cookieManager = filter.CookieManager;
@@ -79,22 +90,22 @@ namespace AwfulRedux.ViewModels
             await _db.RemoveUser(SelectedUser);
             SelectedUser = null;
             NavigationService.Navigate(typeof(Views.MainPage));
+            IsLoading = false;
         }
 
         public async Task LoginUser()
         {
-            Views.Shell.ShowBusy(true, "Logging In...");
+            IsLoading = true;
             var result = await _authenticationManager.AuthenticateAsync(Username, Password);
 
             if (!result.IsSuccess)
             {
                 await ResultChecker.SendMessageDialogAsync(result.Error, false);
-                Views.Shell.ShowBusy(false);
+                IsLoading = false;
                 return;
             }
             
             Views.Shell.Instance.ViewModel.WebManager = new WebManager(result.AuthenticationCookie);
-            Views.Shell.ShowBusy(true, "Getting User Information...");
 
             var userManager = new UserManager(Views.Shell.Instance.ViewModel.WebManager);
 
@@ -104,7 +115,7 @@ namespace AwfulRedux.ViewModels
             if (!resultCheck)
             {
                 await ResultChecker.SendMessageDialogAsync("Failed to get user", false);
-                Views.Shell.ShowBusy(false);
+                IsLoading = false;
                 return;
             }
 
@@ -124,7 +135,7 @@ namespace AwfulRedux.ViewModels
             if (!resultCheck)
             {
                 await ResultChecker.SendMessageDialogAsync("Failed to parse user", false);
-                Views.Shell.ShowBusy(false);
+                IsLoading = false;
                 return;
             }
 
@@ -144,9 +155,8 @@ namespace AwfulRedux.ViewModels
             //var forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);
 
             Views.Shell.Instance.ViewModel.IsLoggedIn = true;
+            IsLoading = false;
             NavigationService.Navigate(typeof(Views.MainPage));
-            Views.Shell.ShowBusy(false);
-
         }
     }
 }

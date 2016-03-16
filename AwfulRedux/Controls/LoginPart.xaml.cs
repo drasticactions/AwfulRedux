@@ -30,7 +30,6 @@ namespace AwfulRedux.Controls
 
         private async void LoginClicked(object sender, RoutedEventArgs e)
         {
-            Views.Shell.ShowBusy(true, "Doing the nasty");
             var authManager = new AuthenticationManager();
             var result = await authManager.AuthenticateAsync(Username.Text, Password.Password);
             LoggedIn?.Invoke(this, EventArgs.Empty);

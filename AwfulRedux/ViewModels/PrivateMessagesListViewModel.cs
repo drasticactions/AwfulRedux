@@ -44,15 +44,14 @@ namespace AwfulRedux.ViewModels
             PrivateMessageScrollingCollection = new PrivateMessageScrollingCollection();
         }
 
-        public override void OnNavigatedTo(object parameter, NavigationMode mode,
-           IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
-            if (state.ContainsKey(nameof(Selected)))
+            if (suspensionState.ContainsKey(nameof(Selected)))
             {
                 if (Selected == null)
                 {
-                    Selected = JsonConvert.DeserializeObject<PrivateMessage>(state[nameof(Selected)]?.ToString());
-                    state.Clear();
+                    Selected = JsonConvert.DeserializeObject<PrivateMessage>(suspensionState[nameof(Selected)]?.ToString());
+                    suspensionState.Clear();
                 }
             }
 

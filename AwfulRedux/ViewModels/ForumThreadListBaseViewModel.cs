@@ -22,7 +22,7 @@ namespace AwfulRedux.ViewModels
 
         public MasterDetailViewControl MasterDetailViewControl { get; set; }
 
-        public readonly BookmarkDatabase Db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Bookmark.db"));
+        public readonly BookmarkDatabase Db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
 
         private Thread _selected = default(Thread);
 

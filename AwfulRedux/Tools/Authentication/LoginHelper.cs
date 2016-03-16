@@ -13,7 +13,7 @@ namespace AwfulRedux.Tools.Authentication
 {
     public class LoginHelper
     {
-        private static readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private static readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public static async Task<CookieContainer> LoginDefaultUser()
         {

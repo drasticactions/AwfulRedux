@@ -38,7 +38,7 @@
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
                         <controls1:PageHeader.PrimaryCommands>
-                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                         </controls1:PageHeader.PrimaryCommands>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
@@ -111,7 +111,7 @@
                     </ListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Create Thread" Click="{x:Bind ViewModel.CreateThread}" Icon="Add"/>
-                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                     </CommandBar>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>

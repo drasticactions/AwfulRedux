@@ -23,7 +23,7 @@ namespace AwfulRedux.ViewModels
 {
     public class ReplyThreadViewModel : ViewModelBase
     {
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("Forums.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public SmiliesViewModel SmiliesViewModel { get; set; }
         public PreviewViewModel PreviewViewModel { get; set; }
@@ -88,15 +88,15 @@ namespace AwfulRedux.ViewModels
         {
             var cookie = await LoginHelper.LoginDefaultUser();
             _webManager = new WebManager(cookie);
-            _replyManager = new ReplyManager(_webManager);
         }
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
-            base.OnNavigatedTo(parameter, mode, state);
+            await base.OnNavigatedToAsync(parameter, mode, suspensionState);
             if (_replyManager == null)
             {
                 await LoginUser();
+                _replyManager = new ReplyManager(_webManager);
             }
             Selected = JsonConvert.DeserializeObject<ThreadReply>(parameter.ToString());
             //Views.Shell.ShowBusy(true, "Preparing thread...");

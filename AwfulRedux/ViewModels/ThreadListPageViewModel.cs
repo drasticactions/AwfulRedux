@@ -48,8 +48,7 @@ namespace AwfulRedux.ViewModels
             Refresh();
         }
 
-        public override async void OnNavigatedTo(object parameter, NavigationMode mode,
-            IDictionary<string, object> state)
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             if (WebManager == null)
             {
@@ -61,11 +60,11 @@ namespace AwfulRedux.ViewModels
                 return;
             }
 
-            if (state.ContainsKey(nameof(Forum)))
+            if (suspensionState.ContainsKey(nameof(Forum)))
             {
                 if (Forum == null)
                 {
-                    Forum = JsonConvert.DeserializeObject<Forum>(state[nameof(Forum)]?.ToString());
+                    Forum = JsonConvert.DeserializeObject<Forum>(suspensionState[nameof(Forum)]?.ToString());
                 }
             }
             else
@@ -78,16 +77,16 @@ namespace AwfulRedux.ViewModels
             ForumPageScrollingCollection = new PageScrollingCollection(Forum, 1);
             ForumPageScrollingCollection.CheckIsPaywallEvent += ForumPageScrollingCollection_CheckIsPaywallEvent;
 
-            if (state.ContainsKey(nameof(Selected)))
+            if (suspensionState.ContainsKey(nameof(Selected)))
             {
                 if (Selected == null)
                 {
-                    Selected = JsonConvert.DeserializeObject<Thread>(state[nameof(Selected)]?.ToString());
+                    Selected = JsonConvert.DeserializeObject<Thread>(suspensionState[nameof(Selected)]?.ToString());
                     await ThreadView.LoadThread(Selected);
                 }
             }
 
-            state.Clear();
+            suspensionState.Clear();
         }
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)

@@ -30,10 +30,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock FontSize="30" FontWeight="Thin" Margin="0,25,0,0" HorizontalAlignment="Center" Text="Awful Forums Reader"></TextBlock>
-            <Grid Grid.Row="1">
+            <ProgressBar VerticalAlignment="Top" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" IsIndeterminate="True"/>
+            <TextBlock FontSize="30" Grid.Row="1" FontWeight="Thin" Margin="0,25,0,0" HorizontalAlignment="Center" Text="Awful Forums Reader"></TextBlock>
+            <Grid Grid.Row="2">
                 <StackPanel Margin="0,25,0,0" Width="300">
                     <TextBox x:Name="Username" IsSpellCheckEnabled="False" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Username" Margin="0,0,0,15" />
                     <PasswordBox PasswordRevealMode="Peek" x:Name="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Password" Margin="0,0,0,15"  />

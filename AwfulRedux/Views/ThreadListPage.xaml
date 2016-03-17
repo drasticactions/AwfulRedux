@@ -17,6 +17,7 @@
     xmlns:controls3="using:AmazingPullToRefresh.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:AwfulRedux.Tools.Converters"
+    xmlns:ffImageLoading="using:FFImageLoading"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -72,7 +73,7 @@
                                                     <ColumnDefinition Width="Auto"/>
                                                     <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Image Width="60" Height="15" Margin="0,0,5,0" Source="{Binding ImageIconUrl}"/>
+                                                <ffImageLoading:FFImage Height="15" Width="60" Margin="0,0,5,0" Source="{Binding ImageIconUrl}" />
                                                 <FontIcon Grid.Column="1" Margin="0,0,2,0" FontSize="12" FontFamily="Segoe MDL2 Assets" Glyph="&#xE7C3;"/>
                                                 <TextBlock Grid.Column="2" Margin="0,0,5,0" FontSize="12" Text="{x:Bind TotalPages, Mode=OneWay}" />
                                                 <TextBlock Grid.Column="3" Margin="0,0,2,0" FontSize="12" Text="Killed By: " />
@@ -111,7 +112,7 @@
                     </ListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Create Thread" Click="{x:Bind ViewModel.CreateThread}" Icon="Add"/>
-                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
+                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
                     </CommandBar>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>

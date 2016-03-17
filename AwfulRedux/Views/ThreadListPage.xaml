@@ -18,6 +18,7 @@
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:AwfulRedux.Tools.Converters"
     xmlns:ffImageLoading="using:FFImageLoading"
+    xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -25,6 +26,18 @@
     </Page.DataContext>
 
     <Grid x:Name="ForumThreadList" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="BackButtonPresent">
+                    <VisualState.StateTriggers>
+                        <stateTriggers:ApiInformationTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RefreshButton.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
@@ -39,7 +52,7 @@
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
                         <controls1:PageHeader.PrimaryCommands>
-                            <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
+                            <AppBarButton x:Name="RefreshButton"  Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                         </controls1:PageHeader.PrimaryCommands>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>

@@ -243,6 +243,7 @@ namespace AwfulRedux.Tools.Web
                     continue;
                 if (src.Contains("smilies"))
                     continue;
+                image.Attributes.Add("class", "img-responsive");
                 image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
                 image.Attributes.Remove("src");
             }

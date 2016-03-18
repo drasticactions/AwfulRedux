@@ -231,10 +231,12 @@ namespace AwfulRedux.Tools.Web
             foreach (var image in images)
             {
                 image.Attributes.Remove("class");
-                image.Attributes.Add("class", "img-responsive");
                 var src = image.Attributes["src"].Value;
                 if (Path.GetExtension(src) != ".gif")
+                {
+                    image.Attributes.Add("class", "img-responsive");
                     continue;
+                }
                 if (src.Contains("somethingawful.com"))
                     continue;
                 if (src.Contains("emoticons"))

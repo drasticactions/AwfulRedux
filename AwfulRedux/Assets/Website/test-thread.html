@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <meta name="twitter:dnt" content="on">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link href="CSS/winstrap.css" media="all" rel="stylesheet" type="text/css">
@@ -9,122 +9,14 @@
     <link href="CSS/Swipe.css" media="all" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../jquery.js"></script>
     <script type="text/javascript" async="" src="../widgets.js"></script>
-    <script type="text/javascript" async="" src="../threadTemplate.js"></script>
     <script type="text/javascript" async="" src="../url.min.js"></script>
     <script type="text/javascript" async="" src="../taphold.js"></script>
     <script type="text/javascript" async="" src="../hammer.2.0.4.js"></script>
     <script type="text/javascript" async="" src="../wptr.1.1.js"></script>
     <script type="text/javascript" async="" src="../gifffer.js"></script>
     <script type="text/javascript" async="">
-
-        window.onload = function () {
-            Gifffer();
-            $(".postbody a").click(function() {
-                var bool = window.OpenLink(this.href);
-                return bool;
-            });
-
-            $(".standard a").click(function() {
-                var bool = window.OpenLink(this.href);
-                return bool;
-            });
-
-            $(".av").on("click", function() {
-                ForumCommand('userProfile', $(this).attr('data-user-id'));
-            });
-
-            $("img").on("dblclick", function() {
-                ForumCommand('downloadImage', this.src);
-            });
-
-            $('.bbc-block h4').each(function() {
-                $(this).click(function() {
-                    if ($('blockquote', this).is(":visible")) {
-                        $('blockquote', this).fadeOut();
-                    } else {
-                        $('blockquote', this).fadeIn();
-                    }
-                });
-            });
-            ForumCommand('setFont', null);
-
-            //function swipe() {
-            //    var reqAnimationFrame = (function() {
-            //        return window[Hammer.prefixed(window, "requestAnimationFrame")] || function(callback) {
-            //            setTimeout(callback, 1000 / 60);
-            //        }
-            //    })();
-
-            //    function dirProp(direction, hProp, vProp) {
-            //        return (direction & Hammer.DIRECTION_HORIZONTAL) ? hProp : vProp
-            //    }
-
-            //    function HammerCarousel(container, direction) {
-            //        this.container = container;
-            //        this.direction = direction;
-            //        this.panes = Array.prototype.slice.call(this.container.children, 0);
-            //        this.containerSize = this.container[dirProp(direction, 'offsetWidth', 'offsetHeight')];
-            //        this.currentIndex = 1;
-            //        this.hammer = new Hammer.Manager(this.container);
-            //        this.hammer.add(new Hammer.Pan({ direction: this.direction, threshold: 10 }));
-            //        this.hammer.on("panstart panmove panend pancancel", Hammer.bindFn(this.onPan, this));
-            //        this.show(this.currentIndex);
-            //    }
-
-            //    HammerCarousel.prototype = {
-            //        show: function(showIndex, percent, animate) {
-            //            showIndex = Math.max(0, Math.min(showIndex, this.panes.length - 1));
-            //            percent = percent || 0;
-
-            //            var className = this.container.className;
-            //            if (animate) {
-            //                if (className.indexOf('animate') === -1) {
-            //                    this.container.className += ' animate';
-            //                }
-            //            } else {
-            //                if (className.indexOf('animate') !== -1) {
-            //                    this.container.className = className.replace('animate', '').trim();
-            //                }
-            //            }
-
-            //            var paneIndex, pos, translate;
-            //            for (paneIndex = 0; paneIndex < this.panes.length; paneIndex++) {
-            //                pos = (this.containerSize / 100) * (((paneIndex - showIndex) * 100) + percent);
-            //                translate = 'translate3d(' + pos + 'px, 0, 0)';
-            //                this.panes[paneIndex].style.transform = translate;
-            //                this.panes[paneIndex].style.mozTransform = translate;
-            //                this.panes[paneIndex].style.webkitTransform = translate;
-            //            }
-            //            this.currentIndex = showIndex;
-            //        },
-
-            //        onPan: function(ev) {
-            //            var delta = dirProp(this.direction, ev.deltaX, ev.deltaY),
-            //                percent = (100 / this.containerSize) * delta,
-            //                animate = false;
-            //            if (ev.type == 'panend' || ev.type == 'pancancel') {
-            //                if (Math.abs(percent) > 20 && ev.type == 'panend') {
-            //                    this.currentIndex += (percent < 0) ? 1 : -1;
-            //                }
-            //                percent = 0;
-            //                animate = true;
-            //            }
-            //            this.show(this.currentIndex, percent, animate);
-            //        }
-            //    };
-
-            //    var outer = new HammerCarousel(document.querySelector('.Swiper'), Hammer.DIRECTION_HORIZONTAL);
-            //};
-
-            //$(swipe);
-        };
-
-    </script>
-    <title>Forum Thread</title>
-</head>
-
-
-<body style="overflow-x: hidden;" data-show-embedded-tweets="True" data-show-embedded-gifv="True" data-show-embedded-video="True" data-thread-id="3680205" data-thread-name="2016 Republican Primary: The Stumping of Donald Trump by the Coward Ted Cruz">
+    </head>
+<body style="overflow-x: hidden;" data-show-embedded-tweets="True" data-show-embedded-gifv="True" data-show-embedded-video="True" data-thread-id="3606621" data-thread-name="[Test] Why Yuzu is the best JPop band: An Essay.">
     <div id="ptr">
         <span class="genericon genericon-next"></span>
 
@@ -134,439 +26,270 @@
             <span id="l3"></span>
         </div>
     </div>
-    <div style="z-index: 199;" id="content">
-        <div id="thread">
-            <div class="container-fluid">
-                <div class="row clearfix">
-                    <div style="display:none;" id="scrolltopoststring">#pti32</div><div>
-                        <div id="showPosts"><li><button class="btn btn-previous" id="showHiddenPostsButton" type="submit" onclick="window.ForumCommand('showPosts', 'true')" ;="">Show 31 Previous Posts</button></li></div><div style="display: none;" id="hiddenPosts">
-                            <div class="seen1" id="pti1">
-                                <div id="postId455758827">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="33093" src="http://fi.somethingawful.com/safs/titles/c3/b1/00033093.0002.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">InsanityIsCrazy</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:01</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758827" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455758715')">A Stupid Baby posted:</a></h4><blockquote>
-                                                            Does everyone just forget how primaries work every 4 years? I remember being floored at the amount of hilarious freakouts over Iowa. It's one state. It's a small state. If your candidate gets owned on Super Tuesday, that is the time for panicking/wailing+gnashing of teeth.<br>
-                                                            <br>
-                                                            Getting pumped or panicked over Iowa is the equivalent of leaving game 1 of the NBA finals after 3 minutes of play because your team is down 4-10. Hell, Jeb!'s only down like 1-10 given how much of a circus the GOP has been this year.<br>
-                                                            <br>
-                                                            People buying into the spin is even worse. These are probably the same people who follow Doritos on twitter.<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    It was a fine time for shitposting about stumpenings, but I don't really expect anyone here whole-heartedly believes that trumps finished, and if they are, woe unto them<br>
-                                                    <br>
-                                                    I wanna see what he does to the media this week to tank their narratives <img src="https://i.somethingawful.com/forumsystem/emoticons/emot-allears.gif" border="0" alt="" title=":allears:" class="img-responsive">
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758827')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109921')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti2">
-                                <div id="postId455758836">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="41595" src="http://i.somethingawful.com/forumsystem/customtitles/title-peachstapler-SPD.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Peachstapler</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:01</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758836" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    I'm in the Doom Metal party.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758836')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109922')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti3">
-                                <div id="postId455758837">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="149674" src="http://fi.somethingawful.com/safs/titles/00/87/00149674.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Tesseraction</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:01</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758837" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455758789')">Xenophon posted:</a></h4><blockquote>
-                                                            Yeah, I wager most of the people posting here are Democrats who are going to vote for Bernie or Hillary and aren't terribly invested in which<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    I'm just a Brit distracting myself from my dystopian government.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758837')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109923')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti4">
-                                <div id="postId455758858">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="149674" src="http://fi.somethingawful.com/safs/titles/00/87/00149674.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Tesseraction</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:02</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758858" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455758727')">Pener Kropoopkin posted:</a></h4><blockquote>
-                                                            New thread title is amazing.<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    I'd have preferred "by the Canadian Teddy Cruz" to scan better but a good title nonetheless.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758858')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109924')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti5">
-                                <div id="postId455758882">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="183164" src="http://fi.somethingawful.com/safs/titles/9e/83/00183164.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">Zelder</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:04</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758882" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    nobodyrememberswhocameinsecond.com<br>
-                                                    <br>
-                                                    redirects to a video of british takes on trump, lol
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758882')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109925')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti6">
-                                <div id="postId455758887">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="32546" src="http://fi.somethingawful.com/safs/titles/bf/92/00032546.0001.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">A Stupid Baby</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:04</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758887" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455758827')">InsanityIsCrazy posted:</a></h4><blockquote>
-                                                            It was a fine time for shitposting about stumpenings, but I don't really expect anyone here whole-heartedly believes that trumps finished, and if they are, woe unto them<br>
-                                                            <br>
-                                                            I wanna see what he does to the media this week to tank their narratives <img src="https://i.somethingawful.com/forumsystem/emoticons/emot-allears.gif" border="0" alt="" title=":allears:" class="img-responsive"><br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    Yeah, I'm talking mainly about the shit I'm seeing across social media/overhearing in person/seeing quoted from 4chan. People just absolutely lose their shit over Iowa/NH results because they can't do math or something
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758887')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109926')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti7">
-                                <div id="postId455758896">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="112796" src="http://fi.somethingawful.com/safs/titles/e2/e9/00112796.0001.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Piquai Souban</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:05</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455758896" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455758708')">InsanityIsCrazy posted:</a></h4><blockquote>
-                                                            For a guy never before involved in politics at this level, last night must've been a real adrenaline rush for him.<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    I can't imagine a bigger rush than him reviewing all the Iowa poll numbers he had been touting for his easy win and then watching the actuals end up with him slightly ahead of Rubio.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455758896')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109927')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti8">
-                                <div id="postId455759010">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="21365" src="http://fi.somethingawful.com/safs/titles/54/e1/00021365.0006.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Mr. Pumroy</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:12</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455759010" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    i think we're all just excited we never have to think about iowa again<br>
-                                                    <br>
-                                                    until another 4 years passes
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455759010')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109928')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti9">
-                                <div id="postId455759030">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="160263" src="http://i.somethingawful.com/u/elpintogrande/14_jan/allangordon.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">AllanGordon</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 08:13</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455759030" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    I am very excited by debate about the Wall.<br>
-                                                    <br>
-                                                    Afaik no other policy has been spoken of by any other republican nominee.<br>
-                                                    <br>
-                                                    <div class="bbc-block">
-                                                        <h4>
-                                                            <a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('sc...him jumping 20% either.  Even if we assume Trump's vote total will be off of his polling by as much as it was in Iowa, which is not a good assumption since NH is a primary and not a caucus, then Trump is going to get at least 28-29% of the vote in NH.<br>
+<div id="content">
+    <div id="thread">
+        <div class="container-fluid">
+            <div class="row clearfix"><div style="display:none;" id="scrolltopoststring"></div><div class="seen1" id="pti1"><div id="postId425261617"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  3, 2014 12:06</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="425261617" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Because they <img src="https://fi.somethingawful.com/images/smilies/smile.gif" border="0" alt="" title=":)" class="img-responsive"> made <a href="http://www.youtube.com/watch?v=d7RgBe8Rrrg" target="_blank" rel="nofollow">this</a> music video.<br>
 <br>
-That would make South Carolina the defining point early in the campaign.  Trump vs. Cruz, each having 1 victory, in a state tailor made for them and a state that the establishment has NO traction or chance in.  Trump's lead here is big too, BUT Cruz has a solid base of support at 20%+ so far in the polls here and winning Iowa will be a big boost.<br>
+<b>The end</b><br>
 <br>
-The establishment lane COMBINED does not have to votes to win the GOP nomination.  The money and push will be behind Rubio now, but this race is between Trump and Cruz.<br>
-</blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    <a href="http://loser.com" target="_blank" rel="nofollow">http://loser.com</a>
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760252')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109947')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti26">
-                                <div id="postId455760389">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="23800" src="http://fi.somethingawful.com/images/Title-XK.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">XK</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:27</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760389" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    Trump did great. Who would've thought, 6 months ago, Trump would get second in Iowa? It would've been more entertaining if he won, but second is pretty damn good for him. The thing that upsets me is that Cruz got first. If Christie, Rubio, Kasich, or even Jeb! had gotten first, I'd consider that a respectable result disputing Trump's candidacy, but fucking Cruz? That's just gross. For me, Cruz has become Walker, except somehow worse. I pray to god Cruz doesn't get the nomination because I'll have to shut myself out from any election news just to not be exposed to him. What the fuck, Iowa?
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
-
-
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760389')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109948')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti27">
-                                <div id="postId455760435">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="149674" src="http://fi.somethingawful.com/safs/titles/00/87/00149674.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Tesseraction</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:29</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760435" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    The Iowa GOP always pick the nastiest turdgoblin, don't worry too much about it.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
+<span class="bbc-spoiler">EDIT: They are not H sker D</span><br>
+<br>
+EDIT 2:<br>
+<br>
+<a href="http://forums.somethingawful.com/showthread.php?threadid=3606621" target="_blank" rel="nofollow">This thread</a><br>
+<br>
+<a href="http://forums.somethingawful.com/showthread.php?threadid=3532200&amp;pagenumber=5" target="_blank" rel="nofollow">test in forum post</a><br>
+<br>
+<a href="http://weekly.ascii.jp/" target="_blank" rel="nofollow">test link outside of the forum</a><br>
+<br>
+<a href="http://forums.somethingawful.com/search.php?action=do_search_posthistory&amp;userid=41741" target="_blank" rel="nofollow">Post history</a><br>
+<br>
+<a href="http://forums.somethingawful.com/banlist.php?userid=41741" target="_blank" rel="nofollow">Rap sheet User id</a><br>
+<br>
+<a href="http://forums.somethingawful.com/banlist.php" target="_blank" rel="nofollow">Rap sheet</a><br>
+<br>
+<a href="http://forums.somethingawful.com/showthread.php?goto=post&amp;postid=426091228" target="_blank" rel="nofollow">Direct post</a><br>
+<br>
+<a href="http://forums.somethingawful.com/showthread.php?goto=post&amp;postid=42606" target="_blank" rel="nofollow">Broken post url</a><br>
+<br>
+<a href="http://forums.somethingawful.com/showthread.php?threadid=35300&amp;pagenumber=5" target="_blank" rel="nofollow">Broken thread link</a><br>
+<br>
+<a href="http://forums.somethingawful.com/member.php?action=getinfo&amp;userid=133459789" target="_blank" rel="nofollow">Broken user</a><br>
+<br>
+<a href="http://forums.somethingawful.com/banlist.php?userid=133459789" target="_blank" rel="nofollow">Broken Rap sheet User id</a><br>
+<br>
+<a href="http://forums.somethingawful.com/search.php?action=do_search_posthistory&amp;userid=133459789" target="_blank" rel="nofollow">Post history</a><br>
+<br>
+<a href="https://twitter.com/darth/status/697278646751522817" target="_blank" rel="nofollow">https://twitter.com/darth/status/697278646751522817</a><br>
+<br>
+<a href="https://www.youtube.com/watch?v=0F6r6RQcw2Y" target="_blank" class="bbtag_video">https://www.youtube.com/watch?v=0F6r6RQcw2Y</a><br>
+<br>
+<a href="https://www.youtube.com/watch?v=d7RgBe8Rrrg" target="_blank" class="bbtag_video">https://www.youtube.com/watch?v=d7RgBe8Rrrg</a><br>
+<br>
+<a href="http://twitter.com/MattGarrahan/status/694336318038491140" target="_blank" rel="nofollow">http://twitter.com/MattGarrahan/sta...336318038491140</a>
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760435')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109949')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen2" id="pti28">
-                                <div id="postId455760462">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="33093" src="http://fi.somethingawful.com/safs/titles/c3/b1/00033093.0002.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">InsanityIsCrazy</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:30</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760462" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    maybe iowa has the mindset to vote for the worst candidates and then leaves it to the other states to <i>not</i> vote for those candidates<br>
-                                                    <br>
-                                                    examples: cruz, clinton
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Mar 17, 2016 around 20:40</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('425261617')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('1')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('425261617')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti2"><div id="postId426216208"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb 25, 2014 20:40</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="426216208" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		&#228;&#191;&#186;&#227;&#129;&#175;&#227;&#8364;&#129;&#227;&#8218;&#162;&#227;&#402;&#161;&#227;&#402;&#170;&#227;&#8218;&#171;&#227;&#129;&#338;&#229;&#164;&#167;&#229;&#165;&#189;&#227;&#129;&#141;&#227;&#129;&#160;&#227;&#8218;&#710;&#239;&#188;&#129;<br>
+<br>
+(*^&#226;&#8211;&#189;^*)&#240;&#376;&#732;&#129;&#240;&#376;&#732;&#8218;&#240;&#376;&#732;&#382;&#240;&#376;&#732;&#8240;&#240;&#376;&#732;&#352;<br>
+<br>
+<img src="http://i.imgur.com/fA2Ej41.jpg" alt="" border="0" class="img-responsive"><br>
+<br>
+EDIT: posting with Awful.xap<br>
+<br>
+---<br>
+Windows 8<br>
+&#20474;&#12399;&#12289;&#12450;&#12513;&#12522;&#12459;&#12364;&#22823;&#23244;&#12356;&#12384;&#12424;&#65374;&#12290;
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760462')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109950')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="seen1" id="pti29">
-                                <div id="postId455760492">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="149674" src="http://fi.somethingawful.com/safs/titles/00/87/00149674.0001.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Tesseraction</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:32</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760492" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    Counterexample: Obama 08
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Apr 15, 2014 around 21:10</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('426216208')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('2')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('426216208')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti3"><div id="postId426566453"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Mar  5, 2014 13:14</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="426566453" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Notes for me DO NOT STEAL:<br>
+<br>
+Search page user complete:<br>
+<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">GET /f/json/usercomplete?q=test&amp;limit=30&amp;timestamp=0 HTTP/1.1</code></pre></div>Returns fake JSON<br>
+<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">Test&lt;&gt;108532
+Test Fart&lt;&gt;135804
+test head&lt;&gt;97902
+Test Pattern&lt;&gt;129168
+Test Pilot&lt;&gt;188871
+Test Pilot Monkey&lt;&gt;36184
+Test-0&lt;&gt;99726
+test1&lt;&gt;31258</code></pre></div>----<br>
+<br>
+Search post<br>
+<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">POST /f/search/submit HTTP/1.1</code></pre></div>Form<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">keywords	Test
+userid_filters	
+forumids	
+search_mode	ext
+username_filter	type a username
+uf_posts	on
+opt_search_posts	on
+opt_search_titles	on
+groupmode	0
+sortmode	0
+perpage	20</code></pre></div>Turning off Match posts/Match Titles removes "opt_search_posts" and "opt_search_titles" from web form.<br>
+<br>
+Username_filter takes in one user name. NOT id.<br>
+<br>
+Returns JSON<br>
+<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">{"results":"3183","queryid":"2669822"}</code></pre></div>Redirects to results page  <br>
+<br>
+<div class="bbc-block code"><h5>code:</h5><pre><code class="no-highlight">GET /f/search/result?qid=2669822 HTTP/1.1</code></pre></div>test<br>
+<br>
+
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760492')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109951')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="postCount2" id="pti30">
-                                <div id="postId455760501">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="56933" src="http://forumimages.somethingawful.com/images/newbie.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author">squidgee</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:32</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760501" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455759620')">jackofarcades posted:</a></h4><blockquote>
-                                                            4) All this means that people will be a lot more skeptical of Trumps campaign now. Every new poll, every media cycle - people won't care too much until he starts winning.<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    I think that this is the most important point about this whole thing. Winning Iowa doesn't matter for republican candidates, unless your appeal is that you're a strongman who always wins. Then you have to win in order to maintain interest. I'll be interested to see what impact this has on Trump's polling.<br>
-                                                    <br>
-                                                    Also, <a href="http://loser.com" target="_blank" rel="nofollow">http://loser.com</a>
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Mar 20, 2014 around 08:00</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('426566453')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('3')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('426566453')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti4"><div id="postId427201035"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Mar 20, 2014 08:01</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="427201035" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		&#12360;&#12540;&#12289;&#20309;&#12371;&#12428;&#12540;&#12290;
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760501')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109952')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><div class="postCount1" id="pti31">
-                                <div id="postId455760567">
-                                    <div class="row clearfix">
-                                        <div class="col-md-4"><div id="threadView"><img data-user-id="90378" src="http://fi.somethingawful.com/safs/titles/33/71/00090378.0002.png" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">PT6A</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:35</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                            <div class="article-content">
-                                                <div id="455760567" class="postbody">
-                                                    <!-- BeginContentMarker -->
-                                                    <!-- google_ad_section_start -->
-                                                    <div class="bbc-block">
-                                                        <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455760462')">InsanityIsCrazy posted:</a></h4><blockquote>
-                                                            maybe iowa has the mindset to vote for the worst candidates and then leaves it to the other states to <i>not</i> vote for those candidates<br>
-                                                            <br>
-                                                            examples: cruz, clinton<br>
-                                                        </blockquote>
-                                                    </div>
-
-                                                    <br>
-                                                    Comparing Clinton to Cruz is what makes people think Berners are insane.<br>
-                                                    <br>
-                                                    Cruz is insane, and the thought of him in the White House scares me.  Sanders and Clinton, on the other hand, would probably both make decent presidents, so I don't get why their supporters are always at each other's throats.
-                                                    <!-- google_ad_section_end -->
-                                                    <!-- EndContentMarker -->
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Apr  7, 2014 around 20:50</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('427201035')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('4')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('427201035')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti5"><div id="postId428856072"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Apr 27, 2014 12:18</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="428856072" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		<img src="http://i.imgur.com/f9DzaKB.jpg" alt="" border="0" class="img-responsive"><br>
+<br>
+&#31379;&#36794;&#12422;&#12358;&#12392;&#31379;&#36794;&#12354;&#12356;<br>
+<img src="https://i.somethingawful.com/forumsystem/emoticons/emot-3.gif" border="0" alt="" title=":3:" class="img-responsive"><br>
+<br>
+Windows Phone&#12363;&#12425;&#36865;&#20449;
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                    <p class="editedby">
-                                                </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760567')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109953')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><div class="postCount1" id="pti32">
-                            <div id="postId455760572">
-                                <div class="row clearfix">
-                                    <div class="col-md-4"><div id="threadView"><img data-user-id="33093" src="http://fi.somethingawful.com/safs/titles/c3/b1/00033093.0002.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">InsanityIsCrazy</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:35</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                        <div class="article-content">
-                                            <div id="455760572" class="postbody">
-                                                <!-- BeginContentMarker -->
-                                                <!-- google_ad_section_start -->
-                                                <div class="bbc-block">
-                                                    <h4><a class="quote_link" rel="nofollow" href="javascript:void(0)" onclick="window.ForumCommand('scrollToPost', '455760492')">Tesseraction posted:</a></h4><blockquote>
-                                                        Counterexample: Obama 08<br>
-                                                    </blockquote>
-                                                </div>
-
-                                                <br>
-                                                counter-counter:<br>
-                                                <br>
-                                                <img src="http://i.imgur.com/i5rDyfO.jpg" alt="" border="0" class="img-responsive">
-                                                <!-- google_ad_section_end -->
-                                                <!-- EndContentMarker -->
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('428856072')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('5')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('428856072')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti6"><div id="postId429378532"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">May  8, 2014 17:47</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="429378532" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Test
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                <p class="editedby">
-                                            </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760572')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109954')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><div class="postCount2" id="pti33">
-                            <div id="postId455760583">
-                                <div class="row clearfix">
-                                    <div class="col-md-4"><div id="threadView"><img data-user-id="162008" src="http://fi.somethingawful.com/safs/titles/7b/7a/00162008.0001.jpg" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Patter Song</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb  2, 2016 09:36</span></p></div></div></div><div style="padding: 15px;" class="col-md-8">
-                                        <div class="article-content">
-                                            <div id="455760583" class="postbody">
-                                                <!-- BeginContentMarker -->
-                                                <!-- google_ad_section_start -->
-                                                Also, up until last night Rubio's campaign was rather cash-poor, and cancelled 120k in NH ads. Sure the money faucet is opening now, but how many new ad spots are left in NH, SC, and NV?<br>
-                                                <br>
-                                                Rybio's performance in NH will be interesting. NH traditionally wants candidates who are constantly in their state talking to them in diners and pancake houses. That's Jeb, Christie, and Kasich but not Trump, Cruz, or Rubio. Will Rubio get a famously stubborn retail politics state to back him sight unseen? Will he pull off another "come in third and proclaim himself winner" stunt?<br>
-                                                <br>
-                                                Cruz is at least marginally a better fit for NH than Huck 08 or Santorum 12 were, but beating Huck's 11% and Santorum's 10% is a low bar indeed. I'd be surprised if Cruz does better than 15% in NH.
-                                                <!-- google_ad_section_end -->
-                                                <!-- EndContentMarker -->
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('429378532')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('6')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('429378532')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti7"><div id="postId429378983"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">May  8, 2014 18:00</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="429378983" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		EDIT: MY PREVIEW BECAME A REPLY BECAUSE I'M A DUMB DUMB.<br>
+<br>
+NOW IT's not
+		<!-- google_ad_section_end -->
+		<!-- En...av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">May  8, 2015 14:57</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="445089476" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		<img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/TWS5VDP.gif"><img src="http://i.imgur.com/79VbMO6.png" alt="" border="0" class="img-responsive"><img src="http://i.imgur.com/C72hwhr.png" alt="" border="0" class="img-responsive"><img src="http://i.imgur.com/pIt6nGH.png" alt="" border="0" class="img-responsive">
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
 
 
-                                                <p class="editedby">
-                                            </div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455760583')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('109955')" ;="">Last Read</button></li></ul></td></tr></footer>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('445089476')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('14')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('445089476')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti15"><div id="postId445294886"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">May 13, 2015 17:37</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="445294886" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Does this work? Maybe... Sure edit
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Jan 22, 2016 around 09:00</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('445294886')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('15')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('445294886')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti16"><div id="postId446065931"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jun  2, 2015 09:56</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="446065931" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Test
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('446065931')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('16')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('446065931')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti17"><div id="postId446066303"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jun  2, 2015 10:07</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="446066303" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Butts
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+		<p class="attachment"><img src="attachment.php?postid=446066303" alt="" class="img-responsive">
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('446066303')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('17')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('446066303')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti18"><div id="postId446067579"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jun  2, 2015 10:43</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="446067579" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Does this still work?
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('446067579')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('18')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('446067579')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti19"><div id="postId446068885"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jun  2, 2015 11:16</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="446068885" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Test
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+		<p class="attachment"><img src="attachment.php?postid=446068885" alt="" class="img-responsive">
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('446068885')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('19')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('446068885')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti20"><div id="postId454554990"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jan  4, 2016 09:53</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="454554990" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		<img alt="" border="0" class="img-responsive" data-gifffer="http://i.imgur.com/bG3QRa7.gif"><br>
+<br>
+A True Test of Strength<br>
+<br>
+Butts
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Jan  4, 2016 around 10:53</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('454554990')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('20')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('454554990')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti21"><div id="postId455010638"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jan 15, 2016 08:54</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="455010638" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		<a href="https://twitter.com/famitsu/status/687995119933493248" target="_blank" rel="nofollow">https://twitter.com/famitsu/status/687995119933493248</a><br>
+<br>
+<a href="http://i.imgur.com/zvATqgs.gifv" target="_blank" rel="nofollow">http://i.imgur.com/zvATqgs.gifv</a><br>
+<br>
+<a href="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" target="_blank" rel="nofollow">http://clips.vorwaerts-gmbh.de/VfE_html5.mp4</a><br>
+<br>
+<br>
+<a href="http://video.webmfiles.org/big-buck-bunny_trailer.webm" target="_blank" rel="nofollow">http://video.webmfiles.org/big-buck-bunny_trailer.webm</a>
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby"><span>Drastic Actions fucked around with this message at Jan 15, 2016 around 10:16</span>
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455010638')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('21')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('455010638')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen2" id="pti22"><div id="postId455336707"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Jan 23, 2016 14:40</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="455336707" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Making a reply in a new window! This is good stuff!
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('455336707')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('22')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('455336707')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div><div class="seen1" id="pti23"><div id="postId456243566"><div class="row clearfix"><div class="col-md-4"><div id="threadView"><img data-user-id="149831" src="http://fi.somethingawful.com/safs/titles/10/cc/00149831.0002.gif" alt="" class="av" border="0"><div class="userinfo"><p style="padding: 0;" class="text article-title win-type-ellipsis"><span class="author platinum">Drastic Actions</span></p><p class="text article-title win-type-caption-alt"><span class="registered">Feb 13, 2016 19:16</span></p></div></div></div><div style="padding: 15px;" class="col-md-8"><div class="article-content"><div id="456243566" class="postbody">
+		<!-- BeginContentMarker -->
+		<!-- google_ad_section_start -->
+		Test
+		<!-- google_ad_section_end -->
+		<!-- EndContentMarker -->
+
+
+		<p class="editedby">
+	</div><footer><tr class="postbar"><td class="postlinks"><ul class="profilelinks"><li><button class="btn btn-sm" id="" type="submit" onclick="window.QuotePost('456243566')" ;="">Quote</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.MarkAsLastRead('23')" ;="">Last Read</button></li><li><button class="btn btn-sm" id="" type="submit" onclick="window.EditPost('456243566')" ;="">Edit</button></li></ul></td></tr></footer></div></div></div></div></div></div>
         </div>
     </div>
+</div>
     <script type="text/javascript">
 
             window.onload = function () {

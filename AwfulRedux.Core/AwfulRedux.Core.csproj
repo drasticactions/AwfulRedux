@@ -44,6 +44,7 @@
     <Compile Include="Managers\PostManager.cs" />
     <Compile Include="Managers\PrivateMessageManager.cs" />
     <Compile Include="Managers\ReplyManager.cs" />
+    <Compile Include="Managers\SearchManager.cs" />
     <Compile Include="Managers\SmileManager.cs" />
     <Compile Include="Managers\ThreadManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Models\Posts\PostElements.cs" />
     <Compile Include="Models\Posts\ThreadPosts.cs" />
     <Compile Include="Models\Replies\ForumReply.cs" />
+    <Compile Include="Models\Search\Search.cs" />
     <Compile Include="Models\Smilies\SmileCategory.cs" />
     <Compile Include="Models\Threads\NewThread.cs" />
     <Compile Include="Models\Threads\Thread.cs" />

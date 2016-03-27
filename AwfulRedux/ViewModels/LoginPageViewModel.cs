@@ -79,12 +79,7 @@ namespace AwfulRedux.ViewModels
         {
             IsLoading = true;
             await _authenticationManager.LogoutAsync(Views.Shell.Instance.ViewModel.WebManager.AuthenticationCookie);
-            var filter = new HttpBaseProtocolFilter();
-            var cookieManager = filter.CookieManager;
-            foreach (var cookie in cookieManager.GetCookies(new Uri("http://fake.forums.somethingawful.com")))
-            {
-                cookieManager.DeleteCookie(cookie);
-            }
+            await RemoveUserCookies();
             Views.Shell.Instance.ViewModel.IsLoggedIn = false;
             IsLoggedIn = false;
             await _db.RemoveUser(SelectedUser);
@@ -93,9 +88,20 @@ namespace AwfulRedux.ViewModels
             IsLoading = false;
         }
 
+        private async Task RemoveUserCookies()
+        {
+            var filter = new HttpBaseProtocolFilter();
+            var cookieManager = filter.CookieManager;
+            foreach (var cookie in cookieManager.GetCookies(new Uri("http://fake.forums.somethingawful.com")))
+            {
+                cookieManager.DeleteCookie(cookie);
+            }
+        }
+
         public async Task LoginUser()
         {
             IsLoading = true;
+            await RemoveUserCookies();
             var result = await _authenticationManager.AuthenticateAsync(Username, Password);
 
             if (!result.IsSuccess)

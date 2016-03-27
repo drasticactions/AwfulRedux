@@ -241,6 +241,7 @@
     <Compile Include="Tools\Manager\UploadManager.cs" />
     <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
     <Compile Include="Tools\ScrollingCollection\PrivateMessageScrollingCollection.cs" />
+    <Compile Include="Tools\ScrollingCollection\SearchPageScrollingCollection.cs" />
     <Compile Include="Tools\Threads\HtmlButtonBuilder.cs" />
     <Compile Include="Tools\Threads\HtmlFormater.cs" />
     <Compile Include="Tools\Threads\WebViewHelper.cs" />
@@ -260,6 +261,7 @@
     <Compile Include="ViewModels\PrivateMessagesListViewModel.cs" />
     <Compile Include="ViewModels\PrivateMessageViewModel.cs" />
     <Compile Include="ViewModels\ReplyThreadViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\SmiliesViewModel.cs" />
@@ -291,6 +293,9 @@
     </Compile>
     <Compile Include="Views\ReplyPage.xaml.cs">
       <DependentUpon>ReplyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -1021,6 +1026,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReplyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

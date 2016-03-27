@@ -120,7 +120,11 @@ namespace AwfulRedux.Core.Managers
                 using (var reader = new StreamReader(stream, Encoding.GetEncoding("ISO-8859-1")))
                 {
                     string html = reader.ReadToEnd();
-                    return new Result(result.IsSuccessStatusCode, html);
+                    var newResult = new Result(result.IsSuccessStatusCode, html)
+                    {
+                        RequestUri = result.RequestMessage.RequestUri.ToString()
+                    };
+                    return newResult;
                 }
             }
         }

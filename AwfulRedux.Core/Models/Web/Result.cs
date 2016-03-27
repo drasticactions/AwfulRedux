@@ -33,6 +33,11 @@ namespace AwfulRedux.Core.Models.Web
         public string AbsoluteUri { get; set; }
 
         /// <summary>
+        /// The request Uri
+        /// </summary>
+        public string RequestUri { get; set; }
+
+        /// <summary>
         /// The result of the request, in JSON form.
         /// </summary>
         public string ResultJson { get; set; }

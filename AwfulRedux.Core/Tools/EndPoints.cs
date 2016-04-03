@@ -22,7 +22,7 @@ namespace AwfulRedux.Core.Tools
 
         public const string StatsSpecificBase = BaseUrl + "stats.php?statid={0}&t_forumid=1{1}&all=#jump";
 
-        public const string ForumListPage = "http://forums.somethingawful.com/forumdisplay.php?forumid=48";
+        public const string ForumListPage = "https://forums.somethingawful.com/forumdisplay.php?forumid=48";
 
         public const string ForumPage = BaseUrl + "forumdisplay.php?forumid={0}";
 
@@ -66,7 +66,7 @@ namespace AwfulRedux.Core.Tools
 
         public const string ThreadPage = BaseUrl + "showthread.php?threadid={0}";
 
-        public const string FrontPage = "http://www.somethingawful.com";
+        public const string FrontPage = "https://www.somethingawful.com";
 
         public const string SmileUrl = BaseUrl + "misc.php?action=showsmilies";
 
@@ -78,13 +78,13 @@ namespace AwfulRedux.Core.Tools
 
         public const int DefaultTimeoutInMilliseconds = 60000;
 
-        public const string CookieDomainUrl = "http://fake.forums.somethingawful.com";
+        public const string CookieDomainUrl = "https://fake.forums.somethingawful.com";
 
-        public const string LoginUrl = "http://forums.somethingawful.com/account.php?";
+        public const string LoginUrl = "https://forums.somethingawful.com/account.php?";
 
         public const string SAclopediaBase = BaseUrl + "dictionary.php";
 
-        public const string BaseUrl = "http://forums.somethingawful.com/";
+        public const string BaseUrl = "https://forums.somethingawful.com/";
 
         public const string SearchUrl = BaseUrl + "query.php";
 

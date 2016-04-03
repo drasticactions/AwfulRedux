@@ -15,7 +15,7 @@ namespace AwfulRedux.UI.Models.Threads
 
         public string Location { get; set; }
 
-        public string ImageIconUrl { get; set; }
+        public string ImageIconUrl { get; set; } = "";
 
         public string ImageIconLocation { get; set; }
 

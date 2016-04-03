@@ -415,7 +415,7 @@ namespace AwfulRedux.Core.Managers
                 var testImageString = first.Descendants("img").FirstOrDefault().GetAttributeValue("src", string.Empty); ;
                 if (!string.IsNullOrEmpty(testImageString))
                 {
-                    threadEntity.ImageIconUrl = testImageString;
+                    threadEntity.ImageIconUrl = testImageString.Replace("http:", "https:");
                     threadEntity.ImageIconLocation = Path.GetFileNameWithoutExtension(testImageString);
                 }
             }

@@ -11,7 +11,7 @@
     <AssemblyName>AwfulRedux</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.14295.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -110,6 +110,67 @@
     </Content>
     <None Include="Assets\Website\genericons\Genericons.eot" />
     <Content Include="Assets\gifffer.js" />
+    <Content Include="Assets\OldThreadTags\ai-mods.gif" />
+    <Content Include="Assets\OldThreadTags\aids.png" />
+    <Content Include="Assets\OldThreadTags\amine.png" />
+    <Content Include="Assets\OldThreadTags\art.png" />
+    <Content Include="Assets\OldThreadTags\attention.png" />
+    <Content Include="Assets\OldThreadTags\audio.png" />
+    <Content Include="Assets\OldThreadTags\books.png" />
+    <Content Include="Assets\OldThreadTags\cars.png" />
+    <Content Include="Assets\OldThreadTags\cc-design.png" />
+    <Content Include="Assets\OldThreadTags\computers.png" />
+    <Content Include="Assets\OldThreadTags\cps-android.gif" />
+    <Content Include="Assets\OldThreadTags\dd-9-11.gif" />
+    <Content Include="Assets\OldThreadTags\ddrd-scsa.gif" />
+    <Content Include="Assets\OldThreadTags\drugs.png" />
+    <Content Include="Assets\OldThreadTags\en.png" />
+    <Content Include="Assets\OldThreadTags\event.png" />
+    <Content Include="Assets\OldThreadTags\food.png" />
+    <Content Include="Assets\OldThreadTags\fruity.png" />
+    <Content Include="Assets\OldThreadTags\fyad-blogs.gif" />
+    <Content Include="Assets\OldThreadTags\fyad-trout.gif" />
+    <Content Include="Assets\OldThreadTags\games.png" />
+    <Content Include="Assets\OldThreadTags\goonmeet.png" />
+    <Content Include="Assets\OldThreadTags\gross.png" />
+    <Content Include="Assets\OldThreadTags\guns.png" />
+    <Content Include="Assets\OldThreadTags\help.png" />
+    <Content Include="Assets\OldThreadTags\humor.png" />
+    <Content Include="Assets\OldThreadTags\icon-30-attnmod.gif" />
+    <Content Include="Assets\OldThreadTags\icon-31-hotthread.gif" />
+    <Content Include="Assets\OldThreadTags\icon23-banme.gif" />
+    <Content Include="Assets\OldThreadTags\LF-2wqxulw.gif" />
+    <Content Include="Assets\OldThreadTags\link.png" />
+    <Content Include="Assets\OldThreadTags\movies.png" />
+    <Content Include="Assets\OldThreadTags\music.png" />
+    <Content Include="Assets\OldThreadTags\newbie.png" />
+    <Content Include="Assets\OldThreadTags\news.png" />
+    <Content Include="Assets\OldThreadTags\photos.png" />
+    <Content Include="Assets\OldThreadTags\photoshop.png" />
+    <Content Include="Assets\OldThreadTags\politics.png" />
+    <Content Include="Assets\OldThreadTags\poll.png" />
+    <Content Include="Assets\OldThreadTags\qcs-green.gif" />
+    <Content Include="Assets\OldThreadTags\question.png" />
+    <Content Include="Assets\OldThreadTags\rant.png" />
+    <Content Include="Assets\OldThreadTags\repeat.png" />
+    <Content Include="Assets\OldThreadTags\request.png" />
+    <Content Include="Assets\OldThreadTags\sa-up.png" />
+    <Content Include="Assets\OldThreadTags\sadev-bugs.gif" />
+    <Content Include="Assets\OldThreadTags\school.png" />
+    <Content Include="Assets\OldThreadTags\science.png" />
+    <Content Include="Assets\OldThreadTags\serious.png" />
+    <Content Include="Assets\OldThreadTags\sex.png" />
+    <Content Include="Assets\OldThreadTags\shsc-apple.gif" />
+    <Content Include="Assets\OldThreadTags\shsc-win.gif" />
+    <Content Include="Assets\OldThreadTags\sports.png" />
+    <Content Include="Assets\OldThreadTags\stupid.png" />
+    <Content Include="Assets\OldThreadTags\tech.png" />
+    <Content Include="Assets\OldThreadTags\tigerattack.gif" />
+    <Content Include="Assets\OldThreadTags\tv.png" />
+    <Content Include="Assets\OldThreadTags\unfunny.png" />
+    <Content Include="Assets\OldThreadTags\video.png" />
+    <Content Include="Assets\OldThreadTags\weird.png" />
+    <Content Include="Assets\OldThreadTags\whine.png" />
     <Content Include="Assets\Website\CSS\base.css" />
     <Content Include="Assets\Website\genericons\Genericons.ttf" />
     <None Include="Assets\Website\genericons\Genericons.woff" />
@@ -1051,16 +1112,19 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="SQLite.UWP.2015, Version=3.11.1">
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.UWP.2015, Version=3.12.0">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
-    <SDKReference Include="WindowsDesktop, Version=10.0.10586.0">
+    <SDKReference Include="WindowsDesktop, Version=10.0.14295.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
+    <SDKReference Include="WindowsIoT, Version=10.0.14295.0">
       <Name>Windows IoT Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.14295.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>

@@ -105,6 +105,7 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\directionalnavigation-1.0.0.0.js" />
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1112,19 +1113,22 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Microsoft.UniversalCRT.Debug, Version=10.0.10586.0">
+      <Name>Microsoft Universal CRT Debug Runtime</Name>
+    </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
     <SDKReference Include="SQLite.UWP.2015, Version=3.12.0">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
-    <SDKReference Include="WindowsDesktop, Version=10.0.14295.0">
+    <SDKReference Include="WindowsDesktop, Version=10.0.10586.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsIoT, Version=10.0.14295.0">
+    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
       <Name>Windows IoT Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsMobile, Version=10.0.14295.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
@@ -1156,6 +1160,10 @@
     <ProjectReference Include="..\Kimono\Kimono.csproj">
       <Project>{329833b1-79b7-4724-b9a2-0629d735bea1}</Project>
       <Name>Kimono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Template10 %28Library%29\Template10 %28Library%29.csproj">
+      <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
+      <Name>Template10 %28Library%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

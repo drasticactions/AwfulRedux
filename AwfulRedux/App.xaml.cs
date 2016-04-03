@@ -41,8 +41,7 @@ namespace AwfulRedux
             Settings = SettingsService.Instance;
             RequestedTheme = Settings.AppTheme;
 
-            #endregion
-
+            #endregion 
             #region Database
             var db = new Database.DataSource.MainForums(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
             db.CreateDatabase();

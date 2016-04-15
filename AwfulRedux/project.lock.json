@@ -13406,12 +13406,11 @@
       ]
     },
     "FFImageLoading.Windows/2.1.0-alpha1": {
-      "sha512": "3CGBU+A6YK6wYrfME5cXJwPnJEucSqabPDPI8xy6LWzOXY5K76c39WSHJI0tKfrEYECs8bn1tIemvG8wKu6F1Q==",
-      "type": "Package",
+      "sha512": "HiF6DINBq7keJqWtwPrG7Z1HAhLFxSJQ4T9unFCVKUIW5hAMnms7RxLTsEn44rfsx1Agk2Ji/DcpmWJuwyoCgw==",
+      "type": "package",
       "files": [
+        "FFImageLoading.Windows.2.1.0-alpha1.nupkg.sha512",
         "FFImageLoading.Windows.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/portable-netcore45+wpa81/FFImageLoading.Windows.dll",
         "lib/portable-netcore45+wpa81/FFImageLoading.Windows.xml",
         "lib/portable-netcore45+wpa81/FFImageLoading.dll",
@@ -13419,8 +13418,7 @@
         "lib/portable-wp8/FFImageLoading.WinSL.dll",
         "lib/portable-wp8/FFImageLoading.WinSL.xml",
         "lib/portable-wp8/FFImageLoading.dll",
-        "lib/portable-wp8/FFImageLoading.xml",
-        "package/services/metadata/core-properties/1.psmdcp"
+        "lib/portable-wp8/FFImageLoading.xml"
       ]
     },
     "HtmlAgilityPack/1.4.8": {
@@ -14379,12 +14377,11 @@
       ]
     },
     "NotificationsExtensions.Win10/10586.0.0": {
-      "sha512": "MISR3bytM8ZHZtaJbWUU4GxHbnQKqUfjohg5uSAflFUqztKbvhDmKN1fTJYs/oYovhBFrU4P3CoiWfRnT7FTWw==",
-      "type": "Package",
+      "sha512": "VFafpvnGVJarbKf97AiZeK5B9FnkS4Ds0oHXgrftXPX/LrgJe2oYwFXcQmXnjIuW8D8nAFFLEtH6TvCE8cPoaQ==",
+      "type": "package",
       "files": [
+        "NotificationsExtensions.Win10.10586.0.0.nupkg.sha512",
         "NotificationsExtensions.Win10.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.XML",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.dll",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.pdb",
@@ -14395,24 +14392,21 @@
         "lib/uap10.0/NotificationsExtensions.pri",
         "lib/uap10.0/NotificationsExtensions.winmd",
         "lib/uap10.0/NotificationsExtensions.winmd.xml",
-        "lib/uap10.0/NotificationsExtensions.xml",
-        "package/services/metadata/core-properties/5d5cbb4e5ec6464fa0b3cee3b82d40de.psmdcp"
+        "lib/uap10.0/NotificationsExtensions.xml"
       ]
     },
     "QueryString.NET/1.0.0": {
-      "sha512": "wmOG5qPFYH7jKp3fMXQ2VeMXTgcyoI4hwPF8AxFAyrT/uVBDe0ISzyh/iFEnwmFBUm19UgbDoFRU3o47a1/vUw==",
-      "type": "Package",
+      "sha512": "5iVQSmK0X6iTMQWKbegV92lfAcCjJXFduL6CKVReJDzdWmH6k10aztDRXE9cWU4YW1tXsCOfkwqRCG/8Tod9aA==",
+      "type": "package",
       "files": [
+        "QueryString.NET.1.0.0.nupkg.sha512",
         "QueryString.NET.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/QueryString.NETCore.XML",
         "lib/dotnet/QueryString.NETCore.dll",
         "lib/dotnet/QueryString.NETCore.pdb",
         "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.dll",
         "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.pdb",
-        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.xml",
-        "package/services/metadata/core-properties/643187e148944d5892c2282c5396136a.psmdcp"
+        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.xml"
       ]
     },
     "Rx-Core/2.2.5": {
@@ -17335,7 +17329,7 @@
       ]
     },
     "Template10/1.1.8": {
-      "sha512": "YHpUTKJTUjKbVROKtt4EQ7omqM8lXtcuomXiEl4UqX1x81DKq6EZoldgrYKsL9ISQtxJELQiO5X5iy4UZVkDJw==",
+      "sha512": "1qfqdoFd6nFrkArfQAusUQfz7gSnaTkaHihf01tAdB/HP28vXlMJ7/YXOcddruk8+vBpUy5iCCZi3QqOGp66Xw==",
       "type": "package",
       "files": [
         "Template10.1.1.8.nupkg.sha512",

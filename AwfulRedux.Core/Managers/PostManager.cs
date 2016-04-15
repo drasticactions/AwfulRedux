@@ -65,11 +65,14 @@ namespace AwfulRedux.Core.Managers
             return doc;
         }
 
-        public async Task<Result> GetThreadPostsAsync(string location, int currentPage, bool hasBeenViewed = false)
+        public async Task<Result> GetThreadPostsAsync(string location, int currentPage, bool hasBeenViewed = false, bool goToPageOverride = false)
         {
             string url = location;
-
-            if (currentPage > 1)
+            if (goToPageOverride)
+            {
+                url = location + string.Format(EndPoints.PageNumber, currentPage);
+            }
+            else if (currentPage > 1)
             {
                 url = location + string.Format(EndPoints.PageNumber, currentPage);
             }

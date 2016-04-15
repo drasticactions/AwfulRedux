@@ -13238,12 +13238,11 @@
       ]
     },
     "NotificationsExtensions.Win10/10586.0.0": {
-      "sha512": "MISR3bytM8ZHZtaJbWUU4GxHbnQKqUfjohg5uSAflFUqztKbvhDmKN1fTJYs/oYovhBFrU4P3CoiWfRnT7FTWw==",
-      "type": "Package",
+      "sha512": "VFafpvnGVJarbKf97AiZeK5B9FnkS4Ds0oHXgrftXPX/LrgJe2oYwFXcQmXnjIuW8D8nAFFLEtH6TvCE8cPoaQ==",
+      "type": "package",
       "files": [
+        "NotificationsExtensions.Win10.10586.0.0.nupkg.sha512",
         "NotificationsExtensions.Win10.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.XML",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.dll",
         "lib/dotnet/NotificationsExtensions.Win10.NETCore.pdb",
@@ -13254,8 +13253,7 @@
         "lib/uap10.0/NotificationsExtensions.pri",
         "lib/uap10.0/NotificationsExtensions.winmd",
         "lib/uap10.0/NotificationsExtensions.winmd.xml",
-        "lib/uap10.0/NotificationsExtensions.xml",
-        "package/services/metadata/core-properties/5d5cbb4e5ec6464fa0b3cee3b82d40de.psmdcp"
+        "lib/uap10.0/NotificationsExtensions.xml"
       ]
     },
     "Rx-Core/2.2.5": {
@@ -16178,7 +16176,7 @@
       ]
     },
     "Template10/1.1.8": {
-      "sha512": "YHpUTKJTUjKbVROKtt4EQ7omqM8lXtcuomXiEl4UqX1x81DKq6EZoldgrYKsL9ISQtxJELQiO5X5iy4UZVkDJw==",
+      "sha512": "1qfqdoFd6nFrkArfQAusUQfz7gSnaTkaHihf01tAdB/HP28vXlMJ7/YXOcddruk8+vBpUy5iCCZi3QqOGp66Xw==",
       "type": "package",
       "files": [
         "Template10.1.1.8.nupkg.sha512",

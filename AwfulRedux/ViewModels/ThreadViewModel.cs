@@ -140,14 +140,14 @@ namespace AwfulRedux.ViewModels
             IsLoggedIn = true;
         }
 
-        public async Task LoadThread()
+        public async Task LoadThread(bool goToPageOverride = false)
         {
             IsLoading = true;
             if (_postManager == null)
             {
                 await LoginUser();
             }
-            var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed);
+            var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed, goToPageOverride);
             var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
             Selected.CurrentPage = postresult.ForumThread.CurrentPage;
             Selected.TotalPages = postresult.ForumThread.TotalPages;
@@ -191,7 +191,8 @@ namespace AwfulRedux.ViewModels
             Selected.CurrentPage = userInputPageNumber;
             Selected.ScrollToPost = 0;
             Selected.ScrollToPostString = string.Empty;
-            await LoadThread();
+            // Force the new page number.
+            await LoadThread(true);
         }
 
         public void ReplyToThread()

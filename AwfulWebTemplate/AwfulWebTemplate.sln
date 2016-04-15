@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwfulWebTemplate", "AwfulWebTemplate\AwfulWebTemplate.csproj", "{B159244C-199D-49B4-93F8-FAC12DE5D52A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwfulRedux.UI", "..\AwfulRedux.UI\AwfulRedux.UI.csproj", "{361195A9-C85A-4EA1-BF49-4A861B7BC7CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{361195A9-C85A-4EA1-BF49-4A861B7BC7CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{361195A9-C85A-4EA1-BF49-4A861B7BC7CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{361195A9-C85A-4EA1-BF49-4A861B7BC7CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{361195A9-C85A-4EA1-BF49-4A861B7BC7CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B159244C-199D-49B4-93F8-FAC12DE5D52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B159244C-199D-49B4-93F8-FAC12DE5D52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B159244C-199D-49B4-93F8-FAC12DE5D52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B159244C-199D-49B4-93F8-FAC12DE5D52A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

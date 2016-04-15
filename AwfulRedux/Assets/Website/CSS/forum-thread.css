@@ -16,15 +16,15 @@ iframe {
 }
 @media screen and (max-width: 992px) {
     .col-md-4 #threadView {
-    height: 80px;
+    height: 50px;
 }
 .col-md-4 #threadView .av {
     float: left;
-    max-height: 75px;
-    max-width: 75px;
+    max-height: 45px;
+    max-width: 45px;
 }
 .col-md-4 #threadView .userinfo {
-    margin-left: 95px;
+    margin-left: 55px;
 }
 .col-md-4 #threadView .userinfo p {
     font-size: 80%;

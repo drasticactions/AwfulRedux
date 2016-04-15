@@ -9,6 +9,7 @@ using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using AmazingPullToRefresh.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
@@ -20,6 +21,7 @@ using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
+using AwfulWebTemplate;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using SQLite.Net.Platform.WinRT;
@@ -140,6 +142,11 @@ namespace AwfulRedux.ViewModels
             IsLoggedIn = true;
         }
 
+        public async Task ReloadThread()
+        {
+            await LoadThread();
+        }
+
         public async Task LoadThread(bool goToPageOverride = false)
         {
             IsLoading = true;
@@ -152,7 +159,15 @@ namespace AwfulRedux.ViewModels
             Selected.CurrentPage = postresult.ForumThread.CurrentPage;
             Selected.TotalPages = postresult.ForumThread.TotalPages;
             Selected.Posts = postresult.Posts;
-            Selected.Html = await HtmlFormater.FormatThreadHtml(postresult.ForumThread, postresult.Posts, GetTheme, IsLoggedIn);
+            var threadTemplateModel = new ThreadTemplateModel()
+            {
+                ForumThread = Selected,
+                IsDarkThemeSet = false,
+                IsLoggedIn = IsLoggedIn,
+                Posts = postresult.Posts
+            };
+            var threadTemplate = new ThreadTemplate() { Model = threadTemplateModel };
+            Selected.Html = threadTemplate.GenerateString();
             var count = postresult.Posts.Count(node => !node.HasSeen);
             if (Selected.RepliesSinceLastOpened > 0)
             {

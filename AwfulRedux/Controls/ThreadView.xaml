@@ -40,7 +40,7 @@
         </VisualStateManager.VisualStateGroups>
         <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Content="{Binding Selected.Name}">
             <controls:PageHeader.PrimaryCommands>
-                <AppBarButton x:Name="RefreshButton" Label="Refresh" Foreground="White" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
+                <AppBarButton x:Name="RefreshButton" Label="Refresh" Foreground="White" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.ReloadThread}" Icon="Refresh"/>
             </controls:PageHeader.PrimaryCommands>
             <interactivity:Interaction.Behaviors>
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
@@ -51,7 +51,7 @@
         </WebView>
         <CommandBar Grid.Row="3">
             <AppBarButton Label="Back Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource BackButtonEnableConverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
-            <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.LoadThread}" Icon="Refresh"/>
+            <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.ReloadThread}" Icon="Refresh"/>
             <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.ReplyToThread}" Label="Reply">

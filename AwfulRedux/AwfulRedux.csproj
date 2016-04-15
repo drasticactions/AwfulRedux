@@ -105,12 +105,14 @@
     <Content Include="Assets\BadgeLogo.scale-150.png" />
     <Content Include="Assets\BadgeLogo.scale-200.png" />
     <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\bootstrap.min.js" />
     <Content Include="Assets\directionalnavigation-1.0.0.0.js" />
     <Content Include="Assets\Forums\forum.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Assets\Website\genericons\Genericons.eot" />
     <Content Include="Assets\gifffer.js" />
+    <Content Include="Assets\jquery.min.js" />
     <Content Include="Assets\OldThreadTags\ai-mods.gif" />
     <Content Include="Assets\OldThreadTags\aids.png" />
     <Content Include="Assets\OldThreadTags\amine.png" />
@@ -173,6 +175,8 @@
     <Content Include="Assets\OldThreadTags\weird.png" />
     <Content Include="Assets\OldThreadTags\whine.png" />
     <Content Include="Assets\Website\CSS\base.css" />
+    <Content Include="Assets\Website\CSS\dark.css" />
+    <Content Include="Assets\Website\CSS\winstrap.min.css" />
     <Content Include="Assets\Website\genericons\Genericons.ttf" />
     <None Include="Assets\Website\genericons\Genericons.woff" />
     <None Include="AwfulRedux_StoreKey.pfx" />
@@ -328,6 +332,7 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\SmiliesViewModel.cs" />
     <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
+    <Compile Include="ViewModels\ThreadPageViewModel.cs" />
     <Compile Include="ViewModels\ThreadViewModel.cs" />
     <Compile Include="Views\BookmarksPage.xaml.cs">
       <DependentUpon>BookmarksPage.xaml</DependentUpon>
@@ -1152,6 +1157,10 @@
     <ProjectReference Include="..\AwfulRedux.UI\AwfulRedux.UI.csproj">
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>
       <Name>AwfulRedux.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AwfulWebTemplate\AwfulWebTemplate\AwfulWebTemplate.csproj">
+      <Project>{b159244c-199d-49b4-93f8-fac12de5d52a}</Project>
+      <Name>AwfulWebTemplate</Name>
     </ProjectReference>
     <ProjectReference Include="..\Imgur\Imgur.csproj">
       <Project>{6bdadad2-b0b3-489e-b2da-e1b9cf68a787}</Project>

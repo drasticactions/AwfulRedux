@@ -54,16 +54,36 @@ WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" type=\"text/css\"");
 
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/forum-thread.css\"");
+
+WriteLiteral(" media=\"all\"");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" type=\"text/css\"");
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/bbcode.css\"");
+
+WriteLiteral(" media=\"all\"");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" type=\"text/css\"");
+
 WriteLiteral(">\r\n");
 
 
-#line 8 "PrivateMessageTemplate.cshtml"
+#line 10 "PrivateMessageTemplate.cshtml"
     
 
 #line default
 #line hidden
 
-#line 8 "PrivateMessageTemplate.cshtml"
+#line 10 "PrivateMessageTemplate.cshtml"
      if (Model.IsDarkThemeSet) {
 
 
@@ -90,34 +110,14 @@ WriteLiteral(" type=\"text/css\"");
 WriteLiteral(">\r\n");
 
 
-#line 11 "PrivateMessageTemplate.cshtml"
+#line 13 "PrivateMessageTemplate.cshtml"
     }
 
 
 #line default
 #line hidden
-WriteLiteral("    <link");
-
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/forum-thread.css\"");
-
-WriteLiteral(" media=\"all\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" type=\"text/css\"");
-
-WriteLiteral(">\r\n    <link");
-
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/bbcode.css\"");
-
-WriteLiteral(" media=\"all\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" type=\"text/css\"");
-
-WriteLiteral(">\r\n    <!--<script type=\"text/javascript\" async=\"\" src=\"JS/jquery.min.js\"></scrip" +
-"t>-->\r\n    <script");
+WriteLiteral("    <!--<script type=\"text/javascript\" async=\"\" src=\"JS/jquery.min.js\"></script>-" +
+"->\r\n    <script");
 
 WriteLiteral(" src=\"https://code.jquery.com/jquery-2.2.3.js\"");
 

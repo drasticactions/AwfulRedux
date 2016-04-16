@@ -1,3 +1,6 @@
+body {
+    background-color: black;
+}
 #content {
 	background-color: black;
 	color: black;
@@ -68,7 +71,8 @@ background-repeat: repeat!important;
 
 .btn
 {
-background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 1);
+    border: 1px solid white;
 }
 
 blockquote

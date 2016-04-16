@@ -164,7 +164,10 @@ namespace AwfulRedux.ViewModels
                 ForumThread = Selected,
                 IsDarkThemeSet = this.GetTheme == PlatformIdentifier.WindowsPhone,
                 IsLoggedIn = IsLoggedIn,
-                Posts = postresult.Posts
+                Posts = postresult.Posts,
+                EmbeddedGifv = App.Settings.ShowEmbeddedGifv,
+                EmbeddedTweets = App.Settings.ShowEmbeddedTweets,
+                EmbeddedVideo = App.Settings.ShowEmbeddedVideo
             };
             var threadTemplate = new ThreadTemplate() { Model = threadTemplateModel };
             Selected.Html = threadTemplate.GenerateString();

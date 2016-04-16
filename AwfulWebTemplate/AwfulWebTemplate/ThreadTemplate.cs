@@ -43,8 +43,8 @@ var allPosts = Model.Posts.Any(node => !node.HasSeen) && Model.Posts.Any(node =>
 var otherPosts = Model.Posts.Any(node => !node.HasSeen);
 switch (Model.ForumThread.ForumId)
             {
-                case 28:
-                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/219.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
+                case 29:
+                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/29.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
                     break;
                 case 26:
                     theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/26.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
@@ -82,16 +82,36 @@ WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" type=\"text/css\"");
 
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/forum-thread.css\"");
+
+WriteLiteral(" media=\"all\"");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" type=\"text/css\"");
+
+WriteLiteral(">\r\n    <link");
+
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/bbcode.css\"");
+
+WriteLiteral(" media=\"all\"");
+
+WriteLiteral(" rel=\"stylesheet\"");
+
+WriteLiteral(" type=\"text/css\"");
+
 WriteLiteral(">\r\n");
 
 
-#line 29 "ThreadTemplate.cshtml"
+#line 31 "ThreadTemplate.cshtml"
     
 
 #line default
 #line hidden
 
-#line 29 "ThreadTemplate.cshtml"
+#line 31 "ThreadTemplate.cshtml"
      if (Model.IsDarkThemeSet) {
 
 
@@ -118,40 +138,14 @@ WriteLiteral(" type=\"text/css\"");
 WriteLiteral(">\r\n");
 
 
-#line 32 "ThreadTemplate.cshtml"
+#line 34 "ThreadTemplate.cshtml"
     }
 
 
 #line default
 #line hidden
-WriteLiteral("    <link");
+WriteLiteral("   \t");
 
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/forum-thread.css\"");
-
-WriteLiteral(" media=\"all\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" type=\"text/css\"");
-
-WriteLiteral(">\r\n    <link");
-
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/bbcode.css\"");
-
-WriteLiteral(" media=\"all\"");
-
-WriteLiteral(" rel=\"stylesheet\"");
-
-WriteLiteral(" type=\"text/css\"");
-
-WriteLiteral(">\r\n");
-
-
-#line 35 "ThreadTemplate.cshtml"
-   	
-
-#line default
-#line hidden
 
 #line 35 "ThreadTemplate.cshtml"
       
@@ -211,11 +205,38 @@ WriteLiteral(" src=\"ms-appx-web:///Assets/url.min.js\"");
 
 WriteLiteral("></script>\r\n    <title>Forum Thread</title>\r\n</head>\r\n\r\n<body");
 
-WriteLiteral(" data-show-embedded-tweets=\"true\"");
+WriteLiteral(" data-show-embedded-tweets=\"");
 
-WriteLiteral(" data-show-embedded-gifv=\"true\"");
 
-WriteLiteral(" data-show-embedded-video=\"true\"");
+#line 48 "ThreadTemplate.cshtml"
+                            Write(Model.EmbeddedTweets);
+
+
+#line default
+#line hidden
+WriteLiteral("\"");
+
+WriteLiteral(" data-show-embedded-gifv=\"");
+
+
+#line 48 "ThreadTemplate.cshtml"
+                                                                            Write(Model.EmbeddedGifv);
+
+
+#line default
+#line hidden
+WriteLiteral("\"");
+
+WriteLiteral(" data-show-embedded-video=\"");
+
+
+#line 48 "ThreadTemplate.cshtml"
+                                                                                                                           Write(Model.EmbeddedVideo);
+
+
+#line default
+#line hidden
+WriteLiteral("\"");
 
 WriteLiteral(" style=\"overflow-x: hidden;\"");
 
@@ -260,7 +281,7 @@ WriteLiteral(">\r\n\t\t\t\t\t\t\t<button");
 
 WriteLiteral(" style=\"margin-left: auto; margin-right: auto;\"");
 
-WriteLiteral(" class=\"btn btn-default center-block\"");
+WriteLiteral(" class=\"btn center-block\"");
 
 WriteLiteral(" id=\"\"");
 
@@ -458,7 +479,7 @@ WriteLiteral(" class=\"profilelinks\"");
 WriteLiteral(">\r\n                                                <li>\r\n                        " +
 "                            <button");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn\"");
 
 WriteLiteral(" id=\"\"");
 
@@ -468,7 +489,7 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.QuotePost(\'", true)
 
 #line 93 "ThreadTemplate.cshtml"
-                                                                                            , Tuple.Create<string,object,bool> ("", post.PostId
+                                                                                , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
 #line hidden
@@ -479,7 +500,7 @@ WriteLiteral(">Quote</button>\r\n                                               
 "                                       <li>\r\n                                   " +
 "                 <button");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn\"");
 
 WriteLiteral(" id=\"\"");
 
@@ -489,7 +510,7 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.MarkAsLastRead(\'", true)
 
 #line 96 "ThreadTemplate.cshtml"
-                                                                                                 , Tuple.Create<string,object,bool> ("", post.PostIndex
+                                                                                     , Tuple.Create<string,object,bool> ("", post.PostIndex
 
 #line default
 #line hidden
@@ -516,7 +537,7 @@ WriteLiteral("                                                <li>\r\n          
 
 WriteLiteral(" style=\"margin-left: 7px;\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn\r\n                                                    \"");
 
 WriteLiteral(" id=\"\"");
 
@@ -525,8 +546,8 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.EditPost(\'", true)
 
-#line 100 "ThreadTemplate.cshtml"
-                                                                                                                     , Tuple.Create<string,object,bool> ("", post.PostId
+#line 101 "ThreadTemplate.cshtml"
+                                                             , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
 #line hidden
@@ -536,7 +557,7 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 WriteLiteral(">Edit</button>\r\n                                                </li>\r\n");
 
 
-#line 102 "ThreadTemplate.cshtml"
+#line 103 "ThreadTemplate.cshtml"
                                                 }
 
 
@@ -547,7 +568,7 @@ WriteLiteral("                                            </ul>\r\n             
 "        </footer>\r\n");
 
 
-#line 107 "ThreadTemplate.cshtml"
+#line 108 "ThreadTemplate.cshtml"
                     		}
 
 
@@ -556,7 +577,7 @@ WriteLiteral("                                            </ul>\r\n             
 WriteLiteral("                    \t</div>\r\n                    </div>\r\n            \t\t</div>\r\n");
 
 
-#line 111 "ThreadTemplate.cshtml"
+#line 112 "ThreadTemplate.cshtml"
            	 		}
 
 

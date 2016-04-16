@@ -8,6 +8,7 @@ using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
+using AwfulWebTemplate;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -62,7 +63,13 @@ namespace AwfulRedux.ViewModels
 
         public async void LoadPost(Thread thread, Post post)
         {
-            PostHtml = await HtmlFormater.FormatPreviewHtml(thread, post, GetTheme);
+            var threadTemplateModel = new PreviewPostTemplateModel
+            {
+                Post = post,
+                IsDarkThemeSet = this.GetTheme == PlatformIdentifier.WindowsPhone
+            };
+            var threadTemplate = new PreviewPostTemplate { Model = threadTemplateModel };
+            PostHtml = threadTemplate.GenerateString();
         }
     }
 }

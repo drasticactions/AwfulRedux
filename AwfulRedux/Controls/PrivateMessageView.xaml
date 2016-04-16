@@ -31,10 +31,10 @@
         <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Html}"  x:Name="ThreadFullView"/>
         <CommandBar Grid.Row="3">
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Click="{x:Bind ViewModel.Reply}" Label="Reply">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Click="{x:Bind ViewModel.Reply}" Icon="Send" Label="Reply">
                 </AppBarButton>
-            </CommandBar.SecondaryCommands>
+            </CommandBar.PrimaryCommands>
         </CommandBar>
     </Grid>
 </UserControl>

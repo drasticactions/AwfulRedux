@@ -20,8 +20,8 @@
     <PackageCertificateKeyFile>AwfulRedux_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>0665D090850F9A5F6D5DA14C54DB8734D0D1A74E</PackageCertificateThumbprint>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>B2B5B8969D20C08D4DC46DBD542F0AD922CEA800</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -179,8 +179,6 @@
     <Content Include="Assets\Website\CSS\winstrap.min.css" />
     <Content Include="Assets\Website\genericons\Genericons.ttf" />
     <None Include="Assets\Website\genericons\Genericons.woff" />
-    <None Include="AwfulRedux_StoreKey.pfx" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\Website\genericons\genericons.css" />
     <Content Include="Assets\Website\genericons\Genericons.svg" />
     <Content Include="Assets\hammer.2.0.4.js" />
@@ -190,6 +188,8 @@
     <Content Include="Assets\StoreLogo1.scale-200.png" />
     <Content Include="Assets\StoreLogo1.scale-400.png" />
     <Content Include="Assets\wptr.1.1.js" />
+    <None Include="AwfulRedux_StoreKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="SomethingAwfulCommands.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -237,6 +237,7 @@
     <Content Include="Assets\Website\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Assets\Website\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="AwfulRedux_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -381,7 +382,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="AwfulRedux_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\ThreadRatings\1stars.png" />

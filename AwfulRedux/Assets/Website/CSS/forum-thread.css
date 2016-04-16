@@ -2,6 +2,10 @@
     max-width: 90%;
 }
 
+h4 {
+   padding: 7px 0 4px;
+}
+
 #content {
     z-index: 1000;
 }
@@ -10,6 +14,9 @@
 }
 iframe {
     max-width: 100%;
+}
+.hiddenpost {
+    display: none;
 }
 #showHiddenPostsButton {
     width: 100%;

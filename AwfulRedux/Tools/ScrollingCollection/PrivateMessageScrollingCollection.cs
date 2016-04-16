@@ -14,11 +14,12 @@ using Newtonsoft.Json;
 
 namespace AwfulRedux.Tools.ScrollingCollection
 {
-    public class PrivateMessageScrollingCollection : ObservableCollection<PrivateMessage>, ISupportIncrementalLoading, INotifyPropertyChanged
+    public class PrivateMessageScrollingCollection : ObservableCollection<PrivateMessage>, ISupportIncrementalLoading
     {
         public PrivateMessageScrollingCollection()
         {
             HasMoreItems = true;
+            IsLoading = false;
             PageCount = 0;
         }
         private int PageCount { get; set; }

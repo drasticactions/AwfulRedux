@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
+using AmazingPullToRefresh.Controls;
 using AwfulRedux.Core.Models.Messages;
 using AwfulRedux.Tools.ScrollingCollection;
 using AwfulRedux.Views;
@@ -15,7 +16,15 @@ namespace AwfulRedux.ViewModels
 {
     public class PrivateMessagesListViewModel : ViewModelBase
     {
-        public PrivateMessageScrollingCollection PrivateMessageScrollingCollection { get; set; }
+        private PrivateMessageScrollingCollection _privateMessageScrollingCollection = default(PrivateMessageScrollingCollection);
+        public PrivateMessageScrollingCollection PrivateMessageScrollingCollection
+        {
+            get { return _privateMessageScrollingCollection; }
+            set
+            {
+                Set(ref _privateMessageScrollingCollection, value);
+            }
+        }
 
         private PrivateMessage _selected = default(PrivateMessage);
 
@@ -26,6 +35,11 @@ namespace AwfulRedux.ViewModels
             {
                 Set(ref _selected, value);
             }
+        }
+
+        public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
+        {
+            Refresh();
         }
 
         private bool _isLoading = default(bool);
@@ -59,7 +73,7 @@ namespace AwfulRedux.ViewModels
             {
                 return;
             }
-            PrivateMessageScrollingCollection = new PrivateMessageScrollingCollection();
+            Refresh();
         }
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)

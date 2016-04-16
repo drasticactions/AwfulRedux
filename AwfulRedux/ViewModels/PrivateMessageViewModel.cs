@@ -11,6 +11,7 @@ using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
+using AwfulWebTemplate;
 using Newtonsoft.Json;
 using Template10.Mvvm;
 using PrivateMessage = AwfulRedux.UI.Models.Messages.PrivateMessage;
@@ -86,12 +87,13 @@ namespace AwfulRedux.ViewModels
 
         private async Task FormatPmHtml(Post postEntity)
         {
-            var list = new List<Post> { postEntity };
-            var thread = new Thread()
+            var threadTemplateModel = new PrivateMessageTemplateModel
             {
-                IsPrivateMessage = true
+                PMPost = postEntity,
+                IsDarkThemeSet = this.GetTheme == PlatformIdentifier.WindowsPhone
             };
-            Html = await HtmlFormater.FormatThreadHtml(thread, list, GetTheme, true);
+            var threadTemplate = new PrivateMessageTemplate { Model = threadTemplateModel };
+            Html = threadTemplate.GenerateString();
         }
 
         public void Reply()

@@ -162,7 +162,7 @@ namespace AwfulRedux.ViewModels
             var threadTemplateModel = new ThreadTemplateModel()
             {
                 ForumThread = Selected,
-                IsDarkThemeSet = false,
+                IsDarkThemeSet = this.GetTheme == PlatformIdentifier.WindowsPhone,
                 IsLoggedIn = IsLoggedIn,
                 Posts = postresult.Posts
             };

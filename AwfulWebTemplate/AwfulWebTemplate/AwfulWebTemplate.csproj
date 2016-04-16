@@ -35,12 +35,28 @@
       <DependentUpon>ThreadTemplate.cshtml</DependentUpon>
     </Compile>
     <Compile Include="ThreadTemplateModel.cs" />
+    <Compile Include="PrivateMessageTemplateModel.cs" />
+    <Compile Include="PrivateMessageTemplate.cs">
+      <DependentUpon>PrivateMessageTemplate.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewPostTemplate.cs">
+      <DependentUpon>PreviewPostTemplate.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="PreviewPostTemplateModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
     <None Include="ThreadTemplate.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>ThreadTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="PrivateMessageTemplate.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>PrivateMessageTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="PreviewPostTemplate.cshtml">
+      <Generator>RazorTemplatePreprocessor</Generator>
+      <LastGenOutput>PreviewPostTemplate.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -12,6 +12,8 @@ namespace AwfulRedux.Core.Models.Messages
 
         public string Icon { get; set; }
 
+        public string ImageIconLocation { get; set; }
+
         public string Title { get; set; }
 
         public string Sender { get; set; }

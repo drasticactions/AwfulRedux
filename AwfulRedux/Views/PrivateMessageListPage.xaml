@@ -7,15 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
     xmlns:controls="using:Kimono.Controls"
+    xmlns:pm="using:AwfulRedux.UI.Models.Messages"
     xmlns:controls1="using:Template10.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:controls2="using:AwfulRedux.Controls"
+    xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
+    xmlns:controls3="using:AmazingPullToRefresh.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:PrivateMessagesListViewModel />
     </Page.DataContext>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="BackButtonPresent">
+                    <VisualState.StateTriggers>
+                        <stateTriggers:ApiInformationTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RefreshButton.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
@@ -29,18 +44,59 @@
                         <interactivity:Interaction.Behaviors>
                             <behaviors:EllipsisBehavior Visibility="Collapsed" />
                         </interactivity:Interaction.Behaviors>
+                        <controls1:PageHeader.PrimaryCommands>
+                            <AppBarButton x:Name="RefreshButton"  Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
+                        </controls1:PageHeader.PrimaryCommands>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <ListView x:Name="masterListBox" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" ItemTemplate="{StaticResource PrivateMessageTemplate}"  SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <ListView x:Name="masterListBox" SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" 
+                              SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding PrivateMessageScrollingCollection, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="pm:PrivateMessage">
+                                <Grid Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" Width="2"
+                                  Background="DarkRed" />
+                                    <Grid Grid.Column="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{x:Bind ImageIconLocation, Converter={StaticResource ForumImageConverter}, Mode=OneWay}" />
+                                        <Grid Grid.Column="1">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock x:Phase="1" Margin="2" Style="{ThemeResource ForumTitleThreadBox}" FontFamily="{ThemeResource DefaultFont}" Text="{x:Bind Title}" TextWrapping="Wrap" />
+                                            <Grid Margin="2" Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Grid.Column="0" Margin="0,0,5,0" FontSize="12" Text="{x:Bind Sender, Mode=OneWay}" />
+                                                <TextBlock Grid.Column="1" Margin="0,0,5,0" FontSize="12" Text="{x:Bind Date, Mode=OneWay}" />
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
+                        <controls3:PullToRefreshAdorner.Extender>
+                            <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
+                        </controls3:PullToRefreshAdorner.Extender>
                     </ListView>
                     <CommandBar Grid.Row="3">
-                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
                         <AppBarButton Label="New PM" Click="{x:Bind ViewModel.CreateNewPm}" Icon="Send"/>
                     </CommandBar>
                 </Grid>

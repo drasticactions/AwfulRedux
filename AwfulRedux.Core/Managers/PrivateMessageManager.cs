@@ -174,6 +174,7 @@ namespace AwfulRedux.Core.Managers
             if (icon != null)
             {
                 pmEntity.Icon = icon.GetAttributeValue("src", string.Empty);
+                pmEntity.ImageIconLocation = Path.GetFileNameWithoutExtension(icon.GetAttributeValue("src", string.Empty));
             }
 
             var titleNode = rowNode.Descendants("td")

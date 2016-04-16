@@ -18,13 +18,13 @@ using System.Text;
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
-public partial class ThreadTemplate : ThreadTemplateBase
+public partial class PreviewPostTemplate : PreviewPostTemplateBase
 {
 
 #line hidden
 
-#line 1 "ThreadTemplate.cshtml"
-public ThreadTemplateModel Model { get; set; }
+#line 1 "PreviewPostTemplate.cshtml"
+public PreviewPostTemplateModel Model { get; set; }
 
 #line default
 #line hidden
@@ -32,35 +32,7 @@ public ThreadTemplateModel Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
-
-
-#line 4 "ThreadTemplate.cshtml"
-  
-int seenCount = 1;
-var theme = "";
-var allPosts = Model.Posts.Any(node => !node.HasSeen) && Model.Posts.Any(node => node.HasSeen);;
-var otherPosts = Model.Posts.Any(node => !node.HasSeen);
-switch (Model.ForumThread.ForumId)
-            {
-                case 28:
-                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/219.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
-                    break;
-                case 26:
-                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/26.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
-                    break;
-                case 267:
-                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/267.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
-                    break;
-                case 268:
-                    theme = "<link href=\"ms-appx-web:///Assets/Website/CSS/268.css\" type=\"text/css\" media=\"all\" rel=\"stylesheet\">";
-                    break;
-            }
-
-
-#line default
-#line hidden
-WriteLiteral("\r\n<head>\r\n    <meta");
+WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <meta");
 
 WriteLiteral(" name=\"twitter:dnt\"");
 
@@ -85,13 +57,13 @@ WriteLiteral(" type=\"text/css\"");
 WriteLiteral(">\r\n");
 
 
-#line 29 "ThreadTemplate.cshtml"
+#line 8 "PreviewPostTemplate.cshtml"
     
 
 #line default
 #line hidden
 
-#line 29 "ThreadTemplate.cshtml"
+#line 8 "PreviewPostTemplate.cshtml"
      if (Model.IsDarkThemeSet) {
 
 
@@ -118,7 +90,7 @@ WriteLiteral(" type=\"text/css\"");
 WriteLiteral(">\r\n");
 
 
-#line 32 "ThreadTemplate.cshtml"
+#line 11 "PreviewPostTemplate.cshtml"
     }
 
 
@@ -144,24 +116,8 @@ WriteLiteral(" rel=\"stylesheet\"");
 
 WriteLiteral(" type=\"text/css\"");
 
-WriteLiteral(">\r\n");
-
-
-#line 35 "ThreadTemplate.cshtml"
-   	
-
-#line default
-#line hidden
-
-#line 35 "ThreadTemplate.cshtml"
-      
-   	WriteLiteral(theme);
-   	
-
-#line default
-#line hidden
-WriteLiteral("\r\n    <!--<script type=\"text/javascript\" async=\"\" src=\"JS/jquery.min.js\"></script" +
-">-->\r\n    <script");
+WriteLiteral(">\r\n    <!--<script type=\"text/javascript\" async=\"\" src=\"JS/jquery.min.js\"></scrip" +
+"t>-->\r\n    <script");
 
 WriteLiteral(" src=\"https://code.jquery.com/jquery-2.2.3.js\"");
 
@@ -235,158 +191,15 @@ WriteLiteral(">\r\n            \t<div");
 
 WriteLiteral(" class=\"row clearfix\"");
 
-WriteLiteral(">\r\n");
-
-
-#line 53 "ThreadTemplate.cshtml"
-            		
-
-#line default
-#line hidden
-
-#line 53 "ThreadTemplate.cshtml"
-                     if(allPosts) {
-
-
-#line default
-#line hidden
-WriteLiteral("            \t\t<div>\r\n            \t\t\t<div");
-
-WriteLiteral(" style=\"margin-bottom: 5px;\"");
-
-WriteLiteral(" id=\"showPosts\"");
-
-WriteLiteral(">\r\n\t\t\t\t\t\t\t<button");
-
-WriteLiteral(" style=\"margin-left: auto; margin-right: auto;\"");
-
-WriteLiteral(" class=\"btn btn-default center-block\"");
-
-WriteLiteral(" id=\"\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteLiteral(" onclick=\"window.ForumCommand(\'showPosts\', \'true\')\"");
-
-WriteLiteral(">Show Previous Posts</button>\r\n            \t\t\t</div>\r\n            \t\t</div>\r\n");
-
-
-#line 59 "ThreadTemplate.cshtml"
-            		}
-
-
-#line default
-#line hidden
-WriteLiteral("            \t\t");
-
-
-#line 60 "ThreadTemplate.cshtml"
-                     foreach (var post in Model.Posts) {
-
-            		if (seenCount > 2) {
-                    	seenCount = 1;
-            		}
-            		string hasSeen = otherPosts && post.HasSeen ? "hiddenpost " : "";
-                    hasSeen += post.HasSeen ? string.Concat("seen", seenCount) : string.Concat("postCount", seenCount);
-                	seenCount++;
-
-
-
-#line default
-#line hidden
-WriteLiteral("            \t\t<div");
-
-WriteAttribute ("class", " class=\"", "\""
-
-#line 69 "ThreadTemplate.cshtml"
-, Tuple.Create<string,object,bool> ("", hasSeen
-
-#line default
-#line hidden
-, false)
-);
 WriteLiteral(">\r\n            \t\t<div");
 
-WriteLiteral(" class=\"col-md-4\"");
+WriteLiteral(" class=\"postCount1\"");
 
-WriteLiteral(">\r\n                            <div");
-
-WriteLiteral(" id=\"threadView\"");
-
-WriteLiteral(">\r\n                            <img");
-
-WriteLiteral(" data-user-id=\"");
-
-
-#line 72 "ThreadTemplate.cshtml"
-                                          Write(post.User.Id);
-
-
-#line default
-#line hidden
-WriteLiteral("\"");
-
-WriteAttribute ("src", " src=\"", "\""
-
-#line 72 "ThreadTemplate.cshtml"
-                            , Tuple.Create<string,object,bool> ("", post.User.AvatarLink
-
-#line default
-#line hidden
-, false)
-);
-WriteLiteral("\r\n                                alt=\"\"");
-
-WriteLiteral(" class=\"av\"");
-
-WriteLiteral(" border=\"0\"");
-
-WriteLiteral(">\r\n                                <div");
-
-WriteLiteral(" class=\"userinfo\"");
-
-WriteLiteral(">\r\n                                    <p");
-
-WriteLiteral(" style=\"padding: 0;\"");
-
-WriteLiteral(" class=\"text\"");
-
-WriteLiteral("><span");
-
-WriteLiteral(" class=\"author platinum\"");
-
-WriteLiteral(">");
-
-
-#line 75 "ThreadTemplate.cshtml"
-                                                                                                 Write(post.User.Username);
-
-
-#line default
-#line hidden
-WriteLiteral("</span></p>\r\n                                    <p");
-
-WriteLiteral(" class=\"text article-title\"");
-
-WriteLiteral("><span");
-
-WriteLiteral(" class=\"registered\"");
-
-WriteLiteral(">");
-
-
-#line 76 "ThreadTemplate.cshtml"
-                                                                                      Write(post.User.DateJoined);
-
-
-#line default
-#line hidden
-WriteLiteral("</span></p>\r\n                                </div>\r\n                            " +
-"</div>\r\n                    </div>\r\n                    <div");
+WriteLiteral(">\r\n                    <div");
 
 WriteLiteral(" style=\"padding: 15px;\"");
 
-WriteLiteral(" class=\"col-md-8\"");
+WriteLiteral(" class=\"col-md-\"");
 
 WriteLiteral(">\r\n                    \t<div");
 
@@ -394,168 +207,27 @@ WriteLiteral(" class=\"article-content\"");
 
 WriteLiteral(">\r\n                    \t\t<div");
 
-WriteAttribute ("id", " id=\"", "\""
-
-#line 82 "ThreadTemplate.cshtml"
-, Tuple.Create<string,object,bool> ("", post.PostId
-
-#line default
-#line hidden
-, false)
-);
 WriteLiteral(" class=\"postbody\"");
 
 WriteLiteral(">\r\n");
 
 
-#line 83 "ThreadTemplate.cshtml"
+#line 33 "PreviewPostTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 83 "ThreadTemplate.cshtml"
+#line 33 "PreviewPostTemplate.cshtml"
                               
-								WriteLiteral(post.PostHtml);
+								WriteLiteral(@Model.Post.PostHtml);
 							
 
 #line default
 #line hidden
-WriteLiteral("\r\n                    \t\t</div>\r\n");
-
-
-#line 87 "ThreadTemplate.cshtml"
-                    		
-
-#line default
-#line hidden
-
-#line 87 "ThreadTemplate.cshtml"
-                             if (Model.IsLoggedIn) {
-
-
-#line default
-#line hidden
-WriteLiteral("                    \t\t<footer>\r\n                                    <tr");
-
-WriteLiteral(" class=\"postbar\"");
-
-WriteLiteral(">\r\n                                        <td");
-
-WriteLiteral(" class=\"postlinks\"");
-
-WriteLiteral(">\r\n                                            <ul");
-
-WriteLiteral(" class=\"profilelinks\"");
-
-WriteLiteral(">\r\n                                                <li>\r\n                        " +
-"                            <button");
-
-WriteLiteral(" class=\"btn btn-default\"");
-
-WriteLiteral(" id=\"\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteAttribute ("onclick", " onclick=\"", "\""
-, Tuple.Create<string,object,bool> ("", "window.QuotePost(\'", true)
-
-#line 93 "ThreadTemplate.cshtml"
-                                                                                            , Tuple.Create<string,object,bool> ("", post.PostId
-
-#line default
-#line hidden
-, false)
-, Tuple.Create<string,object,bool> ("", "\')", true)
-);
-WriteLiteral(">Quote</button>\r\n                                                </li>\r\n         " +
-"                                       <li>\r\n                                   " +
-"                 <button");
-
-WriteLiteral(" class=\"btn btn-default\"");
-
-WriteLiteral(" id=\"\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteAttribute ("onclick", " onclick=\"", "\""
-, Tuple.Create<string,object,bool> ("", "window.MarkAsLastRead(\'", true)
-
-#line 96 "ThreadTemplate.cshtml"
-                                                                                                 , Tuple.Create<string,object,bool> ("", post.PostIndex
-
-#line default
-#line hidden
-, false)
-, Tuple.Create<string,object,bool> ("", "\')", true)
-);
-WriteLiteral(">Last Read</button>\r\n                                                </li>\r\n");
-
-
-#line 98 "ThreadTemplate.cshtml"
-                                                
-
-#line default
-#line hidden
-
-#line 98 "ThreadTemplate.cshtml"
-                                                 if (post.User.IsCurrentUserPost) {
-
-
-#line default
-#line hidden
-WriteLiteral("                                                <li>\r\n                           " +
-"                         <button");
-
-WriteLiteral(" style=\"margin-left: 7px;\"");
-
-WriteLiteral(" class=\"btn btn-default\"");
-
-WriteLiteral(" id=\"\"");
-
-WriteLiteral(" type=\"submit\"");
-
-WriteAttribute ("onclick", " onclick=\"", "\""
-, Tuple.Create<string,object,bool> ("", "window.EditPost(\'", true)
-
-#line 100 "ThreadTemplate.cshtml"
-                                                                                                                     , Tuple.Create<string,object,bool> ("", post.PostId
-
-#line default
-#line hidden
-, false)
-, Tuple.Create<string,object,bool> ("", "\')", true)
-);
-WriteLiteral(">Edit</button>\r\n                                                </li>\r\n");
-
-
-#line 102 "ThreadTemplate.cshtml"
-                                                }
-
-
-#line default
-#line hidden
-WriteLiteral("                                            </ul>\r\n                              " +
-"          </td>\r\n                                    </tr>\r\n                    " +
-"        </footer>\r\n");
-
-
-#line 107 "ThreadTemplate.cshtml"
-                    		}
-
-
-#line default
-#line hidden
-WriteLiteral("                    \t</div>\r\n                    </div>\r\n            \t\t</div>\r\n");
-
-
-#line 111 "ThreadTemplate.cshtml"
-           	 		}
-
-
-#line default
-#line hidden
-WriteLiteral("            \t</div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <script");
+WriteLiteral("\r\n                    \t\t</div>\r\n                    \t</div>\r\n                    " +
+"</div>\r\n            \t\t</div>\r\n            \t</div>\r\n            </div>\r\n        <" +
+"/div>\r\n    </div>\r\n    <script");
 
 WriteLiteral(" type=\"text/javascript\"");
 
@@ -578,7 +250,7 @@ WriteLiteral(">\r\n\r\n            window.onload = function () {\r\n            
 "ction (resolve, reject) {\r\n                    if (true) {\r\n                    " +
 "    ForumCommand(\'reloadPage\', null);\r\n                        resolve();\r\n     " +
 "               } else {\r\n                        reject();\r\n                    " +
-"}\r\n                });\r\n            };\r\n    </script>\r\n</body>\r\n</html>\r\n");
+"}\r\n                });\r\n            };\r\n    </script>\r\n</body>\r\n</html>\r\n\r\n\r\n");
 
 }
 }
@@ -586,7 +258,7 @@ WriteLiteral(">\r\n\r\n            window.onload = function () {\r\n            
 // NOTE: this is the default generated helper class. You may choose to extract it to a separate file 
 // in order to customize it or share it between multiple templates, and specify the template's base 
 // class via the @inherits directive.
-public abstract class ThreadTemplateBase
+public abstract class PreviewPostTemplateBase
 {
 
 		// This field is OPTIONAL, but used by the default implementation of Generate, Write, WriteAttribute and WriteLiteral

@@ -69,7 +69,7 @@ var EditPost = function (postId) {
 
 var ShowHiddenPosts = function() {
     $('#showPosts').fadeOut();
-    $('#hiddenPosts').fadeIn();
+    $('.hiddenpost').fadeIn();
 };
 
 var ScrollToTable = function (pti) {
@@ -226,3 +226,107 @@ $(document).ready(function () {
     });
 
 });
+
+var timg = new function (l, j, b) {
+    var h = this
+      , d = function (p, n) {
+          var a = $(this).siblings("img"), k, o;
+          if (a.attr("t_width")) {
+              $(this).removeClass("expanded"),
+              a.attr({
+                  width: a.attr("t_width"),
+                  height: a.attr("t_height")
+              }),
+              a.removeAttr("t_width"),
+              a.removeAttr("t_height")
+          } else {
+              $(this).addClass("expanded");
+              a.attr({
+                  t_width: a.attr("width"),
+                  t_height: a.attr("height")
+              });
+              var m = a.parents("blockquote");
+              m.length || (m = a.parents(".postbody"));
+              k = parseInt(a.attr("o_width"), 10);
+              o = parseInt(a.attr("o_height"), 10);
+              m = Math.min(900, m.width());
+              if (n && k > m) {
+                  var e = a.position()
+                    , m = (m - 3 * e.left) / k;
+                  a.attr("width", k * m);
+                  a.attr("height", o * m)
+              } else {
+                  a.removeAttr("width"),
+                  a.removeAttr("height")
+              }
+              m = "body";
+              o = $(m).scrollTop();
+              k = a.offset().top;
+              a = k + a.height();
+              a - o > $(l).height() && (o = a - $(l).height());
+              k < o && (o = k);
+              o != $(m).scrollTop()
+          }
+          return !1
+      }
+      , c = function () {
+          var n = $(this);
+          if (n.hasClass("loading")) {
+              n.removeClass("loading");
+              var k = n[0].naturalWidth || n.width()
+                , a = n[0].naturalHeight || n.height();
+              if (200 > a && 500 >= k || 170 > k) {
+                  n.removeClass("timg")
+              } else {
+                  n.addClass("complete");
+                  n.attr({
+                      o_width: k,
+                      o_height: a
+                  });
+                  var k = k + "x" + a
+                    , a = 1
+                    , g = n[0].naturalWidth || n.width()
+                    , m = n[0].naturalHeight || n.height();
+                  170 < g && (a = 170 / g);
+                  200 < m * a && (a = 200 / m);
+                  n.attr({
+                      width: g * a,
+                      height: m * a
+                  });
+                  var a = $('<span class="timg_container"></span>')
+                    , i = $('<div class="note"></div>');
+                  i.text(k);
+                  i.attr("title", "Click to toggle");
+                  a.append(i);
+                  n.before(a);
+                  a.prepend(n);
+                  i.click(d);
+                  a.click(function (e) {
+                      if (1 === e.which || b.browser.msie && 9 > parseInt(b.browser.version, 10) && 0 === e.which) {
+                          return d.call(i, e, !0),
+                          !1
+                      }
+                  })
+              }
+              n.trigger("timg.loaded")
+          }
+      }
+    ;
+    h.scan = function (a) {
+        $(a).find("img.timg").each(function (f, e) {
+            e = $(e);
+            e.hasClass("complete") || (e.addClass("loading"),
+            e[0].complete || null !== e[0].naturalWidth && 0 < e[0].naturalWidth ? c.call(e) : e.load(c))
+        })
+    }
+    ;
+    $(j).ready(function () {
+        h.scan("body")
+    });
+    $(l).load(function () {
+        var a = $("img.timg.loading");
+        a.length && a.each(function (e, f) {
+            c.call(f)
+        })
+    })
+}

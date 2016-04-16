@@ -20,6 +20,8 @@ namespace AwfulRedux.UI.Models.Users
 
         public DateTime DateJoined { get; set; }
 
+        public string DateJoinedShort => DateJoined.ToString("MM/dd/yyyy");
+
         public string ProfileLink { get; set; }
 
         public string PrivateMessageLink { get; set; }
@@ -41,6 +43,8 @@ namespace AwfulRedux.UI.Models.Users
         public int PostCount { get; set; }
 
         public DateTime LastPostDate { get; set; }
+
+        public string LastPostDateShort => LastPostDate.ToString("MM/dd/yyyy");
 
         public string Location { get; set; }
 

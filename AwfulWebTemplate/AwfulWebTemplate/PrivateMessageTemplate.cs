@@ -243,13 +243,20 @@ WriteLiteral(" class=\"text\"");
 
 WriteLiteral("><span");
 
-WriteLiteral(" class=\"author platinum\"");
+WriteAttribute ("class", " class=\"", "\""
 
+#line 35 "PrivateMessageTemplate.cshtml"
+                                              , Tuple.Create<string,object,bool> ("", Model.PMPost.User.Roles
+
+#line default
+#line hidden
+, false)
+);
 WriteLiteral(">");
 
 
 #line 35 "PrivateMessageTemplate.cshtml"
-                                                                                                 Write(Model.PMPost.User.Username);
+                                                                                                          Write(Model.PMPost.User.Username);
 
 
 #line default
@@ -266,7 +273,7 @@ WriteLiteral(">");
 
 
 #line 36 "PrivateMessageTemplate.cshtml"
-                                                                                      Write(Model.PMPost.User.DateJoined);
+                                                                                      Write(Model.PMPost.User.DateJoinedShort);
 
 
 #line default

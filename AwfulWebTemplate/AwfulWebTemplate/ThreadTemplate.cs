@@ -353,13 +353,20 @@ WriteLiteral(" class=\"text\"");
 
 WriteLiteral("><span");
 
-WriteLiteral(" class=\"author platinum\"");
+WriteAttribute ("class", " class=\"", "\""
 
+#line 75 "ThreadTemplate.cshtml"
+                                              , Tuple.Create<string,object,bool> ("", post.User.Roles
+
+#line default
+#line hidden
+, false)
+);
 WriteLiteral(">");
 
 
 #line 75 "ThreadTemplate.cshtml"
-                                                                                                 Write(post.User.Username);
+                                                                                                  Write(post.User.Username);
 
 
 #line default
@@ -376,7 +383,7 @@ WriteLiteral(">");
 
 
 #line 76 "ThreadTemplate.cshtml"
-                                                                                      Write(post.User.DateJoined);
+                                                                                      Write(post.User.DateJoinedShort);
 
 
 #line default

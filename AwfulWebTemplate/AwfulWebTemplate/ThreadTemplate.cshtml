@@ -72,8 +72,8 @@ switch (Model.ForumThread.ForumId)
                             <img data-user-id="@post.User.Id" src="@post.User.AvatarLink"
                                 alt="" class="av" border="0">
                                 <div class="userinfo">
-                                    <p style="padding: 0;" class="text"><span class="author platinum">@post.User.Username</span></p>
-                                    <p class="text article-title"><span class="registered">@post.User.DateJoined</span></p>
+                                    <p style="padding: 0;" class="text"><span class="@post.User.Roles">@post.User.Username</span></p>
+                                    <p class="text article-title"><span class="registered">@post.User.DateJoinedShort</span></p>
                                 </div>
                             </div>
                     </div>

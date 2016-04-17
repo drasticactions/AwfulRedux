@@ -165,6 +165,14 @@ WriteLiteral(" async=\"\"");
 
 WriteLiteral(" src=\"ms-appx-web:///Assets/url.min.js\"");
 
+WriteLiteral("></script>\r\n    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(" async=\"\"");
+
+WriteLiteral(" src=\"ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js\"");
+
 WriteLiteral("></script>\r\n    <title>Forum Thread</title>\r\n</head>\r\n\r\n<body");
 
 WriteLiteral(" data-show-embedded-tweets=\"true\"");
@@ -208,7 +216,7 @@ WriteLiteral(">\r\n                            <img");
 WriteLiteral(" data-user-id=\"");
 
 
-#line 32 "PrivateMessageTemplate.cshtml"
+#line 33 "PrivateMessageTemplate.cshtml"
                                           Write(Model.PMPost.User.Id);
 
 
@@ -218,7 +226,7 @@ WriteLiteral("\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 32 "PrivateMessageTemplate.cshtml"
+#line 33 "PrivateMessageTemplate.cshtml"
                                     , Tuple.Create<string,object,bool> ("", Model.PMPost.User.AvatarLink
 
 #line default
@@ -245,7 +253,7 @@ WriteLiteral("><span");
 
 WriteAttribute ("class", " class=\"", "\""
 
-#line 35 "PrivateMessageTemplate.cshtml"
+#line 36 "PrivateMessageTemplate.cshtml"
                                               , Tuple.Create<string,object,bool> ("", Model.PMPost.User.Roles
 
 #line default
@@ -255,7 +263,7 @@ WriteAttribute ("class", " class=\"", "\""
 WriteLiteral(">");
 
 
-#line 35 "PrivateMessageTemplate.cshtml"
+#line 36 "PrivateMessageTemplate.cshtml"
                                                                                                           Write(Model.PMPost.User.Username);
 
 
@@ -272,7 +280,7 @@ WriteLiteral(" class=\"registered\"");
 WriteLiteral(">");
 
 
-#line 36 "PrivateMessageTemplate.cshtml"
+#line 37 "PrivateMessageTemplate.cshtml"
                                                                                       Write(Model.PMPost.User.DateJoinedShort);
 
 
@@ -293,7 +301,7 @@ WriteLiteral(">\r\n                    \t\t<div");
 
 WriteAttribute ("id", " id=\"", "\""
 
-#line 42 "PrivateMessageTemplate.cshtml"
+#line 43 "PrivateMessageTemplate.cshtml"
 , Tuple.Create<string,object,bool> ("", Model.PMPost.PostId
 
 #line default
@@ -305,13 +313,13 @@ WriteLiteral(" class=\"postbody\"");
 WriteLiteral(">\r\n");
 
 
-#line 43 "PrivateMessageTemplate.cshtml"
+#line 44 "PrivateMessageTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 43 "PrivateMessageTemplate.cshtml"
+#line 44 "PrivateMessageTemplate.cshtml"
                               
 								WriteLiteral(@Model.PMPost.PostHtml);
 							

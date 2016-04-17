@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Navigation;
-using AmazingPullToRefresh.Controls;
+
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Core.Tools;
 using AwfulRedux.Database;
@@ -15,6 +15,7 @@ using AwfulRedux.Tools.Database;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Forums;
 using Newtonsoft.Json;
+using RefreshableListView;
 using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
@@ -41,6 +42,11 @@ namespace AwfulRedux.ViewModels
         public async Task RefreshForums()
         {
             await GetMainPageForumsAsync(true);
+        }
+
+        public async Task NavigateToAccount()
+        {
+            NavigationService.Navigate(typeof(Views.LoginPage));
         }
 
         public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)

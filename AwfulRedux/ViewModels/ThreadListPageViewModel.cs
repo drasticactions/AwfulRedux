@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
-using AmazingPullToRefresh.Controls;
+
 using AwfulRedux.Controls;
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
@@ -18,6 +18,7 @@ using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using Kimono.Controls;
 using Newtonsoft.Json;
+using RefreshableListView;
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -46,6 +47,16 @@ namespace AwfulRedux.ViewModels
         public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
         {
             Refresh();
+        }
+
+        private bool _threadLoaded = default(bool);
+        public bool ThreadLoaded
+        {
+            get { return _threadLoaded; }
+            set
+            {
+                Set(ref _threadLoaded, value);
+            }
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)

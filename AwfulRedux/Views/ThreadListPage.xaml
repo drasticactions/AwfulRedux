@@ -14,10 +14,10 @@
     xmlns:threads1="using:AwfulRedux.Tools.Threads"
     xmlns:controls2="using:AwfulRedux.Controls"
     xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
-    xmlns:controls3="using:AmazingPullToRefresh.Controls"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:AwfulRedux.Tools.Converters"
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
+    xmlns:c="using:RefreshableListView"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -55,9 +55,9 @@
                         </controls1:PageHeader.PrimaryCommands>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <ListView x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <c:RefreshableListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding ForumPageScrollingCollection, UpdateSourceTrigger=PropertyChanged}">
-                        <ListView.ItemTemplate>
+                        <c:RefreshableListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
                                 <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
                                     <Grid.ColumnDefinitions>
@@ -113,16 +113,13 @@
                                     </interactivity:Interaction.Behaviors>
                                 </Grid>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                        <ListView.ItemContainerStyle>
+                        </c:RefreshableListView.ItemTemplate>
+                        <c:RefreshableListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
-                        </ListView.ItemContainerStyle>
-                        <controls3:PullToRefreshAdorner.Extender>
-                            <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
-                        </controls3:PullToRefreshAdorner.Extender>
-                    </ListView>
+                        </c:RefreshableListView.ItemContainerStyle>
+                    </c:RefreshableListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Create Thread" Click="{x:Bind ViewModel.CreateThread}" Icon="Add"/>
                         <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>

@@ -1,6 +1,5 @@
 ﻿{
   "dependencies": {
-    "AmazingPullToRefresh": "0.9.0",
     "FFImageLoading.Windows": "2.1.0-alpha1",
     "HtmlAgilityPack": "1.4.8",
     "Microsoft.ApplicationInsights": "1.0.0",

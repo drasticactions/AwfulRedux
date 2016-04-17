@@ -3,14 +3,6 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -2055,14 +2047,6 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -3960,14 +3944,6 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -5829,14 +5805,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -7740,14 +7708,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -9609,14 +9569,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -11520,14 +11472,6 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
-      "AmazingPullToRefresh/0.9.0": {
-        "compile": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/AmazingPullToRefresh.dll": {}
-        }
-      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -13390,21 +13334,6 @@
     }
   },
   "libraries": {
-    "AmazingPullToRefresh/0.9.0": {
-      "sha512": "9lbbpLSEFRzlMCVgRh9uBGlyHKAIp0ZRKUSuRC2I3LHMd8AM+qR4ec3vJ/XgfTXVxm4LmnNZjWEpMetZJF6gEw==",
-      "type": "Package",
-      "files": [
-        "AmazingPullToRefresh.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
-        "lib/uap10.0/AmazingPullToRefresh.dll",
-        "lib/uap10.0/AmazingPullToRefresh.pri",
-        "lib/uap10.0/AmazingPullTorefresh/Properties/AmazingPullToRefresh.rd.xml",
-        "lib/uap10.0/AmazingPulltoRefresh/AmazingPullToRefresh.xr.xml",
-        "lib/uap10.0/AmazingPulltoRefresh/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/413c9a54e0564c57969e9ca39fe53223.psmdcp"
-      ]
-    },
     "FFImageLoading.Windows/2.1.0-alpha1": {
       "sha512": "HiF6DINBq7keJqWtwPrG7Z1HAhLFxSJQ4T9unFCVKUIW5hAMnms7RxLTsEn44rfsx1Agk2Ji/DcpmWJuwyoCgw==",
       "type": "package",
@@ -17386,7 +17315,6 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "AmazingPullToRefresh >= 0.9.0",
       "FFImageLoading.Windows >= 2.1.0-alpha1",
       "HtmlAgilityPack >= 1.4.8",
       "Microsoft.ApplicationInsights >= 1.0.0",

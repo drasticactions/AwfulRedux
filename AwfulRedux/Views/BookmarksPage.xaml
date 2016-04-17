@@ -12,15 +12,27 @@
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:controls2="using:AwfulRedux.Controls"
     xmlns:converters="using:Template10.Converters"
-    xmlns:controls3="using:AmazingPullToRefresh.Controls"
     xmlns:threads="using:AwfulRedux.UI.Models.Threads"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters1="using:AwfulRedux.Tools.Converters"
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
+    xmlns:c="using:RefreshableListView"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:BookmarkViewModel />
     </Page.DataContext>
+    <Page.Resources>
+        <Storyboard x:Name="SpinnerStoryboard">
+            <DoubleAnimation
+                    Duration="00:00:00.5"
+                    FillBehavior="HoldEnd"
+                    From="0"
+                    RepeatBehavior="Forever"
+                    Storyboard.TargetName="SpinnerTransform"
+                    Storyboard.TargetProperty="Angle"
+                    To="360" />
+        </Storyboard>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -52,9 +64,9 @@
                         </interactivity:Interaction.Behaviors>
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <ListView x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <c:RefreshableListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
-                        <ListView.ItemTemplate>
+                        <c:RefreshableListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
                                 <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
                                     <Grid.ColumnDefinitions>
@@ -110,17 +122,14 @@
                                     </interactivity:Interaction.Behaviors>
                                 </Grid>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                        
-                        <ListView.ItemContainerStyle>
+                        </c:RefreshableListView.ItemTemplate>
+
+                        <c:RefreshableListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
-                        </ListView.ItemContainerStyle>
-                        <controls3:PullToRefreshAdorner.Extender>
-                            <controls3:PullToRefreshExtender RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" />
-                        </controls3:PullToRefreshAdorner.Extender>
-                    </ListView>
+                        </c:RefreshableListView.ItemContainerStyle>
+                    </c:RefreshableListView>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>

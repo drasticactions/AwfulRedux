@@ -10,7 +10,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using AmazingPullToRefresh.Controls;
+
 using AwfulRedux.Core.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Services.WindowService;
@@ -24,6 +24,7 @@ using AwfulRedux.Views;
 using AwfulWebTemplate;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
+using RefreshableListView;
 using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 

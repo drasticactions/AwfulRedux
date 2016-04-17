@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
-using AmazingPullToRefresh.Controls;
+
 using AwfulRedux.Core.Models.Messages;
 using AwfulRedux.Tools.ScrollingCollection;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
+using RefreshableListView;
 using Template10.Mvvm;
 using PrivateMessage = AwfulRedux.UI.Models.Messages.PrivateMessage;
 

@@ -165,6 +165,14 @@ WriteLiteral(" async=\"\"");
 
 WriteLiteral(" src=\"ms-appx-web:///Assets/url.min.js\"");
 
+WriteLiteral("></script>\r\n    <script");
+
+WriteLiteral(" type=\"text/javascript\"");
+
+WriteLiteral(" async=\"\"");
+
+WriteLiteral(" src=\"ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js\"");
+
 WriteLiteral("></script>\r\n    <title>Forum Thread</title>\r\n</head>\r\n\r\n<body");
 
 WriteLiteral(" data-show-embedded-tweets=\"true\"");
@@ -212,13 +220,13 @@ WriteLiteral(" class=\"postbody\"");
 WriteLiteral(">\r\n");
 
 
-#line 33 "PreviewPostTemplate.cshtml"
+#line 34 "PreviewPostTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 33 "PreviewPostTemplate.cshtml"
+#line 34 "PreviewPostTemplate.cshtml"
                               
 								WriteLiteral(@Model.Post.PostHtml);
 							

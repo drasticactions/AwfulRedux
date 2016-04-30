@@ -46,6 +46,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="ThreadTemplate.cshtml">
       <Generator>RazorTemplatePreprocessor</Generator>
       <LastGenOutput>ThreadTemplate.cs</LastGenOutput>

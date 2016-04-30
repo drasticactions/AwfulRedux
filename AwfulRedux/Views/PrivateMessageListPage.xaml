@@ -23,7 +23,7 @@
             <VisualStateGroup>
                 <VisualState x:Name="BackButtonPresent">
                     <VisualState.StateTriggers>
-                        <stateTriggers:ApiInformationTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
+                        <stateTriggers:ApiInformationTypePresentTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="RefreshButton.Visibility" Value="Collapsed" />

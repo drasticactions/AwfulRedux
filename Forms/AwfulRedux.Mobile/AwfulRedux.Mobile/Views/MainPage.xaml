@@ -5,7 +5,15 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="AwfulRedux.Mobile.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+  <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Spacing="0">
+      <ListView x:Name="listView" IsPullToRefreshEnabled="True" IsGroupingEnabled="True" SelectedItem="{Binding SelectedForum, Mode=TwoWay}" GroupDisplayBinding="{Binding Name}" HeightRequest="200" ItemsSource="{Binding ForumCategories}" HasUnevenRows="true">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding Name}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </AbsoluteLayout>
 </ContentPage>

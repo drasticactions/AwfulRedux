@@ -26,6 +26,48 @@ namespace AwfulRedux.Mobile.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::AndroidHUD.Resource.Attribute.ahBarColor = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahBarColor;
+			global::AndroidHUD.Resource.Attribute.ahBarLength = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahBarLength;
+			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahBarWidth;
+			global::AndroidHUD.Resource.Attribute.ahCircleColor = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahCircleColor;
+			global::AndroidHUD.Resource.Attribute.ahDelayMillis = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahDelayMillis;
+			global::AndroidHUD.Resource.Attribute.ahRadius = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahRadius;
+			global::AndroidHUD.Resource.Attribute.ahRimColor = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahRimColor;
+			global::AndroidHUD.Resource.Attribute.ahRimWidth = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahRimWidth;
+			global::AndroidHUD.Resource.Attribute.ahSpinSpeed = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahSpinSpeed;
+			global::AndroidHUD.Resource.Attribute.ahText = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahText;
+			global::AndroidHUD.Resource.Attribute.ahTextColor = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahTextColor;
+			global::AndroidHUD.Resource.Attribute.ahTextSize = global::AwfulRedux.Mobile.Droid.Resource.Attribute.ahTextSize;
+			global::AndroidHUD.Resource.Drawable.ic_errorstatus = global::AwfulRedux.Mobile.Droid.Resource.Drawable.ic_errorstatus;
+			global::AndroidHUD.Resource.Drawable.ic_successstatus = global::AwfulRedux.Mobile.Droid.Resource.Drawable.ic_successstatus;
+			global::AndroidHUD.Resource.Drawable.roundedbg = global::AwfulRedux.Mobile.Droid.Resource.Drawable.roundedbg;
+			global::AndroidHUD.Resource.Drawable.roundedbgdark = global::AwfulRedux.Mobile.Droid.Resource.Drawable.roundedbgdark;
+			global::AndroidHUD.Resource.Id.loadingImage = global::AwfulRedux.Mobile.Droid.Resource.Id.loadingImage;
+			global::AndroidHUD.Resource.Id.loadingProgressBar = global::AwfulRedux.Mobile.Droid.Resource.Id.loadingProgressBar;
+			global::AndroidHUD.Resource.Id.loadingProgressWheel = global::AwfulRedux.Mobile.Droid.Resource.Id.loadingProgressWheel;
+			global::AndroidHUD.Resource.Id.textViewStatus = global::AwfulRedux.Mobile.Droid.Resource.Id.textViewStatus;
+			global::AndroidHUD.Resource.Layout.loading = global::AwfulRedux.Mobile.Droid.Resource.Layout.loading;
+			global::AndroidHUD.Resource.Layout.loadingimage = global::AwfulRedux.Mobile.Droid.Resource.Layout.loadingimage;
+			global::AndroidHUD.Resource.Layout.loadingprogress = global::AwfulRedux.Mobile.Droid.Resource.Layout.loadingprogress;
+			global::AndroidHUD.Resource.String.library_name = global::AwfulRedux.Mobile.Droid.Resource.String.library_name;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarColor = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarLength = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarWidth = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahCircleColor = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahDelayMillis = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRadius = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahRadius;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimColor = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimWidth = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahText;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::AwfulRedux.Mobile.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::PCLStorage.Resource.String.ApplicationName = global::AwfulRedux.Mobile.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::AwfulRedux.Mobile.Droid.Resource.String.Hello;
+			global::Splat.Resource.String.library_name = global::AwfulRedux.Mobile.Droid.Resource.String.library_name;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::AwfulRedux.Mobile.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::AwfulRedux.Mobile.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::AwfulRedux.Mobile.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -197,6 +239,42 @@ namespace AwfulRedux.Mobile.Droid
 			
 			// aapt resource value: 0x7f010089
 			public const int activityChooserViewStyle = 2130772105;
+			
+			// aapt resource value: 0x7f010145
+			public const int ahBarColor = 2130772293;
+			
+			// aapt resource value: 0x7f01014d
+			public const int ahBarLength = 2130772301;
+			
+			// aapt resource value: 0x7f01014c
+			public const int ahBarWidth = 2130772300;
+			
+			// aapt resource value: 0x7f01014a
+			public const int ahCircleColor = 2130772298;
+			
+			// aapt resource value: 0x7f010149
+			public const int ahDelayMillis = 2130772297;
+			
+			// aapt resource value: 0x7f01014b
+			public const int ahRadius = 2130772299;
+			
+			// aapt resource value: 0x7f010146
+			public const int ahRimColor = 2130772294;
+			
+			// aapt resource value: 0x7f010147
+			public const int ahRimWidth = 2130772295;
+			
+			// aapt resource value: 0x7f010148
+			public const int ahSpinSpeed = 2130772296;
+			
+			// aapt resource value: 0x7f010142
+			public const int ahText = 2130772290;
+			
+			// aapt resource value: 0x7f010143
+			public const int ahTextColor = 2130772291;
+			
+			// aapt resource value: 0x7f010144
+			public const int ahTextSize = 2130772292;
 			
 			// aapt resource value: 0x7f0100ac
 			public const int alertDialogButtonGroupStyle = 2130772140;
@@ -2267,160 +2345,172 @@ namespace AwfulRedux.Mobile.Droid
 			public const int ic_collapse_00015 = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int ic_expand = 2130837656;
+			public const int ic_errorstatus = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int ic_expand_00000 = 2130837657;
+			public const int ic_expand = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int ic_expand_00001 = 2130837658;
+			public const int ic_expand_00000 = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int ic_expand_00002 = 2130837659;
+			public const int ic_expand_00001 = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int ic_expand_00003 = 2130837660;
+			public const int ic_expand_00002 = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int ic_expand_00004 = 2130837661;
+			public const int ic_expand_00003 = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int ic_expand_00005 = 2130837662;
+			public const int ic_expand_00004 = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int ic_expand_00006 = 2130837663;
+			public const int ic_expand_00005 = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int ic_expand_00007 = 2130837664;
+			public const int ic_expand_00006 = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int ic_expand_00008 = 2130837665;
+			public const int ic_expand_00007 = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int ic_expand_00009 = 2130837666;
+			public const int ic_expand_00008 = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int ic_expand_00010 = 2130837667;
+			public const int ic_expand_00009 = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int ic_expand_00011 = 2130837668;
+			public const int ic_expand_00010 = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int ic_expand_00012 = 2130837669;
+			public const int ic_expand_00011 = 2130837669;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int ic_expand_00013 = 2130837670;
+			public const int ic_expand_00012 = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int ic_expand_00014 = 2130837671;
+			public const int ic_expand_00013 = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int ic_expand_00015 = 2130837672;
+			public const int ic_expand_00014 = 2130837672;
 			
 			// aapt resource value: 0x7f0200a9
-			public const int ic_media_pause = 2130837673;
+			public const int ic_expand_00015 = 2130837673;
 			
 			// aapt resource value: 0x7f0200aa
-			public const int ic_media_play = 2130837674;
+			public const int ic_media_pause = 2130837674;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int ic_media_route_disabled_mono_dark = 2130837675;
+			public const int ic_media_play = 2130837675;
 			
 			// aapt resource value: 0x7f0200ac
-			public const int ic_media_route_off_mono_dark = 2130837676;
+			public const int ic_media_route_disabled_mono_dark = 2130837676;
 			
 			// aapt resource value: 0x7f0200ad
-			public const int ic_media_route_on_0_mono_dark = 2130837677;
+			public const int ic_media_route_off_mono_dark = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int ic_media_route_on_1_mono_dark = 2130837678;
+			public const int ic_media_route_on_0_mono_dark = 2130837678;
 			
 			// aapt resource value: 0x7f0200af
-			public const int ic_media_route_on_2_mono_dark = 2130837679;
+			public const int ic_media_route_on_1_mono_dark = 2130837679;
 			
 			// aapt resource value: 0x7f0200b0
-			public const int ic_media_route_on_mono_dark = 2130837680;
+			public const int ic_media_route_on_2_mono_dark = 2130837680;
 			
 			// aapt resource value: 0x7f0200b1
-			public const int ic_pause_dark = 2130837681;
+			public const int ic_media_route_on_mono_dark = 2130837681;
 			
 			// aapt resource value: 0x7f0200b2
-			public const int ic_pause_light = 2130837682;
+			public const int ic_pause_dark = 2130837682;
 			
 			// aapt resource value: 0x7f0200b3
-			public const int ic_play_dark = 2130837683;
+			public const int ic_pause_light = 2130837683;
 			
 			// aapt resource value: 0x7f0200b4
-			public const int ic_play_light = 2130837684;
+			public const int ic_play_dark = 2130837684;
 			
 			// aapt resource value: 0x7f0200b5
-			public const int ic_speaker_dark = 2130837685;
+			public const int ic_play_light = 2130837685;
 			
 			// aapt resource value: 0x7f0200b6
-			public const int ic_speaker_group_dark = 2130837686;
+			public const int ic_speaker_dark = 2130837686;
 			
 			// aapt resource value: 0x7f0200b7
-			public const int ic_speaker_group_light = 2130837687;
+			public const int ic_speaker_group_dark = 2130837687;
 			
 			// aapt resource value: 0x7f0200b8
-			public const int ic_speaker_light = 2130837688;
+			public const int ic_speaker_group_light = 2130837688;
 			
 			// aapt resource value: 0x7f0200b9
-			public const int ic_tv_dark = 2130837689;
+			public const int ic_speaker_light = 2130837689;
 			
 			// aapt resource value: 0x7f0200ba
-			public const int ic_tv_light = 2130837690;
+			public const int ic_successstatus = 2130837690;
 			
 			// aapt resource value: 0x7f0200bb
-			public const int icon = 2130837691;
+			public const int ic_tv_dark = 2130837691;
 			
 			// aapt resource value: 0x7f0200bc
-			public const int mr_dialog_material_background_dark = 2130837692;
+			public const int ic_tv_light = 2130837692;
 			
 			// aapt resource value: 0x7f0200bd
-			public const int mr_dialog_material_background_light = 2130837693;
+			public const int icon = 2130837693;
 			
 			// aapt resource value: 0x7f0200be
-			public const int mr_ic_audiotrack_light = 2130837694;
+			public const int mr_dialog_material_background_dark = 2130837694;
 			
 			// aapt resource value: 0x7f0200bf
-			public const int mr_ic_cast_dark = 2130837695;
+			public const int mr_dialog_material_background_light = 2130837695;
 			
 			// aapt resource value: 0x7f0200c0
-			public const int mr_ic_cast_light = 2130837696;
+			public const int mr_ic_audiotrack_light = 2130837696;
 			
 			// aapt resource value: 0x7f0200c1
-			public const int mr_ic_close_dark = 2130837697;
+			public const int mr_ic_cast_dark = 2130837697;
 			
 			// aapt resource value: 0x7f0200c2
-			public const int mr_ic_close_light = 2130837698;
+			public const int mr_ic_cast_light = 2130837698;
 			
 			// aapt resource value: 0x7f0200c3
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837699;
+			public const int mr_ic_close_dark = 2130837699;
 			
 			// aapt resource value: 0x7f0200c4
-			public const int mr_ic_media_route_connecting_mono_light = 2130837700;
+			public const int mr_ic_close_light = 2130837700;
 			
 			// aapt resource value: 0x7f0200c5
-			public const int mr_ic_media_route_mono_dark = 2130837701;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837701;
 			
 			// aapt resource value: 0x7f0200c6
-			public const int mr_ic_media_route_mono_light = 2130837702;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837702;
 			
 			// aapt resource value: 0x7f0200c7
-			public const int mr_ic_pause_dark = 2130837703;
+			public const int mr_ic_media_route_mono_dark = 2130837703;
 			
 			// aapt resource value: 0x7f0200c8
-			public const int mr_ic_pause_light = 2130837704;
+			public const int mr_ic_media_route_mono_light = 2130837704;
 			
 			// aapt resource value: 0x7f0200c9
-			public const int mr_ic_play_dark = 2130837705;
+			public const int mr_ic_pause_dark = 2130837705;
 			
 			// aapt resource value: 0x7f0200ca
-			public const int mr_ic_play_light = 2130837706;
+			public const int mr_ic_pause_light = 2130837706;
 			
 			// aapt resource value: 0x7f0200cb
-			public const int notification_template_icon_bg = 2130837707;
+			public const int mr_ic_play_dark = 2130837707;
+			
+			// aapt resource value: 0x7f0200cc
+			public const int mr_ic_play_light = 2130837708;
+			
+			// aapt resource value: 0x7f0200cf
+			public const int notification_template_icon_bg = 2130837711;
+			
+			// aapt resource value: 0x7f0200cd
+			public const int roundedbg = 2130837709;
+			
+			// aapt resource value: 0x7f0200ce
+			public const int roundedbgdark = 2130837710;
 			
 			static Drawable()
 			{
@@ -2435,8 +2525,8 @@ namespace AwfulRedux.Mobile.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0093
-			public const int action0 = 2131361939;
+			// aapt resource value: 0x7f0a0097
+			public const int action0 = 2131361943;
 			
 			// aapt resource value: 0x7f0a0062
 			public const int action_bar = 2131361890;
@@ -2462,8 +2552,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0063
 			public const int action_context_bar = 2131361891;
 			
-			// aapt resource value: 0x7f0a0097
-			public const int action_divider = 2131361943;
+			// aapt resource value: 0x7f0a009b
+			public const int action_divider = 2131361947;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -2507,8 +2597,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a004c
 			public const int buttonPanel = 2131361868;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int cancel_action = 2131361940;
+			// aapt resource value: 0x7f0a0098
+			public const int cancel_action = 2131361944;
 			
 			// aapt resource value: 0x7f0a0033
 			public const int center = 2131361843;
@@ -2522,8 +2612,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a005a
 			public const int checkbox = 2131361882;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int chronometer = 2131361946;
+			// aapt resource value: 0x7f0a009e
+			public const int chronometer = 2131361950;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int clip_horizontal = 2131361851;
@@ -2576,8 +2666,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0024
 			public const int end = 2131361828;
 			
-			// aapt resource value: 0x7f0a009f
-			public const int end_padder = 2131361951;
+			// aapt resource value: 0x7f0a00a3
+			public const int end_padder = 2131361955;
 			
 			// aapt resource value: 0x7f0a002b
 			public const int enterAlways = 2131361835;
@@ -2624,8 +2714,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0047
 			public const int image = 2131361863;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int info = 2131361950;
+			// aapt resource value: 0x7f0a00a2
+			public const int info = 2131361954;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
@@ -2636,11 +2726,11 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0013
 			public const int light = 2131361811;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int line1 = 2131361944;
-			
 			// aapt resource value: 0x7f0a009c
-			public const int line3 = 2131361948;
+			public const int line1 = 2131361948;
+			
+			// aapt resource value: 0x7f0a00a0
+			public const int line3 = 2131361952;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int listMode = 2131361812;
@@ -2648,8 +2738,17 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0049
 			public const int list_item = 2131361865;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int media_actions = 2131361942;
+			// aapt resource value: 0x7f0a007c
+			public const int loadingImage = 2131361916;
+			
+			// aapt resource value: 0x7f0a007a
+			public const int loadingProgressBar = 2131361914;
+			
+			// aapt resource value: 0x7f0a007d
+			public const int loadingProgressWheel = 2131361917;
+			
+			// aapt resource value: 0x7f0a009a
+			public const int media_actions = 2131361946;
 			
 			// aapt resource value: 0x7f0a0025
 			public const int middle = 2131361829;
@@ -2657,77 +2756,77 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a003f
 			public const int mini = 2131361855;
 			
-			// aapt resource value: 0x7f0a0085
-			public const int mr_art = 2131361925;
-			
-			// aapt resource value: 0x7f0a007a
-			public const int mr_chooser_list = 2131361914;
-			
-			// aapt resource value: 0x7f0a007d
-			public const int mr_chooser_route_desc = 2131361917;
-			
-			// aapt resource value: 0x7f0a007b
-			public const int mr_chooser_route_icon = 2131361915;
-			
-			// aapt resource value: 0x7f0a007c
-			public const int mr_chooser_route_name = 2131361916;
-			
-			// aapt resource value: 0x7f0a0082
-			public const int mr_close = 2131361922;
-			
-			// aapt resource value: 0x7f0a0088
-			public const int mr_control_divider = 2131361928;
-			
-			// aapt resource value: 0x7f0a008e
-			public const int mr_control_play_pause = 2131361934;
-			
-			// aapt resource value: 0x7f0a0091
-			public const int mr_control_subtitle = 2131361937;
-			
-			// aapt resource value: 0x7f0a0090
-			public const int mr_control_title = 2131361936;
-			
-			// aapt resource value: 0x7f0a008f
-			public const int mr_control_title_container = 2131361935;
-			
-			// aapt resource value: 0x7f0a0083
-			public const int mr_custom_control = 2131361923;
-			
-			// aapt resource value: 0x7f0a0084
-			public const int mr_default_control = 2131361924;
-			
-			// aapt resource value: 0x7f0a007f
-			public const int mr_dialog_area = 2131361919;
+			// aapt resource value: 0x7f0a0089
+			public const int mr_art = 2131361929;
 			
 			// aapt resource value: 0x7f0a007e
-			public const int mr_expandable_area = 2131361918;
-			
-			// aapt resource value: 0x7f0a0092
-			public const int mr_group_expand_collapse = 2131361938;
-			
-			// aapt resource value: 0x7f0a0086
-			public const int mr_media_main_control = 2131361926;
+			public const int mr_chooser_list = 2131361918;
 			
 			// aapt resource value: 0x7f0a0081
-			public const int mr_name = 2131361921;
+			public const int mr_chooser_route_desc = 2131361921;
 			
-			// aapt resource value: 0x7f0a0087
-			public const int mr_playback_control = 2131361927;
+			// aapt resource value: 0x7f0a007f
+			public const int mr_chooser_route_icon = 2131361919;
 			
 			// aapt resource value: 0x7f0a0080
-			public const int mr_title_bar = 2131361920;
+			public const int mr_chooser_route_name = 2131361920;
 			
-			// aapt resource value: 0x7f0a0089
-			public const int mr_volume_control = 2131361929;
-			
-			// aapt resource value: 0x7f0a008a
-			public const int mr_volume_group_list = 2131361930;
+			// aapt resource value: 0x7f0a0086
+			public const int mr_close = 2131361926;
 			
 			// aapt resource value: 0x7f0a008c
-			public const int mr_volume_item_icon = 2131361932;
+			public const int mr_control_divider = 2131361932;
+			
+			// aapt resource value: 0x7f0a0092
+			public const int mr_control_play_pause = 2131361938;
+			
+			// aapt resource value: 0x7f0a0095
+			public const int mr_control_subtitle = 2131361941;
+			
+			// aapt resource value: 0x7f0a0094
+			public const int mr_control_title = 2131361940;
+			
+			// aapt resource value: 0x7f0a0093
+			public const int mr_control_title_container = 2131361939;
+			
+			// aapt resource value: 0x7f0a0087
+			public const int mr_custom_control = 2131361927;
+			
+			// aapt resource value: 0x7f0a0088
+			public const int mr_default_control = 2131361928;
+			
+			// aapt resource value: 0x7f0a0083
+			public const int mr_dialog_area = 2131361923;
+			
+			// aapt resource value: 0x7f0a0082
+			public const int mr_expandable_area = 2131361922;
+			
+			// aapt resource value: 0x7f0a0096
+			public const int mr_group_expand_collapse = 2131361942;
+			
+			// aapt resource value: 0x7f0a008a
+			public const int mr_media_main_control = 2131361930;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int mr_name = 2131361925;
+			
+			// aapt resource value: 0x7f0a008b
+			public const int mr_playback_control = 2131361931;
+			
+			// aapt resource value: 0x7f0a0084
+			public const int mr_title_bar = 2131361924;
 			
 			// aapt resource value: 0x7f0a008d
-			public const int mr_volume_slider = 2131361933;
+			public const int mr_volume_control = 2131361933;
+			
+			// aapt resource value: 0x7f0a008e
+			public const int mr_volume_group_list = 2131361934;
+			
+			// aapt resource value: 0x7f0a0090
+			public const int mr_volume_item_icon = 2131361936;
+			
+			// aapt resource value: 0x7f0a0091
+			public const int mr_volume_slider = 2131361937;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int multiply = 2131361822;
@@ -2828,8 +2927,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a001b
 			public const int showTitle = 2131361819;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int sliding_tabs = 2131361952;
+			// aapt resource value: 0x7f0a00a4
+			public const int sliding_tabs = 2131361956;
 			
 			// aapt resource value: 0x7f0a0074
 			public const int snackbar_action = 2131361908;
@@ -2861,8 +2960,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0039
 			public const int start = 2131361849;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int status_bar_latest_event_content = 2131361941;
+			// aapt resource value: 0x7f0a0099
+			public const int status_bar_latest_event_content = 2131361945;
 			
 			// aapt resource value: 0x7f0a006d
 			public const int submit_area = 2131361901;
@@ -2870,17 +2969,20 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0016
 			public const int tabMode = 2131361814;
 			
-			// aapt resource value: 0x7f0a009d
-			public const int text = 2131361949;
+			// aapt resource value: 0x7f0a00a1
+			public const int text = 2131361953;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int text2 = 2131361947;
+			// aapt resource value: 0x7f0a009f
+			public const int text2 = 2131361951;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int textSpacerNoButtons = 2131361877;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int time = 2131361945;
+			// aapt resource value: 0x7f0a007b
+			public const int textViewStatus = 2131361915;
+			
+			// aapt resource value: 0x7f0a009d
+			public const int time = 2131361949;
 			
 			// aapt resource value: 0x7f0a004b
 			public const int title = 2131361867;
@@ -2888,8 +2990,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a0050
 			public const int title_template = 2131361872;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int toolbar = 2131361953;
+			// aapt resource value: 0x7f0a00a5
+			public const int toolbar = 2131361957;
 			
 			// aapt resource value: 0x7f0a003a
 			public const int top = 2131361850;
@@ -2909,8 +3011,8 @@ namespace AwfulRedux.Mobile.Droid
 			// aapt resource value: 0x7f0a000a
 			public const int view_offset_helper = 2131361802;
 			
-			// aapt resource value: 0x7f0a008b
-			public const int volume_item_container = 2131361931;
+			// aapt resource value: 0x7f0a008f
+			public const int volume_item_container = 2131361935;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int wide = 2131361808;
@@ -3111,64 +3213,73 @@ namespace AwfulRedux.Mobile.Droid
 			public const int design_navigation_menu_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int mr_chooser_dialog = 2130903077;
+			public const int loading = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int mr_chooser_list_item = 2130903078;
+			public const int loadingimage = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int mr_controller_material_dialog_b = 2130903079;
+			public const int loadingprogress = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int mr_controller_volume_item = 2130903080;
+			public const int mr_chooser_dialog = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int mr_playback_control = 2130903081;
+			public const int mr_chooser_list_item = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int mr_volume_control = 2130903082;
+			public const int mr_controller_material_dialog_b = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_media_action = 2130903083;
+			public const int mr_controller_volume_item = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_media_cancel_action = 2130903084;
+			public const int mr_playback_control = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_big_media = 2130903085;
+			public const int mr_volume_control = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_big_media_narrow = 2130903086;
+			public const int notification_media_action = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_lines = 2130903087;
+			public const int notification_media_cancel_action = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_template_media = 2130903088;
+			public const int notification_template_big_media = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int notification_template_part_chronometer = 2130903089;
+			public const int notification_template_big_media_narrow = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int notification_template_part_time = 2130903090;
+			public const int notification_template_lines = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int select_dialog_item_material = 2130903091;
+			public const int notification_template_media = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int select_dialog_multichoice_material = 2130903092;
+			public const int notification_template_part_chronometer = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_singlechoice_material = 2130903093;
+			public const int notification_template_part_time = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int support_simple_spinner_dropdown_item = 2130903094;
+			public const int select_dialog_item_material = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int tabs = 2130903095;
+			public const int select_dialog_multichoice_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int toolbar = 2130903096;
+			public const int select_dialog_singlechoice_material = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int support_simple_spinner_dropdown_item = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int tabs = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int toolbar = 2130903099;
 			
 			static Layout()
 			{
@@ -3182,6 +3293,12 @@ namespace AwfulRedux.Mobile.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f060046
+			public const int ApplicationName = 2131099718;
+			
+			// aapt resource value: 0x7f060045
+			public const int Hello = 2131099717;
 			
 			// aapt resource value: 0x7f06002e
 			public const int abc_action_bar_home_description = 2131099694;
@@ -3341,6 +3458,9 @@ namespace AwfulRedux.Mobile.Droid
 			
 			// aapt resource value: 0x7f06001e
 			public const int common_signin_button_text_long = 2131099678;
+			
+			// aapt resource value: 0x7f060047
+			public const int library_name = 2131099719;
 			
 			// aapt resource value: 0x7f06001f
 			public const int mr_button_content_description = 2131099679;
@@ -5773,6 +5893,56 @@ namespace AwfulRedux.Mobile.Droid
 			
 			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
+			
+			public static int[] ProgressWheel = new int[] {
+					2130772290,
+					2130772291,
+					2130772292,
+					2130772293,
+					2130772294,
+					2130772295,
+					2130772296,
+					2130772297,
+					2130772298,
+					2130772299,
+					2130772300,
+					2130772301};
+			
+			// aapt resource value: 3
+			public const int ProgressWheel_ahBarColor = 3;
+			
+			// aapt resource value: 11
+			public const int ProgressWheel_ahBarLength = 11;
+			
+			// aapt resource value: 10
+			public const int ProgressWheel_ahBarWidth = 10;
+			
+			// aapt resource value: 8
+			public const int ProgressWheel_ahCircleColor = 8;
+			
+			// aapt resource value: 7
+			public const int ProgressWheel_ahDelayMillis = 7;
+			
+			// aapt resource value: 9
+			public const int ProgressWheel_ahRadius = 9;
+			
+			// aapt resource value: 4
+			public const int ProgressWheel_ahRimColor = 4;
+			
+			// aapt resource value: 5
+			public const int ProgressWheel_ahRimWidth = 5;
+			
+			// aapt resource value: 6
+			public const int ProgressWheel_ahSpinSpeed = 6;
+			
+			// aapt resource value: 0
+			public const int ProgressWheel_ahText = 0;
+			
+			// aapt resource value: 1
+			public const int ProgressWheel_ahTextColor = 1;
+			
+			// aapt resource value: 2
+			public const int ProgressWheel_ahTextSize = 2;
 			
 			public static int[] RecyclerView = new int[] {
 					16842948,

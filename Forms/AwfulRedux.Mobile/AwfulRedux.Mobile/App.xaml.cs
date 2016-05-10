@@ -1,14 +1,57 @@
-﻿using Prism.Unity;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using AwfulRedux.Core.Managers;
+using AwfulRedux.Database;
+using AwfulRedux.Mobile.Tools;
+using Prism.Unity;
 using AwfulRedux.Mobile.Views;
+using Xamarin.Forms;
 
 namespace AwfulRedux.Mobile
 {
     public partial class App : PrismApplication
     {
+        #region Helpers
+        public static WebManager WebManager { get; set; } = new WebManager();
+
+        public static bool IsLoggedIn { get; set; }
+
+        public async Task LoginUser()
+        {
+            var udb = new AuthenticatedUserDatabase(DependencyService.Get<ISQLite>().GetPlatform(), DependencyService.Get<ISQLite>().GetPath("ForumsRedux.db"));
+            var defaultUsers = await udb.GetAuthUsers();
+            if (!defaultUsers.Any()) return;
+            var defaultUser = defaultUsers.First();
+            var localStorageManager = new LocalStorageManager();
+            var cookie = await localStorageManager.LoadCookie(defaultUser.Id + ".txt");
+            WebManager = new WebManager(cookie);
+            IsLoggedIn = true;
+        }
+        #endregion
+
         protected override void OnInitialized()
         {
             InitializeComponent();
-            NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
+
+            #region Database
+            var db = new Database.DataSource.MainForums(DependencyService.Get<ISQLite>().GetPlatform(), DependencyService.Get<ISQLite>().GetPath("ForumsRedux.db"));
+            db.CreateDatabase();
+            var bdb = new Database.DataSource.Bookmarks(DependencyService.Get<ISQLite>().GetPlatform(), DependencyService.Get<ISQLite>().GetPath("BookmarkRedux.db"));
+            db.CreateDatabase();
+            bdb.CreateDatabase();
+            #endregion
+            
+            NavigationService.NavigateAsync("MainPage");
+        }
+
+        protected override async void OnStart()
+        {
+            await LoginUser();
+        }
+
+        protected override async void OnResume()
+        {
+            await LoginUser();
         }
 
         protected override void RegisterTypes()

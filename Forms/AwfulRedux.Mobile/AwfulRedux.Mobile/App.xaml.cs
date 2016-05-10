@@ -41,7 +41,7 @@ namespace AwfulRedux.Mobile
             bdb.CreateDatabase();
             #endregion
             
-            NavigationService.NavigateAsync("MainPage");
+            NavigationService.NavigateAsync("MainTabbedPage");
         }
 
         protected override async void OnStart()
@@ -56,6 +56,7 @@ namespace AwfulRedux.Mobile
 
         protected override void RegisterTypes()
         {
+            Container.RegisterTypeForNavigation<MainTabbedPage>();
             Container.RegisterTypeForNavigation<MainPage>();
         }
     }

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:views="clr-namespace:AwfulRedux.Mobile.Views;assembly=AwfulRedux.Mobile"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Name="tabbedPage"
+            x:Class="AwfulRedux.Mobile.Views.MainTabbedPage">
+  <TabbedPage.Children>
+
+    <NavigationPage Title="Forums">
+      <x:Arguments>
+        <views:MainPage />
+      </x:Arguments>
+    </NavigationPage>
+
+  </TabbedPage.Children>
+</TabbedPage>

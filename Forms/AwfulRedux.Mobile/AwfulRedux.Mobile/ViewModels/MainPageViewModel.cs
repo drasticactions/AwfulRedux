@@ -19,6 +19,10 @@ namespace AwfulRedux.Mobile.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
+        public MainPageViewModel()
+        {
+            Initialize();
+        }
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
 
@@ -26,7 +30,7 @@ namespace AwfulRedux.Mobile.ViewModels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            await Initialize();
+            //await Initialize();
         }
 
         #region Database

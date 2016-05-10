@@ -4,7 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="AwfulRedux.Mobile.Views.MainPage"
-             Title="MainPage">
+             Title="Forums">
   <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
     <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Spacing="0">
       <ListView x:Name="listView" IsPullToRefreshEnabled="True" IsGroupingEnabled="True" SelectedItem="{Binding SelectedForum, Mode=TwoWay}" GroupDisplayBinding="{Binding Name}" HeightRequest="200" ItemsSource="{Binding ForumCategories}" HasUnevenRows="true">

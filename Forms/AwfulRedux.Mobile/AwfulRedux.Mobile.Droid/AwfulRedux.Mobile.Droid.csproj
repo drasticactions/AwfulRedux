@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <EmbeddedResource Include="Resources\drawable\dontrel.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AwfulRedux.Mobile\AwfulRedux.Mobile.csproj">

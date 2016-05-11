@@ -5,6 +5,7 @@ using AwfulRedux.Database;
 using AwfulRedux.Mobile.Tools;
 using Prism.Unity;
 using AwfulRedux.Mobile.Views;
+using AwfulRedux.UI.Models.Users;
 using Xamarin.Forms;
 
 namespace AwfulRedux.Mobile
@@ -16,14 +17,16 @@ namespace AwfulRedux.Mobile
 
         public static bool IsLoggedIn { get; set; }
 
+        public static User DefaultUser { get; set; }
+
         public async Task LoginUser()
         {
             var udb = new AuthenticatedUserDatabase(DependencyService.Get<ISQLite>().GetPlatform(), DependencyService.Get<ISQLite>().GetPath("ForumsRedux.db"));
             var defaultUsers = await udb.GetAuthUsers();
             if (!defaultUsers.Any()) return;
-            var defaultUser = defaultUsers.First();
+            DefaultUser = defaultUsers.First();
             var localStorageManager = new LocalStorageManager();
-            var cookie = await localStorageManager.LoadCookie(defaultUser.Id + ".txt");
+            var cookie = await localStorageManager.LoadCookie(DefaultUser.Id + ".txt");
             WebManager = new WebManager(cookie);
             IsLoggedIn = true;
         }
@@ -58,6 +61,8 @@ namespace AwfulRedux.Mobile
         {
             Container.RegisterTypeForNavigation<MainTabbedPage>();
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<ThreadListPage>();
+            Container.RegisterTypeForNavigation<SettingsPage>();
         }
     }
 }

@@ -19,8 +19,10 @@ namespace AwfulRedux.Mobile.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        public MainPageViewModel()
+        private INavigationService _navigationService;
+        public MainPageViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
             Initialize();
         }
         public void OnNavigatedFrom(NavigationParameters parameters)
@@ -64,7 +66,8 @@ namespace AwfulRedux.Mobile.ViewModels
                     return;
                 if (ItemSelected == null)
                 {
-                    //page.Navigation.PushAsync(new ForumListPage(_selectedForum));
+                    var par = new NavigationParameters {{"forum", SelectedForum}};
+                    _navigationService.NavigateAsync("ThreadListPage", par);
                     _selectedForum = null;
                 }
                 else

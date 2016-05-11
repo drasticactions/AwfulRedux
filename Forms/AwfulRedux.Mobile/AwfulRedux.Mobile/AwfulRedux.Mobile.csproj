@@ -35,19 +35,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\InfiniteListView.cs" />
     <Compile Include="Models\Thread\ForumThreadCategory.cs" />
     <Compile Include="Models\Thread\ThreadTemplateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\OfflineDataStore.cs" />
+    <Compile Include="Tools\Converters\HasSeenConverter.cs" />
+    <Compile Include="Tools\Converters\ThreadAnnounceConverter.cs" />
     <Compile Include="Tools\ISQLite.cs" />
     <Compile Include="Tools\LocalStorageManager.cs" />
     <Compile Include="Tools\ResultChecker.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
     <Compile Include="Views\ForumNavigationPage.xaml.cs">
       <DependentUpon>ForumNavigationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainTabbedPage.xaml.cs">
       <DependentUpon>MainTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThreadListPage.xaml.cs">
+      <DependentUpon>ThreadListPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +182,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ForumNavigationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ThreadListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -19,7 +19,7 @@ namespace AwfulRedux.Mobile
 
         public static User DefaultUser { get; set; }
 
-        public async Task LoginUser()
+        public static async Task LoginUser()
         {
             var udb = new AuthenticatedUserDatabase(DependencyService.Get<ISQLite>().GetPlatform(), DependencyService.Get<ISQLite>().GetPath("ForumsRedux.db"));
             var defaultUsers = await udb.GetAuthUsers();
@@ -32,7 +32,7 @@ namespace AwfulRedux.Mobile
         }
         #endregion
 
-        protected override void OnInitialized()
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
@@ -44,17 +44,9 @@ namespace AwfulRedux.Mobile
             bdb.CreateDatabase();
             #endregion
             
-            NavigationService.NavigateAsync("MainTabbedPage");
-        }
-
-        protected override async void OnStart()
-        {
+            await NavigationService.NavigateAsync("MainTabbedPage");
             await LoginUser();
-        }
 
-        protected override async void OnResume()
-        {
-            await LoginUser();
         }
 
         protected override void RegisterTypes()
@@ -63,6 +55,7 @@ namespace AwfulRedux.Mobile
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<ThreadListPage>();
             Container.RegisterTypeForNavigation<SettingsPage>();
+            Container.RegisterTypeForNavigation<LoginPage>();
         }
     }
 }

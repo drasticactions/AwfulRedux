@@ -9,11 +9,15 @@ namespace AwfulRedux.Mobile.ViewModels
 {
     public class SettingsPageViewModel : BindableBase, INavigationAware
     {
-        public SettingsPageViewModel()
+        private INavigationService _navigationService;
+
+        public DelegateCommand LoginCommand { get; }
+
+        public SettingsPageViewModel(INavigationService navigationService)
         {
-            LoginUserName = App.DefaultUser == null ? "Dumb Dontrel" : App.DefaultUser.Username;
-            UserAvatar = App.DefaultUser == null ? "dontrel.png" : App.DefaultUser.AvatarLink;
-            IsLoggedIn = App.IsLoggedIn;
+            _navigationService = navigationService;
+            LoginCommand = new DelegateCommand(async () => await navigationService.NavigateAsync("LoginPage", useModalNavigation: true));
+            UpdateViewModel();
         }
 
         private bool _isLoggedIn;
@@ -52,6 +56,13 @@ namespace AwfulRedux.Mobile.ViewModels
             }
         }
 
+        public void UpdateViewModel()
+        {
+            LoginUserName = App.DefaultUser == null ? "Dumb Dontrel" : App.DefaultUser.Username;
+            UserAvatar = App.DefaultUser == null ? "dontrel.png" : App.DefaultUser.AvatarLink;
+            IsLoggedIn = App.IsLoggedIn;
+        }
+
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
 
@@ -59,9 +70,7 @@ namespace AwfulRedux.Mobile.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            LoginUserName = App.DefaultUser == null ? "Dumb Dontrel" : App.DefaultUser.Username;
-            UserAvatar = App.DefaultUser == null ? "dontrel.png" : App.DefaultUser.AvatarLink;
-            IsLoggedIn = App.IsLoggedIn;
+            UpdateViewModel();
         }
     }
 }

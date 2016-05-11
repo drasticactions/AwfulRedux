@@ -45,11 +45,15 @@
     <Compile Include="Tools\ISQLite.cs" />
     <Compile Include="Tools\LocalStorageManager.cs" />
     <Compile Include="Tools\ResultChecker.cs" />
+    <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
     <Compile Include="Views\ForumNavigationPage.xaml.cs">
       <DependentUpon>ForumNavigationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainTabbedPage.xaml.cs">
       <DependentUpon>MainTabbedPage.xaml</DependentUpon>
@@ -194,6 +198,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

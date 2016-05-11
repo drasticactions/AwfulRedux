@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="AwfulRedux.Mobile.Views.LoginPage">
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+
+      <Label Text="Username" />
+      <Entry Text="{Binding Username}" />
+
+      <Label Text="Password" />
+      <Entry Text="{Binding Password}" IsPassword="true" />
+
+      <Button Margin="15"
+								BackgroundColor="#77D065"
+								TextColor="White" Clicked="OnLoginClicked" Text="Login"></Button>
+
+      <Button Margin="15"
+               BackgroundColor="#2C3E50"
+               TextColor="White" Command="{Binding GoBackCommand}" Text="Go Back"></Button>
+      
+      <Image Source="Icon2.png"/>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

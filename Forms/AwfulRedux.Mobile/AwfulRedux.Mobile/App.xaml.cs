@@ -43,7 +43,7 @@ namespace AwfulRedux.Mobile
             db.CreateDatabase();
             bdb.CreateDatabase();
             #endregion
-            
+
             await NavigationService.NavigateAsync("MainTabbedPage");
             await LoginUser();
 

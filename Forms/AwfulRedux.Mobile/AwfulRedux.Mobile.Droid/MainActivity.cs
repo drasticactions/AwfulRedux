@@ -16,7 +16,9 @@ namespace AwfulRedux.Mobile.Droid
         {
             TabLayoutResource = Resource.Layout.tabs;
             ToolbarResource = Resource.Layout.toolbar;
-
+            var x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            x = typeof(Xamarin.Forms.Themes.Android.UnderlineEffect);
             base.OnCreate(bundle);
             UserDialogs.Init(this);
             global::Xamarin.Forms.Forms.Init(this, bundle);

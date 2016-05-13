@@ -12,8 +12,9 @@ namespace AwfulRedux.Mobile.Views
             this.CurrentPageChanged += OnCurrentPageChanged;
         }
 
-        private void OnCurrentPageChanged(object sender, EventArgs eventArgs)
+        private async void OnCurrentPageChanged(object sender, EventArgs eventArgs)
         {
+            //await App.LoginUser();
             var navPage = CurrentPage as NavigationPage;
             var settingsPage = navPage?.CurrentPage as SettingsPage;
             settingsPage?.UpdateViewModel();

@@ -2,7 +2,7 @@
 
 # What is this?!?
 
-Awful Forums Reader is a Windows 10 UAP/Windows 8.1/Windows Phone 8.1 App. It allows you to access the [Something Awful](https://forums.somethingawful.com) on a variety of different devices; Table, Phone, Desktop, and one day Xbox, IoT and Hololens (one can dream). It's really intended for tablets and phones, but it does work well on Desktops and could be extended further.
+Awful Forums Reader is a Windows 10 UAP/Windows 8.1/Windows Phone 8.1 App. It allows you to access the [Something Awful](https://forums.somethingawful.com) on a variety of different devices; Table, Phone, Desktop, Xbox, IoT and Hololens. It's really intended for tablets and phones, but it does work well on Desktops and could be extended further.
 
 ![alt text](http://i.imgur.com/o96E4UE.png "Awful Forums Reader")
 

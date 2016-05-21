@@ -1163,13 +1163,17 @@
       <Project>{b159244c-199d-49b4-93f8-fac12de5d52a}</Project>
       <Name>AwfulWebTemplate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\Kimono\Kimono.csproj">
+      <Project>{97e11751-36c4-49a4-a828-df731013cb91}</Project>
+      <Name>Kimono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\Template10 %28Library%29\Template10 %28Library%29.csproj">
+      <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
+      <Name>Template10 %28Library%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Imgur\Imgur.csproj">
       <Project>{6bdadad2-b0b3-489e-b2da-e1b9cf68a787}</Project>
       <Name>Imgur</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kimono\Kimono.csproj">
-      <Project>{329833b1-79b7-4724-b9a2-0629d735bea1}</Project>
-      <Name>Kimono</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -128,6 +128,10 @@
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>
       <Name>AwfulRedux.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\Template10 %28Library%29\Template10 %28Library%29.csproj">
+      <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
+      <Name>Template10 %28Library%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

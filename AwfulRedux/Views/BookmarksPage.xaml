@@ -34,18 +34,6 @@
         </Storyboard>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="BackButtonPresent">
-                    <VisualState.StateTriggers>
-                        <stateTriggers:ApiInformationTypePresentTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="RefreshButton.Visibility" Value="Collapsed" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
@@ -55,18 +43,12 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Content="Bookmarks" Frame="{x:Bind Frame}">
-                        <controls1:PageHeader.PrimaryCommands>
-                            <AppBarButton x:Name="RefreshButton" Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Foreground="White" Icon="Refresh"/>
-                        </controls1:PageHeader.PrimaryCommands>
-                        <interactivity:Interaction.Behaviors>
-                            <behaviors:EllipsisBehavior Visibility="Collapsed" />
-                        </interactivity:Interaction.Behaviors>
+                    <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="Bookmarks" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <c:RefreshableListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <ListView x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
-                        <c:RefreshableListView.ItemTemplate>
+                        <ListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
                                 <Grid Margin="2" Background="{x:Bind HasSeen, Converter={StaticResource HasSeenThreadConverter}}">
                                     <Grid.ColumnDefinitions>
@@ -122,14 +104,17 @@
                                     </interactivity:Interaction.Behaviors>
                                 </Grid>
                             </DataTemplate>
-                        </c:RefreshableListView.ItemTemplate>
+                        </ListView.ItemTemplate>
 
-                        <c:RefreshableListView.ItemContainerStyle>
+                        <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
-                        </c:RefreshableListView.ItemContainerStyle>
-                    </c:RefreshableListView>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                    <CommandBar Grid.Row="3">
+                        <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
+                    </CommandBar>
                 </Grid>
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>

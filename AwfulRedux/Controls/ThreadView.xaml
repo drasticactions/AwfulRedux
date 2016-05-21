@@ -26,25 +26,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="BackButtonPresent">
-                    <VisualState.StateTriggers>
-                        <stateTriggers:ApiInformationTypePresentTrigger Type="Windows.Phone.UI.Input.HardwareButtons" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="RefreshButton.Visibility" Value="Collapsed" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Content="{Binding Selected.Name}">
-            <controls:PageHeader.PrimaryCommands>
-                <AppBarButton x:Name="RefreshButton" Label="Refresh" Foreground="White" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.ReloadThread}" Icon="Refresh"/>
-            </controls:PageHeader.PrimaryCommands>
-            <interactivity:Interaction.Behaviors>
-                <behaviors:EllipsisBehavior Visibility="Collapsed" />
-            </interactivity:Interaction.Behaviors>
+
+        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Text="{Binding Selected.Name}">
         </controls:PageHeader>
         <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView">

@@ -44,7 +44,7 @@ namespace AwfulRedux.ViewModels
             }
         }
 
-        public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
+        public async void PullToRefresh_ListView(object sender, EventArgs e)
         {
             Refresh();
         }

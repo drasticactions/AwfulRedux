@@ -14,6 +14,7 @@
     xmlns:controls2="using:AwfulRedux.Controls"
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     xmlns:c="using:RefreshableListView"
+    xmlns:controls3="using:Comet.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:PrivateMessagesListViewModel />
@@ -31,10 +32,10 @@
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="Private Messages" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <c:RefreshableListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" x:Name="masterListBox" SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" 
+                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}" x:Name="masterListBox" SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" 
                               SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding PrivateMessageScrollingCollection, UpdateSourceTrigger=PropertyChanged}">
-                        <c:RefreshableListView.ItemTemplate>
+                        <controls3:PullToRefreshListView.ItemTemplate>
                             <DataTemplate x:DataType="pm:PrivateMessage">
                                 <Grid Margin="2">
                                     <Grid.ColumnDefinitions>
@@ -68,13 +69,13 @@
                                     </Grid>
                                 </Grid>
                             </DataTemplate>
-                        </c:RefreshableListView.ItemTemplate>
-                        <c:RefreshableListView.ItemContainerStyle>
+                        </controls3:PullToRefreshListView.ItemTemplate>
+                        <controls3:PullToRefreshListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
-                        </c:RefreshableListView.ItemContainerStyle>
-                    </c:RefreshableListView>
+                        </controls3:PullToRefreshListView.ItemContainerStyle>
+                    </controls3:PullToRefreshListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="New PM" Click="{x:Bind ViewModel.CreateNewPm}" Icon="Send"/>
                     </CommandBar>

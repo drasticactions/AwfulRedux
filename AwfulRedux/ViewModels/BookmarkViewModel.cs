@@ -36,7 +36,7 @@ namespace AwfulRedux.ViewModels
 
         private readonly ThreadManager _threadManager = new ThreadManager(Views.Shell.Instance.ViewModel.WebManager);
 
-        public async void PullToRefresh_ListView(object sender, RefreshRequestedEventArgs e)
+        public async void PullToRefresh_ListView(object sender, EventArgs e)
         {
             await Refresh();
         }

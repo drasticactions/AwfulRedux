@@ -17,6 +17,7 @@
     xmlns:converters1="using:AwfulRedux.Tools.Converters"
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     xmlns:c="using:RefreshableListView"
+    xmlns:controls3="using:Comet.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:BookmarkViewModel />
@@ -46,7 +47,7 @@
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="Bookmarks" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <ListView x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
@@ -111,7 +112,7 @@
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
-                    </ListView>
+                    </controls3:PullToRefreshListView>
                     <CommandBar Grid.Row="3">
                         <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
                     </CommandBar>

@@ -3,6 +3,27 @@
   "version": 1,
   "targets": {
     "UAP,Version=v10.0": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -2072,6 +2093,27 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -4002,6 +4044,27 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -5890,6 +5953,27 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -7828,6 +7912,27 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -9716,6 +9821,27 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -11654,6 +11780,27 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "Comet/0.2.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Diagnostics.Debug": "4.0.10",
+          "System.Diagnostics.Tools": "4.0.0",
+          "System.ObjectModel": "4.0.10",
+          "System.Runtime": "4.0.20",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices.WindowsRuntime": "4.0.0",
+          "System.Runtime.WindowsRuntime": "4.0.10",
+          "System.Runtime.WindowsRuntime.UI.Xaml": "4.0.0",
+          "System.Threading": "4.0.10",
+          "System.Threading.Tasks": "4.0.10"
+        },
+        "compile": {
+          "lib/uap10.0/Comet.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Comet.dll": {}
+        }
+      },
       "FFImageLoading.Windows/2.1.0-alpha1": {
         "dependencies": {
           "Microsoft.Net.Http": "2.2.29"
@@ -13543,6 +13690,19 @@
     }
   },
   "libraries": {
+    "Comet/0.2.0.1": {
+      "sha512": "cq6JgJVyxu+QQZQ6fm6Rm3AER+aPZx24vNlDt7xzj3hgG0KVemS4Pmb9al3xjReYiBUDkL38bjvbnxMDUZ2rZQ==",
+      "type": "package",
+      "files": [
+        "Comet.0.2.0.1.nupkg.sha512",
+        "Comet.nuspec",
+        "lib/uap10.0/Comet.dll",
+        "lib/uap10.0/Comet.pri",
+        "lib/uap10.0/Comet/Comet.xr.xml",
+        "lib/uap10.0/Comet/Properties/Comet.rd.xml",
+        "lib/uap10.0/Comet/Themes/Generic.xbf"
+      ]
+    },
     "FFImageLoading.Windows/2.1.0-alpha1": {
       "sha512": "HiF6DINBq7keJqWtwPrG7Z1HAhLFxSJQ4T9unFCVKUIW5hAMnms7RxLTsEn44rfsx1Agk2Ji/DcpmWJuwyoCgw==",
       "type": "package",
@@ -17544,6 +17704,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Comet >= 0.2.0.1",
       "FFImageLoading.Windows >= 2.1.0-alpha1",
       "HtmlAgilityPack >= 1.4.9",
       "Microsoft.ApplicationInsights >= 2.0.1",

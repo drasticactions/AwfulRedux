@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Comet": "0.2.0.1",
     "FFImageLoading.Windows": "2.1.0-alpha1",
     "HtmlAgilityPack": "1.4.9",
     "Microsoft.ApplicationInsights": "2.0.1",

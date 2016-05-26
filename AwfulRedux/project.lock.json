@@ -1986,6 +1986,14 @@
           }
         }
       },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -3937,6 +3945,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -5844,6 +5860,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -7805,6 +7829,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -9712,6 +9744,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -11673,6 +11713,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -13580,6 +13628,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WhatsNew.UWP/1.0.0": {
+        "compile": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WhatsNew.UWP.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -17616,6 +17672,18 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
+    "WhatsNew.UWP/1.0.0": {
+      "sha512": "vd2UC3io1soCExK187/7lcce9w7BImy0f1N7cOYoNYlwyWvBLgOChnlvOHr9oOkB74G+jsPRxbk1EKauPyxmBA==",
+      "type": "package",
+      "files": [
+        "WhatsNew.UWP.1.0.0.nupkg.sha512",
+        "WhatsNew.UWP.nuspec",
+        "lib/uap10.0/WhatsNew.UWP.dll",
+        "lib/uap10.0/WhatsNew.UWP.pri",
+        "lib/uap10.0/WhatsNew.UWP/Properties/WhatsNew.UWP.rd.xml",
+        "lib/uap10.0/WhatsNew.UWP/WhatsNew.UWP.xr.xml"
+      ]
+    },
     "WinUX.Common/1.3.3": {
       "sha512": "kR6cTR/P5cvTwkt7TSzJsVCH9wzUeiNBc6Mdc08pdTahETAerqoShnmsh5F4W7b1KkHolwMXCVrPtRZAsF/RGw==",
       "type": "package",
@@ -17717,6 +17785,7 @@
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",
       "SQLiteNetExtensions.Async >= 1.3.0",
+      "WhatsNew.UWP >= 1.0.0",
       "WinUX.UWP >= 1.3.3",
       "XamlAnimatedGif >= 1.1.2"
     ],

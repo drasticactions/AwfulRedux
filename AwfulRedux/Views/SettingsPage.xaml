@@ -64,10 +64,7 @@
         <!--  #region content  -->
 
         <Pivot x:Name="MyPivot" Style="{StaticResource TabsStylePivotStyle}" Grid.Row="1">
-            <PivotItem DataContext="{Binding SettingsPartViewModel}">
-                <PivotItem.Header>
-                    <controls1:TabHeader Label="App" Glyph="&#xE774;" />
-                </PivotItem.Header>
+            <PivotItem Header="App" DataContext="{Binding SettingsPartViewModel}">
                 <ScrollViewer Margin="0,12,-12,0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
                     <RelativePanel HorizontalAlignment="Left">
                         <ToggleSwitch x:Name="UseDarkThemeToggleSwitch"  Header="Use Light Theme"
@@ -89,10 +86,7 @@
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>
-            <PivotItem DataContext="{Binding SettingsPartViewModel}">
-                <PivotItem.Header>
-                    <controls1:TabHeader Label="Thread" Glyph="&#xE90A;" />
-                </PivotItem.Header>
+            <PivotItem Header="Thread" DataContext="{Binding SettingsPartViewModel}">
                 <ScrollViewer Margin="0,12,-12,0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
                     <RelativePanel HorizontalAlignment="Left">
                         <ToggleSwitch x:Name="UseShowEmbeddedTwitterSwitch" Header="Show Full Embedded Tweets in Threads"
@@ -128,10 +122,7 @@
                     </RelativePanel>
                 </ScrollViewer>
             </PivotItem>
-            <PivotItem>
-                <PivotItem.Header>
-                    <controls1:TabHeader Label="About" Glyph="&#xE76E;" />
-                </PivotItem.Header>
+            <PivotItem Header="About">
                 <Grid DataContext="{Binding AboutPartViewModel}">
                     <ScrollViewer ZoomMode="Disabled">
                         <Grid>
@@ -205,6 +196,10 @@
                         Kimono
                         <LineBreak/>
                         Imgur.API
+                        <LineBreak/>
+                        WhatsNew.UWP
+                        <LineBreak/>
+                        Comet
                                 </TextBlock>
                             </StackPanel>
                         </Grid>

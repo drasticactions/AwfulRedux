@@ -63,7 +63,7 @@
 
         <!--  #region content  -->
 
-        <Pivot x:Name="MyPivot" Style="{StaticResource TabsStylePivotStyle}" Grid.Row="1">
+        <Pivot x:Name="MyPivot" Grid.Row="1">
             <PivotItem Header="App" DataContext="{Binding SettingsPartViewModel}">
                 <ScrollViewer Margin="0,12,-12,0" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
                     <RelativePanel HorizontalAlignment="Left">

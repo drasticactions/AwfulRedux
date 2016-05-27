@@ -417,7 +417,7 @@ WriteLiteral(">");
 
 
 #line 77 "ThreadTemplate.cshtml"
-                                                                                      Write(post.User.DateJoinedShort);
+                                                                                      Write(post.PostDate);
 
 
 #line default

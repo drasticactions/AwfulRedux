@@ -35,9 +35,13 @@ namespace AwfulRedux.Controls
         // strongly-typed view models enable x:bind
         public ThreadViewModel ViewModel => this.DataContext as ThreadViewModel;
 
-        public async Task LoadThread(Thread thread)
+        public async Task LoadThread(Thread thread, bool fromSuspend = false)
         {
             if (thread.CurrentPage == 0) thread.CurrentPage = 1;
+            if (fromSuspend && ViewModel.Selected != null)
+            {
+                return;
+            }
             ViewModel.Selected = thread;
             await ViewModel.LoadThread();
         }

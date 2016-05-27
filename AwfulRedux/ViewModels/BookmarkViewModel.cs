@@ -53,7 +53,7 @@ namespace AwfulRedux.ViewModels
                 if (Selected == null)
                 {
                     Selected = JsonConvert.DeserializeObject<Thread>(suspensionState[nameof(Selected)]?.ToString());
-                    await ThreadView.LoadThread(Selected);
+                    await ThreadView.LoadThread(Selected, true);
                     suspensionState.Clear();
                 }
             }
@@ -100,12 +100,10 @@ namespace AwfulRedux.ViewModels
             {
                 if (Selected != null)
                 {
-                    var html = Selected.Html;
-                    var posts = Selected.Posts;
-                    Selected.Html = null;
-                    Selected.Posts = null;
-                    Selected.Html = html;
-                    Selected.Posts = posts;
+                    var newThread = Selected.Clone();
+                    newThread.Html = null;
+                    newThread.Posts = null;
+                    state[nameof(Selected)] = JsonConvert.SerializeObject(newThread);
                 }
 
             }

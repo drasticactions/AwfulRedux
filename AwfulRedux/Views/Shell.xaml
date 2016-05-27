@@ -18,13 +18,11 @@
     
     <Grid x:Name="RootGrid">
         <controls2:WhatsNewPopup 
-            ApplicationName="Awful!" 
-            WhatsNewYes="Got it!" WhatsNewMessage="What's New:&#x0d;&#x0a;The app has been completely rewritten. Here are some of the improvements:
-            &#x0d;&#x0a;- Much faster. Thread and thread lists, bookmarks, and private messages should be quicker to open and use.
-            &#x0d;&#x0a;- Uses less memory and suspends correctly: You should be able to use that app for more than an hour without having to restart it.
-            &#x0d;&#x0a;- Better looking threads: The thread template has been revamped. It should look better and be more responsive on different hardware. Also, the thread buttons should line up now :woop:.
-            &#x0d;&#x0a;- More functionality: Twitter embeds, proper Imgur support, and more!
-            &#x0d;&#x0a;- Less functionality: I could out some functions, like search, for the time being while I work on making it a better experience. Judging by my analytics, goons were not using it that often." >
+            ApplicationName="This is Awful Update reporting in!" 
+            WhatsNewYes="Whatever!" WhatsNewMessage="
+            &#x0d;&#x0a;Fixed the pivot menu in Settings. It should look less ugly now, and actually let you move between options on the Xbox!
+            &#x0d;&#x0a;The status bar should now stay colored after resuming the app. Or it won't. In which case, I will look like a fool.
+            ">
         </controls2:WhatsNewPopup>
         <!-- non-modal content -->
         <controls:HamburgerMenu x:Name="MyHamburgerMenu" 

@@ -46,7 +46,7 @@ switch (Model.ForumThread.ForumId)
     <title>Forum Thread</title>
 </head>
 
-<body data-show-embedded-tweets="@Model.EmbeddedTweets" data-show-embedded-gifv="@Model.EmbeddedGifv" data-show-embedded-video="@Model.EmbeddedVideo" style="overflow-x: hidden;">
+<body data-thread-id="@Model.ForumThread.ThreadId" data-thread-name="@Model.ForumThread.Name" data-show-embedded-tweets="@Model.EmbeddedTweets" data-show-embedded-gifv="@Model.EmbeddedGifv" data-show-embedded-video="@Model.EmbeddedVideo" style="overflow-x: hidden;">
     <div id="content">
         <div id="thread">
             <div class="container-fluid">

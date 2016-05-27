@@ -213,11 +213,33 @@ WriteLiteral(" src=\"ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js\"");
 
 WriteLiteral("></script>\r\n    <title>Forum Thread</title>\r\n</head>\r\n\r\n<body");
 
+WriteLiteral(" data-thread-id=\"");
+
+
+#line 49 "ThreadTemplate.cshtml"
+                 Write(Model.ForumThread.ThreadId);
+
+
+#line default
+#line hidden
+WriteLiteral("\"");
+
+WriteLiteral(" data-thread-name=\"");
+
+
+#line 49 "ThreadTemplate.cshtml"
+                                                                Write(Model.ForumThread.Name);
+
+
+#line default
+#line hidden
+WriteLiteral("\"");
+
 WriteLiteral(" data-show-embedded-tweets=\"");
 
 
 #line 49 "ThreadTemplate.cshtml"
-                            Write(Model.EmbeddedTweets);
+                                                                                                                    Write(Model.EmbeddedTweets);
 
 
 #line default
@@ -228,7 +250,7 @@ WriteLiteral(" data-show-embedded-gifv=\"");
 
 
 #line 49 "ThreadTemplate.cshtml"
-                                                                            Write(Model.EmbeddedGifv);
+                                                                                                                                                                    Write(Model.EmbeddedGifv);
 
 
 #line default
@@ -239,7 +261,7 @@ WriteLiteral(" data-show-embedded-video=\"");
 
 
 #line 49 "ThreadTemplate.cshtml"
-                                                                                                                           Write(Model.EmbeddedVideo);
+                                                                                                                                                                                                                   Write(Model.EmbeddedVideo);
 
 
 #line default

@@ -108,7 +108,11 @@ namespace AwfulRedux
                 System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
             }
 
-            SetupStatusBar();
+            if (Windows.Foundation.Metadata.ApiInformation
+            .IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                Windows.UI.ViewManagement.StatusBar.GetForCurrentView().BackgroundOpacity = 1;
+            }
 
             await Task.CompletedTask;
         }
@@ -141,7 +145,11 @@ namespace AwfulRedux
                 // Ignore, continue.
             }
 
-            SetupStatusBar();
+            if (Windows.Foundation.Metadata.ApiInformation
+            .IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
+            {
+                Windows.UI.ViewManagement.StatusBar.GetForCurrentView().BackgroundOpacity = 1;
+            }
 
             await Task.CompletedTask;
         }
@@ -234,23 +242,6 @@ namespace AwfulRedux
                     break;
                 default:
                     break;
-            }
-        }
-
-        private void SetupStatusBar()
-        {
-            if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-            {
-                try
-                {
-                    var statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
-                    statusBar.BackgroundColor = (Color)BootStrapper.Current.Resources["SystemAccentColor"];
-                    statusBar.BackgroundOpacity = 1;
-                }
-                catch (Exception)
-                {
-                    // Ignore Error
-                }
             }
         }
     }

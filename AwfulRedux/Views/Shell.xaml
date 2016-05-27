@@ -18,10 +18,10 @@
     
     <Grid x:Name="RootGrid">
         <controls2:WhatsNewPopup 
-            ApplicationName="This is Awful Update reporting in!" 
+            ApplicationName="Awful Update!" 
             WhatsNewYes="Whatever!" WhatsNewMessage="
-            &#x0d;&#x0a;Fixed the pivot menu in Settings. It should look less ugly now, and actually let you move between options on the Xbox!
-            &#x0d;&#x0a;The status bar should now stay colored after resuming the app. Or it won't. In which case, I will look like a fool.
+            &#x0d;&#x0a;&#x0d;&#x0a;Fixed the pivot menu in Settings. It should look less ugly now, and actually let you move between options on the Xbox!
+            &#x0d;&#x0a;&#x0d;&#x0a;The status bar should now stay colored after resuming the app. Or it won't. In which case, I will look like a fool.
             ">
         </controls2:WhatsNewPopup>
         <!-- non-modal content -->

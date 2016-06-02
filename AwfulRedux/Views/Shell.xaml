@@ -9,24 +9,13 @@
     xmlns:controls1="using:AwfulRedux.Controls"
     xmlns:views="using:AwfulRedux.Views"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
-    xmlns:controls2="using:WhatsNew.UWP.Controls"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <viewModels:ShellViewModel />
     </Page.DataContext>
-    
+
     <Grid x:Name="RootGrid">
-        <controls2:WhatsNewPopup 
-            ApplicationName="Awful Update!" 
-            WhatsNewYes="Whatever!" WhatsNewMessage="
-            &#x0d;&#x0a;Fixed the pivot menu in Settings. It should look less ugly now, and actually let you move between options on the Xbox!
-            &#x0d;&#x0a;&#x0d;&#x0a;The status bar should now stay colored after resuming the app. Or it won't. In which case, I will look like a fool.
-            &#x0d;&#x0a;&#x0d;&#x0a;Force the headers to use SteelBlue as the main color. Sometimes the hamburger menu would go with a teal default, so until I can figure that out, deal with the Blue~~~.
-            &#x0d;&#x0a;&#x0d;&#x0a;Suspending threads should not result in them reloading their content. So you should not lose your place in a thread unless the app was killed.
-            &#x0d;&#x0a;&#x0d;&#x0a;User Reg data has been replaced with the actual post date.
-            ">
-        </controls2:WhatsNewPopup>
         <!-- non-modal content -->
         <controls:HamburgerMenu x:Name="MyHamburgerMenu" 
                                 SecondaryButtonOrientation="Vertical"

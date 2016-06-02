@@ -58,39 +58,53 @@ namespace Template10.Controls
 
         private void UpdateSpacingToFitHamburgerMenu()
         {
-            try
+            if (EnableHamburgerMenuAutoLayout)
             {
-                if (EnableHamburgerMenuAutoLayout)
+                var hamburgerMenu = ParentHamburgerMenu;
+                if (hamburgerMenu == null)
                 {
-                    var hamburgerMenu = ParentHamburgerMenu;
-                    if (hamburgerMenu == null)
+                    try
                     {
                         spacer.Visibility = Visibility.Collapsed;
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        switch (hamburgerMenu.DisplayMode)
-                        {
-                            case SplitViewDisplayMode.Overlay:
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    switch (hamburgerMenu.DisplayMode)
+                    {
+                        case SplitViewDisplayMode.Inline:
+                        case SplitViewDisplayMode.Overlay:
+                            {
+                                var buttonVisible = hamburgerMenu.HamburgerButtonVisibility == Visibility.Visible;
+                                try
                                 {
-                                    var buttonVisible = hamburgerMenu.HamburgerButtonVisibility == Visibility.Visible;
                                     spacer.Visibility = buttonVisible ? Visibility.Visible : Visibility.Collapsed;
                                 }
-                                break;
-                            case SplitViewDisplayMode.Inline:
-                            case SplitViewDisplayMode.CompactOverlay:
-                            case SplitViewDisplayMode.CompactInline:
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine(ex.Message);
+                                }
+                            }
+                            break;
+                        case SplitViewDisplayMode.CompactOverlay:
+                        case SplitViewDisplayMode.CompactInline:
+                            {
+                                try
                                 {
                                     spacer.Visibility = Visibility.Collapsed;
                                 }
-                                break;
-                        }
+                                catch (Exception ex)
+                                {
+                                    Debug.WriteLine(ex.Message);
+                                }
+                            }
+                            break;
                     }
                 }
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("Failed: RegisterHamburgerMenuChanges");
             }
         }
 

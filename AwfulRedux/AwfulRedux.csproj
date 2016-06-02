@@ -1222,10 +1222,6 @@
       <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>
       <Name>Template10 %28Library%29</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExternalProjects\WhatsNew.UWP\WhatsNew.UWP.csproj">
-      <Project>{c660526a-1f45-4fbb-a2e5-e13f9bb54666}</Project>
-      <Name>WhatsNew.UWP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Imgur\Imgur.csproj">
       <Project>{6bdadad2-b0b3-489e-b2da-e1b9cf68a787}</Project>
       <Name>Imgur</Name>

@@ -51,13 +51,6 @@ namespace AwfulRedux.Views
         // strongly-typed view models enable x:bind
         public BookmarkViewModel ViewModel => this.DataContext as BookmarkViewModel;
 
-        private async void MasterListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (masterListBox.SelectedItem == null) return;
-            var thread = masterListBox.SelectedItem as Thread;
-            await ThreadPageView.LoadThread(thread);
-        }
-
         private void GoToLastPage(object sender, RoutedEventArgs e)
         {
             var imageSource = sender as MenuFlyoutItem;
@@ -83,6 +76,14 @@ namespace AwfulRedux.Views
             if (thread == null)
                 return;
             ViewModel.UnreadThread(thread);
+        }
+
+        private async void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var thread = e.ClickedItem as Thread;
+            if (thread == null)
+                return;
+            await ThreadPageView.LoadThread(thread);
         }
     }
 }

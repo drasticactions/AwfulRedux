@@ -47,7 +47,7 @@
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="Bookmarks" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch" ItemClick="ListView_ItemClick" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">

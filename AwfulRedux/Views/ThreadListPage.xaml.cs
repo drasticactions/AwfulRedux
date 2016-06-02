@@ -81,10 +81,11 @@ namespace AwfulRedux.Views
         // strongly-typed view models enable x:bind
         public ThreadListPageViewModel ViewModel => this.DataContext as ThreadListPageViewModel;
 
-        private async void MasterListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (masterListBox.SelectedItem == null) return;
-            var thread = masterListBox.SelectedItem as Thread;
+            var thread = e.ClickedItem as Thread;
+            if (thread == null)
+                return;
             await ThreadPageView.LoadThread(thread);
         }
     }

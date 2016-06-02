@@ -58,10 +58,11 @@ namespace AwfulRedux.Views
         // strongly-typed view models enable x:bind
         public PrivateMessagesListViewModel ViewModel => this.DataContext as PrivateMessagesListViewModel;
 
-        private async void MasterListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (masterListBox.SelectedItem == null) return;
-            var thread = masterListBox.SelectedItem as PrivateMessage;
+            var thread = e.ClickedItem as PrivateMessage;
+            if (thread == null)
+                return;
             await PrivateMessageView.LoadPrivateMessage(thread);
         }
     }

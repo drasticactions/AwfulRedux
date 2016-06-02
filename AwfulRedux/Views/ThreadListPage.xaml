@@ -50,7 +50,7 @@
                     <controls1:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Text="{Binding Forum.Name, Mode=TwoWay}" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
                     <ProgressBar IsIndeterminate="True" Visibility="{Binding ForumPageScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox"  SelectionChanged="MasterListBox_OnSelectionChanged" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <controls3:PullToRefreshListView RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True"  ItemClick="ListView_ItemClick" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding ForumPageScrollingCollection, UpdateSourceTrigger=PropertyChanged}">
                         <controls3:PullToRefreshListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">

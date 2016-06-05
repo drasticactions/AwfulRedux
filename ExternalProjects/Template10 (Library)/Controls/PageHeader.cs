@@ -15,7 +15,6 @@ using Windows.UI.Xaml.Shapes;
 using Template10.Utils;
 using System.Collections.Specialized;
 using System.Collections;
-using System.Diagnostics;
 
 // The Templated Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234235
 
@@ -58,19 +57,16 @@ namespace Template10.Controls
 
         private void UpdateSpacingToFitHamburgerMenu()
         {
+            if (spacer == null)
+            {
+                return;
+            }
             if (EnableHamburgerMenuAutoLayout)
             {
                 var hamburgerMenu = ParentHamburgerMenu;
                 if (hamburgerMenu == null)
                 {
-                    try
-                    {
-                        spacer.Visibility = Visibility.Collapsed;
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine(ex.Message);
-                    }
+                    spacer.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
@@ -80,27 +76,13 @@ namespace Template10.Controls
                         case SplitViewDisplayMode.Overlay:
                             {
                                 var buttonVisible = hamburgerMenu.HamburgerButtonVisibility == Visibility.Visible;
-                                try
-                                {
-                                    spacer.Visibility = buttonVisible ? Visibility.Visible : Visibility.Collapsed;
-                                }
-                                catch (Exception ex)
-                                {
-                                    Debug.WriteLine(ex.Message);
-                                }
+                                spacer.Visibility = buttonVisible ? Visibility.Visible : Visibility.Collapsed;
                             }
                             break;
                         case SplitViewDisplayMode.CompactOverlay:
                         case SplitViewDisplayMode.CompactInline:
                             {
-                                try
-                                {
-                                    spacer.Visibility = Visibility.Collapsed;
-                                }
-                                catch (Exception ex)
-                                {
-                                    Debug.WriteLine(ex.Message);
-                                }
+                                spacer.Visibility = Visibility.Collapsed;
                             }
                             break;
                     }

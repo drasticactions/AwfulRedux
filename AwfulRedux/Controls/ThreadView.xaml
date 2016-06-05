@@ -27,7 +27,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:PageHeader BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Text="{Binding Selected.Name}">
+        <controls:PageHeader x:Name="ThreadPageHeader" BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Text="{Binding Selected.Name}">
         </controls:PageHeader>
         <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView">

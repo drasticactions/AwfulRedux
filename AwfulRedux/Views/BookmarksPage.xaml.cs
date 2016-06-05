@@ -51,13 +51,15 @@ namespace AwfulRedux.Views
         // strongly-typed view models enable x:bind
         public BookmarkViewModel ViewModel => this.DataContext as BookmarkViewModel;
 
-        private void GoToLastPage(object sender, RoutedEventArgs e)
+        private async void GoToLastPage(object sender, RoutedEventArgs e)
         {
             var imageSource = sender as MenuFlyoutItem;
             var thread = imageSource?.CommandParameter as Thread;
             if (thread == null)
                 return;
-            ViewModel.GoToLastPage(thread);
+            ViewModel.Selected = thread;
+            await ThreadPageView.LoadThread(thread, false, true);
+            ThreadPageView.UpdateHeader();
         }
 
         private void AddRemoveBookmark(object sender, RoutedEventArgs e)
@@ -84,6 +86,7 @@ namespace AwfulRedux.Views
             if (thread == null)
                 return;
             await ThreadPageView.LoadThread(thread);
+            ThreadPageView.UpdateHeader();
         }
     }
 }

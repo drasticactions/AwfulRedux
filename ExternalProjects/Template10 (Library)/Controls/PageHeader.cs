@@ -55,7 +55,7 @@ namespace Template10.Controls
             }
         }
 
-        private void UpdateSpacingToFitHamburgerMenu()
+        public void UpdateSpacingToFitHamburgerMenu()
         {
             if (spacer == null)
             {

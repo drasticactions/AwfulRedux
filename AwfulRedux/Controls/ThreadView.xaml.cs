@@ -32,12 +32,25 @@ namespace AwfulRedux.Controls
             Instance = this;
         }
 
+        public void UpdateHeader()
+        {
+            ThreadPageHeader.UpdateSpacingToFitHamburgerMenu();
+        }
+
         // strongly-typed view models enable x:bind
         public ThreadViewModel ViewModel => this.DataContext as ThreadViewModel;
 
-        public async Task LoadThread(Thread thread, bool fromSuspend = false)
+        public async Task LoadThread(Thread thread, bool fromSuspend = false, bool lastPage = false)
         {
-            if (thread.CurrentPage == 0) thread.CurrentPage = 1;
+            if (lastPage)
+            {
+                thread.CurrentPage = thread.TotalPages;
+                thread.RepliesSinceLastOpened = 0;
+            }
+            else if (thread.CurrentPage == 0)
+            {
+                thread.CurrentPage = 1;
+            }
             if (fromSuspend && ViewModel.Selected != null)
             {
                 return;

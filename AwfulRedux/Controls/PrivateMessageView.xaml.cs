@@ -27,7 +27,10 @@ namespace AwfulRedux.Controls
         {
             this.InitializeComponent();
         }
-
+        public void UpdateHeader()
+        {
+            PMHeader.UpdateSpacingToFitHamburgerMenu();
+        }
         public PrivateMessageViewModel ViewModel => this.DataContext as PrivateMessageViewModel;
 
         public async Task LoadPrivateMessage(PrivateMessage thread)

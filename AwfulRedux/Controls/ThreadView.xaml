@@ -10,7 +10,7 @@
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:threads="using:AwfulRedux.Tools.Threads"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
-    xmlns:controls1="using:AmazingPullToRefresh.Controls"
+
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     mc:Ignorable="d"
     d:DesignHeight="300"

@@ -11,6 +11,7 @@
       xmlns:forums="using:AwfulRedux.UI.Models.Forums"
       xmlns:behaviors="using:Template10.Behaviors"
       xmlns:listControls="using:AwfulRedux.Controls.ListControls"
+      xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
       mc:Ignorable="d">
 
     <Page.DataContext>
@@ -45,6 +46,8 @@
         <!--  #region content  -->
 
         <Grid Grid.Row="1">
+            <Image Canvas.ZIndex="5" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
             <listControls:AdaptiveGridView 
                 Grid.Row="0"
                 x:Name="MainForumListFull"
@@ -107,8 +110,6 @@
                     </Core:EventTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </listControls:AdaptiveGridView>
-
-
         </Grid>
 
         <!--  #endregion  -->

@@ -55,6 +55,7 @@
     Otherwise="Collapsed"
     When="{x:Null}"
     x:Key="NullVisibilityInverter" />
+            <converters:LoadingIconConverter x:Key="LoadingIconConverter" />
         </ResourceDictionary>
     </Application.Resources>
     

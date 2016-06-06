@@ -90,7 +90,7 @@ namespace AwfulRedux.BackgroundNotify
                     }
                     newbookmarkthreads.AddRange(bookmarks);
                 }
-                _helper.Read<DateTime>("LastRefresh", DateTime.UtcNow);
+                _helper.Write<DateTime>("LastRefresh", DateTime.UtcNow);
                 await _bdb.RefreshBookmarkedThreads(newbookmarkthreads);
                 newbookmarkthreads = await _bdb.GetBookmarkedThreadsFromDb();
             }

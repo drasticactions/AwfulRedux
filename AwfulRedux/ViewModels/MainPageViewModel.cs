@@ -39,6 +39,17 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        private bool _isLoading = default(bool);
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                Set(ref _isLoading, value);
+            }
+        }
+
         public async Task RefreshForums()
         {
             await GetMainPageForumsAsync(true);
@@ -49,6 +60,8 @@ namespace AwfulRedux.ViewModels
             NavigationService.Navigate(typeof(Views.LoginPage));
         }
 
+        public string LoadingUrl { get; set; } = "/Assets/awful-anime.gif";
+
         public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)
         {
             var deferral = e.GetDeferral();
@@ -58,6 +71,7 @@ namespace AwfulRedux.ViewModels
 
         private async Task GetMainPageForumsAsync(bool forceRefresh = false)
         {
+            IsLoading = true;
             var forumCategoryEntities = await _db.GetMainForumsList();
             if (forumCategoryEntities.Any() && !forceRefresh)
             {
@@ -65,6 +79,7 @@ namespace AwfulRedux.ViewModels
                 {
                     ForumGroupList.Add(forumCategoryEntity);
                 }
+                IsLoading = false;
                 return;
             }
 
@@ -85,6 +100,7 @@ namespace AwfulRedux.ViewModels
                 if (!resultCheck)
                 {
                     await ResultChecker.SendMessageDialogAsync("Failed to update initial forum list", false);
+                    IsLoading = false;
                     return;
                 }
                 forumCategoryEntities = JsonConvert.DeserializeObject<List<Category>>(forumResult.ResultJson);
@@ -97,10 +113,12 @@ namespace AwfulRedux.ViewModels
             }
             RaisePropertyChanged("ForumGroupList");
             await _db.SaveMainForumsList(ForumGroupList.ToList());
+            IsLoading = false;
         }
 
         private async Task GetFavoriteForums()
         {
+            IsLoading = true;
             var forumEntities = await _db.GetFavoriteForumsAsync();
             var favorites = ForumGroupList.FirstOrDefault(node => node.Name.Equals("Favorites"));
             if (!forumEntities.Any())
@@ -109,6 +127,7 @@ namespace AwfulRedux.ViewModels
                 {
                     ForumGroupList.Remove(favorites);
                 }
+                IsLoading = false;
                 return;
             }
 
@@ -128,6 +147,7 @@ namespace AwfulRedux.ViewModels
                 ForumGroupList.RemoveAt(0);
                 ForumGroupList.Insert(0, _favoritesEntity);
             }
+            IsLoading = false;
         }
 
         public void NavigateToThreadList(Forum forum)

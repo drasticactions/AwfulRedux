@@ -166,6 +166,8 @@
                                 </RichTextBlock>
                                 <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Special Thanks:" />
                                 <TextBlock  Margin="0,0,0,25" TextWrapping="Wrap">
+                        <Bold>The Awful iOS and Android Teams:</Bold> For helping with icons and other design elements. And otherwise being very nice people.<LineBreak/>
+                        <LineBreak/>            
                         <Bold>Ithaqua:</Bold> For writing unit tests that I later broke (I'll add um' back one day! Honest! :) )<LineBreak/>
                         <LineBreak/>
                         <Bold>ljw1004:</Bold> For helping me figure out the dumb stuff I keep doing to this app that cause it to crash, helping me with .NET issues, and generally being an awesome poster.<LineBreak/>

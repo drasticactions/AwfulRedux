@@ -10,6 +10,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:threads="using:AwfulRedux.Tools.Threads"
+    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -28,7 +29,8 @@
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
             </interactivity:Interaction.Behaviors>
         </controls:PageHeader>
-        <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
+        <Image Canvas.ZIndex="5" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Html}"  x:Name="ThreadFullView"/>
         <CommandBar Grid.Row="3">
             <CommandBar.PrimaryCommands>

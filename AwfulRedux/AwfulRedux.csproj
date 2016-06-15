@@ -227,6 +227,10 @@
     <Content Include="Assets\ThreadTags\seamonkeys.png" />
     <Content Include="Assets\ThreadTags\tigerattack.png" />
     <Content Include="Assets\ThreadTags\ycs-ryu.png" />
+    <Content Include="Assets\Throbbers\throbber_1.gif" />
+    <Content Include="Assets\Throbbers\throbber_1_black.gif" />
+    <Content Include="Assets\Throbbers\throbber_2.gif" />
+    <Content Include="Assets\Throbbers\throbber_2_black.gif" />
     <Content Include="Assets\Website\CSS\base.css" />
     <Content Include="Assets\Website\CSS\dark.css" />
     <Content Include="Assets\Website\CSS\winstrap.min.css" />

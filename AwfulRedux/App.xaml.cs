@@ -32,6 +32,8 @@ namespace AwfulRedux
     {
         public static ISettingsService Settings;
 
+        public static Random Random = new Random();
+
         public App()
         {
             InitializeComponent();

@@ -19,14 +19,20 @@ namespace AwfulRedux.Tools.Converters
             var theme = ApplicationTheme.Light;
             var themevalue = _helper.Read<string>("AppTheme", theme.ToString());
             var val = Enum.TryParse<ApplicationTheme>(themevalue, out theme) ? theme : ApplicationTheme.Light;
-            var stringResult = val ==
-                    ApplicationTheme.Dark ? "ms-appx:///Assets/awful-anime-dark.gif" : "ms-appx:///Assets/awful-anime.gif";
+            var darkLight = val == ApplicationTheme.Dark ? "_dark.gif" : ".gif";
+            var throbberval = GetRandomInt(1,3);
+            var stringResult = $"ms-appx:///Assets/Throbbers/throbber_{throbberval}{darkLight}";
             return stringResult;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();
+        }
+
+        protected int GetRandomInt(int min, int max)
+        {
+            return App.Random.Next(min, max);
         }
     }
 }

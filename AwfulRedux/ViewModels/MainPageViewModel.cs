@@ -60,7 +60,7 @@ namespace AwfulRedux.ViewModels
             NavigationService.Navigate(typeof(Views.LoginPage));
         }
 
-        public string LoadingUrl { get; set; } = "/Assets/awful-anime.gif";
+        public string LoadingUrl { get; set; } = "ms-appx:///Assets/Throbbers/throbber_1.gif";
 
         public async void PullToRefresh(object sender, RefreshRequestedEventArgs e)
         {

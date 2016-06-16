@@ -19,7 +19,7 @@ namespace AwfulRedux.Tools.Converters
             var theme = ApplicationTheme.Light;
             var themevalue = _helper.Read<string>("AppTheme", theme.ToString());
             var val = Enum.TryParse<ApplicationTheme>(themevalue, out theme) ? theme : ApplicationTheme.Light;
-            var darkLight = val == ApplicationTheme.Dark ? "_dark.gif" : ".gif";
+            var darkLight = val == ApplicationTheme.Dark ? "_black.gif" : ".gif";
             var throbberval = GetRandomInt(1,3);
             var stringResult = $"ms-appx:///Assets/Throbbers/throbber_{throbberval}{darkLight}";
             return stringResult;

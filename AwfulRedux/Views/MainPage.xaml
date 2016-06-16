@@ -46,8 +46,13 @@
         <!--  #region content  -->
 
         <Grid Grid.Row="1">
-            <Image Canvas.ZIndex="5" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
+            <Grid Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.Background>
+                    <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
+                </Grid.Background>
+                <Image 
                    Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+            </Grid>
             <listControls:AdaptiveGridView 
                 Grid.Row="0"
                 x:Name="MainForumListFull"

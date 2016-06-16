@@ -30,8 +30,13 @@
 
         <controls:PageHeader x:Name="ThreadPageHeader" BackButtonVisibility="Collapsed" VisualStateNormalMinWidth="720" HorizontalAlignment="Stretch" Text="{Binding Selected.Name}">
         </controls:PageHeader>
-        <Image Canvas.ZIndex="5" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
-                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+        <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
+            </Grid.Background>
+            <Image 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+        </Grid>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView">
         </WebView>
         <CommandBar Grid.Row="3">

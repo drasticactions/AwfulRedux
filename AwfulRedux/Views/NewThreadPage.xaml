@@ -58,6 +58,13 @@
             </AppBarButton>
             <AppBarButton Label="Imgur Image" Click="{x:Bind ViewModel.AddImageViaImgur}" Icon="Pictures"  />
         </CommandBar>
+        <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
+            </Grid.Background>
+            <Image 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+        </Grid>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="140"/>

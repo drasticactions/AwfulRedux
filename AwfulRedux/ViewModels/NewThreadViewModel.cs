@@ -145,6 +145,7 @@ namespace AwfulRedux.ViewModels
 
         public async Task CreateThread()
         {
+            IsLoading = true;
             if (string.IsNullOrEmpty(ReplyBox.Text) || string.IsNullOrEmpty(Subject.Text) || _newThread == null) return;
             _newThread.Content = ReplyBox.Text;
             _newThread.Subject = Subject.Text;
@@ -153,15 +154,19 @@ namespace AwfulRedux.ViewModels
             var result = await _threadManager.CreateNewThreadAsync(_newThread);
             if (result.IsSuccess)
             {
+                IsLoading = false;
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();
                 return;
             }
+
+            IsLoading = false;
 
             // TODO: Add error message when something screws up.
         }
 
         public async Task PreviewThread()
         {
+            IsLoading = true;
             if (string.IsNullOrEmpty(ReplyBox.Text) || _newThread == null) return;
             _newThread.Content = ReplyBox.Text;
             _newThread.Subject = Subject.Text;
@@ -171,6 +176,7 @@ namespace AwfulRedux.ViewModels
             var result = await _threadManager.CreateNewThreadPreview(_newThread);
             var post = JsonConvert.DeserializeObject<Post>(result.ResultJson);
             PreviewViewModel.LoadPost(new Thread(), post);
+            IsLoading = false;
         }
 
         public async Task AddImageViaImgur()

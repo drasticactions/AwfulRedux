@@ -12,6 +12,7 @@
     xmlns:controls1="using:AwfulRedux.Tools.Controls"
     xmlns:flyout="using:AwfulRedux.Tools.Flyout"
     xmlns:controls2="using:AwfulRedux.Controls"
+    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -52,6 +53,13 @@
             </AppBarButton>
             <AppBarButton Label="Imgur Image" Click="{x:Bind ViewModel.AddImageViaImgur}" Icon="Pictures"  />
         </CommandBar>
+        <Grid Grid.Row="2" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
+            </Grid.Background>
+            <Image 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+        </Grid>
         <TextBox IsSpellCheckEnabled="True" AcceptsReturn="True" Grid.Row="2"
                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="15" FontSize="20" x:Name="ReplyText" TextWrapping="Wrap" />
         <CommandBar Grid.Row="3">

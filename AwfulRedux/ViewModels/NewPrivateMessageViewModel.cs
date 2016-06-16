@@ -100,6 +100,7 @@ namespace AwfulRedux.ViewModels
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
+            IsLoading = true;
             await base.OnNavigatedToAsync(parameter, mode, suspensionState);
             Selected = JsonConvert.DeserializeObject<PrivateMessage>(parameter.ToString());
             if (!string.IsNullOrEmpty(Selected.Title))
@@ -116,10 +117,12 @@ namespace AwfulRedux.ViewModels
             {
                 Recipient.Text = Selected.Sender;
             }
+            IsLoading = false;
         }
 
         public async Task CreatePm()
         {
+            IsLoading = true;
             if (string.IsNullOrEmpty(ReplyBox.Text) || _newPrivateMessage == null) return;
             if (PostIconViewModel.PostIcon == null) return;
             IsLoading = true;
@@ -140,9 +143,10 @@ namespace AwfulRedux.ViewModels
             if (result.IsSuccess)
             {
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();
+                IsLoading = false;
                 return;
             }
-
+            IsLoading = false;
             // TODO: Add error message when something screws up.
         }
 

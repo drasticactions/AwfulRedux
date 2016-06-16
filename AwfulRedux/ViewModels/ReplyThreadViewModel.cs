@@ -165,6 +165,7 @@ namespace AwfulRedux.ViewModels
         {
             if (string.IsNullOrEmpty(ReplyBox.Text) || _forumReply == null) return;
             _forumReply.Message = ReplyBox.Text;
+            IsLoading = true;
             var loadingString = Selected.IsEdit ? "Editing Post..." : "Posting reply (Better hope it doesn't suck...)";
             //Views.Shell.ShowBusy(true, loadingString);
             Result result;
@@ -179,15 +180,17 @@ namespace AwfulRedux.ViewModels
             //Views.Shell.ShowBusy(false);
             if (result.IsSuccess)
             {
+                IsLoading = false;
                 Template10.Common.BootStrapper.Current.NavigationService.GoBack();
                 return;
             }
-
+            IsLoading = false;
             // TODO: Add error message when something screws up.
         }
 
         public async Task PreviewPost()
         {
+            IsLoading = true;
             if (string.IsNullOrEmpty(ReplyBox.Text) || _forumReply == null) return;
             _forumReply.Message = ReplyBox.Text;
             PreviewViewModel.IsOpen = true;
@@ -196,6 +199,7 @@ namespace AwfulRedux.ViewModels
                 : await _replyManager.CreatePreviewPost(_forumReply);
             var post = JsonConvert.DeserializeObject<Post>(result.ResultJson);
             PreviewViewModel.LoadPost(Selected.Thread, post);
+            IsLoading = false;
         }
 
         public void ShowPreviousPosts()

@@ -2,6 +2,11 @@
     background-color: white;
 }
 
+.thread-header {
+    border-bottom: 1px #CFCFCF solid;
+    padding-bottom: 10px;
+}
+
 .img-responsive {
     max-width: 90%;
 }

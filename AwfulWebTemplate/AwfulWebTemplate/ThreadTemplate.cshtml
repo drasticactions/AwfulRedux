@@ -47,6 +47,7 @@ switch (Model.ForumThread.ForumId)
 </head>
 
 <body data-thread-id="@Model.ForumThread.ThreadId" data-thread-name="@Model.ForumThread.Name" data-show-embedded-tweets="@Model.EmbeddedTweets" data-show-embedded-gifv="@Model.EmbeddedGifv" data-show-embedded-video="@Model.EmbeddedVideo" style="overflow-x: hidden;">
+	<div style="display:none;" id="loggedinusername">@Model.ForumThread.LoggedInUserName</div>
     <div id="content">
         <div id="thread">
             <div class="container-fluid">
@@ -68,7 +69,7 @@ switch (Model.ForumThread.ForumId)
                 	seenCount++;
 
             		<div class="@hasSeen">
-            		<div class="col-md-4">
+            		<div class="col-md-4 thread-header">
                             <div id="threadView">
                             <img data-user-id="@post.User.Id" src="@post.User.AvatarLink"
                                 alt="" class="av" border="0">

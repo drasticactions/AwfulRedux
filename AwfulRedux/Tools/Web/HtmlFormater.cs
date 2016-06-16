@@ -20,6 +20,11 @@ namespace AwfulRedux.Tools.Web
             return string.Format("<div class=\"postbody\">{0}</div>", forumPostEntity.PostHtml);
         }
 
+        private static bool UserNameTest(string loggedInUserName)
+        {
+            return loggedInUserName != "Testy Susan" || !string.IsNullOrEmpty(loggedInUserName);
+        }
+
         public static async Task<string> FormatSaclopediaEntry(string body, PlatformIdentifier platformIdentifier)
         {
             string html = await PathIO.ReadTextAsync("ms-appx:///Assets/Website/saclopedia.html");
@@ -143,6 +148,8 @@ namespace AwfulRedux.Tools.Web
 
         public static async Task<string> FormatThreadHtml(Thread forumThreadEntity, List<Post> postEntities, PlatformIdentifier platformIdentifier, bool isLoggedIn = false, bool isPreviousPosts = false)
         {
+            isLoggedIn = UserNameTest(forumThreadEntity.LoggedInUserName);
+
             string html = await PathIO.ReadTextAsync("ms-appx:///Assets/Website/thread.html");
 
             var doc2 = new HtmlDocument();
@@ -190,7 +197,7 @@ namespace AwfulRedux.Tools.Web
 
             string threadHtml = string.Empty;
 
-            if (!string.IsNullOrEmpty(forumThreadEntity.LoggedInUserName))
+            if (UserNameTest(forumThreadEntity.LoggedInUserName))
             {
                 threadHtml += $"<div style=\"display:none;\" id=\"loggedinusername\">{forumThreadEntity.LoggedInUserName}</div>";
             }

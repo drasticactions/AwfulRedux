@@ -42,6 +42,8 @@ namespace AwfulRedux.Core.Managers
 
             try
             {
+                var usernameNode = doc.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("id", string.Empty).Equals("loggedinusername"));
+                forumThread.LoggedInUserName = usernameNode != null ? usernameNode.InnerText : string.Empty;
                 string responseUri = result.AbsoluteUri;
                 string[] test = responseUri.Split('#');
                 if (test.Length > 1 && test[1].Contains("pti"))
@@ -326,6 +328,9 @@ namespace AwfulRedux.Core.Managers
 
             var threadIdNode = threadDocument.DocumentNode.Descendants("body").First();
             threadEntity.ThreadId = Convert.ToInt64(threadIdNode.GetAttributeValue("data-thread", string.Empty));
+
+            var usernameNode = threadDocument.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("id", string.Empty).Equals("loggedinusername"));
+            threadEntity.LoggedInUserName = usernameNode != null ? usernameNode.InnerText : string.Empty;
 
             threadEntity.Location = string.Format(EndPoints.ThreadPage, threadEntity.ThreadId);
             var pageNavigationNode = threadDocument.DocumentNode.Descendants("div").FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("pages top"));

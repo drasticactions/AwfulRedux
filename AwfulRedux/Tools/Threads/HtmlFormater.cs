@@ -106,7 +106,7 @@ namespace AwfulRedux.Tools.Threads
 
             string threadHtml = string.Empty;
 
-            if (!string.IsNullOrEmpty(forumThreadEntity.LoggedInUserName))
+            if (UserNameTest(forumThreadEntity.LoggedInUserName))
             {
                 threadHtml += $"<div style=\"display:none;\" id=\"loggedinusername\">{forumThreadEntity.LoggedInUserName}</div>";
             }
@@ -155,6 +155,11 @@ namespace AwfulRedux.Tools.Threads
                 image.Attributes.Remove("src");
             }
             return doc2.DocumentNode.OuterHtml;
+        }
+
+        private static bool UserNameTest(string loggedInUserName)
+        {
+            return loggedInUserName != "Testy Susan" || !string.IsNullOrEmpty(loggedInUserName);
         }
 
         private static string ParsePosts(int startingCount, int endCount, List<Post> postEntities, bool isPrivateMessage)

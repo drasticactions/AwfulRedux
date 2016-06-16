@@ -10,6 +10,7 @@
     xmlns:controls="using:Template10.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -26,6 +27,13 @@
                 <behaviors:EllipsisBehavior Visibility="Collapsed" />
             </interactivity:Interaction.Behaviors>
         </controls:PageHeader>
+        <Grid Grid.Row="1" Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
+            </Grid.Background>
+            <Image 
+                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+        </Grid>
         <Grid Grid.Row="1" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityInverter}}" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -33,12 +41,24 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <ProgressBar VerticalAlignment="Top" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" IsIndeterminate="True"/>
             <TextBlock FontSize="30" Grid.Row="1" FontWeight="Thin" Margin="0,25,0,0" HorizontalAlignment="Center" Text="Awful Forums Reader"></TextBlock>
             <Grid Grid.Row="2">
                 <StackPanel Margin="0,25,0,0" Width="300">
-                    <TextBox x:Name="Username" IsSpellCheckEnabled="False" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Username" Margin="0,0,0,15" />
-                    <PasswordBox PasswordRevealMode="Peek" x:Name="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Password" Margin="0,0,0,15"  />
+                    <TextBox x:Name="Username" IsSpellCheckEnabled="False" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Username" Margin="0,0,0,15">
+                        <interactivity:Interaction.Behaviors>
+                            <!--  focus on textbox when page loads  -->
+                            <core:EventTriggerBehavior>
+                                <behaviors:FocusAction />
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </TextBox>
+                    <PasswordBox PasswordRevealMode="Peek" x:Name="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Password" Margin="0,0,0,15">
+                        <interactivity:Interaction.Behaviors>
+                            <behaviors:KeyBehavior Key="Enter">
+                                <core:CallMethodAction MethodName="LoginUser" TargetObject="{Binding}" />
+                            </behaviors:KeyBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </PasswordBox>
                     <Button x:Name="LoginButton" Content="Login" Click="{x:Bind ViewModel.LoginUser}"  HorizontalAlignment="Center" />
                 </StackPanel>
             </Grid>

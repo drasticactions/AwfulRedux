@@ -157,9 +157,15 @@ namespace AwfulRedux.ViewModels
             }
             var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed, goToPageOverride);
             var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
+            Selected.LoggedInUserName = postresult.ForumThread.LoggedInUserName;
             Selected.CurrentPage = postresult.ForumThread.CurrentPage;
             Selected.TotalPages = postresult.ForumThread.TotalPages;
             Selected.Posts = postresult.Posts;
+            // If the user is the "Test" user, say they are not logged in (even though they are)
+            if (Selected.LoggedInUserName == "Testy Susan")
+            {
+                IsLoggedIn = false;
+            }
             var threadTemplateModel = new ThreadTemplateModel()
             {
                 ForumThread = Selected,

@@ -53,11 +53,6 @@
                         </interactivity:Interaction.Behaviors>
                     </TextBox>
                     <PasswordBox PasswordRevealMode="Peek" x:Name="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Password" Margin="0,0,0,15">
-                        <interactivity:Interaction.Behaviors>
-                            <behaviors:KeyBehavior Key="Enter">
-                                <core:CallMethodAction MethodName="LoginUser" TargetObject="{Binding}" />
-                            </behaviors:KeyBehavior>
-                        </interactivity:Interaction.Behaviors>
                     </PasswordBox>
                     <Button x:Name="LoginButton" Content="Login" Click="{x:Bind ViewModel.LoginUser}"  HorizontalAlignment="Center" />
                 </StackPanel>

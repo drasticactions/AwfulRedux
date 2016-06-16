@@ -6,6 +6,11 @@ body {
 	color: black;
 }
 
+.thread-header {
+    border-bottom: 1px transparent solid;
+    padding-bottom: 10px;
+}
+
 .ptr-refresh #ptr .genericon {
     color: white;
 }

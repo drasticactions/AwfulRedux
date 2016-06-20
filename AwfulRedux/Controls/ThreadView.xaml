@@ -34,8 +34,7 @@
             <Grid.Background>
                 <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
             </Grid.Background>
-            <Image 
-                   Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding Converter={StaticResource LoadingIconConverter}}"/>
+            <ProgressRing IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" Height="48" Width="48" VerticalAlignment="Center" HorizontalAlignment="Center"></ProgressRing>
         </Grid>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView">
         </WebView>

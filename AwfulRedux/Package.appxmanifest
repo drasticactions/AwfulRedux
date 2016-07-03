@@ -21,25 +21,27 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
+        <uap:Extension Category="windows.appService" EntryPoint="AwfulRedux.VoiceCommands.AwfulVoiceCommandService">
+          <uap:AppService Name="AwfulVoiceCommandService" />
+        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.BackgroundNotifyStatus">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.ToastNotificationBackgroundTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="deviceConnectionChange" />
           </BackgroundTasks>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.BackgroundNotifyStatus">
-          <BackgroundTasks>
-            <Task Type="timer" />
-          </BackgroundTasks>
-        </Extension>
-        <uap:Extension Category="windows.appService" EntryPoint="AwfulRedux.VoiceCommands.AwfulVoiceCommandService">
-          <uap:AppService Name="AwfulVoiceCommandService" />
-        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
     <uap:Capability Name="picturesLibrary" />
+    <DeviceCapability Name="bluetooth" />
+    <DeviceCapability Name="proximity" />
   </Capabilities>
 </Package>

@@ -67,7 +67,12 @@ namespace AwfulRedux.Core.Managers
             return doc;
         }
 
-        public async Task<Result> GetThreadPostsAsync(string location, int currentPage, bool hasBeenViewed = false, bool goToPageOverride = false)
+        public async Task<Result> GetUsersPostsInThreadAsync(string location, int userId, int currentPage, bool hasBeenViewed = false, bool goToPageOverride = false, bool isSimple = false)
+        {
+            return await GetThreadPostsAsync(location += $"&userid={userId}", currentPage, hasBeenViewed, goToPageOverride, isSimple);
+        }
+
+        public async Task<Result> GetThreadPostsAsync(string location, int currentPage, bool hasBeenViewed = false, bool goToPageOverride = false, bool isSimple = false)
         {
             string url = location;
             if (goToPageOverride)
@@ -122,7 +127,7 @@ namespace AwfulRedux.Core.Managers
                            .Where(node => node.GetAttributeValue("class", string.Empty).Contains("post") && !string.IsNullOrEmpty(node.GetAttributeValue("data-idx", string.Empty))))
                 {
                     var post = new Post();
-                    ParsePost(post, postNode);
+                    ParsePost(post, postNode, isSimple);
                     var postBodyNode =
                         postNode.Descendants("td")
                             .FirstOrDefault(node => node.GetAttributeValue("class", string.Empty).Equals("postbody"));
@@ -258,20 +263,7 @@ namespace AwfulRedux.Core.Managers
             }
             else
             {
-                var postElement = new PostElements() { InnerText = Regex.Replace(postBodyNode.InnerText, "<!--.*?-->", string.Empty, RegexOptions.Multiline), ImageUrls = new List<string>() };
-                var images = postBodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
-                foreach (var image in images)
-                {
-                    var src = image.Attributes["src"].Value;
-                    if (src.Contains("somethingawful.com"))
-                        continue;
-                    if (src.Contains("emoticons"))
-                        continue;
-                    if (src.Contains("smilies"))
-                        continue;
-                    postElement.ImageUrls.Add(image.Attributes["src"].Value);
-                }
-                post.PostElements = postElement;
+                CreatePostElements(postBodyNode, post);
             }
 
             HtmlNode profileLinksNode =
@@ -288,6 +280,42 @@ namespace AwfulRedux.Core.Managers
             post.User.IsCurrentUserPost =
                 profileLinksNode.Descendants("img")
                     .FirstOrDefault(node => node.GetAttributeValue("alt", string.Empty).Equals("Edit")) != null;
+        }
+
+        private void CreatePostElements(HtmlNode postBodyNode, Post post)
+        {
+            // Fix EditedBy tag manually :(
+            postBodyNode.InnerHtml += "</p>";
+            var quoteNodes =
+                    postBodyNode.Descendants("div")
+                        .Where(node => node.GetAttributeValue("class", string.Empty) == "bbc-block").ToList();
+            for (var i = 0; i < quoteNodes.Count(); i++)
+            {
+                quoteNodes[i].RemoveAll();
+            }
+            var editNodes =
+                postBodyNode.Descendants("p")
+                    .Where(node => node.GetAttributeValue("class", string.Empty).Contains("editedby")).ToList();
+            for (var i = 0; i < editNodes.Count(); i++)
+            {
+                editNodes[i].RemoveAll();
+            }
+            var postText = Regex.Replace(postBodyNode.InnerText, "<!--.*?-->", string.Empty, RegexOptions.Multiline);
+            postText = Regex.Replace(postText, @"\r\n?|\n", string.Empty, RegexOptions.Multiline).Trim();
+            var postElement = new PostElements() { InnerText = postText, ImageUrls = new List<string>() };
+            var images = postBodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
+            foreach (var image in images)
+            {
+                var src = image.Attributes["src"].Value;
+                if (src.Contains("somethingawful.com"))
+                    continue;
+                if (src.Contains("emoticons"))
+                    continue;
+                if (src.Contains("smilies"))
+                    continue;
+                postElement.ImageUrls.Add(image.Attributes["src"].Value);
+            }
+            post.PostElements = postElement;
         }
 
         private void FixQuotes(HtmlNode postNode)

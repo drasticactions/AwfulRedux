@@ -1197,13 +1197,13 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
+      <Name>AwfulForumsLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.BackgroundNotify\AwfulRedux.BackgroundNotify.csproj">
       <Project>{dd16bd05-bebf-4672-b388-20965d73817b}</Project>
       <Name>AwfulRedux.BackgroundNotify</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AwfulRedux.Core\AwfulRedux.Core.csproj">
-      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulRedux.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.Database\AwfulRedux.Database.csproj">
       <Project>{1e180038-8cd3-4006-8780-f7707ae100d4}</Project>

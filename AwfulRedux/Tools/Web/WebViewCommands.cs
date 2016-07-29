@@ -12,9 +12,9 @@ using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Controls;
 using AwfulRedux.Common;
-using AwfulRedux.Core.Managers;
-using AwfulRedux.Core.Models.Threads;
-using AwfulRedux.Core.Tools;
+using AwfulForumsLibrary.Managers;
+using AwfulForumsLibrary.Models.Threads;
+using AwfulForumsLibrary.Tools;
 using AwfulRedux.Database;
 using AwfulRedux.Notifications;
 using AwfulRedux.Services.WindowService;
@@ -24,7 +24,7 @@ using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.ViewModels;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
-using Thread = AwfulRedux.Core.Models.Threads.Thread;
+using Thread = AwfulForumsLibrary.Models.Threads.Thread;
 
 namespace AwfulRedux.Tools.Web
 {

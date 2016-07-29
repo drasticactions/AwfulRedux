@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using AwfulRedux.Core.Tools;
+using AwfulForumsLibrary.Tools;
 
 namespace AwfulRedux.Tools.Authentication
 {

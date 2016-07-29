@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
-using AwfulRedux.Core.Models.Web;
+using AwfulForumsLibrary.Models.Web;
 using Newtonsoft.Json;
 
 namespace AwfulRedux.Tools.Errors

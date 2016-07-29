@@ -112,9 +112,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AwfulRedux.Core\AwfulRedux.Core.csproj">
+    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
       <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulRedux.Core</Name>
+      <Name>AwfulForumsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.Database\AwfulRedux.Database.csproj">
       <Project>{1e180038-8cd3-4006-8780-f7707ae100d4}</Project>

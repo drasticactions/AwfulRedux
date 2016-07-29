@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
-using AwfulRedux.Core.Managers;
-using AwfulRedux.Core.Models.PostIcons;
+using AwfulForumsLibrary.Managers;
+using AwfulForumsLibrary.Models.PostIcons;
 using Template10.Mvvm;
 using Template10.Utils;
 

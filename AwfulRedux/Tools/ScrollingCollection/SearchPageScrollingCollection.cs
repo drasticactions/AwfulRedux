@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
-using AwfulRedux.Core.Managers;
-using AwfulRedux.Core.Models.Search;
+using AwfulForumsLibrary.Managers;
+using AwfulForumsLibrary.Models.Search;
 
 namespace AwfulRedux.Tools.ScrollingCollection
 {

@@ -8,7 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 
 using AwfulRedux.Controls;
-using AwfulRedux.Core.Managers;
+using AwfulForumsLibrary.Managers;
 using AwfulRedux.Tools.ScrollingCollection;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;

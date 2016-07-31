@@ -11,7 +11,7 @@
     <AssemblyName>AwfulRedux.Notifications</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -113,9 +113,9 @@
     <EmbeddedResource Include="Properties\AwfulRedux.Notifications.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AwfulRedux.Core\AwfulRedux.Core.csproj">
+    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
       <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulRedux.Core</Name>
+      <Name>AwfulForumsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.UI\AwfulRedux.UI.csproj">
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>

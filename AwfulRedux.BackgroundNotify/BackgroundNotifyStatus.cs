@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 using Windows.Storage;
-using AwfulRedux.Core.Managers;
+using AwfulForumsLibrary.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Notifications;
 using AwfulRedux.UI.Models.Threads;

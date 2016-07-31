@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
 
-using AwfulRedux.Core.Models.Messages;
+using AwfulForumsLibrary.Models.Messages;
 using AwfulRedux.Tools.ScrollingCollection;
 using AwfulRedux.Views;
 using Newtonsoft.Json;

@@ -23,7 +23,7 @@ using System;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
-using AwfulRedux.Core.Models.Forums;
+using AwfulForumsLibrary.Models.Forums;
 
 namespace AwfulRedux.Tools.Converters
 {

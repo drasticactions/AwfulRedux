@@ -11,8 +11,8 @@
     <AssemblyName>AwfulRedux</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -1186,24 +1186,24 @@
     <SDKReference Include="SQLite.UWP.2015, Version=3.13.0">
       <Name>SQLite for Universal Windows Platform</Name>
     </SDKReference>
-    <SDKReference Include="WindowsDesktop, Version=10.0.10586.0">
+    <SDKReference Include="WindowsDesktop, Version=10.0.14393.0">
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsIoT, Version=10.0.10586.0">
+    <SDKReference Include="WindowsIoT, Version=10.0.14393.0">
       <Name>Windows IoT Extensions for the UWP</Name>
     </SDKReference>
-    <SDKReference Include="WindowsMobile, Version=10.0.10586.0">
+    <SDKReference Include="WindowsMobile, Version=10.0.14393.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
+      <Name>AwfulForumsLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.BackgroundNotify\AwfulRedux.BackgroundNotify.csproj">
       <Project>{dd16bd05-bebf-4672-b388-20965d73817b}</Project>
       <Name>AwfulRedux.BackgroundNotify</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AwfulRedux.Core\AwfulRedux.Core.csproj">
-      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulRedux.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.Database\AwfulRedux.Database.csproj">
       <Project>{1e180038-8cd3-4006-8780-f7707ae100d4}</Project>

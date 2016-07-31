@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using AwfulRedux.Core.Managers;
+using AwfulForumsLibrary.Managers;
 using AwfulRedux.Tools.Authentication;
 using AwfulRedux.UI.Models.Smilies;
 using Newtonsoft.Json;

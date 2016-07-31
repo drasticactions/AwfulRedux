@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.UI.Xaml.Navigation;
 
-using AwfulRedux.Core.Managers;
-using AwfulRedux.Core.Tools;
+using AwfulForumsLibrary.Managers;
+using AwfulForumsLibrary.Tools;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Database;

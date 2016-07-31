@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AwfulRedux.Core.Managers;
+using AwfulForumsLibrary.Managers;
 using AwfulRedux.Tools.Errors;
 using AwfulRedux.ViewModels;
 

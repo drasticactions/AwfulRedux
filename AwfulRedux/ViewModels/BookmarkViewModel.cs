@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Navigation;
 
 using AwfulRedux.Controls;
-using AwfulRedux.Core.Managers;
+using AwfulForumsLibrary.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Database;
 using AwfulRedux.UI.Models.Threads;

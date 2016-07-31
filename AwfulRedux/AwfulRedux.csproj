@@ -368,12 +368,8 @@
     <Compile Include="Tools\ScrollingCollection\PageScrollingCollection.cs" />
     <Compile Include="Tools\ScrollingCollection\PrivateMessageScrollingCollection.cs" />
     <Compile Include="Tools\ScrollingCollection\SearchPageScrollingCollection.cs" />
-    <Compile Include="Tools\Threads\HtmlButtonBuilder.cs" />
-    <Compile Include="Tools\Threads\HtmlFormater.cs" />
     <Compile Include="Tools\Threads\WebViewHelper.cs" />
     <Compile Include="Tools\Web\AddImage.cs" />
-    <Compile Include="Tools\Web\HtmlButtonBuilder.cs" />
-    <Compile Include="Tools\Web\HtmlFormater.cs" />
     <Compile Include="Tools\Web\WebViewCommands.cs" />
     <Compile Include="ViewModels\BookmarkViewModel.cs" />
     <Compile Include="ViewModels\ForumThreadListBaseViewModel.cs" />

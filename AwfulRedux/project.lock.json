@@ -37,14 +37,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -406,12 +398,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -2141,14 +2133,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -2460,12 +2444,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -4106,14 +4090,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -4422,12 +4398,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -6029,14 +6005,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -6353,12 +6321,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -8002,14 +7970,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -8318,12 +8278,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -9925,14 +9885,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -10249,12 +10201,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -11898,14 +11850,6 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
-      "HtmlAgilityPack/1.4.9": {
-        "compile": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        },
-        "runtime": {
-          "lib/NetCore45/HtmlAgilityPack.dll": {}
-        }
-      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -12214,12 +12158,12 @@
           "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/9.0.1": {
         "compile": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+          "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {}
         }
       },
       "NotificationsExtensions.Win10/14295.0.1": {
@@ -13817,43 +13761,6 @@
         "lib/portable-wp8/FFImageLoading.xml"
       ]
     },
-    "HtmlAgilityPack/1.4.9": {
-      "sha512": "anZIsi7bbHZ35ZZzvCA+gVWC/mEXVhcJjJvxr3wzUEDsOE4uk0Fa0ZiaxVn83AZpVKVO4RHyqamPkzzJbMUgmQ==",
-      "type": "package",
-      "files": [
-        "HAPIcon.png",
-        "HtmlAgilityPack.1.4.9.nupkg.sha512",
-        "HtmlAgilityPack.nuspec",
-        "lib/Net20/HtmlAgilityPack.dll",
-        "lib/Net20/HtmlAgilityPack.pdb",
-        "lib/Net20/HtmlAgilityPack.xml",
-        "lib/Net40-client/HtmlAgilityPack.dll",
-        "lib/Net40-client/HtmlAgilityPack.pdb",
-        "lib/Net40-client/HtmlAgilityPack.xml",
-        "lib/Net40/HtmlAgilityPack.XML",
-        "lib/Net40/HtmlAgilityPack.dll",
-        "lib/Net40/HtmlAgilityPack.pdb",
-        "lib/Net45/HtmlAgilityPack.XML",
-        "lib/Net45/HtmlAgilityPack.dll",
-        "lib/Net45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.dll",
-        "lib/NetCore45/HtmlAgilityPack.pdb",
-        "lib/NetCore45/HtmlAgilityPack.pri",
-        "lib/NetCore45/HtmlAgilityPack.xml",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
-        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
-        "lib/sl3-wp/_._",
-        "lib/sl4/HtmlAgilityPack.XML",
-        "lib/sl4/HtmlAgilityPack.dll",
-        "lib/sl4/HtmlAgilityPack.pdb",
-        "lib/sl5/HtmlAgilityPack.XML",
-        "lib/sl5/HtmlAgilityPack.dll",
-        "lib/sl5/HtmlAgilityPack.pdb",
-        "readme.txt"
-      ]
-    },
     "Microsoft.ApplicationInsights/2.0.1": {
       "sha512": "iZjOx8ysupwITjhCl6suEOBQ+yTUBlJhQ2lfXBJkpS66gjB5TDJxIPrqKJ17/v4QqiFw//eHTGtMUCtoMN6WDQ==",
       "type": "package",
@@ -14735,11 +14642,11 @@
         "lib/uap10.0/Microsoft.Xaml.Interactivity.xml"
       ]
     },
-    "Newtonsoft.Json/8.0.3": {
-      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+    "Newtonsoft.Json/9.0.1": {
+      "sha512": "U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
       "type": "package",
       "files": [
-        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.9.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -14749,15 +14656,17 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
       ]
     },
     "NotificationsExtensions.Win10/14295.0.1": {
-      "sha512": "XFRE87hwcl7xIqoYQD+bpEZGCb7jqFOJK5YpcPKVD/pcMa7KajLvh7rUD6of1gnxM/iGVZg4D7LczeMH2D58aQ==",
+      "sha512": "7guXcl341xsRlepVXP2bUPHGPDiSppHovo2nuV3u1Adf3GetT8aVKjvViXTP0SyJuGWA90ngvrbl+Z3G/PEDdA==",
       "type": "package",
       "files": [
         "NotificationsExtensions.Win10.14295.0.1.nupkg.sha512",
@@ -14776,7 +14685,7 @@
       ]
     },
     "QueryString.NET/1.0.0": {
-      "sha512": "wmOG5qPFYH7jKp3fMXQ2VeMXTgcyoI4hwPF8AxFAyrT/uVBDe0ISzyh/iFEnwmFBUm19UgbDoFRU3o47a1/vUw==",
+      "sha512": "u+MbuqDtckYQv90rphUgmz1PXA4lBSG50MvP5yHUiCzn/kxAs2W8Pyb9VQRlnc+fBB0q6C/Q+bk+nuKbFVqiIg==",
       "type": "package",
       "files": [
         "QueryString.NET.1.0.0.nupkg.sha512",
@@ -17837,14 +17746,13 @@
     "": [
       "Comet >= 0.2.0.1",
       "FFImageLoading.Windows >= 2.1.0-alpha1",
-      "HtmlAgilityPack >= 1.4.9",
       "Microsoft.ApplicationInsights >= 2.0.1",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
       "Microsoft.Band >= 1.3.20420",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.1.0",
-      "Newtonsoft.Json >= 8.0.3",
+      "Newtonsoft.Json >= 9.0.1",
       "QueryString.NET >= 1.0.0",
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",

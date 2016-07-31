@@ -86,7 +86,7 @@ namespace AwfulRedux.ViewModels
                 await LoginUser();
             }
             var newPosts = JsonConvert.DeserializeObject<List<Post>>(posts);
-            PostHtml = await HtmlFormater.FormatThreadHtml(thread, newPosts, GetTheme, true, true);
+            //PostHtml = await HtmlFormater.FormatThreadHtml(thread, newPosts, GetTheme, true, true);
         }
 
         public async void AddQuoteString(long postId)

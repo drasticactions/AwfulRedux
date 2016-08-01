@@ -1992,6 +1992,28 @@
           }
         }
       },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-arm"
+          },
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x64"
+          },
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {
+            "assetType": "native",
+            "rid": "win10-x86"
+          }
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -3949,6 +3971,17 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -5862,6 +5895,17 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -7829,6 +7873,17 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -9742,6 +9797,17 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -11709,6 +11775,17 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -13624,6 +13701,17 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Win2D.uwp/1.18.0": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Graphics.Canvas.winmd": {}
+        },
+        "native": {
+          "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -14666,7 +14754,7 @@
       ]
     },
     "NotificationsExtensions.Win10/14295.0.1": {
-      "sha512": "7guXcl341xsRlepVXP2bUPHGPDiSppHovo2nuV3u1Adf3GetT8aVKjvViXTP0SyJuGWA90ngvrbl+Z3G/PEDdA==",
+      "sha512": "XFRE87hwcl7xIqoYQD+bpEZGCb7jqFOJK5YpcPKVD/pcMa7KajLvh7rUD6of1gnxM/iGVZg4D7LczeMH2D58aQ==",
       "type": "package",
       "files": [
         "NotificationsExtensions.Win10.14295.0.1.nupkg.sha512",
@@ -14685,7 +14773,7 @@
       ]
     },
     "QueryString.NET/1.0.0": {
-      "sha512": "u+MbuqDtckYQv90rphUgmz1PXA4lBSG50MvP5yHUiCzn/kxAs2W8Pyb9VQRlnc+fBB0q6C/Q+bk+nuKbFVqiIg==",
+      "sha512": "wmOG5qPFYH7jKp3fMXQ2VeMXTgcyoI4hwPF8AxFAyrT/uVBDe0ISzyh/iFEnwmFBUm19UgbDoFRU3o47a1/vUw==",
       "type": "package",
       "files": [
         "QueryString.NET.1.0.0.nupkg.sha512",
@@ -17656,6 +17744,23 @@
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
+    "Win2D.uwp/1.18.0": {
+      "sha512": "qPRgHJF9l7vKLyM/adOjUHE9OE90nYFCpa3/IOaBu1lMyiMwcfXyV2JEri+beNir0eo7luzz8dRBpyBIkjK9qw==",
+      "type": "package",
+      "files": [
+        "Win2D.uwp.1.18.0.nupkg.sha512",
+        "Win2D.uwp.nuspec",
+        "Win2d.githash.txt",
+        "build/native/Win2D.uwp.targets",
+        "include/Microsoft.Graphics.Canvas.h",
+        "include/Microsoft.Graphics.Canvas.native.h",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.winmd",
+        "lib/uap10.0/Microsoft.Graphics.Canvas.xml",
+        "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll",
+        "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll"
+      ]
+    },
     "WinUX.Common/1.3.3": {
       "sha512": "kR6cTR/P5cvTwkt7TSzJsVCH9wzUeiNBc6Mdc08pdTahETAerqoShnmsh5F4W7b1KkHolwMXCVrPtRZAsF/RGw==",
       "type": "package",
@@ -17757,6 +17862,7 @@
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",
       "SQLiteNetExtensions.Async >= 1.3.0",
+      "Win2D.uwp >= 1.18.0",
       "WinUX.UWP >= 1.3.3",
       "XamlAnimatedGif >= 1.1.2"
     ],

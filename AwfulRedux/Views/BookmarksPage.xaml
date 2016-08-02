@@ -120,16 +120,19 @@
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>
                 <Grid>
-                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Selected,
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding Selected,
                     Converter={StaticResource NullVisibilityInverter}}">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <FontIcon Grid.Row="0" Margin="0,25,0,25" HorizontalAlignment="Center" FontSize="70" FontFamily="Segoe MDL2 Assets" Glyph="&#xE0C4;" />
-                        <Image Grid.Row="1" Margin="5" Source="/Assets/Images/Icon2.png"/>
-                        <TextBlock Grid.Row="2" TextAlignment="Center" Padding="15" TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Text="Select a thread"/>
+                        <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="" Frame="{x:Bind Frame}">
+                        </controls1:PageHeader>
+                        <FontIcon Grid.Row="1" Margin="0,25,0,25" HorizontalAlignment="Center" FontSize="70" FontFamily="Segoe MDL2 Assets" Glyph="&#xE0C4;" />
+                        <Image Grid.Row="2" Margin="5" Source="/Assets/Images/Icon2.png"/>
+                        <TextBlock Grid.Row="3" TextAlignment="Center" Padding="15" TextWrapping="Wrap" Style="{StaticResource TitleTextBlockStyle}" Text="Select a thread"/>
                     </Grid>
                     <controls2:ThreadView Visibility="{Binding Selected, Converter={StaticResource NullVisibilityConverter}, Mode=OneWay}" x:Name="ThreadPageView">
 

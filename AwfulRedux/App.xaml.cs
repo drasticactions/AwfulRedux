@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Background;
 using Windows.Foundation.Metadata;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
+using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
@@ -37,7 +38,10 @@ namespace AwfulRedux
         public App()
         {
             InitializeComponent();
-
+            if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            {
+                this.RequiresPointerMode = Windows.UI.Xaml.ApplicationRequiresPointerMode.WhenRequested;
+            }
             #region App settings
 
             Settings = SettingsService.Instance;
@@ -180,6 +184,12 @@ namespace AwfulRedux
                             new TimeTrigger(15, false),
                             null);
                 }
+            }
+
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationViewBoundsMode") && AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            {
+                var AppView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+                AppView.SetDesiredBoundsMode(Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
             }
 
             var launch = args as LaunchActivatedEventArgs;

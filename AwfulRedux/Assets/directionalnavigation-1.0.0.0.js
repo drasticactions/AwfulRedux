@@ -200,8 +200,8 @@
         * Executes XYFocus algorithm with the given parameters. Returns true if focus was moved, false otherwise.
         * @param direction The direction to move focus.
         * @param keyCode The key code of the pressed key.
-        * @param (optional) A rectangle to use as the source coordinates for finding the next focusable element.
-        * @param (optional) Indicates whether this focus request is allowed to propagate to its parent if we are in iframe.
+        * @param referenceRect (optional) A rectangle to use as the source coordinates for finding the next focusable element.
+        * @param dontExit (optional) Indicates whether this focus request is allowed to propagate to its parent if we are in iframe.
     **/
     function _xyFocus(direction, keyCode, referenceRect, dontExit) {
         // If focus has moved since the last XYFocus movement, scrolling occured, or an explicit
@@ -269,6 +269,7 @@
                     refRect = document.activeElement ? _toIRect(document.activeElement.getBoundingClientRect()) : _defaultRect();
                 }
                 if (top === window && typeof window.departFocus === "function") {
+                    document.activeElement.blur();
                     departFocus(direction, WebViewHelper.refRectToNavigateFocusRect(refRect));
                 }
                 else {
@@ -558,7 +559,7 @@
             // Skip disabled WinJS controls
             return false;
         }
-        
+
         var style = window.getComputedStyle(element);
         if (style && tabIndex === -1 || style.display === "none" || style.visibility === "hidden" || element.disabled) {
             // Skip elements that are hidden
@@ -792,8 +793,8 @@
     // window.departFocus from within the webview. Indicates focus transitioning into the app
     // from the webview. The navigatingfocus event handles transforming the 
     // coordinate space so we just pass the values along.
-    document.addEventListener("departingfocus", function(eventArg) {
-        var focusChanged = _xyfocus(
+    document.addEventListener("departingfocus", function (eventArg) {
+        var focusChanged = _xyFocus(
             eventArg.navigationReason,
             -1,
             WebViewHelper.navigateFocusRectToRefRect(eventArg));
@@ -807,8 +808,8 @@
     // webview.navigateFocus on our containing webview element indicating focus transitioning
     // into the webview from the app. The navigatingfocus event handles transforming the 
     // coordinate space so we just pass the values along.
-    window.addEventListener("navigatingfocus", function(eventArg) {
-        var focusChanged = _xyfocus(
+    window.addEventListener("navigatingfocus", function (eventArg) {
+        var focusChanged = _xyFocus(
             eventArg.navigationReason,
             -1,
             WebViewHelper.navigateFocusRectToRefRect(eventArg));

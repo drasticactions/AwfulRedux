@@ -6,7 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
-    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     xmlns:controls="using:Template10.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
@@ -63,7 +62,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Image Height="150" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding SelectedUser.AvatarLink, TargetNullValue='/Assets/Images/Icon2.png' , FallbackValue='/Assets/Images/Icon2.png'}"/>
+            <Image Height="150"  Source="{Binding SelectedUser.AvatarLink, TargetNullValue='/Assets/Images/Icon2.png' , FallbackValue='/Assets/Images/Icon2.png'}"/>
             <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,10,0,25" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
             <Button Grid.Row="2" HorizontalAlignment="Center" Click="{x:Bind ViewModel.LogoutUser}" Content="Logout"/>
         </Grid>

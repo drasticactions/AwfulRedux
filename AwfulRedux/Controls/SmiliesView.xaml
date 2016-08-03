@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
     xmlns:smilies="using:AwfulRedux.UI.Models.Smilies"
-    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -48,7 +47,7 @@
                     <Grid HorizontalAlignment="Left" Width="100" Height="100">
                         <StackPanel VerticalAlignment="Bottom">
                             <Border Height="50" Background="{ThemeResource AwfulHeader}">
-                                <Image xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding ImageUrl}" Stretch="None"
+                                <Image Source="{Binding ImageUrl}" Stretch="None"
                                            AutomationProperties.Name="{Binding Title}" />
                             </Border>
                             <TextBlock TextAlignment="Center" Text="{Binding Title}"

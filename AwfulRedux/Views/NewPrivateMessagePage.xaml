@@ -73,7 +73,7 @@
             <StackPanel Margin="15" Grid.Row="0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center" Text="Post Icon:" Margin="0,0,15,0" FontSize="25"/>
-                    <Image x:Name="PostIconImage" xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding PostIconViewModel.PostIcon.ImageUrl}" Width="60" Height="15" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                    <Image x:Name="PostIconImage" Source="{Binding PostIconViewModel.PostIcon.ImageUrl}"  Width="60" Height="15" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <TextBox x:Name="Recipient" PlaceholderText="Recipient" MaxLength="75" Margin="0,10,0,0" FontSize="20" Height="40"/>
                 <TextBox x:Name="Subject" PlaceholderText="Subject" MaxLength="75" Margin="0,10,0,0" FontSize="20" Height="40"/>

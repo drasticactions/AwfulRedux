@@ -2110,14 +2110,6 @@
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -4078,14 +4070,6 @@
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -6003,14 +5987,6 @@
         },
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
-        }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
         }
       }
     },
@@ -7980,14 +7956,6 @@
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -9905,14 +9873,6 @@
         },
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
-        }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
         }
       }
     },
@@ -11882,14 +11842,6 @@
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
         }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -13807,14 +13759,6 @@
         },
         "runtime": {
           "lib/.NETCore50/WinUX.UWP.ValueConverters.dll": {}
-        }
-      },
-      "XamlAnimatedGif/1.1.2": {
-        "compile": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
-        },
-        "runtime": {
-          "lib/portable-win81+wpa81/XamlAnimatedGif.dll": {}
         }
       }
     }
@@ -17723,18 +17667,6 @@
         "WinUX.UWP.ValueConverters.nuspec",
         "lib/.NETCore50/WinUX.UWP.ValueConverters.dll"
       ]
-    },
-    "XamlAnimatedGif/1.1.2": {
-      "sha512": "0sVL7SPbadIrLIQ67JFUQ08GTuvb89NdEie/ROrboSeYweYYwTow9fBQDYzcWQ0pUHETPXA17Zs6oxapBaqwyQ==",
-      "type": "package",
-      "files": [
-        "XamlAnimatedGif.1.1.2.nupkg.sha512",
-        "XamlAnimatedGif.nuspec",
-        "lib/net40/XamlAnimatedGif.dll",
-        "lib/net45/XamlAnimatedGif.dll",
-        "lib/portable-win81+wpa81/XamlAnimatedGif.dll",
-        "lib/sl5/XamlAnimatedGif.dll"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -17753,8 +17685,7 @@
       "SQLite.Net.Async-PCL >= 3.1.1",
       "SQLiteNetExtensions.Async >= 1.3.0",
       "Win2D.uwp >= 1.18.0",
-      "WinUX.UWP >= 1.3.3",
-      "XamlAnimatedGif >= 1.1.2"
+      "WinUX.UWP >= 1.3.3"
     ],
     "UAP,Version=v10.0": []
   }

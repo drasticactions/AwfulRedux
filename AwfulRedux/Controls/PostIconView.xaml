@@ -34,7 +34,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Border Background="{ThemeResource AwfulHeader}">
-                            <Image xamlAnimatedGif:AnimationBehavior.SourceUri="{Binding ImageUrl}" Stretch="None"
+                            <Image Source="{Binding ImageUrl}" Stretch="None"
                                            AutomationProperties.Name="{Binding Title}" />
                         </Border>
                         <TextBlock Grid.Row="1"  FontSize="12" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Title}"

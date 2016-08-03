@@ -16,6 +16,15 @@
     xmlns:c="using:RefreshableListView"
     xmlns:controls3="using:Comet.Controls"
     mc:Ignorable="d">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.DataContext>
         <viewModels:PrivateMessagesListViewModel />
     </Page.DataContext>

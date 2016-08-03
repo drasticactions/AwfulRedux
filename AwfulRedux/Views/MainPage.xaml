@@ -11,9 +11,16 @@
       xmlns:forums="using:AwfulRedux.UI.Models.Forums"
       xmlns:behaviors="using:Template10.Behaviors"
       xmlns:listControls="using:AwfulRedux.Controls.ListControls"
-      xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
       mc:Ignorable="d">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.DataContext>
         <viewModels:MainPageViewModel />
     </Page.DataContext>

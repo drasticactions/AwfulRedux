@@ -34,6 +34,15 @@
                     To="360" />
         </Storyboard>
     </Page.Resources>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>

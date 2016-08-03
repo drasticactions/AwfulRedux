@@ -9,12 +9,18 @@
     xmlns:controls="using:Template10.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
-    xmlns:controls1="using:AwfulRedux.Tools.Controls"
     xmlns:flyout="using:AwfulRedux.Tools.Flyout"
     xmlns:controls2="using:AwfulRedux.Controls"
-    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
     mc:Ignorable="d">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.DataContext>
         <viewModels:ReplyThreadViewModel />
     </Page.DataContext>

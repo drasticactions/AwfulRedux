@@ -8,6 +8,15 @@
     xmlns:controls="using:AwfulRedux.Controls"
     xmlns:viewModels="using:AwfulRedux.ViewModels"
     mc:Ignorable="d">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <SuppressNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.DataContext>
         <viewModels:ThreadPageViewModel />
     </Page.DataContext>

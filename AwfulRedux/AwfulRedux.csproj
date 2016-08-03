@@ -320,6 +320,9 @@
     <Compile Include="Controls\PrivateMessageView.xaml.cs">
       <DependentUpon>PrivateMessageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PullToRefreshControl.xaml.cs">
+      <DependentUpon>PullToRefreshControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RefreshableListView.cs" />
     <Compile Include="Controls\SmiliesView.xaml.cs">
       <DependentUpon>SmiliesView.xaml</DependentUpon>
@@ -1076,6 +1079,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\PrivateMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PullToRefreshControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

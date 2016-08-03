@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kimono", "ExternalProjects\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template10 (Library)", "ExternalProjects\Template10 (Library)\Template10 (Library).csproj", "{AC3E4F10-6615-4E16-BB0F-104760C92B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwfulForumsLibrary", "..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj", "{7AC33700-35EF-4A65-9A79-EC38DB0E3373}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwfulForumsLibrary", "ExternalProjects\AwfulRedux.Core\AwfulForumsLibrary\AwfulForumsLibrary.csproj", "{7AC33700-35EF-4A65-9A79-EC38DB0E3373}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

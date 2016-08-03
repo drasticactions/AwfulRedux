@@ -117,7 +117,7 @@ namespace AwfulRedux.Tools.Web
                             Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ReplyPage),
                 JsonConvert.SerializeObject(new ThreadReply()
                 {
-                    Thread = new UI.Models.Threads.Thread()
+                    Thread = new AwfulRedux.UI.Models.Threads.Thread()
                     {
                         ThreadId = Convert.ToInt32(quoteObject.thread_id),
                         Name = quoteObject.thread_name
@@ -130,7 +130,7 @@ namespace AwfulRedux.Tools.Web
                             Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(ReplyPage),
                 JsonConvert.SerializeObject(new ThreadReply()
                 {
-                    Thread = new UI.Models.Threads.Thread()
+                    Thread = new AwfulRedux.UI.Models.Threads.Thread()
                     {
                         ThreadId = Convert.ToInt32(editObject.thread_id),
                         Name = editObject.thread_name

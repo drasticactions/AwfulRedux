@@ -113,10 +113,6 @@
     <Compile Include="ToastNotificationBackgroundTask.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
-      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulForumsLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.Database\AwfulRedux.Database.csproj">
       <Project>{1e180038-8cd3-4006-8780-f7707ae100d4}</Project>
       <Name>AwfulRedux.Database</Name>
@@ -128,6 +124,10 @@
     <ProjectReference Include="..\AwfulRedux.UI\AwfulRedux.UI.csproj">
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>
       <Name>AwfulRedux.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\AwfulRedux.Core\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
+      <Name>AwfulForumsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExternalProjects\Template10 %28Library%29\Template10 %28Library%29.csproj">
       <Project>{ac3e4f10-6615-4e16-bb0f-104760c92b95}</Project>

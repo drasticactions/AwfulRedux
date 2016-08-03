@@ -12,10 +12,12 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 using AwfulForumsLibrary.Managers;
+using AwfulForumsLibrary.Models.Web;
 using AwfulRedux.Database;
 using AwfulRedux.Services.WindowService;
 using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Database;
+using AwfulRedux.Tools.Errors;
 using AwfulRedux.Tools.Web;
 using AwfulRedux.UI;
 using AwfulRedux.UI.Models.Posts;
@@ -156,6 +158,20 @@ namespace AwfulRedux.ViewModels
                 await LoginUser();
             }
             var result = await _postManager.GetThreadPostsAsync(Selected.Location, Selected.CurrentPage, Selected.HasBeenViewed, goToPageOverride);
+            var resultCheck = await ResultChecker.CheckPaywallOrSuccess(result);
+            if (!resultCheck)
+            {
+                if (result.Type == typeof(Error).ToString())
+                {
+                    var error = JsonConvert.DeserializeObject<Error>(result.ResultJson);
+                    if (error.IsPaywall)
+                    {
+                        Template10.Common.BootStrapper.Current.NavigationService.Navigate(typeof(PaywallPage));
+                        IsLoading = false;
+                        return;
+                    }
+                }
+            }
             var postresult = JsonConvert.DeserializeObject<ThreadPosts>(result.ResultJson);
             Selected.LoggedInUserName = postresult.ForumThread.LoggedInUserName;
             Selected.CurrentPage = postresult.ForumThread.CurrentPage;

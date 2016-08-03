@@ -369,6 +369,7 @@
     <Compile Include="Tools\ScrollingCollection\PrivateMessageScrollingCollection.cs" />
     <Compile Include="Tools\ScrollingCollection\SearchPageScrollingCollection.cs" />
     <Compile Include="Tools\Threads\WebViewHelper.cs" />
+    <Compile Include="Tools\UI\SurfaceLoader.cs" />
     <Compile Include="Tools\Web\AddImage.cs" />
     <Compile Include="Tools\Web\WebViewCommands.cs" />
     <Compile Include="ViewModels\BookmarkViewModel.cs" />
@@ -1193,10 +1194,6 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AwfulForumsLibrary\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
-      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
-      <Name>AwfulForumsLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AwfulRedux.BackgroundNotify\AwfulRedux.BackgroundNotify.csproj">
       <Project>{dd16bd05-bebf-4672-b388-20965d73817b}</Project>
       <Name>AwfulRedux.BackgroundNotify</Name>
@@ -1216,6 +1213,10 @@
     <ProjectReference Include="..\AwfulWebTemplate\AwfulWebTemplate\AwfulWebTemplate.csproj">
       <Project>{b159244c-199d-49b4-93f8-fac12de5d52a}</Project>
       <Name>AwfulWebTemplate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\AwfulRedux.Core\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+      <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
+      <Name>AwfulForumsLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\ExternalProjects\Kimono\Kimono.csproj">
       <Project>{97e11751-36c4-49a4-a828-df731013cb91}</Project>

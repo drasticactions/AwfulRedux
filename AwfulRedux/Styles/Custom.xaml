@@ -367,12 +367,8 @@
         <ResourceDictionary x:Key="Default">
 
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{StaticResource ContrastColor}" />
-            <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{StaticResource CustomColor}" />
-
-            <SolidColorBrush x:Key="ModalBackground" Opacity=".5" Color="{StaticResource CustomColor}" />
 
             <Style TargetType="controls:HamburgerMenu">
-                <Setter Property="AccentColor" Value="{StaticResource CustomColor}" />
                 <Setter Property="HamburgerBackground" Value="Green" />
                 <Setter Property="VisualStateNarrowMinWidth" Value="{StaticResource NarrowMinWidth}" />
                 <Setter Property="VisualStateNormalMinWidth" Value="{StaticResource NormalMinWidth}" />
@@ -398,9 +394,6 @@
         <ResourceDictionary x:Key="Light">
 
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="{StaticResource ContrastColor}" />
-            <SolidColorBrush x:Key="ExtendedSplashForeground" Color="{StaticResource CustomColor}" />
-
-            <SolidColorBrush x:Key="ModalBackground" Opacity=".5" Color="{StaticResource CustomColor}" />
 
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="AccentColor" Value="{StaticResource SystemAccentColor}" />
@@ -428,9 +421,6 @@
         <ResourceDictionary x:Key="HighContrast">
 
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="Black" />
-            <SolidColorBrush x:Key="ExtendedSplashForeground" Color="White" />
-
-            <SolidColorBrush x:Key="ModalBackground" Color="Black" />
 
             <Style TargetType="controls:HamburgerMenu">
                 <Setter Property="HamburgerBackground" Value="Black" />

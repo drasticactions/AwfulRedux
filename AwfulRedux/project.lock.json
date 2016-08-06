@@ -13778,7 +13778,7 @@
       ]
     },
     "FFImageLoading.Windows/2.1.0-alpha1": {
-      "sha512": "3CGBU+A6YK6wYrfME5cXJwPnJEucSqabPDPI8xy6LWzOXY5K76c39WSHJI0tKfrEYECs8bn1tIemvG8wKu6F1Q==",
+      "sha512": "HiF6DINBq7keJqWtwPrG7Z1HAhLFxSJQ4T9unFCVKUIW5hAMnms7RxLTsEn44rfsx1Agk2Ji/DcpmWJuwyoCgw==",
       "type": "package",
       "files": [
         "FFImageLoading.Windows.2.1.0-alpha1.nupkg.sha512",
@@ -14684,7 +14684,7 @@
       ]
     },
     "NotificationsExtensions.Win10/14295.0.1": {
-      "sha512": "XFRE87hwcl7xIqoYQD+bpEZGCb7jqFOJK5YpcPKVD/pcMa7KajLvh7rUD6of1gnxM/iGVZg4D7LczeMH2D58aQ==",
+      "sha512": "7guXcl341xsRlepVXP2bUPHGPDiSppHovo2nuV3u1Adf3GetT8aVKjvViXTP0SyJuGWA90ngvrbl+Z3G/PEDdA==",
       "type": "package",
       "files": [
         "NotificationsExtensions.Win10.14295.0.1.nupkg.sha512",
@@ -14703,7 +14703,7 @@
       ]
     },
     "QueryString.NET/1.0.0": {
-      "sha512": "wmOG5qPFYH7jKp3fMXQ2VeMXTgcyoI4hwPF8AxFAyrT/uVBDe0ISzyh/iFEnwmFBUm19UgbDoFRU3o47a1/vUw==",
+      "sha512": "u+MbuqDtckYQv90rphUgmz1PXA4lBSG50MvP5yHUiCzn/kxAs2W8Pyb9VQRlnc+fBB0q6C/Q+bk+nuKbFVqiIg==",
       "type": "package",
       "files": [
         "QueryString.NET.1.0.0.nupkg.sha512",

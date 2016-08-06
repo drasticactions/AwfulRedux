@@ -1221,7 +1221,7 @@
       <Project>{b159244c-199d-49b4-93f8-fac12de5d52a}</Project>
       <Name>AwfulWebTemplate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExternalProjects\AwfulRedux.Core\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+    <ProjectReference Include="..\ExternalProjects\CoreParser\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
       <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
       <Name>AwfulForumsLibrary</Name>
     </ProjectReference>

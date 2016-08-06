@@ -117,7 +117,7 @@
       <Project>{361195a9-c85a-4ea1-bf49-4a861b7bc7ca}</Project>
       <Name>AwfulRedux.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExternalProjects\AwfulRedux.Core\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
+    <ProjectReference Include="..\ExternalProjects\CoreParser\AwfulForumsLibrary\AwfulForumsLibrary.csproj">
       <Project>{7ac33700-35ef-4a65-9a79-ec38db0e3373}</Project>
       <Name>AwfulForumsLibrary</Name>
     </ProjectReference>

@@ -1,0 +1,3 @@
+[submodule "ExternalProjects/CoreParser"]
+	path = ExternalProjects/CoreParser
+	url = git@github.com:drasticactions/AwfulForumsLibrary.git

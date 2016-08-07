@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "4.1.1.3")]
 public partial class ThreadTemplate : ThreadTemplateBase
 {
 
@@ -211,12 +211,24 @@ WriteLiteral(" async=\"\"");
 
 WriteLiteral(" src=\"ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js\"");
 
-WriteLiteral("></script>\r\n    <title>Forum Thread</title>\r\n</head>\r\n\r\n<body");
+WriteLiteral(@"></script>
+    <script>
+        var newFocusRoot = document.getElementById(""thread"");
+        TVJS.DirectionalNavigation.focusRoot = newFocusRoot;
+        TVJS.DirectionalNavigation.focusableSelectors.push("".btn"");
+        TVJS.DirectionalNavigation.focusableSelectors.push("".article-content"");
+        TVJS.DirectionalNavigation.keyCodeMap.up.push(87); // w  
+        TVJS.DirectionalNavigation.keyCodeMap.down.push(83); // s  
+    </script>
+    <title>Forum Thread</title>
+</head>
+
+<body");
 
 WriteLiteral(" data-thread-id=\"");
 
 
-#line 49 "ThreadTemplate.cshtml"
+#line 57 "ThreadTemplate.cshtml"
                  Write(Model.ForumThread.ThreadId);
 
 
@@ -227,7 +239,7 @@ WriteLiteral("\"");
 WriteLiteral(" data-thread-name=\"");
 
 
-#line 49 "ThreadTemplate.cshtml"
+#line 57 "ThreadTemplate.cshtml"
                                                                 Write(Model.ForumThread.Name);
 
 
@@ -238,7 +250,7 @@ WriteLiteral("\"");
 WriteLiteral(" data-show-embedded-tweets=\"");
 
 
-#line 49 "ThreadTemplate.cshtml"
+#line 57 "ThreadTemplate.cshtml"
                                                                                                                     Write(Model.EmbeddedTweets);
 
 
@@ -249,7 +261,7 @@ WriteLiteral("\"");
 WriteLiteral(" data-show-embedded-gifv=\"");
 
 
-#line 49 "ThreadTemplate.cshtml"
+#line 57 "ThreadTemplate.cshtml"
                                                                                                                                                                     Write(Model.EmbeddedGifv);
 
 
@@ -260,7 +272,7 @@ WriteLiteral("\"");
 WriteLiteral(" data-show-embedded-video=\"");
 
 
-#line 49 "ThreadTemplate.cshtml"
+#line 57 "ThreadTemplate.cshtml"
                                                                                                                                                                                                                    Write(Model.EmbeddedVideo);
 
 
@@ -279,7 +291,7 @@ WriteLiteral(" id=\"loggedinusername\"");
 WriteLiteral(">");
 
 
-#line 50 "ThreadTemplate.cshtml"
+#line 58 "ThreadTemplate.cshtml"
                                                 Write(Model.ForumThread.LoggedInUserName);
 
 
@@ -304,13 +316,13 @@ WriteLiteral(" class=\"row clearfix\"");
 WriteLiteral(">\r\n");
 
 
-#line 55 "ThreadTemplate.cshtml"
+#line 63 "ThreadTemplate.cshtml"
             		
 
 #line default
 #line hidden
 
-#line 55 "ThreadTemplate.cshtml"
+#line 63 "ThreadTemplate.cshtml"
                      if(allPosts) {
 
 
@@ -342,7 +354,7 @@ WriteLiteral(">Show Previous Posts</button>\r\n                        </div>\r\
 "  </div>\r\n");
 
 
-#line 61 "ThreadTemplate.cshtml"
+#line 69 "ThreadTemplate.cshtml"
             		}
 
 
@@ -351,7 +363,7 @@ WriteLiteral(">Show Previous Posts</button>\r\n                        </div>\r\
 WriteLiteral("            \t\t");
 
 
-#line 62 "ThreadTemplate.cshtml"
+#line 70 "ThreadTemplate.cshtml"
                      foreach (var post in Model.Posts) {
 
             		if (seenCount > 2) {
@@ -369,7 +381,7 @@ WriteLiteral("            \t\t<div");
 
 WriteAttribute ("class", " class=\"", "\""
 
-#line 71 "ThreadTemplate.cshtml"
+#line 79 "ThreadTemplate.cshtml"
 , Tuple.Create<string,object,bool> ("", hasSeen
 
 #line default
@@ -389,7 +401,7 @@ WriteLiteral(">\r\n                            <img");
 WriteLiteral(" data-user-id=\"");
 
 
-#line 74 "ThreadTemplate.cshtml"
+#line 82 "ThreadTemplate.cshtml"
                                           Write(post.User.Id);
 
 
@@ -399,7 +411,7 @@ WriteLiteral("\"");
 
 WriteAttribute ("src", " src=\"", "\""
 
-#line 74 "ThreadTemplate.cshtml"
+#line 82 "ThreadTemplate.cshtml"
                             , Tuple.Create<string,object,bool> ("", post.User.AvatarLink
 
 #line default
@@ -426,7 +438,7 @@ WriteLiteral("><span");
 
 WriteAttribute ("class", " class=\"", "\""
 
-#line 77 "ThreadTemplate.cshtml"
+#line 85 "ThreadTemplate.cshtml"
                                               , Tuple.Create<string,object,bool> ("", post.User.Roles
 
 #line default
@@ -436,7 +448,7 @@ WriteAttribute ("class", " class=\"", "\""
 WriteLiteral(">");
 
 
-#line 77 "ThreadTemplate.cshtml"
+#line 85 "ThreadTemplate.cshtml"
                                                                                                   Write(post.User.Username);
 
 
@@ -453,7 +465,7 @@ WriteLiteral(" class=\"registered\"");
 WriteLiteral(">");
 
 
-#line 78 "ThreadTemplate.cshtml"
+#line 86 "ThreadTemplate.cshtml"
                                                                                       Write(post.PostDate);
 
 
@@ -474,7 +486,7 @@ WriteLiteral(">\r\n                    \t\t<div");
 
 WriteAttribute ("id", " id=\"", "\""
 
-#line 84 "ThreadTemplate.cshtml"
+#line 92 "ThreadTemplate.cshtml"
 , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -486,13 +498,13 @@ WriteLiteral(" class=\"postbody\"");
 WriteLiteral(">\r\n");
 
 
-#line 85 "ThreadTemplate.cshtml"
+#line 93 "ThreadTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 85 "ThreadTemplate.cshtml"
+#line 93 "ThreadTemplate.cshtml"
                               
 								WriteLiteral(post.PostHtml);
 							
@@ -502,13 +514,13 @@ WriteLiteral(">\r\n");
 WriteLiteral("\r\n                    \t\t</div>\r\n");
 
 
-#line 89 "ThreadTemplate.cshtml"
+#line 97 "ThreadTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 89 "ThreadTemplate.cshtml"
+#line 97 "ThreadTemplate.cshtml"
                              if (Model.IsLoggedIn) {
 
 
@@ -538,7 +550,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.QuotePost(\'", true)
 
-#line 95 "ThreadTemplate.cshtml"
+#line 103 "ThreadTemplate.cshtml"
                                                                                 , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -561,7 +573,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.MarkAsLastRead(\'", true)
 
-#line 98 "ThreadTemplate.cshtml"
+#line 106 "ThreadTemplate.cshtml"
                                                                                                                , Tuple.Create<string,object,bool> ("", post.PostIndex
 
 #line default
@@ -572,13 +584,13 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 WriteLiteral(">Last Read</button>\r\n                                                </li>\r\n");
 
 
-#line 100 "ThreadTemplate.cshtml"
+#line 108 "ThreadTemplate.cshtml"
                                                 
 
 #line default
 #line hidden
 
-#line 100 "ThreadTemplate.cshtml"
+#line 108 "ThreadTemplate.cshtml"
                                                  if (post.User.IsCurrentUserPost) {
 
 
@@ -598,7 +610,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.EditPost(\'", true)
 
-#line 103 "ThreadTemplate.cshtml"
+#line 111 "ThreadTemplate.cshtml"
                                                              , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -609,7 +621,7 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 WriteLiteral(">Edit</button>\r\n                                                </li>\r\n");
 
 
-#line 105 "ThreadTemplate.cshtml"
+#line 113 "ThreadTemplate.cshtml"
                                                 }
 
 
@@ -620,7 +632,7 @@ WriteLiteral("                                            </ul>\r\n             
 "        </footer>\r\n");
 
 
-#line 110 "ThreadTemplate.cshtml"
+#line 118 "ThreadTemplate.cshtml"
                     		}
 
 
@@ -629,7 +641,7 @@ WriteLiteral("                                            </ul>\r\n             
 WriteLiteral("                    \t</div>\r\n                    </div>\r\n            \t\t</div>\r\n");
 
 
-#line 114 "ThreadTemplate.cshtml"
+#line 122 "ThreadTemplate.cshtml"
            	 		}
 
 
@@ -639,26 +651,52 @@ WriteLiteral("            \t</div>\r\n            </div>\r\n        </div>\r\n  
 
 WriteLiteral(" type=\"text/javascript\"");
 
-WriteLiteral(">\r\n\r\n            window.onload = function () {\r\n                Gifffer();\r\n\r\n   " +
-"             $(\".postbody a\").click(function () {\r\n                    var bool " +
-"= window.OpenLink(this.href);\r\n                    return bool;\r\n               " +
-" });\r\n\r\n                $(\".standard a\").click(function () {\r\n                  " +
-"  var bool = window.OpenLink(this.href);\r\n                    return bool;\r\n    " +
-"            });\r\n\r\n                $(\".av\").on(\"click\", function () {\r\n         " +
-"           ForumCommand(\'userProfile\', $(this).attr(\'data-user-id\'));\r\n         " +
-"       });\r\n\r\n                $(\"img\").on(\"dblclick\", function () {\r\n           " +
-"         ForumCommand(\'downloadImage\', this.src);\r\n                });\r\n\r\n      " +
-"          var b = RegExp(\"^\" + $(\"#loggedinusername\").text().replace(/([.*+?^${}" +
-"()|\\[\\]\\/\\\\])/g,\"\\\\$1\") + \"\\\\s+posted:$\");\r\n                $(\".bbc-block h4\").f" +
-"ilter(function () {\r\n                    return b.test($(this).text());\r\n       " +
-"         }).map(function() {\r\n                    return $(this).closest(\".bbc-b" +
-"lock\")[0];\r\n                }).addClass(\"userquoted\");\r\n                ForumCom" +
-"mand(\'scrollToDivStart\', $(\"#scrolltopoststring\").text());\r\n            };\r\n\r\n  " +
-"          var reloadPage = function () {\r\n                return new Promise(fun" +
-"ction (resolve, reject) {\r\n                    if (true) {\r\n                    " +
-"    ForumCommand(\'reloadPage\', null);\r\n                        resolve();\r\n     " +
-"               } else {\r\n                        reject();\r\n                    " +
-"}\r\n                });\r\n            };\r\n    </script>\r\n</body>\r\n</html>\r\n");
+WriteLiteral(@">
+
+        window.onload = function () {
+            Gifffer();
+
+            $("".postbody a"").click(function () {
+                var bool = window.OpenLink(this.href);
+                return bool;
+            });
+
+            $("".standard a"").click(function () {
+                var bool = window.OpenLink(this.href);
+                return bool;
+            });
+
+            $("".av"").on(""click"", function () {
+                ForumCommand('userProfile', $(this).attr('data-user-id'));
+            });
+
+            $(""img"").on(""dblclick"", function () {
+                ForumCommand('downloadImage', this.src);
+            });
+
+            var b = RegExp(""^"" + $(""#loggedinusername"").text().replace(/([.*+?^${}()|\[\]\/\\])/g,""\\$1"") + ""\\s+posted:$"");
+            $("".bbc-block h4"").filter(function () {
+                return b.test($(this).text());
+            }).map(function() {
+                return $(this).closest("".bbc-block"")[0];
+            }).addClass(""userquoted"");
+            ForumCommand('scrollToDivStart', $(""#scrolltopoststring"").text());
+        };
+
+        var reloadPage = function () {
+            return new Promise(function (resolve, reject) {
+                if (true) {
+                    ForumCommand('reloadPage', null);
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        };
+    </script>
+</body>
+</html>
+");
 
 }
 }
@@ -799,7 +837,7 @@ public abstract class ThreadTemplateBase
 					continue;
 				}
 
-				// The special cases here are that the value we're writing might already be a string, or that the 
+				// The special cases here are that the value we're writing might already be a string, or that the
 				// value might be a bool. If the value is the bool 'true' we want to write the attribute name instead
 				// of the string 'true'. If the value is the bool 'false' we don't want to write anything.
 				//

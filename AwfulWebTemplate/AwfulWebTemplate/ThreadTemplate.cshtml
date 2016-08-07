@@ -43,6 +43,14 @@ switch (Model.ForumThread.ForumId)
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/threadTemplate.js"></script>
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/url.min.js"></script>
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js"></script>
+    <script>
+        var newFocusRoot = document.getElementById("thread");
+        TVJS.DirectionalNavigation.focusRoot = newFocusRoot;
+        TVJS.DirectionalNavigation.focusableSelectors.push(".btn");
+        TVJS.DirectionalNavigation.focusableSelectors.push(".article-content");
+        TVJS.DirectionalNavigation.keyCodeMap.up.push(87); // w  
+        TVJS.DirectionalNavigation.keyCodeMap.down.push(83); // s  
+    </script>
     <title>Forum Thread</title>
 </head>
 
@@ -118,46 +126,46 @@ switch (Model.ForumThread.ForumId)
     </div>
     <script type="text/javascript">
 
-            window.onload = function () {
-                Gifffer();
+        window.onload = function () {
+            Gifffer();
 
-                $(".postbody a").click(function () {
-                    var bool = window.OpenLink(this.href);
-                    return bool;
-                });
+            $(".postbody a").click(function () {
+                var bool = window.OpenLink(this.href);
+                return bool;
+            });
 
-                $(".standard a").click(function () {
-                    var bool = window.OpenLink(this.href);
-                    return bool;
-                });
+            $(".standard a").click(function () {
+                var bool = window.OpenLink(this.href);
+                return bool;
+            });
 
-                $(".av").on("click", function () {
-                    ForumCommand('userProfile', $(this).attr('data-user-id'));
-                });
+            $(".av").on("click", function () {
+                ForumCommand('userProfile', $(this).attr('data-user-id'));
+            });
 
-                $("img").on("dblclick", function () {
-                    ForumCommand('downloadImage', this.src);
-                });
+            $("img").on("dblclick", function () {
+                ForumCommand('downloadImage', this.src);
+            });
 
-                var b = RegExp("^" + $("#loggedinusername").text().replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1") + "\\s+posted:$");
-                $(".bbc-block h4").filter(function () {
-                    return b.test($(this).text());
-                }).map(function() {
-                    return $(this).closest(".bbc-block")[0];
-                }).addClass("userquoted");
-                ForumCommand('scrollToDivStart', $("#scrolltopoststring").text());
-            };
+            var b = RegExp("^" + $("#loggedinusername").text().replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1") + "\\s+posted:$");
+            $(".bbc-block h4").filter(function () {
+                return b.test($(this).text());
+            }).map(function() {
+                return $(this).closest(".bbc-block")[0];
+            }).addClass("userquoted");
+            ForumCommand('scrollToDivStart', $("#scrolltopoststring").text());
+        };
 
-            var reloadPage = function () {
-                return new Promise(function (resolve, reject) {
-                    if (true) {
-                        ForumCommand('reloadPage', null);
-                        resolve();
-                    } else {
-                        reject();
-                    }
-                });
-            };
+        var reloadPage = function () {
+            return new Promise(function (resolve, reject) {
+                if (true) {
+                    ForumCommand('reloadPage', null);
+                    resolve();
+                } else {
+                    reject();
+                }
+            });
+        };
     </script>
 </body>
 </html>

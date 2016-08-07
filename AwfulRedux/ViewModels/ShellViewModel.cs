@@ -45,7 +45,11 @@ namespace AwfulRedux.ViewModels
         public async Task LoginUser()
         {
             var defaultUsers = await _udb.GetAuthUsers();
-            if (!defaultUsers.Any()) return;
+            if (!defaultUsers.Any())
+            {
+                WebManager = new WebManager();
+                return;
+            }
             var defaultUser = defaultUsers.First();
             var cookie = await CookieManager.LoadCookie(defaultUser.Id + ".txt");
             WebManager = new WebManager(cookie);

@@ -12,7 +12,7 @@
     xmlns:viewModels="using:AwfulRedux.ViewModels"
 
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
-    xmlns:xamlAnimatedGif="using:XamlAnimatedGif"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">

@@ -12,7 +12,6 @@ using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using AwfulRedux.Database;
 using AwfulRedux.Services.SettingsServices;
 using AwfulRedux.Tools.Background;
 using AwfulRedux.Tools.Database;

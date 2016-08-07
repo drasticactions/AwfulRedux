@@ -1,7 +1,7 @@
 Awful Thread Tags
 =================
 
-A set of square, [retina][] thread tags for the [Something Awful Forums][forums]. Created by [Diabolik900][] and [The Dave][] for [Awful.app][].
+A set of square, [retina][] thread tags for the [Something Awful Forums][forums]. Created mostly by [Diabolik900][] and [The Dave][] for [Awful.app][].
 
 Specification
 -------------
@@ -23,6 +23,15 @@ License
 -------
 
 Please see the included LICENSE.txt for the conditions you can follow to use these thread tags.
+
+Thanks
+------
+
+Includes tags by:
+
+* [Diabolik900][]
+* [The Dave][]
+* [treasure bear](http://forums.somethingawful.com/member.php?action=getinfo&userid=193961)
 
 
 [Awful.app]: https://github.com/Awful/Awful.app

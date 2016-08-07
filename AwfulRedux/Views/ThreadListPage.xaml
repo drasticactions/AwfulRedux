@@ -32,7 +32,7 @@
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
-    <Grid x:Name="ForumThreadList" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid VerticalAlignment="Stretch" x:Name="ForumThreadList" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="BackButtonPresent">
@@ -45,7 +45,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+        <controls:MasterDetailViewControl VerticalAlignment="Stretch" x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
                     <Grid.RowDefinitions>

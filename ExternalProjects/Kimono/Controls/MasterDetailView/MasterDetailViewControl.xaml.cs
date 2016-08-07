@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
+using Windows.System.Profile;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -41,7 +43,6 @@ namespace Kimono.Controls
             this.DataContextChanged += MasterDetailViewControl_DataContextChanged;
 
             Window.Current.SizeChanged += Current_SizeChanged;
-
             EvaluateLayout();
         }
 
@@ -107,7 +108,16 @@ namespace Kimono.Controls
         private void EvaluateLayout()
         {
             double width = Window.Current.Bounds.Width;
-            double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+            double height;
+            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationViewBoundsMode") &&
+                AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            {
+                height = ApplicationView.GetForCurrentView().VisibleBounds.Height + 55;
+            }
+            else
+            {
+                height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+            }
 
             bool isOrientationChange = width == lastWindowHeight && height == lastWindowWidth;
 

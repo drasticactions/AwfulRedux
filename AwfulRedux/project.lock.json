@@ -13778,7 +13778,7 @@
       ]
     },
     "FFImageLoading.Windows/2.1.0-alpha1": {
-      "sha512": "HiF6DINBq7keJqWtwPrG7Z1HAhLFxSJQ4T9unFCVKUIW5hAMnms7RxLTsEn44rfsx1Agk2Ji/DcpmWJuwyoCgw==",
+      "sha512": "3CGBU+A6YK6wYrfME5cXJwPnJEucSqabPDPI8xy6LWzOXY5K76c39WSHJI0tKfrEYECs8bn1tIemvG8wKu6F1Q==",
       "type": "package",
       "files": [
         "FFImageLoading.Windows.2.1.0-alpha1.nupkg.sha512",

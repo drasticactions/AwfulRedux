@@ -42,15 +42,6 @@ switch (Model.ForumThread.ForumId)
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/widgets.js"></script>
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/threadTemplate.js"></script>
     <script type="text/javascript" async="" src="ms-appx-web:///Assets/url.min.js"></script>
-    <script type="text/javascript" async="" src="ms-appx-web:///Assets/directionalnavigation-1.0.0.0.js"></script>
-    <script>
-        var newFocusRoot = document.getElementById("thread");
-        TVJS.DirectionalNavigation.focusRoot = newFocusRoot;
-        TVJS.DirectionalNavigation.focusableSelectors.push(".btn");
-        TVJS.DirectionalNavigation.focusableSelectors.push(".article-content");
-        TVJS.DirectionalNavigation.keyCodeMap.up.push(87); // w  
-        TVJS.DirectionalNavigation.keyCodeMap.down.push(83); // s  
-    </script>
     <title>Forum Thread</title>
 </head>
 
@@ -127,6 +118,7 @@ switch (Model.ForumThread.ForumId)
     <script type="text/javascript">
 
         window.onload = function () {
+			
             Gifffer();
 
             $(".postbody a").click(function () {

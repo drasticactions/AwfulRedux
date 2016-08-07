@@ -217,6 +217,7 @@
     <Content Include="Assets\ThreadTags\games-xbox-psx.png" />
     <Content Include="Assets\ThreadTags\games-youdied.png" />
     <Content Include="Assets\ThreadTags\gip-fuck.png" />
+    <Content Include="Assets\ThreadTags\icon-cute.png" />
     <Content Include="Assets\ThreadTags\itsame.png" />
     <Content Include="Assets\ThreadTags\kirby.png" />
     <Content Include="Assets\ThreadTags\melon.png" />

@@ -54,6 +54,7 @@ namespace AwfulRedux.ViewModels
                 {
                     Selected = JsonConvert.DeserializeObject<Thread>(suspensionState[nameof(Selected)]?.ToString());
                     await ThreadView.LoadThread(Selected, true);
+                    IsThreadSelectedAndLoaded = true;
                     suspensionState.Clear();
                 }
             }

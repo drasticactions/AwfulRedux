@@ -130,8 +130,8 @@
             </controls:MasterDetailViewControl.MasterViewPaneContent>
             <controls:MasterDetailViewControl.DetailViewPaneContent>
                 <Grid>
-                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding Selected,
-                    Converter={StaticResource NullVisibilityInverter}}">
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Visibility="{Binding IsThreadSelectedAndLoaded,
+                    Converter={StaticResource BooleanToVisibilityInverter}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>

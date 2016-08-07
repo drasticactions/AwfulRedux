@@ -35,6 +35,17 @@ namespace AwfulRedux.ViewModels
             }
         }
 
+        private bool _isThreadSelectedAndLoaded;
+
+        public bool IsThreadSelectedAndLoaded
+        {
+            get { return _isThreadSelectedAndLoaded; }
+            set
+            {
+                Set(ref _isThreadSelectedAndLoaded, value);
+            }
+        }
+
         private bool _isLoading;
 
         public bool IsLoading

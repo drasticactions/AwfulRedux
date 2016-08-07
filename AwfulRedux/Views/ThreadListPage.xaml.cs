@@ -43,6 +43,7 @@ namespace AwfulRedux.Views
                 return;
             ViewModel.Selected = thread;
             await ThreadPageView.LoadThread(thread, false, true);
+            ViewModel.IsThreadSelectedAndLoaded = true;
             ThreadPageView.UpdateHeader();
         }
 
@@ -89,6 +90,7 @@ namespace AwfulRedux.Views
             if (thread == null)
                 return;
             await ThreadPageView.LoadThread(thread);
+            ViewModel.IsThreadSelectedAndLoaded = true;
             ThreadPageView.UpdateHeader();
         }
     }

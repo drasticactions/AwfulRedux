@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 
 
-[System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "4.1.1.3")]
+[System.CodeDom.Compiler.GeneratedCodeAttribute("RazorTemplatePreprocessor", "2.6.0.0")]
 public partial class ThreadTemplate : ThreadTemplateBase
 {
 
@@ -837,7 +837,7 @@ public abstract class ThreadTemplateBase
 					continue;
 				}
 
-				// The special cases here are that the value we're writing might already be a string, or that the
+				// The special cases here are that the value we're writing might already be a string, or that the 
 				// value might be a bool. If the value is the bool 'true' we want to write the attribute name instead
 				// of the string 'true'. If the value is the bool 'false' we don't want to write anything.
 				//

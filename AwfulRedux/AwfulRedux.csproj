@@ -221,6 +221,7 @@
     <Content Include="Assets\ThreadTags\itsame.png" />
     <Content Include="Assets\ThreadTags\kirby.png" />
     <Content Include="Assets\ThreadTags\melon.png" />
+    <Content Include="Assets\ThreadTags\missing.png" />
     <Content Include="Assets\ThreadTags\nintendo.png" />
     <Content Include="Assets\ThreadTags\pi-fierce.png" />
     <Content Include="Assets\ThreadTags\qcs-mods.png" />

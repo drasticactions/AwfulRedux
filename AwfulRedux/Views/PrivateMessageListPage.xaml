@@ -59,7 +59,7 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{x:Bind ImageIconLocation, Converter={StaticResource ForumImageConverter}, Mode=OneWay}" />
+                                        <Image Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{Binding ImageIconLocation, FallbackValue='ms-appx:///Assets/ThreadTags/missing.png', Converter={StaticResource ForumImageConverter}, Mode=OneWay}" />
                                         <Grid Grid.Column="1">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>

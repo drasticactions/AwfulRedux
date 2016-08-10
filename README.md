@@ -16,4 +16,4 @@ You can check it out in the [legacy branch](https://github.com/drasticactions/Aw
 
 # What's the difference between this an Awful-Forums-Reader?!?
 
-This is an updated version that uses Template 10 for a back end framework. I could have branched it, but I didn't :effort:.
+This is an updated version that uses Template 10 for a back end framework. I could have branched it, but I didn't.

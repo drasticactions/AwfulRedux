@@ -30,7 +30,14 @@ namespace AwfulRedux.Controls
             this.InitializeComponent();
             ThreadFullView.NavigationCompleted += WebViewCommands.WebView_OnNavigationCompleted;
             ThreadFullView.ScriptNotify += WebViewCommands.WebViewNotifyCommand.WebView_ScriptNotify;
+            if(PageNumberButton2.Flyout != null)
+                PageNumberButton2.Flyout.Opened += FlyoutOnOpened;
             Instance = this;
+        }
+
+        private void FlyoutOnOpened(object sender, object o)
+        {
+            PageNumberTextBox.Focus(FocusState.Programmatic);
         }
 
         public void UpdateHeader()
@@ -63,6 +70,16 @@ namespace AwfulRedux.Controls
         private async void ScrollToBottom(object sender, RoutedEventArgs e)
         {
             await ThreadFullView.InvokeScriptAsync("ScrollToBottom", null);
+        }
+
+        private void PageNumberTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            int n;
+            bool isNumeric = int.TryParse(PageNumberTextBox.Text, out n);
+            if (isNumeric)
+            {
+                ViewModel.PageSelection = PageNumberTextBox.Text;
+            }
         }
     }
 }

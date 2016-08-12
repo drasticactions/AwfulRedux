@@ -50,14 +50,14 @@
                 <AppBarButton Visibility="{Binding Selected.IsBookmark, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveNotificationTable}" Label="{Binding Selected.IsNotified, Converter={StaticResource NotifyThreadTextConverter}, Mode=OneWay}">
                 </AppBarButton>
                 <AppBarButton Click="ScrollToBottom" Label="Scroll To Bottom"/>
-                <AppBarButton Label="{Binding Selected, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
+                <AppBarButton x:Name="PageNumberButton2" Label="{Binding Selected, Converter={StaticResource PageNumberConverter}, Mode=TwoWay}">
                     <Button.Flyout>
                         <Flyout>
                             <StackPanel>
                                 <Viewbox Margin="5" Height="40">
-                                    <TextBlock Text="{Binding Selected, Converter={StaticResource PageNumberConverter}}"/>
+                                    <TextBlock x:Name="PageTextBox" Text="{Binding Selected, Converter={StaticResource PageNumberConverter}}"/>
                                 </Viewbox>
-                                <TextBox InputScope="Number" Margin="5" Text="{x:Bind ViewModel.PageSelection, Mode=TwoWay}" x:Name="PageNumberTextBox"/>
+                                <TextBox InputScope="Number" Margin="5" TextChanged="PageNumberTextBox_OnTextChanged" x:Name="PageNumberTextBox"/>
                                 <Button Margin="5" x:Name="PageNumberButton" Click="{x:Bind ViewModel.ChangeThreadPage}" Content="Change Page">
                                 </Button>
                             </StackPanel>

@@ -18,6 +18,8 @@ namespace AwfulRedux.UI.Models.Users
 
         public string AvatarTitle { get; set; }
 
+        public string AvatarHtml { get; set; }
+
         public DateTime DateJoined { get; set; }
 
         public string DateJoinedShort => DateJoined.ToString("MM/dd/yyyy");

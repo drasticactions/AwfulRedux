@@ -75,6 +75,11 @@ switch (Model.ForumThread.ForumId)
                                 <div class="userinfo">
                                     <p style="padding: 0;" class="text"><span class="@post.User.Roles">@post.User.Username</span></p>
                                     <p class="text article-title"><span class="registered">@post.PostDate</span></p>
+                                    <div style="font-size: 14px;" class="avatar-user-info">
+                                        @{
+											WriteLiteral(post.User.AvatarHtml);
+										 }
+                                	</div>
                                 </div>
                             </div>
                     </div>

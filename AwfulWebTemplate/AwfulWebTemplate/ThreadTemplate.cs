@@ -453,8 +453,31 @@ WriteLiteral(">");
 
 #line default
 #line hidden
-WriteLiteral("</span></p>\r\n                                </div>\r\n                            " +
-"</div>\r\n                    </div>\r\n                    <div");
+WriteLiteral("</span></p>\r\n                                    <div");
+
+WriteLiteral(" style=\"font-size: 14px;\"");
+
+WriteLiteral(" class=\"avatar-user-info\"");
+
+WriteLiteral(">\r\n");
+
+
+#line 79 "ThreadTemplate.cshtml"
+                                        
+
+#line default
+#line hidden
+
+#line 79 "ThreadTemplate.cshtml"
+                                          
+											WriteLiteral(post.User.AvatarHtml);
+										 
+
+#line default
+#line hidden
+WriteLiteral("\r\n                                \t</div>\r\n                                </div>" +
+"\r\n                            </div>\r\n                    </div>\r\n              " +
+"      <div");
 
 WriteLiteral(" style=\"padding: 15px;\"");
 
@@ -468,7 +491,7 @@ WriteLiteral(">\r\n                    \t\t<div");
 
 WriteAttribute ("id", " id=\"", "\""
 
-#line 83 "ThreadTemplate.cshtml"
+#line 88 "ThreadTemplate.cshtml"
 , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -480,13 +503,13 @@ WriteLiteral(" class=\"postbody\"");
 WriteLiteral(">\r\n");
 
 
-#line 84 "ThreadTemplate.cshtml"
+#line 89 "ThreadTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 84 "ThreadTemplate.cshtml"
+#line 89 "ThreadTemplate.cshtml"
                               
 								WriteLiteral(post.PostHtml);
 							
@@ -496,13 +519,13 @@ WriteLiteral(">\r\n");
 WriteLiteral("\r\n                    \t\t</div>\r\n");
 
 
-#line 88 "ThreadTemplate.cshtml"
+#line 93 "ThreadTemplate.cshtml"
                     		
 
 #line default
 #line hidden
 
-#line 88 "ThreadTemplate.cshtml"
+#line 93 "ThreadTemplate.cshtml"
                              if (Model.IsLoggedIn) {
 
 
@@ -532,7 +555,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.QuotePost(\'", true)
 
-#line 94 "ThreadTemplate.cshtml"
+#line 99 "ThreadTemplate.cshtml"
                                                                                 , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -555,7 +578,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.MarkAsLastRead(\'", true)
 
-#line 97 "ThreadTemplate.cshtml"
+#line 102 "ThreadTemplate.cshtml"
                                                                                                                , Tuple.Create<string,object,bool> ("", post.PostIndex
 
 #line default
@@ -566,13 +589,13 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 WriteLiteral(">Last Read</button>\r\n                                                </li>\r\n");
 
 
-#line 99 "ThreadTemplate.cshtml"
+#line 104 "ThreadTemplate.cshtml"
                                                 
 
 #line default
 #line hidden
 
-#line 99 "ThreadTemplate.cshtml"
+#line 104 "ThreadTemplate.cshtml"
                                                  if (post.User.IsCurrentUserPost) {
 
 
@@ -592,7 +615,7 @@ WriteLiteral(" type=\"submit\"");
 WriteAttribute ("onclick", " onclick=\"", "\""
 , Tuple.Create<string,object,bool> ("", "window.EditPost(\'", true)
 
-#line 102 "ThreadTemplate.cshtml"
+#line 107 "ThreadTemplate.cshtml"
                                                              , Tuple.Create<string,object,bool> ("", post.PostId
 
 #line default
@@ -603,7 +626,7 @@ WriteAttribute ("onclick", " onclick=\"", "\""
 WriteLiteral(">Edit</button>\r\n                                                </li>\r\n");
 
 
-#line 104 "ThreadTemplate.cshtml"
+#line 109 "ThreadTemplate.cshtml"
                                                 }
 
 
@@ -614,7 +637,7 @@ WriteLiteral("                                            </ul>\r\n             
 "        </footer>\r\n");
 
 
-#line 109 "ThreadTemplate.cshtml"
+#line 114 "ThreadTemplate.cshtml"
                     		}
 
 
@@ -623,7 +646,7 @@ WriteLiteral("                                            </ul>\r\n             
 WriteLiteral("                    \t</div>\r\n                    </div>\r\n            \t\t</div>\r\n");
 
 
-#line 113 "ThreadTemplate.cshtml"
+#line 118 "ThreadTemplate.cshtml"
            	 		}
 
 

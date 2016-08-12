@@ -31,6 +31,9 @@ iframe {
     width: 100%;
 }
 @media screen and (max-width: 992px) {
+    .col-md-4 #threadView .userinfo .avatar-user-info {
+        display: none;
+    }
     .col-md-4 #threadView {
     height: 50px;
 }

@@ -46,7 +46,7 @@ WriteLiteral(" content=\"width=device-width, initial-scale=1, user-scalable=no\"
 
 WriteLiteral(">\r\n    <link");
 
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/winstrap.min.css\"");
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/winstrap.css\"");
 
 WriteLiteral(" media=\"all\"");
 

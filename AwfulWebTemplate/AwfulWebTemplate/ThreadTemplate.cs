@@ -74,7 +74,7 @@ WriteLiteral(" content=\"width=device-width, initial-scale=1, user-scalable=no\"
 
 WriteLiteral(">\r\n    <link");
 
-WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/winstrap.min.css\"");
+WriteLiteral(" href=\"ms-appx-web:///Assets/Website/CSS/winstrap.css\"");
 
 WriteLiteral(" media=\"all\"");
 
@@ -359,10 +359,12 @@ WriteLiteral("            \t\t");
 #line hidden
 WriteLiteral("            \t\t<div");
 
+WriteLiteral(" style=\"overflow: auto;\"");
+
 WriteAttribute ("class", " class=\"", "\""
 
 #line 70 "ThreadTemplate.cshtml"
-, Tuple.Create<string,object,bool> ("", hasSeen
+                 , Tuple.Create<string,object,bool> ("", hasSeen
 
 #line default
 #line hidden

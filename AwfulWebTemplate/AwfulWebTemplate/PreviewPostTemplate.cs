@@ -201,6 +201,8 @@ WriteLiteral(" class=\"row clearfix\"");
 
 WriteLiteral(">\r\n            \t\t<div");
 
+WriteLiteral(" style=\"overflow: auto;\"");
+
 WriteLiteral(" class=\"postCount1\"");
 
 WriteLiteral(">\r\n                    <div");

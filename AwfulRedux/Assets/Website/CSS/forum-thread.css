@@ -209,10 +209,12 @@ input[type=submit]{
 }
 
 .postCount1 {
+	overflow: auto;
     background-color: rgb(244, 244, 244);
 }
 
 .postCount2 {
+	overflow: auto;
     background-color: rgb(232, 232, 232);
 }
 

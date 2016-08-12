@@ -25,7 +25,7 @@ switch (Model.ForumThread.ForumId)
 <head>
     <meta name="twitter:dnt" content="on">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link href="ms-appx-web:///Assets/Website/CSS/winstrap.min.css" media="all" rel="stylesheet" type="text/css">
+    <link href="ms-appx-web:///Assets/Website/CSS/winstrap.css" media="all" rel="stylesheet" type="text/css">
     <link href="ms-appx-web:///Assets/Website/CSS/forum-thread.css" media="all" rel="stylesheet" type="text/css">
     <link href="ms-appx-web:///Assets/Website/CSS/bbcode.css" media="all" rel="stylesheet" type="text/css">
     @if (Model.IsDarkThemeSet) {
@@ -67,7 +67,7 @@ switch (Model.ForumThread.ForumId)
                     hasSeen += post.HasSeen ? string.Concat("seen", seenCount) : string.Concat("postCount", seenCount);
                 	seenCount++;
 
-            		<div class="@hasSeen">
+            		<div style="overflow: auto;" class="@hasSeen">
             		<div class="col-md-4 thread-header">
                             <div id="threadView">
                             <img data-user-id="@post.User.Id" src="@post.User.AvatarLink"

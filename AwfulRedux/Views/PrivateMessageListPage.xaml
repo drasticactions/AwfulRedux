@@ -15,6 +15,7 @@
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     xmlns:c="using:RefreshableListView"
     xmlns:controls3="using:Comet.Controls"
+    xmlns:controls4="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
     <Page.Transitions>
         <TransitionCollection>
@@ -59,7 +60,8 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{Binding ImageIconLocation, FallbackValue='ms-appx:///Assets/ThreadTags/missing.png', Converter={StaticResource ForumImageConverter}, Mode=OneWay}" />
+                                        <controls4:ImageEx PlaceholderAnimationDuration="0" 
+                                            Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{Binding ImageIconLocation, Converter={StaticResource ForumImageConverter}}" PlaceholderStretch="UniformToFill" PlaceholderSource="/Assets/ThreadTags/missing.png"/>
                                         <Grid Grid.Column="1">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"/>

@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Background;
+using Windows.Foundation;
 using Windows.Foundation.Metadata;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
 using Windows.System.Profile;
 using Windows.UI;
 using Windows.UI.Notifications;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using AwfulRedux.Services.SettingsServices;
@@ -58,6 +60,7 @@ namespace AwfulRedux
 
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size { Width = 400, Height = 400 });
             if ((Window.Current.Content as ModalDialog) != null)
             {
                 var content = (ModalDialog) Window.Current.Content;

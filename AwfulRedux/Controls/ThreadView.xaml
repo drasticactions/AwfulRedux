@@ -13,6 +13,7 @@
 
     xmlns:stateTriggers="using:WinUX.Xaml.StateTriggers"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:windowsStateTriggers="using:WindowsStateTriggers"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -21,6 +22,18 @@
         <viewModels:ThreadViewModel />
     </UserControl.DataContext>
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="xbox">
+                    <VisualState.StateTriggers>
+                        <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Xbox" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ForumCommandBar.(Grid.Row)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -38,7 +51,7 @@
         </Grid>
         <WebView DefaultBackgroundColor="{StaticResource AwfulWebBackground}" Grid.Row="2" Canvas.ZIndex="0" IsRightTapEnabled="True"  threads:WebViewHelper.Html="{Binding Selected.Html}"  x:Name="ThreadFullView">
         </WebView>
-        <CommandBar Grid.Row="3">
+        <CommandBar x:Name="ForumCommandBar" Grid.Row="3">
             <AppBarButton Label="Back Page" IsEnabled="{Binding Selected.CurrentPage, Converter={StaticResource BackButtonEnableConverter}}" Click="{x:Bind ViewModel.PreviousPage}" Icon="Back"/>
             <AppBarButton Label="Refresh" IsEnabled="{Binding IsLoading, Converter={StaticResource BooleanInverter}}"  Click="{x:Bind ViewModel.ReloadThread}" Icon="Refresh"/>
             <AppBarButton Label="Forward Page" IsEnabled="{Binding Selected, Converter={StaticResource ForwardButtonEnableConverter}}"  Click="{x:Bind ViewModel.NextPage}" Icon="Forward"/>

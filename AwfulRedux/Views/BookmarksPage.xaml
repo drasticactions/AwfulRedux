@@ -19,6 +19,7 @@
     xmlns:c="using:RefreshableListView"
     xmlns:controls3="using:Comet.Controls"
     xmlns:controls4="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:windowsStateTriggers="using:WindowsStateTriggers"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:BookmarkViewModel />
@@ -48,7 +49,20 @@
         <controls:MasterDetailViewControl x:Name="previewControl" PreviewItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             <controls:MasterDetailViewControl.MasterViewPaneContent>
                 <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup>
+                            <VisualState x:Name="xbox">
+                                <VisualState.StateTriggers>
+                                    <windowsStateTriggers:DeviceFamilyStateTrigger DeviceFamily="Xbox" />
+                                </VisualState.StateTriggers>
+                                <VisualState.Setters>
+                                    <Setter Target="ForumCommandBar.(Grid.Row)" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="*"/>
@@ -56,8 +70,8 @@
                     </Grid.RowDefinitions>
                     <controls1:PageHeader BackButtonVisibility="Collapsed"  VisualStateNormalMinWidth="720"  HorizontalAlignment="Stretch" Text="Bookmarks" Frame="{x:Bind Frame}">
                     </controls1:PageHeader>
-                    <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"/>
-                    <controls3:PullToRefreshListView PullThreshold="50" RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch" ItemClick="ListView_ItemClick" Grid.Row="2" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    <ProgressBar IsIndeterminate="True" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="2"/>
+                    <controls3:PullToRefreshListView PullThreshold="50" RefreshRequested="{x:Bind ViewModel.PullToRefresh_ListView}"  x:Name="masterListBox" IsItemClickEnabled="True" VerticalAlignment="Stretch" ItemClick="ListView_ItemClick" Grid.Row="3" SelectedItem="{Binding Selected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                          ItemsSource="{Binding BookmarkedThreads, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="threads:Thread">
@@ -124,7 +138,7 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                     </controls3:PullToRefreshListView>
-                    <CommandBar Grid.Row="3">
+                    <CommandBar x:Name="ForumCommandBar" Grid.Row="4">
                         <AppBarButton Label="Refresh" Click="{x:Bind ViewModel.Refresh}" Icon="Refresh"/>
                     </CommandBar>
                 </Grid>

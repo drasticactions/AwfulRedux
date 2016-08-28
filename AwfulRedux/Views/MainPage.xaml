@@ -11,6 +11,7 @@
       xmlns:forums="using:AwfulRedux.UI.Models.Forums"
       xmlns:behaviors="using:Template10.Behaviors"
       xmlns:listControls="using:AwfulRedux.Controls.ListControls"
+      xmlns:triggers="using:WindowsStateTriggers"
       mc:Ignorable="d">
     <Page.Transitions>
         <TransitionCollection>
@@ -34,9 +35,23 @@
             ItemsPath="ForumList" />
     </Page.Resources>
     
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="xbox">
+                    <VisualState.StateTriggers>
+                        <triggers:DeviceFamilyStateTrigger DeviceFamily="Xbox" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ForumCommandBar.(Grid.Row)" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
@@ -52,7 +67,7 @@
 
         <!--  #region content  -->
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" Canvas.ZIndex="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.Background>
                     <SolidColorBrush Opacity=".9" Color="{StaticResource AwfulWebBackground}"></SolidColorBrush>
@@ -125,7 +140,7 @@
 
         <!--  #endregion  -->
         
-        <CommandBar Grid.Row="2">
+        <CommandBar x:Name="ForumCommandBar" Grid.Row="3">
             <AppBarButton Icon="Refresh" Label="Refresh Forum List" Click="{x:Bind ViewModel.RefreshForums}"/>
         </CommandBar>
 

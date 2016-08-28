@@ -2060,6 +2060,14 @@
           }
         }
       },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -4066,6 +4074,14 @@
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -6028,6 +6044,14 @@
         },
         "native": {
           "runtimes/win10-arm/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -8044,6 +8068,14 @@
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -10006,6 +10038,14 @@
         },
         "native": {
           "runtimes/win10-x64/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -12022,6 +12062,14 @@
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
         }
       },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinUX.Common/1.3.3": {
         "compile": {
           "lib/portable-net45+win/WinUX.Common.dll": {}
@@ -13984,6 +14032,14 @@
         },
         "native": {
           "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.1.0": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinUX.Common/1.3.3": {
@@ -17976,6 +18032,42 @@
         "runtimes/win10-x86/native/Microsoft.Graphics.Canvas.dll"
       ]
     },
+    "WindowsStateTriggers/1.1.0": {
+      "sha512": "63CKlow5uM8/WnhqX8dGMabUZlg3CKKdkao++BuXffTXqPfUyoMfI8vcc9qKcH1TL9dDEj7jWLAqcwkdObhIqQ==",
+      "type": "package",
+      "files": [
+        "WindowsStateTriggers.1.1.0.nupkg.sha512",
+        "WindowsStateTriggers.nuspec",
+        "lib/uap10.0/WindowsStateTriggers.dll",
+        "lib/uap10.0/WindowsStateTriggers.pdb",
+        "lib/uap10.0/WindowsStateTriggers.pri",
+        "lib/uap10.0/WindowsStateTriggers.xml",
+        "lib/uap10.0/WindowsStateTriggers/Properties/WindowsStateTriggers.rd.xml",
+        "src/AdaptiveTrigger.cs",
+        "src/CompareStateTrigger.cs",
+        "src/CompositeStateTrigger.cs",
+        "src/DeviceFamilyStateTrigger.cs",
+        "src/EqualsStateTrigger.cs",
+        "src/FullScreenModeTrigger.cs",
+        "src/HostedStateTrigger.cs",
+        "src/ITriggerValue.cs",
+        "src/InputTypeTrigger.cs",
+        "src/IsFalseStateTrigger.cs",
+        "src/IsNullOrEmptyStateTrigger.cs",
+        "src/IsTypePresentStateTrigger.cs",
+        "src/NetworkConnectionStateTrigger.cs",
+        "src/NotEqualStateTrigger.cs",
+        "src/OrientationStateTrigger.cs",
+        "src/Properties/AssemblyInfo.cs",
+        "src/RegexStateTrigger.cs",
+        "src/UserHandPreferenceStateTrigger.cs",
+        "src/UserInteractionModeTrigger.cs",
+        "src/WeakEventListener.cs",
+        "src/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+        "src/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+        "src/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+      ]
+    },
     "WinUX.Common/1.3.3": {
       "sha512": "kR6cTR/P5cvTwkt7TSzJsVCH9wzUeiNBc6Mdc08pdTahETAerqoShnmsh5F4W7b1KkHolwMXCVrPtRZAsF/RGw==",
       "type": "package",
@@ -18069,7 +18161,8 @@
       "SQLite.Net.Async-PCL >= 3.1.1",
       "SQLiteNetExtensions.Async >= 1.3.0",
       "Win2D.uwp >= 1.18.0",
-      "WinUX.UWP >= 1.3.3"
+      "WinUX.UWP >= 1.3.3",
+      "WindowsStateTriggers >= 1.1.0"
     ],
     "UAP,Version=v10.0": []
   }

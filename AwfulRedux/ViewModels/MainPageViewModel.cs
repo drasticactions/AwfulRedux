@@ -69,6 +69,22 @@ namespace AwfulRedux.ViewModels
             deferral.Complete();
         }
 
+        public async Task AddOrRemoveFavorite(Forum forum)
+        {
+            try
+            {
+                var realForumList = ForumGroupList.Where(node => !node.Name.Equals("Favorites")).SelectMany(node => node.ForumList);
+                forum = realForumList.FirstOrDefault(node => node.ForumId == forum.ForumId);
+                forum.IsBookmarks = !forum.IsBookmarks;
+                await _db.UpdateForum(forum);
+                await GetFavoriteForums();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Send error, failed to set favorite.
+            }
+        }
+
         private async Task GetMainPageForumsAsync(bool forceRefresh = false)
         {
             IsLoading = true;

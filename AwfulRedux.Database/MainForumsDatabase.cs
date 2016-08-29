@@ -75,5 +75,13 @@ namespace AwfulRedux.Database
                 return list;
             }
         }
+
+        public async Task UpdateForum(Forum forum)
+        {
+            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            {
+                await ds.Forums.Update(forum);
+            }
+        }
     }
 }

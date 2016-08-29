@@ -22,5 +22,15 @@ namespace AwfulRedux.Views
             var forum = e.ClickedItem as Forum;
             ViewModel.NavigateToThreadList(forum);
         }
+
+        private async void AddOrRemoveFavorite(object sender, RoutedEventArgs e)
+        {
+            var menuFlyoutItem = sender as MenuFlyoutItem;
+            var forum = menuFlyoutItem?.CommandParameter as Forum;
+            if (forum != null)
+            {
+                await ViewModel.AddOrRemoveFavorite(forum);
+            }
+        }
     }
 }

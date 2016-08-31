@@ -215,6 +215,24 @@ namespace AwfulRedux.ViewModels
             RaisePropertyChanged("Selected");
         }
 
+        public async Task FirstThreadPage()
+        {
+            Selected.CurrentPage = 1;
+            Selected.ScrollToPost = 0;
+            Selected.ScrollToPostString = string.Empty;
+            // Force the new page number.
+            await LoadThread(true);
+        }
+
+        public async Task LastThreadPage()
+        {
+            Selected.CurrentPage = Selected.TotalPages;
+            Selected.ScrollToPost = 0;
+            Selected.ScrollToPostString = string.Empty;
+            // Force the new page number.
+            await LoadThread(true);
+        }
+
         public async Task ChangeThreadPage()
         {
             int userInputPageNumber;

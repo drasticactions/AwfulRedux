@@ -39,7 +39,7 @@ namespace AwfulRedux
         public App()
         {
             InitializeComponent();
-            if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            if (IsTenFoot)
             {
                 this.RequiresPointerMode = Windows.UI.Xaml.ApplicationRequiresPointerMode.WhenRequested;
             }
@@ -122,6 +122,15 @@ namespace AwfulRedux
                 Windows.UI.ViewManagement.StatusBar.GetForCurrentView().BackgroundOpacity = 1;
             }
 
+            if (App.IsTenFoot)
+            {
+                // use TV colorsafe values
+                this.Resources.MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("ms-appx:///Styles/TvSafeColors.xaml")
+                });
+            }
+
             await Task.CompletedTask;
         }
 
@@ -188,10 +197,10 @@ namespace AwfulRedux
                 }
             }
 
-            if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationViewBoundsMode") && AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            if (IsTenFoot)
             {
-                var AppView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-                AppView.SetDesiredBoundsMode(Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
+                //var AppView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+                //AppView.SetDesiredBoundsMode(Windows.UI.ViewManagement.ApplicationViewBoundsMode.UseCoreWindow);
             }
 
             var launch = args as LaunchActivatedEventArgs;
@@ -258,6 +267,26 @@ namespace AwfulRedux
                     break;
             }
         }
+
+        public static bool IsTenFootPC { get; private set; } = false;
+
+        public static bool IsTenFoot
+        {
+            get
+            {
+                return AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox" || IsTenFootPC;
+            }
+            set
+            {
+                if (value != IsTenFootPC)
+                {
+                    IsTenFootPC = value;
+                    TenFootModeChanged?.Invoke(null, null);
+                }
+            }
+        }
+
+        public static event EventHandler TenFootModeChanged;
     }
 }
 

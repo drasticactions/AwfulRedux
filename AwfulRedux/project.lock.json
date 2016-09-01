@@ -37,6 +37,14 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -2201,6 +2209,14 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -4215,6 +4231,14 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -6185,6 +6209,14 @@
         "runtime": {
           "lib/portable-netcore45+wpa81/FFImageLoading.Windows.dll": {},
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
+        }
+      },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/2.0.1": {
@@ -8209,6 +8241,14 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -10179,6 +10219,14 @@
         "runtime": {
           "lib/portable-netcore45+wpa81/FFImageLoading.Windows.dll": {},
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
+        }
+      },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/2.0.1": {
@@ -12203,6 +12251,14 @@
           "lib/portable-netcore45+wpa81/FFImageLoading.dll": {}
         }
       },
+      "FontAwesome.UWP/4.5.0.8": {
+        "compile": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/FontAwesome.UWP.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/2.0.1": {
         "dependencies": {
           "System.Collections": "4.0.10",
@@ -14170,6 +14226,24 @@
         "lib/portable-wp8/FFImageLoading.WinSL.xml",
         "lib/portable-wp8/FFImageLoading.dll",
         "lib/portable-wp8/FFImageLoading.xml"
+      ]
+    },
+    "FontAwesome.UWP/4.5.0.8": {
+      "sha512": "HVoUY9gvrYRMxiyt+UyM8fM1SagiXVjmfyXYWCbcXwx4ydugGukf2fOoEXXfaFU4Se9TPNLTD4cp4FEHLXq6og==",
+      "type": "package",
+      "path": "FontAwesome.UWP/4.5.0.8",
+      "files": [
+        "FontAwesome.UWP.4.5.0.8.nupkg.sha512",
+        "FontAwesome.UWP.nuspec",
+        "lib/net35/FontAwesome.WPF.dll",
+        "lib/net35/FontAwesome.WPF.xml",
+        "lib/net40/FontAwesome.WPF.dll",
+        "lib/net40/FontAwesome.WPF.xml",
+        "lib/uap10.0/FontAwesome.UWP.XML",
+        "lib/uap10.0/FontAwesome.UWP.dll",
+        "lib/uap10.0/FontAwesome.UWP.pri",
+        "lib/uap10.0/FontAwesome.UWP/FontAwesome.otf",
+        "tools/install.ps1"
       ]
     },
     "Microsoft.ApplicationInsights/2.0.1": {
@@ -18150,6 +18224,7 @@
     "": [
       "Comet >= 0.2.0.1",
       "FFImageLoading.Windows >= 2.1.0-alpha1",
+      "FontAwesome.UWP >= 4.5.0.8",
       "Microsoft.ApplicationInsights >= 2.0.1",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",

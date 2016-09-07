@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Net.Async;
+using SQLite;
 using SQLiteNetExtensionsAsync.Extensions;
 
 namespace AwfulRedux.Database.Tools
 {
-    public class Repository<T> where T : class
+    public class Repository<T> where T : new()
     {
         private readonly SQLiteAsyncConnection _db;
         public Repository(SQLiteAsyncConnection db)
@@ -16,7 +16,7 @@ namespace AwfulRedux.Database.Tools
             _db = db;
         }
 
-        public AsyncTableQuery<T> Items => _db.Table<T>();
+        public AsyncTableQuery<T> Items() => _db.Table<T>();
 
         public async Task<List<T>> GetAllWithChildren()
         {
@@ -38,9 +38,9 @@ namespace AwfulRedux.Database.Tools
             await _db.InsertWithChildrenAsync(newEntity);
         }
 
-        public async Task RemoveAll()
+        public async Task RemoveAll(IEnumerable<T> objects)
         {
-            await _db.DeleteAllAsync<T>();
+            await _db.DeleteAllAsync(objects);
         }
 
         public async Task Remove(T newEntity)

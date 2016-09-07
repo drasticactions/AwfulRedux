@@ -15,7 +15,7 @@ using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Users;
 using Newtonsoft.Json;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -73,7 +73,7 @@ namespace AwfulRedux.ViewModels
         }
 
         private readonly AuthenticationManager _authenticationManager = new AuthenticationManager();
-        private readonly AuthenticatedUserDatabase _db = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly AuthenticatedUserDatabase _db = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public async Task LogoutUser()
         {

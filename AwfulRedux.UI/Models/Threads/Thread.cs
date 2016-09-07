@@ -3,7 +3,7 @@ using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Polls;
 using AwfulRedux.UI.Models.Posts;
 using PropertyChanged;
-using SQLite.Net.Attributes;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
 
 namespace AwfulRedux.UI.Models.Threads

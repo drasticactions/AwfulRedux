@@ -21,7 +21,7 @@ using AwfulRedux.Tools.Helper;
 using AwfulRedux.Views;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Common;
 using Template10.Controls;
 
@@ -50,9 +50,9 @@ namespace AwfulRedux
 
             #endregion 
             #region Database
-            var db = new Database.DataSource.MainForums(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+            var db = new Database.DataSource.MainForums(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
             db.CreateDatabase();
-            var bdb = new Database.DataSource.Bookmarks(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
+            var bdb = new Database.DataSource.Bookmarks(DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
             db.CreateDatabase();
             bdb.CreateDatabase();
             #endregion

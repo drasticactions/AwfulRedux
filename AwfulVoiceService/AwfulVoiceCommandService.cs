@@ -16,7 +16,6 @@ using AwfulRedux.Notifications;
 using AwfulRedux.UI.Models.Messages;
 using AwfulRedux.UI.Models.Threads;
 using Newtonsoft.Json;
-using SQLite.Net.Platform.WinRT;
 
 namespace AwfulRedux.VoiceCommands
 {
@@ -131,8 +130,8 @@ namespace AwfulRedux.VoiceCommands
         }
 
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "ForumsRedux.db"));
-        private readonly BookmarkDatabase _bdb = new BookmarkDatabase(new SQLitePlatformWinRT(), Path.Combine(ApplicationData.Current.LocalFolder.Path, "BookmarkRedux.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(Path.Combine(ApplicationData.Current.LocalFolder.Path, "ForumsRedux.db"));
+        private readonly BookmarkDatabase _bdb = new BookmarkDatabase(Path.Combine(ApplicationData.Current.LocalFolder.Path, "BookmarkRedux.db"));
         private WebManager _webManager;
         private ThreadManager _threadManager;
         private PrivateMessageManager _privateMessageManager;

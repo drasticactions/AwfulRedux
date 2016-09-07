@@ -14,7 +14,7 @@ using AwfulRedux.UI.Models.Threads;
 using Kimono.Controls;
 using Newtonsoft.Json;
 using RefreshableListView;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Mvvm;
 using Template10.Utils;
 

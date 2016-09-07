@@ -7,9 +7,7 @@ using AwfulRedux.Database.Tools;
 using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.UI.Models.Users;
-using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Interop;
+using SQLite;
 
 namespace AwfulRedux.Database.DataSource
 {
@@ -20,11 +18,9 @@ namespace AwfulRedux.Database.DataSource
         public Repository<Thread> BookmarkThreads { get; set; }
 
 
-        public Bookmarks(ISQLitePlatform platform, string dbPath)
+        public Bookmarks(string dbPath)
         {
-            var connectionFactory = new Func<SQLiteConnectionWithLock>(() => new SQLiteConnectionWithLock(platform, new SQLiteConnectionString(dbPath, storeDateTimeAsTicks: false)));
-            Db = new SQLiteAsyncConnection(connectionFactory);
-
+            Db = new SQLiteAsyncConnection(dbPath);
             BookmarkThreads = new Repository<Thread>(Db);
         }
 

@@ -17,14 +17,14 @@ using AwfulRedux.Tools.Web;
 using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using Newtonsoft.Json;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
 {
     public class ReplyThreadViewModel : ViewModelBase
     {
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public SmiliesViewModel SmiliesViewModel { get; set; }
         public PreviewViewModel PreviewViewModel { get; set; }

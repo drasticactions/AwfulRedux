@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using AwfulForumsLibrary.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Database;
-using SQLite.Net.Platform.WinRT;
+
 
 namespace AwfulRedux.Tools.Authentication
 {
     public class LoginHelper
     {
-        private static readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private static readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public static async Task<CookieContainer> LoginDefaultUser()
         {

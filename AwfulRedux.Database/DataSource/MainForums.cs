@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using AwfulRedux.Database.Tools;
 using AwfulRedux.UI.Models.Forums;
 using AwfulRedux.UI.Models.Users;
-using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Interop;
+using SQLite;
 
 namespace AwfulRedux.Database.DataSource
 {
@@ -25,10 +23,9 @@ namespace AwfulRedux.Database.DataSource
 
         public Repository<User> AuthenticatedUsers { get; set; } 
 
-        public MainForums(ISQLitePlatform platform, string dbPath)
+        public MainForums(string dbPath)
         {
-            var connectionFactory = new Func<SQLiteConnectionWithLock>(() => new SQLiteConnectionWithLock(platform, new SQLiteConnectionString(dbPath, storeDateTimeAsTicks: false)));
-            Db = new SQLiteAsyncConnection(connectionFactory);
+            Db = new SQLiteAsyncConnection(dbPath);
 
             ForumCategories = new Repository<Category>(Db);
 

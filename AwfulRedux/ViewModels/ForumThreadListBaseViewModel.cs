@@ -11,7 +11,7 @@ using AwfulRedux.Tools.Authentication;
 using AwfulRedux.Tools.Database;
 using AwfulRedux.UI.Models.Threads;
 using Kimono.Controls;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Mvvm;
 
 namespace AwfulRedux.ViewModels
@@ -22,7 +22,7 @@ namespace AwfulRedux.ViewModels
 
         public MasterDetailViewControl MasterDetailViewControl { get; set; }
 
-        public readonly BookmarkDatabase Db = new BookmarkDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
+        public readonly BookmarkDatabase Db = new BookmarkDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("BookmarkRedux.db"));
 
         private Thread _selected = default(Thread);
 

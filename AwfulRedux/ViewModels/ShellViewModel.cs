@@ -12,7 +12,7 @@ using AwfulRedux.Tools.Database;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using Newtonsoft.Json;
-using SQLite.Net.Platform.WinRT;
+
 using Template10.Common;
 using Template10.Mvvm;
 
@@ -24,7 +24,7 @@ namespace AwfulRedux.ViewModels
 
         private bool _isLoggedIn = default(bool);
 
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
         public bool IsLoggedIn
         {
             get { return _isLoggedIn; }

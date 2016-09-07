@@ -4,25 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AwfulRedux.UI.Models.Forums;
-using SQLite.Net.Interop;
-
 namespace AwfulRedux.Database
 {
     public class MainForumsDatabase
     {
-        public static ISQLitePlatform Platform { get; set; }
-
         public static string DbLocation { get; set; }
 
-        public MainForumsDatabase(ISQLitePlatform platform, string location)
+        public MainForumsDatabase(string location)
         {
-            Platform = platform;
             DbLocation = location;
         }
 
         public async Task<List<Category>> GetMainForumsList()
         {
-            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            using (var ds = new DataSource.MainForums(DbLocation))
             {
                 var list = new List<Category>();
                 var dbForumsCategories = await ds.ForumCategories.GetAllWithChildren();
@@ -46,10 +41,13 @@ namespace AwfulRedux.Database
 
         public async Task SaveMainForumsList(List<Category> forumGroupList)
         {
-            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            using (var ds = new DataSource.MainForums(DbLocation))
             {
-                await ds.ForumCategories.RemoveAll();
-                await ds.Forums.RemoveAll();
+                var categories = await ds.ForumCategories.Items().ToListAsync();
+                var forums = await ds.Forums.Items().ToListAsync();
+                await ds.ForumCategories.RemoveAll(categories);
+                await ds.Forums.RemoveAll(forums);
+
                 var count = 1;
                 var forumCount = 1;
                 foreach (var item in forumGroupList)
@@ -66,7 +64,7 @@ namespace AwfulRedux.Database
 
         public async Task<List<Forum>> GetFavoriteForumsAsync()
         {
-            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            using (var ds = new DataSource.MainForums(DbLocation))
             {
                 var list = new List<Forum>();
                 var dbForumsCategories = await ds.Forums.GetAllWithChildren();
@@ -78,7 +76,7 @@ namespace AwfulRedux.Database
 
         public async Task UpdateForum(Forum forum)
         {
-            using (var ds = new DataSource.MainForums(Platform, DbLocation))
+            using (var ds = new DataSource.MainForums(DbLocation))
             {
                 await ds.Forums.Update(forum);
             }

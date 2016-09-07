@@ -16,7 +16,6 @@ using AwfulRedux.Tools.Errors;
 using AwfulRedux.UI.Models.Forums;
 using Newtonsoft.Json;
 using RefreshableListView;
-using SQLite.Net.Platform.WinRT;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
 
@@ -27,8 +26,8 @@ namespace AwfulRedux.ViewModels
         public ObservableCollection<Category> ForumGroupList { get; set; } = new ObservableCollection<Category>();
 
         private Category _favoritesEntity;
-        private readonly MainForumsDatabase _db = new MainForumsDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
-        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(new SQLitePlatformWinRT(), DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly MainForumsDatabase _db = new MainForumsDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
+        private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {

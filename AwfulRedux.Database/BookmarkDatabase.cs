@@ -5,25 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using AwfulRedux.Database.DataSource;
 using AwfulRedux.UI.Models.Threads;
-using SQLite.Net.Interop;
 
 namespace AwfulRedux.Database
 {
     public class BookmarkDatabase
     {
-        public static ISQLitePlatform Platform { get; set; }
-
         public static string DbLocation { get; set; }
 
-        public BookmarkDatabase(ISQLitePlatform platform, string location)
+        public BookmarkDatabase(string location)
         {
-            Platform = platform;
             DbLocation = location;
         }
 
         public async Task SetThreadNotified(Thread thread)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
                 thread.IsNotified = !thread.IsNotified;
                 await bds.BookmarkThreads.Update(thread);
@@ -32,9 +28,9 @@ namespace AwfulRedux.Database
 
         public async Task RefreshBookmarkedThreads(List<Thread> updatedBookmarkList)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
-                var notifyThreads = await bds.BookmarkThreads.Items.Where(node => node.IsNotified).ToListAsync();
+                var notifyThreads = await bds.BookmarkThreads.Items().Where(node => node.IsNotified).ToListAsync();
                 var notifyThreadIds = notifyThreads.Select(thread => thread.ThreadId).ToList();
 
                 await RemoveBookmarkThreads();
@@ -55,7 +51,7 @@ namespace AwfulRedux.Database
 
         public async Task RefreshBookmark(Thread updatedBookmark)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
                 await bds.BookmarkThreads.UpdateWithChildren(updatedBookmark);
             }
@@ -63,7 +59,7 @@ namespace AwfulRedux.Database
 
         public async Task AddBookmark(Thread updatedBookmark)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
                 await bds.BookmarkThreads.CreateWithChildren(updatedBookmark);
             }
@@ -71,32 +67,32 @@ namespace AwfulRedux.Database
 
         public async Task<Thread> GetBookmarkThreadAsync(long threadId)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
-                return await bds.BookmarkThreads.Items.Where(node => node.ThreadId == threadId).FirstOrDefaultAsync();
+                return await bds.BookmarkThreads.Items().Where(node => node.ThreadId == threadId).FirstOrDefaultAsync();
             }
         }
 
         public async Task<bool> IsBookmark(long threadId)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
-                var result = await bds.BookmarkThreads.Items.Where(node => node.ThreadId == threadId).ToListAsync();
+                var result = await bds.BookmarkThreads.Items().Where(node => node.ThreadId == threadId).ToListAsync();
                 return result.Count > 0;
             }
         }
 
         public async Task<List<Thread>> GetBookmarkedThreadsFromDb()
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
-                return await bds.BookmarkThreads.Items.ToListAsync();
+                return await bds.BookmarkThreads.Items().ToListAsync();
             }
         }
 
         public async Task AddBookmarkThreads(List<Thread> bookmarkedThreads)
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
                 await bds.BookmarkThreads.CreateAllWithChildren(bookmarkedThreads);
             }
@@ -104,9 +100,10 @@ namespace AwfulRedux.Database
 
         public async Task RemoveBookmarkThreads()
         {
-            using (var bds = new Bookmarks(Platform, DbLocation))
+            using (var bds = new Bookmarks(DbLocation))
             {
-                await bds.BookmarkThreads.RemoveAll();
+                var allBooksmarks = await bds.BookmarkThreads.Items().ToListAsync();
+                await bds.BookmarkThreads.RemoveAll(allBooksmarks);
             }
         }
     }

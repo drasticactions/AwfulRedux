@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using AwfulForumsLibrary.Managers;
+using Foundation;
 using UIKit;
 
 namespace AwfulRedux_iOS
@@ -15,11 +16,19 @@ namespace AwfulRedux_iOS
 			set;
 		}
 
+		public static WebManager WebManager { get; set; }
+
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-
+			#region Database
+			var db = new AwfulRedux.Database.DataSource.MainForums(DatabaseHelpers.GetiOSDatabasePath("ForumsRedux.db"));
+			db.CreateDatabase();
+			var bdb = new AwfulRedux.Database.DataSource.Bookmarks(DatabaseHelpers.GetiOSDatabasePath("BookmarkRedux.db"));
+			db.CreateDatabase();
+			bdb.CreateDatabase();
+			#endregion
 			return true;
 		}
 

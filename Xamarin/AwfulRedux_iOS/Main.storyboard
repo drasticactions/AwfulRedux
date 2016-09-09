@@ -97,7 +97,7 @@
                                 <connections>
                                     <outlet property="ThreadIcon" destination="1147" id="name-outlet-1147"/>
                                     <outlet property="ThreadName" destination="1150" id="name-outlet-1150"/>
-                                    <segue id="2635" destination="1160" kind="show"/>
+                                    <segue id="2635" destination="1160" kind="show" identifier="ForumThreadSegue"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -113,7 +113,7 @@
         </scene>
         <scene sceneID="564">
             <objects>
-                <tabBarController id="565" sceneMemberID="viewController" customClass="ForumTabBarViewController">
+                <tabBarController id="565" sceneMemberID="viewController" customClass="ForumTabBarViewController" storyboardIdentifier="ForumTabBarViewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="568">
                         <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -129,7 +129,7 @@
         </scene>
         <scene sceneID="1159">
             <objects>
-                <viewController id="1160" sceneMemberID="viewController">
+                <viewController id="1160" sceneMemberID="viewController" customClass="ThreadWebViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1157"/>
                         <viewControllerLayoutGuide type="bottom" id="1158"/>
@@ -139,16 +139,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="1164" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="116" y="214" width="240" height="128"/>
+                            <webView contentMode="scaleToFill" id="1164" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint id="2648" firstAttribute="width" constant="600"/>
+                                    <constraint id="2649" firstAttribute="height" constant="487"/>
+                                </constraints>
                             </webView>
                         </subviews>
+                        <constraints>
+                            <constraint id="2646" firstItem="1161" firstAttribute="trailing" secondItem="1164" secondAttribute="trailing"/>
+                            <constraint id="2647" firstItem="1161" firstAttribute="bottom" secondItem="1164" secondAttribute="bottom" constant="49"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ThreadWebView" destination="1164" id="name-outlet-1164"/>
+                        <outlet property="ThreadWe" destination="1161" id="name-outlet-1161"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1162" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="-70"/>
+        </scene>
+        <scene sceneID="2659">
+            <objects>
+                <viewController id="2660" sceneMemberID="viewController" customClass="LoginViewController" storyboardIdentifier="LoginViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2657"/>
+                        <viewControllerLayoutGuide type="bottom" id="2658"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2661">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2664" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username">
+                                <rect key="frame" x="20" y="88" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2665" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password">
+                                <rect key="frame" x="20" y="141" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2666" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="277" y="202" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoginButton_TouchUpInside:" destination="2660" id="2668" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2669" firstItem="2664" firstAttribute="leading" secondItem="2661" secondAttribute="leading" constant="20"/>
+                            <constraint id="2670" firstItem="2661" firstAttribute="trailing" secondItem="2664" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2671" firstItem="2664" firstAttribute="top" secondItem="2657" secondAttribute="bottom" constant="68"/>
+                            <constraint id="2672" firstItem="2665" firstAttribute="leading" secondItem="2661" secondAttribute="leading" constant="20"/>
+                            <constraint id="2673" firstItem="2661" firstAttribute="trailing" secondItem="2665" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2674" firstItem="2665" firstAttribute="top" secondItem="2664" secondAttribute="bottom" constant="23"/>
+                            <constraint id="2675" firstItem="2666" firstAttribute="top" secondItem="2665" secondAttribute="bottom" constant="31"/>
+                            <constraint id="2676" firstItem="2666" firstAttribute="leading" secondItem="2661" secondAttribute="leading" constant="277"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="UsernameField" destination="2664" id="name-outlet-2664"/>
+                        <outlet property="PasswordField" destination="2665" id="name-outlet-2665"/>
+                        <outlet property="LoginButton" destination="2666" id="name-outlet-2666"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2662" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1545" y="595"/>
         </scene>
     </scenes>
     <resources>

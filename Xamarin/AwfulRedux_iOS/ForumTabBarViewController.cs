@@ -13,9 +13,11 @@ namespace AwfulRedux_iOS
 
 		public async override void ViewDidLoad ()
 		{
+			//await AppDelegate.CheckLogIn();
 			if (AppDelegate.WebManager == null) {
 				AppDelegate.WebManager = await AuthDataSource.GetWebManager();
 			}
+
 			base.ViewDidLoad ();
 		}
 	}

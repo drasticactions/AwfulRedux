@@ -1,6 +1,8 @@
-﻿using AwfulForumsLibrary.Managers;
+﻿using System;
+using AwfulForumsLibrary.Managers;
 using Foundation;
 using UIKit;
+using System.Threading.Tasks;
 
 namespace AwfulRedux_iOS
 {
@@ -18,6 +20,36 @@ namespace AwfulRedux_iOS
 
 		public static WebManager WebManager { get; set; }
 
+		//Public property to access our MainStoryboard.storyboard file
+		public UIStoryboard MainStoryboard
+		{
+			get { return UIStoryboard.FromName("Main", NSBundle.MainBundle); }
+		}
+
+		//Creates an instance of viewControllerName from storyboard
+		public UIViewController GetViewController(UIStoryboard storyboard, string viewControllerName)
+		{
+			return storyboard.InstantiateViewController(viewControllerName);
+		}
+
+		//Sets the RootViewController of the Apps main window with an option for animation.
+		public void SetRootViewController(UIViewController rootViewController, bool animate)
+		{
+			if(animate)
+			{
+				var transitionType = UIViewAnimationOptions.TransitionFlipFromRight;
+
+				Window.RootViewController = rootViewController;
+				UIView.Transition(Window, 0.5, transitionType,
+				                  () => Window.RootViewController = rootViewController,
+				                  null);
+			}
+			else
+			{
+				Window.RootViewController = rootViewController;
+			}
+		}
+
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
 			// Override point for customization after application launch.
@@ -29,7 +61,32 @@ namespace AwfulRedux_iOS
 			db.CreateDatabase();
 			bdb.CreateDatabase();
 			#endregion
+
+			//User needs to log in, so show the Login View Controlller
+			//var loginViewController = GetViewController(MainStoryboard, "LoginViewController") as LoginViewController;
+			//loginViewController.OnLoginSuccess += LoginViewController_OnLoginSuccess;
+			//SetRootViewController(loginViewController, false);
+
 			return true;
+		}
+
+		public async Task CheckLogIn() 
+		{
+			var defaultUsers = await AuthDataSource.AreAuthUsers();
+			if(!defaultUsers)
+			{
+				//User needs to log in, so show the Login View Controlller
+				var loginViewController = GetViewController(MainStoryboard, "LoginViewController") as LoginViewController;
+				loginViewController.OnLoginSuccess += LoginViewController_OnLoginSuccess;
+				SetRootViewController(loginViewController, false);
+			}
+		} 
+
+		void LoginViewController_OnLoginSuccess (object sender, EventArgs e)
+		{
+			//We have successfully Logged In
+			var tabBarController = GetViewController(MainStoryboard, "ForumTabBarViewController");
+			SetRootViewController(tabBarController, true);
 		}
 
 		public override void OnResignActivation (UIApplication application)

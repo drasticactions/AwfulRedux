@@ -126,6 +126,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="DataSources\" />
     <Folder Include="Tools\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -166,6 +167,15 @@
       <DependentUpon>ForumThreadCell.cs</DependentUpon>
     </Compile>
     <Compile Include="ForumListTableViewSource.cs" />
+    <Compile Include="ThreadWebViewController.cs" />
+    <Compile Include="ThreadWebViewController.designer.cs">
+      <DependentUpon>ThreadWebViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginViewController.cs" />
+    <Compile Include="LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoadingOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AwfulRedux.Database\AwfulRedux.Database.csproj">

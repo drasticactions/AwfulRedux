@@ -10,6 +10,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Template10.Behaviors"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:uwp="using:FontAwesome.UWP"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -20,6 +21,7 @@
        <Grid.RowDefinitions>
            <RowDefinition Height="Auto"/>
            <RowDefinition Height="*"/>
+           <RowDefinition Height="Auto"/>
        </Grid.RowDefinitions>
         <controls:PageHeader BackButtonVisibility="Collapsed"   Content="Account" Frame="{x:Bind Frame}">
             <interactivity:Interaction.Behaviors>
@@ -66,5 +68,12 @@
             <TextBlock Grid.Row="1" FontSize="25" FontWeight="Thin" Margin="0,10,0,25" TextAlignment="Center" Text="{Binding SelectedUser.Username}"/>
             <Button Grid.Row="2" HorizontalAlignment="Center" Click="{x:Bind ViewModel.LogoutUser}" Content="Logout"/>
         </Grid>
+        <CommandBar Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityInverter}}" x:Name="ForumCommandBar" Grid.Row="2">
+            <AppBarButton Label="Force Cookie Refresh" Click="{x:Bind ViewModel.ForceCookieReset}">
+                <AppBarButton.Icon>
+                    <uwp:FontAwesome Icon="Remove" HorizontalAlignment="Center" />
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
     </Grid>
 </Page>

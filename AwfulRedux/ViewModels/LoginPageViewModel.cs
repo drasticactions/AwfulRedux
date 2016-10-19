@@ -84,6 +84,18 @@ namespace AwfulRedux.ViewModels
             IsLoggedIn = false;
             await _db.RemoveUser(SelectedUser);
             SelectedUser = null;
+            IsLoading = false;
+        }
+
+        public async Task ForceCookieReset()
+        {
+            IsLoading = true;
+            await _authenticationManager.LogoutAsync(Views.Shell.Instance.ViewModel.WebManager.AuthenticationCookie);
+            await RemoveUserCookies();
+            Views.Shell.Instance.ViewModel.IsLoggedIn = false;
+            IsLoggedIn = false;
+            await _db.RemoveUser(SelectedUser);
+            SelectedUser = null;
             NavigationService.Navigate(typeof(Views.MainPage));
             IsLoading = false;
         }

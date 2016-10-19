@@ -60,7 +60,6 @@ namespace AwfulRedux.Views
             ViewModel.Selected = thread;
             await ThreadPageView.LoadThread(thread, false, true);
             ViewModel.IsThreadSelectedAndLoaded = true;
-            ThreadPageView.UpdateHeader();
         }
 
         private void AddRemoveBookmark(object sender, RoutedEventArgs e)
@@ -88,7 +87,6 @@ namespace AwfulRedux.Views
                 return;
             await ThreadPageView.LoadThread(thread);
             ViewModel.IsThreadSelectedAndLoaded = true;
-            ThreadPageView.UpdateHeader();
         }
     }
 }

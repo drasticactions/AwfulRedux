@@ -65,7 +65,6 @@ namespace AwfulRedux.Views
                 return;
             await PrivateMessageView.LoadPrivateMessage(thread);
             ViewModel.IsThreadSelectedAndLoaded = true;
-            PrivateMessageView.UpdateHeader();
         }
     }
 }

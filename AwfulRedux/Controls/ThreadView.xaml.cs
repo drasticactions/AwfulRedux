@@ -40,11 +40,6 @@ namespace AwfulRedux.Controls
             PageNumberTextBox.Focus(FocusState.Programmatic);
         }
 
-        public void UpdateHeader()
-        {
-            ThreadPageHeader.UpdateSpacingToFitHamburgerMenu();
-        }
-
         // strongly-typed view models enable x:bind
         public ThreadViewModel ViewModel => this.DataContext as ThreadViewModel;
 

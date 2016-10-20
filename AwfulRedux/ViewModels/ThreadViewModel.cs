@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ using AwfulRedux.UI.Models.Posts;
 using AwfulRedux.UI.Models.Threads;
 using AwfulRedux.Views;
 using AwfulWebTemplate;
+using HtmlAgilityPack;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 using RefreshableListView;
@@ -182,18 +184,43 @@ namespace AwfulRedux.ViewModels
             {
                 IsLoggedIn = false;
             }
+            var posts = postresult.Posts;
+           
             var threadTemplateModel = new ThreadTemplateModel()
             {
                 ForumThread = Selected,
                 IsDarkThemeSet = this.GetTheme == PlatformIdentifier.WindowsPhone,
                 IsLoggedIn = IsLoggedIn,
-                Posts = postresult.Posts,
+                Posts = posts,
                 EmbeddedGifv = App.Settings.ShowEmbeddedGifv,
                 EmbeddedTweets = App.Settings.ShowEmbeddedTweets,
                 EmbeddedVideo = App.Settings.ShowEmbeddedVideo
             };
             var threadTemplate = new ThreadTemplate() { Model = threadTemplateModel };
-            Selected.Html = threadTemplate.GenerateString();
+            var html = threadTemplate.GenerateString();
+            if (!App.Settings.AutoplayGif)
+            {
+                var doc2 = new HtmlDocument();
+                doc2.LoadHtml(html);
+                HtmlNode bodyNode = doc2.DocumentNode.Descendants("body").FirstOrDefault();
+                var images = bodyNode.Descendants("img").Where(node => node.GetAttributeValue("class", string.Empty) != "av");
+                foreach (var image in images)
+                {
+                    var src = image.Attributes["src"].Value;
+                    if (Path.GetExtension(src) != ".gif")
+                        continue;
+                    if (src.Contains("somethingawful.com"))
+                        continue;
+                    if (src.Contains("emoticons"))
+                        continue;
+                    if (src.Contains("smilies"))
+                        continue;
+                    image.Attributes.Add("data-gifffer", image.Attributes["src"].Value);
+                    image.Attributes.Remove("src");
+                }
+                html = doc2.DocumentNode.OuterHtml;
+            }
+            Selected.Html = html;
             var count = postresult.Posts.Count(node => !node.HasSeen);
             if (Selected.RepliesSinceLastOpened > 0)
             {

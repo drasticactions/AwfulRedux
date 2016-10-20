@@ -37,6 +37,15 @@ namespace AwfulRedux.Services.SettingsServices
             }
         }
 
+        public bool AutoplayGif
+        {
+            get { return _helper.Read<bool>(nameof(AutoplayGif), true); }
+            set
+            {
+                _helper.Write(nameof(AutoplayGif), value);
+            }
+        }
+
         public bool OpenThreadsInNewWindow
         {
             get { return _helper.Read<bool>(nameof(OpenThreadsInNewWindow), false); }

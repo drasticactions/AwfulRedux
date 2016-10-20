@@ -56,6 +56,12 @@ namespace AwfulRedux.ViewModels
             set { _settings.ShowEmbeddedVideo = value; base.RaisePropertyChanged(); }
         }
 
+        public bool AlwaysAutoplayGif
+        {
+            get { return _settings.AutoplayGif; }
+            set { _settings.AutoplayGif = value; base.RaisePropertyChanged(); }
+        }
+
         public bool UseBackgroundTask
         {
             get { return _settings.BackgroundEnable; }

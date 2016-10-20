@@ -15,6 +15,8 @@ namespace AwfulRedux.Services.SettingsServices
 
         bool ShowEmbeddedGifv { get; set; }
 
+        bool AutoplayGif { get; set; }
+
         bool BackgroundEnable { get; set; }
 
         bool TransparentThreadListBackground { get; set; }

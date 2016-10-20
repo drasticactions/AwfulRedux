@@ -109,7 +109,11 @@
                                       IsOn="{Binding UseOpenNewThreadInWindowButton, Mode=TwoWay}"
                                       OffContent="Off" OnContent="On" />
                         <TextBlock  Margin="0,0,0,20" x:Name="OpenNewThreadsInWindowsText" RelativePanel.Below="OpenNewThreadsInWindowsSwitch" TextWrapping="Wrap">If on, all SA thread links will pop open a new window.</TextBlock>
-                        <TextBlock  Margin="0,0,0,20" x:Name="ImgurLogin" RelativePanel.Below="OpenNewThreadsInWindowsText" TextWrapping="Wrap">Imgur Login</TextBlock>
+                        <ToggleSwitch x:Name="AlwaysAutoplayGifTextSwitcb"  RelativePanel.Below="OpenNewThreadsInWindowsText" Header="Always Autoplay Gifs"
+                                      IsOn="{Binding AlwaysAutoplayGif, Mode=TwoWay}"
+                                      OffContent="Off" OnContent="On" />
+                        <TextBlock  Margin="0,0,0,20" x:Name="AlwaysAutoplayGifTextText" RelativePanel.Below="AlwaysAutoplayGifTextSwitcb" TextWrapping="Wrap">If on, all GIFs in threads will autoplay. May cause memory issues.</TextBlock>
+                        <TextBlock  Margin="0,0,0,20" x:Name="ImgurLogin" RelativePanel.Below="AlwaysAutoplayGifTextText" TextWrapping="Wrap">Imgur Login</TextBlock>
                         <Grid x:Name="ImgurSigninGrid" HorizontalAlignment="Stretch" RelativePanel.Below="ImgurLogin">
                             <StackPanel>
                                 <Button Visibility="{Binding ImgurSignedIn, Converter={StaticResource BooleanToVisibilityConverter}}" Click="{x:Bind ViewModel.SettingsPartViewModel.LogoutOfImgur}">Logout</Button>

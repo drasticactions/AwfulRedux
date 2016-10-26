@@ -28,8 +28,8 @@ namespace AwfulRedux.Views
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
-            ViewModel.ThreadView = ThreadPageView;
-            ViewModel.MasterDetailViewControl = previewControl;
+            // ViewModel.ThreadView = ThreadPageView;
+            //ViewModel.MasterDetailViewControl = previewControl;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -58,7 +58,7 @@ namespace AwfulRedux.Views
             if (thread == null)
                 return;
             ViewModel.Selected = thread;
-            await ThreadPageView.LoadThread(thread, false, true);
+            //await ThreadPageView.LoadThread(thread, false, true);
             ViewModel.IsThreadSelectedAndLoaded = true;
         }
 
@@ -85,7 +85,7 @@ namespace AwfulRedux.Views
             var thread = e.ClickedItem as Thread;
             if (thread == null)
                 return;
-            await ThreadPageView.LoadThread(thread);
+            // await ThreadPageView.LoadThread(thread);
             ViewModel.IsThreadSelectedAndLoaded = true;
         }
     }

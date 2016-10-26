@@ -1,3 +1,7 @@
 [submodule "ExternalProjects/CoreParser"]
 	path = ExternalProjects/CoreParser
 	url = git@github.com:drasticactions/AwfulForumsLibrary.git
+[submodule "ExternalProjects/MasterDetailsView"]
+	path = ExternalProjects/MasterDetailsView
+	url = https://github.com/skendrot/UWPCommunityToolkit.git
+	branch = MasterDetailsView

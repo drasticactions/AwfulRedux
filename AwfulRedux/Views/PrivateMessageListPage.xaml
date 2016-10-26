@@ -74,7 +74,7 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <controls4:ImageEx PlaceholderAnimationDuration="0" 
+                                        <controls4:ImageEx 
                                             Height="45" Width="45" VerticalAlignment="Top" Margin="5" Source="{Binding ImageIconLocation, Converter={StaticResource ForumImageConverter}}" PlaceholderStretch="UniformToFill" PlaceholderSource="/Assets/ThreadTags/missing.png"/>
                                         <Grid Grid.Column="1">
                                             <Grid.RowDefinitions>

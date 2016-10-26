@@ -47,7 +47,7 @@ namespace AwfulRedux.ViewModels
             {
                 await LoginUser();
             }
-            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
+            //Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested += MasterDetailViewControl.NavigationManager_BackRequested;
             if (suspensionState.ContainsKey(nameof(Selected)))
             {
                 if (Selected == null)
@@ -96,7 +96,7 @@ namespace AwfulRedux.ViewModels
 
         public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
         {
-            Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= MasterDetailViewControl.NavigationManager_BackRequested;
+            //Template10.Common.BootStrapper.Current.NavigationService.FrameFacade.BackRequested -= MasterDetailViewControl.NavigationManager_BackRequested;
             if (suspending)
             {
                 if (Selected != null)

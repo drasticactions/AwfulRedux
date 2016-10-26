@@ -1236,6 +1236,22 @@
       <Project>{97e11751-36c4-49a4-a828-df731013cb91}</Project>
       <Name>Kimono</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\MasterDetailsView\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj">
+      <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Animations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\MasterDetailsView\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj">
+      <Project>{e9faabfb-d726-42c1-83c1-cb46a29fea81}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\MasterDetailsView\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj">
+      <Project>{3dd8aa7c-3569-4e51-992f-0c2257e8878e}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExternalProjects\MasterDetailsView\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj">
+      <Project>{805f80df-75c6-4c2f-8fd9-b47f6d0df5a3}</Project>
+      <Name>Microsoft.Toolkit.Uwp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Imgur\Imgur.csproj">
       <Project>{6bdadad2-b0b3-489e-b2da-e1b9cf68a787}</Project>
       <Name>Imgur</Name>

@@ -70,6 +70,7 @@ namespace AwfulRedux
                     await shell.ViewModel.LoginUser();
                 }
             }
+
             if (startKind == StartKind.Activate)
             {
                 if (args.Kind == ActivationKind.ToastNotification)
@@ -81,7 +82,7 @@ namespace AwfulRedux
                     var arguments = JsonConvert.DeserializeObject<ToastNotificationArgs>(toastArgs.Argument);
                     if (arguments != null && arguments.threadId > 0)
                     {
-                        NavigationService.Navigate(typeof (Views.BookmarksPage), arguments.threadId);
+                        NavigationService.Navigate(typeof (Views.BookmarksPage), arguments);
                     }
                 }
                 else if (args.Kind == ActivationKind.VoiceCommand)
@@ -92,15 +93,29 @@ namespace AwfulRedux
                         HandleVoiceRequest(commandArgs);
                     }
                 }
+                else if (args.Kind == ActivationKind.Protocol)
+                {
+                    var protoArgs = args as ProtocolActivatedEventArgs;
+                    var arguments = JsonConvert.DeserializeObject<ToastNotificationArgs>(protoArgs.Uri.OriginalString.Replace("awful:", ""));
+                    if (arguments != null && arguments.threadId > 0 && arguments.isThreadBookmark)
+                    {
+                        NavigationService.Navigate(typeof(Views.BookmarksPage), arguments);
+                    }
+                    else if (arguments != null && arguments.threadId > 0 && !arguments.isThreadBookmark)
+                    {
+                        NavigationService.Navigate(typeof(Views.ThreadPage), arguments);
+                    }
+                }
+
             }
             else
             {
                 var launch = args as LaunchActivatedEventArgs;
-                if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning 
+                if (launch?.PreviousExecutionState == ApplicationExecutionState.NotRunning
                     || launch?.PreviousExecutionState == ApplicationExecutionState.Terminated
                     || launch?.PreviousExecutionState == ApplicationExecutionState.ClosedByUser)
                 {
-                    NavigationService.Navigate(typeof (Views.MainPage));
+                    NavigationService.Navigate(typeof(Views.MainPage));
                 }
             }
             try

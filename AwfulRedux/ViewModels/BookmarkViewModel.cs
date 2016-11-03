@@ -10,6 +10,7 @@ using AwfulRedux.Controls;
 using AwfulForumsLibrary.Managers;
 using AwfulRedux.Database;
 using AwfulRedux.Tools.Database;
+using AwfulRedux.Tools.Helper;
 using AwfulRedux.UI.Models.Threads;
 using Kimono.Controls;
 using Newtonsoft.Json;
@@ -80,12 +81,13 @@ namespace AwfulRedux.ViewModels
                 //AwfulDebugger.SendMessageDialogAsync("Failed to get Bookmarks", ex);
             }
 
-            var threadId = (long?) parameter;
-            if (threadId > 0)
+            var toastArgs = parameter as ToastNotificationArgs;
+            if (toastArgs != null)
             {
-                var thread = BookmarkedThreads.FirstOrDefault(node => node.ThreadId == threadId);
+                var thread = BookmarkedThreads.FirstOrDefault(node => node.ThreadId == toastArgs.threadId);
                 if (thread != null)
                 {
+                    thread.CurrentPage = toastArgs.pageNumber;
                     Selected = thread;
                     await ThreadView.LoadThread(thread);
                 }

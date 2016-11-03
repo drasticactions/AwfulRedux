@@ -95,7 +95,7 @@ namespace AwfulRedux.Notifications
         public static void CreateToastNotification(Thread forumThread)
         {
             string replyText = forumThread.RepliesSinceLastOpened > 1 ? " has {0} replies." : " has {0} reply.";
-            string test = "{" + string.Format("type:'toast', 'threadId':{0}", forumThread.ThreadId) + "}";
+            string test = "{" + string.Format("type:'toast', 'threadId':{0}, 'pageNumber':{1}, 'isThreadBookmark':{2}", forumThread.ThreadId, forumThread.CurrentPage, forumThread.IsBookmark.ToString().ToLower()) + "}";
             ToastContent content = new ToastContent()
             {
                 Launch = test,

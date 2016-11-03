@@ -33,6 +33,7 @@ namespace AwfulRedux.Controls
             if(PageNumberButton2.Flyout != null)
                 PageNumberButton2.Flyout.Opened += FlyoutOnOpened;
             Instance = this;
+            ViewModel.ShareDevicesViewModel = ShareView.ViewModel;
         }
 
         private void FlyoutOnOpened(object sender, object o)

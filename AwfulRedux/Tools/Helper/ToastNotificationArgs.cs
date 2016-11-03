@@ -13,6 +13,10 @@ namespace AwfulRedux.Tools.Helper
 
         public long forumId { get; set; }
 
+        public int pageNumber { get; set; }
+
+        public bool isThreadBookmark { get; set; }
+
         public bool openPrivateMessages { get; set; }
 
         public bool openBookmarks { get; set; }

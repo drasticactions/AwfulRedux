@@ -56,6 +56,7 @@
     When="{x:Null}"
     x:Key="NullVisibilityInverter" />
             <converters:LoadingIconConverter x:Key="LoadingIconConverter" />
+            <converters:DeviceKindConverter x:Key="DeviceKindConverter" />
         </ResourceDictionary>
     </Application.Resources>
     

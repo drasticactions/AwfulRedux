@@ -15,6 +15,7 @@
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     xmlns:windowsStateTriggers="using:WindowsStateTriggers"
     xmlns:uwp="using:FontAwesome.UWP"
+    xmlns:flyout="using:AwfulRedux.Tools.Flyout"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -75,6 +76,14 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="ShareButton" Click="{x:Bind ViewModel.OpenShareView}" flyout:FlyoutHelper.IsOpen="{x:Bind ViewModel.ShareDevicesViewModel.IsOpen, Mode=OneWay}"
+                flyout:FlyoutHelper.Parent="{Binding ElementName=ShareFlyout}" Label="Send To Device">
+                    <Button.Flyout>
+                        <Flyout x:Name="ShareFlyout" Placement="Full" >
+                            <local:ShareDevicesView x:Name="ShareView"></local:ShareDevicesView>
+                        </Flyout>
+                    </Button.Flyout>
+                </AppBarButton>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.ReplyToThread}" Label="Reply">
                 </AppBarButton>
                 <AppBarButton IsEnabled="{Binding IsLoggedIn}" Click="{x:Bind ViewModel.AddRemoveBookmark}"  Label="{Binding Selected.IsBookmark, Converter={StaticResource BookmarkTextConverter}, Mode=OneWay}">
@@ -111,3 +120,4 @@
         </CommandBar>
     </Grid>
 </UserControl>
+

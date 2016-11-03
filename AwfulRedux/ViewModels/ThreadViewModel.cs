@@ -36,6 +36,8 @@ namespace AwfulRedux.ViewModels
 {
     public class ThreadViewModel : ViewModelBase
     {
+        public ShareDevicesViewModel ShareDevicesViewModel { get; set; }
+
         private readonly AuthenticatedUserDatabase _udb = new AuthenticatedUserDatabase(DatabaseWinRTHelpers.GetWinRTDatabasePath("ForumsRedux.db"));
 
         private Thread _selected = default(Thread);
@@ -80,6 +82,12 @@ namespace AwfulRedux.ViewModels
             {
                 Set(ref _isLoading, value);
             }
+        }
+
+        public async void OpenShareView()
+        {
+            ShareDevicesViewModel.Setup(Selected);
+            ShareDevicesViewModel.IsOpen = true;
         }
 
         private PlatformIdentifier GetTheme

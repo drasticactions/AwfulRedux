@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
   <Identity Name="52978DrasticActions.AwfulForumsReader" Publisher="CN=49056560-3A92-41D0-8509-DF4FE44F646C" Version="12.4.6.0" />
   <mp:PhoneIdentity PhoneProductId="2e25c187-c73b-416c-8cc0-dd777ad48f79" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
@@ -21,26 +21,32 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <uap:Extension Category="windows.appService" EntryPoint="AwfulRedux.VoiceCommands.AwfulVoiceCommandService">
-          <uap:AppService Name="AwfulVoiceCommandService" />
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="awful">
+            <uap:DisplayName>Awful Forums Reader</uap:DisplayName>
+          </uap:Protocol>
         </uap:Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.BackgroundNotifyStatus">
-          <BackgroundTasks>
-            <Task Type="timer" />
-          </BackgroundTasks>
-        </Extension>
         <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.ToastNotificationBackgroundTask">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="deviceConnectionChange" />
           </BackgroundTasks>
         </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="AwfulRedux.BackgroundNotify.BackgroundNotifyStatus">
+          <BackgroundTasks>
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+        <uap:Extension Category="windows.appService" EntryPoint="AwfulRedux.VoiceCommands.AwfulVoiceCommandService">
+          <uap:AppService Name="AwfulVoiceCommandService" />
+        </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
     <uap:Capability Name="picturesLibrary" />
+    <uap3:Capability Name="remoteSystem" />
     <DeviceCapability Name="bluetooth" />
     <DeviceCapability Name="proximity" />
   </Capabilities>

@@ -326,6 +326,9 @@
       <DependentUpon>PullToRefreshControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RefreshableListView.cs" />
+    <Compile Include="Controls\ShareDevicesView.xaml.cs">
+      <DependentUpon>ShareDevicesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SmiliesView.xaml.cs">
       <DependentUpon>SmiliesView.xaml</DependentUpon>
     </Compile>
@@ -346,6 +349,7 @@
     <Compile Include="Tools\Authentication\LoginHelper.cs" />
     <Compile Include="Tools\Background\BackgroundTaskUtils.cs" />
     <Compile Include="Tools\Converters\BookmarkTextConverter.cs" />
+    <Compile Include="Tools\Converters\DeviceKindConverter.cs" />
     <Compile Include="Tools\Converters\LoadingIconConverter.cs" />
     <Compile Include="Tools\Converters\NotifyThreadTextConverter.cs" />
     <Compile Include="Tools\Flyout\FlyoutHelper.cs" />
@@ -391,6 +395,7 @@
     <Compile Include="ViewModels\ReplyThreadViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="ViewModels\ShareDevicesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\SmiliesViewModel.cs" />
     <Compile Include="ViewModels\ThreadListPageViewModel.cs" />
@@ -1085,6 +1090,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\PullToRefreshControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ShareDevicesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
